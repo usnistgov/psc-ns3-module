@@ -28,6 +28,7 @@
 # employees is not subject to copyright protection within the United States.
 
 set(source_files
+    helper/ims-helper.cc
     helper/intel-http-helper.cc
     helper/mcptt-call-helper.cc
     helper/mcptt-helper.cc
@@ -102,6 +103,7 @@ set(source_files
     )
 
 set(header_files
+    helper/ims-helper.h
     helper/intel-http-helper.h
     helper/mcptt-call-helper.h
     helper/mcptt-helper.h
