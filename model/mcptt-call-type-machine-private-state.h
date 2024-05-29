@@ -70,7 +70,7 @@ class McpttCallTypeMachinePrivateState : public SimpleRefCount<McpttCallTypeMach
     /**
      * \brief The destructor of the McpttCallTypeMachinePrivateState class.
      */
-    virtual ~McpttCallTypeMachinePrivateState(void);
+    virtual ~McpttCallTypeMachinePrivateState();
     /**
      * Downgrade the current call type.
      * \param machine The state machine that the action is for.
@@ -95,7 +95,7 @@ class McpttCallTypeMachinePrivateState : public SimpleRefCount<McpttCallTypeMach
      * Gets the state ID of this McpttCallTypeMachinePrivateState instance.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const = 0;
+    virtual McpttEntityId GetInstanceStateId() const = 0;
     /**
      * Indicates that a group call should be initiated.
      * \param machine The state machine that the action is for.
@@ -167,7 +167,7 @@ class McpttCallTypeMachinePrivateState : public SimpleRefCount<McpttCallTypeMach
     /**
      * Creates an instance of the McpttCallTypeMachinePrivateState class.
      */
-    McpttCallTypeMachinePrivateState(void);
+    McpttCallTypeMachinePrivateState();
 };
 
 /**
@@ -191,51 +191,51 @@ class McpttCallTypeMachinePrivateStateQ0 : public McpttCallTypeMachinePrivateSta
      * Gets an instance of the McpttCallTypeMachinePrivateStateQ0 class.
      * \returns The P0 instance.
      */
-    static Ptr<McpttCallTypeMachinePrivateStateQ0> GetInstance(void);
+    static Ptr<McpttCallTypeMachinePrivateStateQ0> GetInstance();
     /**
      * Gets the state ID of the McpttCallTypeMachinePrivateStateQ0 class.
      * \returns The state ID.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * Creates an instance of the McpttCallTypeMachinePrivateStateQ0 class.
      */
-    McpttCallTypeMachinePrivateStateQ0(void);
+    McpttCallTypeMachinePrivateStateQ0();
     /**
      * \brief The destructor of the McpttCallTypeMachinePrivateStateQ0 class.
      */
-    virtual ~McpttCallTypeMachinePrivateStateQ0(void);
+    ~McpttCallTypeMachinePrivateStateQ0() override;
     /**
      * Gets the state ID of this McpttCallTypeMachinePrivateState instance.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    McpttEntityId GetInstanceStateId() const override;
     /**
      * Indicates that a group call should be initiated.
      * \param machine The state machine that the action is for.
      */
-    virtual void InitiateCall(McpttCallTypeMachinePrivate& machine);
+    void InitiateCall(McpttCallTypeMachinePrivate& machine) override;
     /**
      * Reception of a "PRIVATE CALL ACCEPT" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
-    virtual void ReceiveAccept(McpttCallTypeMachinePrivate& machine,
-                               const McpttCallMsgPrivateAccept& msg);
+    void ReceiveAccept(McpttCallTypeMachinePrivate& machine,
+                               const McpttCallMsgPrivateAccept& msg) override;
     /**
      * Reception of a "PRIVATE CALL ACCEPT ACK" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
-    virtual void ReceiveAcceptAck(McpttCallTypeMachinePrivate& machine,
-                                  const McpttCallMsgPrivateAcceptAck& msg);
+    void ReceiveAcceptAck(McpttCallTypeMachinePrivate& machine,
+                                  const McpttCallMsgPrivateAcceptAck& msg) override;
     /**
      * Reception of a "PRIVATE CALL SETUP REQUEST" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
-    virtual void ReceiveSetupRequest(McpttCallTypeMachinePrivate& machine,
-                                     const McpttCallMsgPrivateSetupReq& msg);
+    void ReceiveSetupRequest(McpttCallTypeMachinePrivate& machine,
+                                     const McpttCallMsgPrivateSetupReq& msg) override;
 };
 
 /**
@@ -251,70 +251,70 @@ class McpttCallTypeMachinePrivateStateQ1 : public McpttCallTypeMachinePrivateSta
      * Gets an instance of the McpttCallTypeMachinePrivateStateQ1 class.
      * \returns The P1 instance.
      */
-    static Ptr<McpttCallTypeMachinePrivateStateQ1> GetInstance(void);
+    static Ptr<McpttCallTypeMachinePrivateStateQ1> GetInstance();
     /**
      * Gets the state ID of the McpttCallTypeMachinePrivateStateQ1 class.
      * \returns The state ID.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * Creates an instance of the McpttCallTypeMachinePrivateStateQ1 class.
      */
-    McpttCallTypeMachinePrivateStateQ1(void);
+    McpttCallTypeMachinePrivateStateQ1();
     /**
      * \brief The destructor of the McpttCallTypeMachinePrivateStateQ1 class.
      */
-    virtual ~McpttCallTypeMachinePrivateStateQ1(void);
+    ~McpttCallTypeMachinePrivateStateQ1() override;
     /**
      * Indicates that the timer TFP6 has expired.
      * \param machine The state machine that the action is for.
      */
-    virtual void ExpiryOfTfp6(McpttCallTypeMachinePrivate& machine);
+    void ExpiryOfTfp6(McpttCallTypeMachinePrivate& machine) override;
     /**
      * Gets the state ID of this McpttCallTypeMachinePrivateState instance.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    McpttEntityId GetInstanceStateId() const override;
     /**
      * Reception of a "PRIVATE CALL ACCEPT" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
-    virtual void ReceiveAccept(McpttCallTypeMachinePrivate& machine,
-                               const McpttCallMsgPrivateAccept& msg);
+    void ReceiveAccept(McpttCallTypeMachinePrivate& machine,
+                               const McpttCallMsgPrivateAccept& msg) override;
     /**
      * Reception of a "PRIVATE CALL EMERGENCY CANCEL" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
-    virtual void ReceiveEmergencyCancel(McpttCallTypeMachinePrivate& machine,
-                                        const McpttCallMsgPrivateEmergCancel& msg);
+    void ReceiveEmergencyCancel(McpttCallTypeMachinePrivate& machine,
+                                        const McpttCallMsgPrivateEmergCancel& msg) override;
     /**
      * Reception of a "PRIVATE CALL EMERGENCY CANCEL ACK" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
-    virtual void ReceiveEmergencyCancelAck(McpttCallTypeMachinePrivate& machine,
-                                           const McpttCallMsgPrivateEmergCancelAck& msg);
+    void ReceiveEmergencyCancelAck(McpttCallTypeMachinePrivate& machine,
+                                           const McpttCallMsgPrivateEmergCancelAck& msg) override;
     /**
      * Reception of a "PRIVATE CALL SETUP REQUEST" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
-    virtual void ReceiveSetupRequest(McpttCallTypeMachinePrivate& machine,
-                                     const McpttCallMsgPrivateSetupReq& msg);
+    void ReceiveSetupRequest(McpttCallTypeMachinePrivate& machine,
+                                     const McpttCallMsgPrivateSetupReq& msg) override;
     /**
      * Upgrade the current call type.
      * \param machine The state machine that the action is for.
      * \param callType The call type to upgrade to.
      */
-    virtual void UpgradeTo(McpttCallTypeMachinePrivate& machine,
-                           const McpttCallMsgFieldCallType& callType);
+    void UpgradeTo(McpttCallTypeMachinePrivate& machine,
+                           const McpttCallMsgFieldCallType& callType) override;
     /**
      * Indicates that the call should be released.
      * \param machine The state machine that the action is for.
      */
-    virtual void ReleaseCall(McpttCallTypeMachinePrivate& machine);
+    void ReleaseCall(McpttCallTypeMachinePrivate& machine) override;
 };
 
 /**
@@ -330,73 +330,73 @@ class McpttCallTypeMachinePrivateStateQ2 : public McpttCallTypeMachinePrivateSta
      * Gets an instance of the McpttCallTypeMachinePrivateStateQ2 class.
      * \returns The P2 instance.
      */
-    static Ptr<McpttCallTypeMachinePrivateStateQ2> GetInstance(void);
+    static Ptr<McpttCallTypeMachinePrivateStateQ2> GetInstance();
     /**
      * Indicates that the timer TFP1 has expired.
      * \param machine The state machine that the action is for.
      */
-    virtual void ExpiryOfTfp1(McpttCallTypeMachinePrivate& machine);
+    void ExpiryOfTfp1(McpttCallTypeMachinePrivate& machine) override;
     /**
      * Indicates that the timer TFP8 has expired.
      * \param machine The state machine that the action is for.
      */
-    virtual void ExpiryOfTfp8(McpttCallTypeMachinePrivate& machine);
+    void ExpiryOfTfp8(McpttCallTypeMachinePrivate& machine) override;
     /**
      * Gets the state ID of the McpttCallTypeMachinePrivateStateQ2 class.
      * \returns The state ID.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * Creates an instance of the McpttCallTypeMachinePrivateStateQ2 class.
      */
-    McpttCallTypeMachinePrivateStateQ2(void);
+    McpttCallTypeMachinePrivateStateQ2();
     /**
      * \brief The destructor of the McpttCallTypeMachinePrivateStateQ2 class.
      */
-    virtual ~McpttCallTypeMachinePrivateStateQ2(void);
+    ~McpttCallTypeMachinePrivateStateQ2() override;
     /**
      * Downgrade the current call type.
      * \param machine The state machine that the action is for.
      */
-    virtual void Downgrade(McpttCallTypeMachinePrivate& machine);
+    void Downgrade(McpttCallTypeMachinePrivate& machine) override;
     /**
      * Gets the state ID of this McpttCallTypeMachinePrivateState instance.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    McpttEntityId GetInstanceStateId() const override;
     /**
      * Reception of a "PRIVATE CALL ACCEPT" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
-    virtual void ReceiveAccept(McpttCallTypeMachinePrivate& machine,
-                               const McpttCallMsgPrivateAccept& msg);
+    void ReceiveAccept(McpttCallTypeMachinePrivate& machine,
+                               const McpttCallMsgPrivateAccept& msg) override;
     /**
      * Reception of a "PRIVATE CALL EMERGENCY CANCEL" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
-    virtual void ReceiveEmergencyCancel(McpttCallTypeMachinePrivate& machine,
-                                        const McpttCallMsgPrivateEmergCancel& msg);
+    void ReceiveEmergencyCancel(McpttCallTypeMachinePrivate& machine,
+                                        const McpttCallMsgPrivateEmergCancel& msg) override;
     /**
      * Reception of a "PRIVATE CALL REJECT" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
-    virtual void ReceiveReject(McpttCallTypeMachinePrivate& machine,
-                               const McpttCallMsgPrivateReject& msg);
+    void ReceiveReject(McpttCallTypeMachinePrivate& machine,
+                               const McpttCallMsgPrivateReject& msg) override;
     /**
      * Reception of a "PRIVATE CALL SETUP REQUEST" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
-    virtual void ReceiveSetupRequest(McpttCallTypeMachinePrivate& machine,
-                                     const McpttCallMsgPrivateSetupReq& msg);
+    void ReceiveSetupRequest(McpttCallTypeMachinePrivate& machine,
+                                     const McpttCallMsgPrivateSetupReq& msg) override;
     /**
      * Indicates that the call should be released.
      * \param machine The state machine that the action is for.
      */
-    virtual void ReleaseCall(McpttCallTypeMachinePrivate& machine);
+    void ReleaseCall(McpttCallTypeMachinePrivate& machine) override;
 };
 
 } // namespace psc

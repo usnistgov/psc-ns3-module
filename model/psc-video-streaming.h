@@ -63,7 +63,7 @@ class PscVideoStreaming : public Application
      *
      * \return The TypeId for this class
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
 
     /**
      * Default constructor
@@ -73,7 +73,7 @@ class PscVideoStreaming : public Application
     /**
      * Default destructor
      */
-    virtual ~PscVideoStreaming();
+    ~PscVideoStreaming() override;
 
     /**
      * Set the receiver information (address and port) for sending packets.
@@ -97,13 +97,13 @@ class PscVideoStreaming : public Application
     /**
      * Loads the CDFs files
      */
-    void LoadCdfs(void);
+    void LoadCdfs();
 
   protected:
     /**
      * Clean up the instance being removed
      */
-    void DoDispose(void);
+    void DoDispose() override;
 
   private:
     /**
@@ -114,18 +114,18 @@ class PscVideoStreaming : public Application
     /**
      * Starts the application
      */
-    virtual void StartApplication(void);
+    void StartApplication() override;
 
     /**
      * Stops the application
      */
-    virtual void StopApplication(void);
+    void StopApplication() override;
 
     /**
      * Sends the next video codec packet. If the packet size exceeds m_maxUdpPayloadSize bytes, the
      * packet is segmented in multiple UDP packets.
      */
-    void Send(void);
+    void Send();
 
     /**
      * Setter for the distribution attribute. This will allow to swap custom and
@@ -140,7 +140,7 @@ class PscVideoStreaming : public Application
      *
      * \return The name of the data distribution
      */
-    std::string GetDistributionName(void) const;
+    std::string GetDistributionName() const;
 
     /**
      * Video Streaming Model data distribution,

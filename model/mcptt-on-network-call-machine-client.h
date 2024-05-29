@@ -68,15 +68,15 @@ class McpttOnNetworkCallMachineClient : public McpttCallMachineGrp
      * Gets the type ID of the McpttOnNetworkCallMachineClient class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttOnNetworkCallMachineClient class.
      */
-    McpttOnNetworkCallMachineClient(void);
+    McpttOnNetworkCallMachineClient();
     /**
      * The destructor of the McpttOnNetworkCallMachineClient class.
      */
-    virtual ~McpttOnNetworkCallMachineClient(void);
+    ~McpttOnNetworkCallMachineClient() override;
     /**
      * Sets the current state of the call machine.
      * \param state The current state.
@@ -86,7 +86,7 @@ class McpttOnNetworkCallMachineClient : public McpttCallMachineGrp
      * Gets the current state of the call machine.
      * \returns The current state.
      */
-    virtual Ptr<McpttOnNetworkCallMachineClientState> GetState(void) const;
+    virtual Ptr<McpttOnNetworkCallMachineClientState> GetState() const;
     /**
      * Sets the state change callback.
      * \param stateChangeCb The callback.
@@ -96,70 +96,70 @@ class McpttOnNetworkCallMachineClient : public McpttCallMachineGrp
     /**
      * Accepts the call.
      */
-    virtual void AcceptCall(void);
+    void AcceptCall() override;
     /**
      * Begins an emergency alert.
      */
-    virtual void BeginEmergAlert(void);
+    void BeginEmergAlert() override;
     /**
      * Cancels an emergency alert.
      */
-    virtual void CancelEmergAlert(void);
+    void CancelEmergAlert() override;
     /**
      * Downgrades the call type.
      */
-    virtual void DowngradeCallType(void);
+    void DowngradeCallType() override;
     /**
      * Gets the ID of the user that started the call.
      * \returns The MCPTT user ID.
      */
-    virtual uint32_t GetCallerUserId(void) const;
+    uint32_t GetCallerUserId() const override;
     /**
      * Gets the ID of the call.
      * \returns The call ID.
      */
-    virtual McpttCallMsgFieldCallId GetCallId(void) const;
+    McpttCallMsgFieldCallId GetCallId() const override;
     /**
      * Gets the call type.
      * \returns The call type.
      */
-    virtual McpttCallMsgFieldCallType GetCallType(void) const;
+    McpttCallMsgFieldCallType GetCallType() const override;
     /**
      * Gets the type ID of this McpttOnNetworkCallMachineClient instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the McpttCall for the call machine.
      * \returns The call object
      */
-    virtual Ptr<McpttCall> GetCall(void) const;
+    Ptr<McpttCall> GetCall() const override;
     /**
      * Gets the ID of the current state.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetStateId(void) const;
+    McpttEntityId GetStateId() const override;
     /**
      * Initiates a call.
      */
-    virtual void InitiateCall(void);
+    void InitiateCall() override;
     /**
      * Indicates if the call is active.
      * \returns True, if the call is active.
      */
-    virtual bool IsCallOngoing(void) const;
+    bool IsCallOngoing() const override;
     /**
      * Indicates if this is a group call.
      * \param grpId The particular group ID to check for when greater than 0.
      * \returns True, if this a group call; otherwise, false.
      */
-    virtual bool IsGrpCall(uint32_t grpId = 0) const;
+    bool IsGrpCall(uint32_t grpId = 0) const override;
     /**
      * Indicates if this is a private call.
      * \param userId The particular user ID to check for when greater than 0.
      * \returns True, if this a private call; otherwise, false.
      */
-    virtual bool IsPrivateCall(uint32_t userId = 0) const;
+    bool IsPrivateCall(uint32_t userId = 0) const override;
     /**
      * Receives a call control packet
      * \param pkt The packet received.
@@ -170,79 +170,79 @@ class McpttOnNetworkCallMachineClient : public McpttCallMachineGrp
      * Receives a media message.
      * \param msg The message to receive.
      */
-    virtual void Receive(const McpttMediaMsg& msg);
+    void Receive(const McpttMediaMsg& msg) override;
     /**
      * Receives a call message.
      * \param msg The message to receive.
      */
-    virtual void Receive(const McpttCallMsg& msg);
+    void Receive(const McpttCallMsg& msg) override;
     /**
      * Releases the call.
      */
-    virtual void ReleaseCall(void);
+    void ReleaseCall() override;
     /**
      * Rejects the call.
      */
-    virtual void RejectCall(void);
+    void RejectCall() override;
     /**
      * Sends an off-network call control packet.  Should be unused but is
      * necessary to implement; it generates a fatal error.
      * \param hdr The McpttCallMsg header to send.
      */
-    virtual void Send(const McpttCallMsg& hdr);
+    void Send(const McpttCallMsg& hdr) override;
     /**
      * Sets the ID of the MCPTT call.
      * \param callId The ID of the MCPTT call.
      */
-    virtual void SetCallId(const McpttCallMsgFieldCallId& callId);
+    void SetCallId(const McpttCallMsgFieldCallId& callId) override;
     /**
      * Sets the callback used to indicate that a new call exists.
      * \param newCallCb The callback.
      */
-    virtual void SetNewCallCb(const Callback<void, uint16_t> newCallCb);
+    void SetNewCallCb(const Callback<void, uint16_t> newCallCb) override;
     /**
      * Sets the McpttCall associated with the call machine.
      * \param call The call.
      */
-    virtual void SetCall(Ptr<McpttCall> call);
+    void SetCall(Ptr<McpttCall> call) override;
     /**
      * Sets the group ID
      * \param grpId The group ID
      */
-    virtual void SetGrpId(uint32_t grpId);
+    void SetGrpId(uint32_t grpId) override;
     /**
      * Gets the group ID
      * \return The group ID
      */
-    virtual McpttCallMsgFieldGrpId GetGrpId(void) const;
+    McpttCallMsgFieldGrpId GetGrpId() const override;
     /**
      * Starts the state machine.
      */
-    virtual void Start(void);
+    void Start() override;
     /**
      * Stops the state machine.
      */
-    virtual void Stop(void);
+    void Stop() override;
     /**
      * Upgrades the call type.
      * \param callType The call type value.
      */
-    virtual void UpgradeCallType(uint8_t callType);
+    void UpgradeCallType(uint8_t callType) override;
     /**
      * Get the notional SIP INVITE payload size
      * \return The notional payload size, in bytes
      */
-    uint32_t GetInvitePayloadSize(void);
+    uint32_t GetInvitePayloadSize();
     /**
      * Get the notional SIP BYE payload size
      * \return The notional payload size, in bytes
      */
-    uint32_t GetByePayloadSize(void);
+    uint32_t GetByePayloadSize();
     /**
      * Get the notional SIP 200 OK payload size
      * \return The notional payload size, in bytes
      */
-    uint32_t GetResponsePayloadSize(void);
+    uint32_t GetResponsePayloadSize();
     /**
      * \brief Set the stream for each random variable.
      * \param stream The starting stream number.
@@ -254,7 +254,7 @@ class McpttOnNetworkCallMachineClient : public McpttCallMachineGrp
     /**
      * Disposes of this McpttOnNetworkCallMachineClient instance.
      */
-    virtual void DoDispose(void);
+    void DoDispose() override;
 
   private:
     Ptr<McpttCall> m_call; //!< The call object associated with this machine.

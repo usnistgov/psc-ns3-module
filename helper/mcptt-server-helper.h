@@ -58,11 +58,11 @@ class McpttServerHelper
     /**
      * \brief Creates an instance of the McpttServerHelper class.
      */
-    McpttServerHelper(void);
+    McpttServerHelper();
     /**
      * \brief Destructor of the McpttServerHelper class.
      */
-    virtual ~McpttServerHelper(void);
+    virtual ~McpttServerHelper();
     /**
      * \brief Install an ns3::psc::McpttServerApp on the node.
      *

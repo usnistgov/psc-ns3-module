@@ -57,7 +57,7 @@ class McpttTestCall : public McpttCall
      * Gets the type ID of the McpttTestCall class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttTestCall class.
      * \param callType network type for call
@@ -66,28 +66,28 @@ class McpttTestCall : public McpttCall
     /**
      * The destructor of the McpttTestCall class.
      */
-    virtual ~McpttTestCall(void);
+    ~McpttTestCall() override;
     /**
      * Receives a call message.
      * \param pkt The packet (serialized with SIP header)
      * \param hdr A reference to the SIP header that has been serialized
      */
-    virtual void Receive(Ptr<Packet> pkt, const sip::SipHeader& hdr);
+    void Receive(Ptr<Packet> pkt, const sip::SipHeader& hdr) override;
     /**
      * Receives a call message.
      * \param msg The message that was received.
      */
-    virtual void Receive(const McpttCallMsg& msg);
+    void Receive(const McpttCallMsg& msg) override;
     /**
      * Receives a floor message.
      * \param msg The message that was received.
      */
-    virtual void Receive(const McpttFloorMsg& msg);
+    void Receive(const McpttFloorMsg& msg) override;
     /**
      * Receive a media message.
      * \param msg The message that was received.
      */
-    virtual void Receive(const McpttMediaMsg& msg);
+    void Receive(const McpttMediaMsg& msg) override;
     /**
      * Add a message dropper
      * \param dropper The message dropper to add.
@@ -95,7 +95,7 @@ class McpttTestCall : public McpttCall
     virtual void AddDropper(Ptr<McpttMsgDropper> dropper);
 
   protected:
-    void DoDispose(void);
+    void DoDispose() override;
 
   private:
     bool ShouldDrop(const McpttMsg& msg);

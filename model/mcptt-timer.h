@@ -62,11 +62,11 @@ class McpttTimer : public Object
      * Gets the type ID of the McpttTimer class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttTimer class.
      */
-    McpttTimer(void);
+    McpttTimer();
     /**
      * Creates an instance of the McpttTimer class.
      * \param id The ID.
@@ -75,32 +75,32 @@ class McpttTimer : public Object
     /**
      * The destructor of the McpttTimer class.
      */
-    virtual ~McpttTimer(void);
+    ~McpttTimer() override;
     /**
      * Gets the amount of time that the timer will run before expiring.
      * \returns The delay.
      */
-    virtual Time GetDelay(void) const;
+    virtual Time GetDelay() const;
     /**
      * Gets the type ID of the most derived instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the amount of time left before the timer expires.
      * \returns The amount of time left.
      */
-    virtual Time GetTimeLeft(void) const;
+    virtual Time GetTimeLeft() const;
     /**
      * Indicates whether or not the timer has expired.
      * \returns True, if the timer has expired.
      */
-    virtual bool IsExpired(void) const;
+    virtual bool IsExpired() const;
     /**
      * Indicates whether or not the timer is running.
      * \returns True, if the timer is running.
      */
-    virtual bool IsRunning(void) const;
+    virtual bool IsRunning() const;
     /**
      * Links the timer experiation to a function.
      * \tparam MEM_PTR The type of the function pointer
@@ -118,7 +118,7 @@ class McpttTimer : public Object
     /**
      * Restarts the timer.
      */
-    virtual void Restart(void);
+    virtual void Restart();
     /**
      * Sets the argument to pass to the function called when the timer expires.
      * \tparam T The type of the argument ot pass to the function.
@@ -134,7 +134,7 @@ class McpttTimer : public Object
     /**
      * Starts the timer.
      */
-    virtual void Start(void);
+    virtual void Start();
     /**
      * Starts the timer with the given delay but does not preserve the delay.
      * \param delay The amont of time the timer should run before expiring.
@@ -143,13 +143,13 @@ class McpttTimer : public Object
     /**
      * Stops the timer.
      */
-    virtual void Stop(void);
+    virtual void Stop();
 
   protected:
     /**
      * Disposes of this McpttTimer instance.
      */
-    virtual void DoDispose(void);
+    void DoDispose() override;
 
   private:
     McpttEntityId m_id; //!< The ID of the timer.
@@ -160,12 +160,12 @@ class McpttTimer : public Object
      * Gets the ID of the timer.
      * \returns The ID.
      */
-    virtual McpttEntityId GetId(void) const;
+    virtual McpttEntityId GetId() const;
     /**
      * Gets the raw timer.
      * \returns The raw timer.
      */
-    virtual Timer* GetRawTimer(void) const;
+    virtual Timer* GetRawTimer() const;
     /**
      * Sets the ID of the timer.
      * \param id The ID.
@@ -202,10 +202,10 @@ template <typename MEM_PTR, typename OBJ_PTR>
 void
 McpttTimer::Link(const MEM_PTR& memPtr, const OBJ_PTR& objPtr)
 {
-    Timer* rawTimer = new Timer(Timer::REMOVE_ON_DESTROY);
+    auto* rawTimer = new Timer(Timer::REMOVE_ON_DESTROY);
     rawTimer->SetFunction(memPtr, objPtr);
 
-    if (GetRawTimer() != 0)
+    if (GetRawTimer() != nullptr)
     {
         delete GetRawTimer();
     }

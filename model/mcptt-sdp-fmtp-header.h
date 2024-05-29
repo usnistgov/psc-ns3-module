@@ -63,32 +63,32 @@ class McpttSdpFmtpHeader : public Header
     /**
      * \brief Destructor
      */
-    virtual ~McpttSdpFmtpHeader();
+    ~McpttSdpFmtpHeader() override;
     /**
      * \brief Get the type ID.
      * \return the object TypeId
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
 
     // Below eight methods need doxygen
     void SetMcQueueing(bool mcQueueing);
-    bool GetMcQueueing(void) const;
+    bool GetMcQueueing() const;
 
     void SetMcPriority(uint8_t mcPriority);
-    uint8_t GetMcPriority(void) const;
+    uint8_t GetMcPriority() const;
 
     void SetMcGranted(bool mcGranted);
-    bool GetMcGranted(void) const;
+    bool GetMcGranted() const;
 
     void SetMcImplicitRequest(bool mcImplicitRequest);
-    bool GetMcImplicitRequest(void) const;
+    bool GetMcImplicitRequest() const;
 
     // Documented in ns3::Header class
-    virtual TypeId GetInstanceTypeId(void) const;
-    virtual void Print(std::ostream& os) const;
-    virtual uint32_t GetSerializedSize(void) const;
-    virtual void Serialize(Buffer::Iterator start) const;
-    virtual uint32_t Deserialize(Buffer::Iterator start);
+    TypeId GetInstanceTypeId() const override;
+    void Print(std::ostream& os) const override;
+    uint32_t GetSerializedSize() const override;
+    void Serialize(Buffer::Iterator start) const override;
+    uint32_t Deserialize(Buffer::Iterator start) override;
 
   private:
     bool m_mcQueueing{false};

@@ -69,11 +69,11 @@ class McpttRtpHeader : public Header
      * Gets the type ID of the McpttRtpHeader.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttRtpHeader class.
      */
-    McpttRtpHeader(void);
+    McpttRtpHeader();
     /**
      * Creates an instance of the McpttRtpHeader class.
      * \param ssrc They synchronization source (SSRC).
@@ -88,7 +88,7 @@ class McpttRtpHeader : public Header
     /**
      * The destructor of the McpttRtpHeader class.
      */
-    virtual ~McpttRtpHeader(void);
+    ~McpttRtpHeader() override;
     /**
      * Adds a CSRC.
      * \param csrc The CSRC to add.
@@ -98,28 +98,28 @@ class McpttRtpHeader : public Header
     /**
      * Removes all CSRCs.
      */
-    virtual void ClearCsrcs(void);
+    virtual void ClearCsrcs();
     /**
      * Reads the contents of the message from the byte stream.
      * \param start The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t Deserialize(Buffer::Iterator start);
+    uint32_t Deserialize(Buffer::Iterator start) override;
     /**
      * Gets the type ID of this McpttRtpHeader instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Removes a CSRC.
      * \param csrc The CSRC to remove.
@@ -130,7 +130,7 @@ class McpttRtpHeader : public Header
      * Writes the contents of the message to the byte stream.
      * \param start The byte stream to write to.
      */
-    virtual void Serialize(Buffer::Iterator start) const;
+    void Serialize(Buffer::Iterator start) const override;
 
   protected:
   private:
@@ -164,52 +164,52 @@ class McpttRtpHeader : public Header
      * Gets the number of CSRC identifiers (CC).
      * \returns The number of CSRC identifiers (CC).
      */
-    virtual uint8_t GetCsrcCount(void) const;
+    virtual uint8_t GetCsrcCount() const;
     /**
      * Gets the collection of contributing sources (CSRC).
      * \returns The collection of contributing sources (CSRC).
      */
-    virtual std::vector<uint32_t> GetCsrcs(void) const;
+    virtual std::vector<uint32_t> GetCsrcs() const;
     /**
      * Gets the extension flag (X).
      * \returns The extension flag (X).
      */
-    virtual uint8_t GetExtension(void) const;
+    virtual uint8_t GetExtension() const;
     /**
      * Gets the marker bit (M).
      * \returns The marker bit (M).
      */
-    virtual uint8_t GetMarker(void) const;
+    virtual uint8_t GetMarker() const;
     /**
      * Gets the padding bit value (P).
      * \returns The padding bit value.
      */
-    virtual uint8_t GetPadding(void) const;
+    virtual uint8_t GetPadding() const;
     /**
      * Gets the value of the payload type (PT) value.
      * \returns The payload type (PT) value.
      */
-    virtual uint8_t GetPayloadType(void) const;
+    virtual uint8_t GetPayloadType() const;
     /**
      * Gets the sequence number (Sequence Number).
      * \returns The sequence number (Sequence Number).
      */
-    virtual uint16_t GetSeqNum(void) const;
+    virtual uint16_t GetSeqNum() const;
     /**
      * Gets the synchronization source (SSRC).
      * \returns The synchronization source.
      */
-    virtual uint32_t GetSsrc(void) const;
+    virtual uint32_t GetSsrc() const;
     /**
      * Gets the timestamp (Timestamp).
      * \returns The timestamp (Timestamp).
      */
-    virtual uint32_t GetTimestamp(void) const;
+    virtual uint32_t GetTimestamp() const;
     /**
      * Gets the version number (V).
      * \returns The version number.
      */
-    virtual uint8_t GetVersion(void) const;
+    virtual uint8_t GetVersion() const;
     /**
      * Sets the extension flag (X).
      * \param extension The extension flag.

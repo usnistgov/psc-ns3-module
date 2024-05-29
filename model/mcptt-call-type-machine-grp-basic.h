@@ -115,30 +115,30 @@ class McpttCallTypeMachineGrpBasic : public McpttCallTypeMachine
      * Gets the type ID of the McpttCallTypeMachineGrpBasic class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallTypeMachineGrpBasic class.
      * \param owner The owner of this machine.
      */
-    McpttCallTypeMachineGrpBasic(Ptr<McpttCallMachineGrpBasic> owner = 0);
+    McpttCallTypeMachineGrpBasic(Ptr<McpttCallMachineGrpBasic> owner = nullptr);
     /**
      * \brief The destructor of the McpttCallTypeMachineGrpBasic class.
      */
-    virtual ~McpttCallTypeMachineGrpBasic(void);
+    ~McpttCallTypeMachineGrpBasic() override;
     /**
      * Calculate the delay to use for timer TFG13.
      * \returns The delay.
      */
-    virtual Time CalcDelayForTfg13(void) const;
+    virtual Time CalcDelayForTfg13() const;
     /**
      * Calculate the delay to use for timer TFG14.
      * \returns The delay.
      */
-    virtual Time CalcDelayForTfg14(void) const;
+    virtual Time CalcDelayForTfg14() const;
     /**
      * Indicates that a call has started.
      */
-    virtual void CallStarted(void);
+    virtual void CallStarted();
     /**
      * Changes the current state.
      * \param stateId The ID of the state to change to.
@@ -147,16 +147,16 @@ class McpttCallTypeMachineGrpBasic : public McpttCallTypeMachine
     /**
      * Downgrade the current call type.
      */
-    virtual void Downgrade(void);
+    virtual void Downgrade();
     /**
      * The timer Tfg1 expired.
      */
-    virtual void ExpiryOfTfg1(void);
+    virtual void ExpiryOfTfg1();
     /**
      * Gets the type ID of this McpttCallTypeMachineGrpBasic instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Initiate a group call.
      * \param callType The type of group call to initiate.
@@ -166,7 +166,7 @@ class McpttCallTypeMachineGrpBasic : public McpttCallTypeMachine
      * Indicates if the call type machine has been started.
      * \returns True, if the call type machine has been started, otherwise false.
      */
-    virtual bool IsStarted(void) const;
+    bool IsStarted() const override;
     /**
      * Receive a "GROUP CALL ANNOUNCEMENT" message.
      * \param msg The message.
@@ -185,11 +185,11 @@ class McpttCallTypeMachineGrpBasic : public McpttCallTypeMachine
     /**
      * Release a group call.
      */
-    virtual void ReleaseCall(void);
+    virtual void ReleaseCall();
     /**
      * Reject a group call.
      */
-    virtual void RejectCall(void);
+    virtual void RejectCall();
     /**
      * Sends a call control message.
      * \param msg The message to send.
@@ -218,11 +218,11 @@ class McpttCallTypeMachineGrpBasic : public McpttCallTypeMachine
     /**
      * Starts the call type machine.
      */
-    virtual void Start(void);
+    void Start() override;
     /**
      * Stops the call type machine.
      */
-    virtual void Stop(void);
+    void Stop() override;
     /**
      * Upgrade the current call type.
      * \param callType The call type to upgrade to.
@@ -233,23 +233,23 @@ class McpttCallTypeMachineGrpBasic : public McpttCallTypeMachine
     /**
      * Disposes of the McpttCallTypeMachineGrpBasic.
      */
-    virtual void DoDispose(void);
+    void DoDispose() override;
     /**
      * The timer Tfg11 expired.
      */
-    virtual void ExpiryOfTfg11(void);
+    virtual void ExpiryOfTfg11();
     /**
      * The timer Tfg12 expired.
      */
-    virtual void ExpiryOfTfg12(void);
+    virtual void ExpiryOfTfg12();
     /**
      * The timer Tfg13 expired.
      */
-    virtual void ExpiryOfTfg13(void);
+    virtual void ExpiryOfTfg13();
     /**
      * The timer Tfg14 expired.
      */
-    virtual void ExpiryOfTfg14(void);
+    virtual void ExpiryOfTfg14();
 
   private:
     McpttCallMsgFieldCallType m_callType; //!< The current call type.
@@ -291,77 +291,77 @@ class McpttCallTypeMachineGrpBasic : public McpttCallTypeMachine
      * Gets the current call type.
      * \returns The call type.
      */
-    virtual McpttCallMsgFieldCallType GetCallType(void) const;
+    McpttCallMsgFieldCallType GetCallType() const override;
     /**
      * Gets the counter CFG11.
      * \returns The counter.
      */
-    virtual Ptr<McpttCounter> GetCfg11(void) const;
+    virtual Ptr<McpttCounter> GetCfg11() const;
     /**
      * Gets the counter CFG12.
      * \returns The counter.
      */
-    virtual Ptr<McpttCounter> GetCfg12(void) const;
+    virtual Ptr<McpttCounter> GetCfg12() const;
     /**
      * Gets the last call type change time.
      * \returns The last change time.
      */
-    virtual McpttCallMsgFieldLastChgTime GetLastChgTime(void) const;
+    virtual McpttCallMsgFieldLastChgTime GetLastChgTime() const;
     /**
      * Gets the ID of the last user to change the call type.
      * \returns The user ID.
      */
-    virtual McpttCallMsgFieldUserId GetLastChgUserId(void) const;
+    virtual McpttCallMsgFieldUserId GetLastChgUserId() const;
     /**
      * Gets the owner of this call type machine.
      * \returns The owner.
      */
-    virtual Ptr<McpttCallMachineGrpBasic> GetOwner(void) const;
+    virtual Ptr<McpttCallMachineGrpBasic> GetOwner() const;
     /**
      * Gets the ProSe per-packet priority.
      * \returns The ProSe per-packet priority.
      */
-    virtual uint8_t GetPriority(void) const;
+    uint8_t GetPriority() const override;
     /**
      * Gets the flag that indicates if the call type machine has been started.
      * \returns The flag.
      */
-    virtual bool GetStarted(void) const;
+    virtual bool GetStarted() const;
     /**
      * Gets the current state ID.
      * \returns The current state ID.
      */
-    virtual McpttEntityId GetStateId(void) const;
+    McpttEntityId GetStateId() const override;
     /**
      * Gets the timer TFG11.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetTfg11(void) const;
+    virtual Ptr<McpttTimer> GetTfg11() const;
     /**
      * Gets the timer TFG12.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetTfg12(void) const;
+    virtual Ptr<McpttTimer> GetTfg12() const;
     /**
      * Gets the timer TFG13.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetTfg13(void) const;
+    virtual Ptr<McpttTimer> GetTfg13() const;
     /**
      * Gets the timer TFG14.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetTfg14(void) const;
+    virtual Ptr<McpttTimer> GetTfg14() const;
     /**
      * Sets the downgrade callback.
      * \param downgradeCb The downgrade callback.
      */
-    virtual void SetDowngradeCb(const Callback<void> downgradeCb);
+    void SetDowngradeCb(const Callback<void> downgradeCb) override;
     /**
      * Sets the current call type.
      * \param callType The current call type.
      */
-    virtual void SetCallType(const McpttCallMsgFieldCallType& callType);
+    void SetCallType(const McpttCallMsgFieldCallType& callType) override;
     /**
      * Sets the counter CFG11.
      * \param cfg11 The counter.
@@ -391,7 +391,7 @@ class McpttCallTypeMachineGrpBasic : public McpttCallTypeMachine
      * Sets the ProSe per-packet priority.
      * \param priority The ProSe per-packet priority.
      */
-    virtual void SetPriority(uint8_t priority);
+    void SetPriority(uint8_t priority) override;
     /**
      * Sets the flag that indicates if the call type machine has been started.
      * \param started The flag.
@@ -426,7 +426,7 @@ class McpttCallTypeMachineGrpBasic : public McpttCallTypeMachine
      * Sets the upgrade callback.
      * \param upgradeCb The upgrade callback.
      */
-    virtual void SetUpgradeCb(const Callback<void, uint8_t> upgradeCb);
+    void SetUpgradeCb(const Callback<void, uint8_t> upgradeCb) override;
 };
 
 } // namespace psc

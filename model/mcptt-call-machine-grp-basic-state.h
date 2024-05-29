@@ -91,7 +91,7 @@ class McpttCallMachineGrpBasicState : public SimpleRefCount<McpttCallMachineGrpB
     /**
      * \brief The destructor of the McpttCallMachineGrpBasicState class.
      */
-    virtual ~McpttCallMachineGrpBasicState(void);
+    virtual ~McpttCallMachineGrpBasicState();
     /**
      * Indicates that the call should be accepted.
      * \param machine The state machine that the action is for.
@@ -131,7 +131,7 @@ class McpttCallMachineGrpBasicState : public SimpleRefCount<McpttCallMachineGrpB
      * Gets the state ID of this McpttCallMachineGrpBasicState instance.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    virtual McpttEntityId GetInstanceStateId() const;
     /**
      * Indicates that a group call should be initiated.
      * \param machine The state machine that the action is for.
@@ -179,7 +179,7 @@ class McpttCallMachineGrpBasicState : public SimpleRefCount<McpttCallMachineGrpB
     /**
      * Creates an instance of the McpttCallMachineGrpBasicState class.
      */
-    McpttCallMachineGrpBasicState(void);
+    McpttCallMachineGrpBasicState();
 };
 
 /**
@@ -202,37 +202,37 @@ class McpttCallMachineGrpBasicStateS1 : public McpttCallMachineGrpBasicState
      * Gets an instance of the McpttCallMachineGrpBasicStateS1 class.
      * \returns The S1 instance.
      */
-    static Ptr<McpttCallMachineGrpBasicStateS1> GetInstance(void);
+    static Ptr<McpttCallMachineGrpBasicStateS1> GetInstance();
     /**
      * Gets the state ID of the McpttCallMachineGrpBasicStateS1 class.
      * \returns The state ID.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * Creates an instance of the McpttCallMachineGrpBasicStateS1 class.
      */
-    McpttCallMachineGrpBasicStateS1(void);
+    McpttCallMachineGrpBasicStateS1();
     /**
      * \brief The destructor of the McpttCallMachineGrpBasicStateS1 class.
      */
-    virtual ~McpttCallMachineGrpBasicStateS1(void);
+    ~McpttCallMachineGrpBasicStateS1() override;
     /**
      * Gets the state ID of this McpttCallMachineGrpBasicState instance.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    McpttEntityId GetInstanceStateId() const override;
     /**
      * Indicates that a group call should be initiated.
      * \param machine The state machine that the action is for.
      */
-    virtual void InitiateCall(McpttCallMachineGrpBasic& machine);
+    void InitiateCall(McpttCallMachineGrpBasic& machine) override;
     /**
      * Reception of a "GROUP CALL ANNOUNCEMENT" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
-    virtual void ReceiveGrpCallAnnoun(McpttCallMachineGrpBasic& machine,
-                                      const McpttCallMsgGrpAnnoun& msg);
+    void ReceiveGrpCallAnnoun(McpttCallMachineGrpBasic& machine,
+                                      const McpttCallMsgGrpAnnoun& msg) override;
 };
 
 /**
@@ -247,47 +247,47 @@ class McpttCallMachineGrpBasicStateS2 : public McpttCallMachineGrpBasicState
      * Gets an instance of the McpttCallMachineGrpBasicStateS2 class.
      * \returns The S2 instance.
      */
-    static Ptr<McpttCallMachineGrpBasicStateS2> GetInstance(void);
+    static Ptr<McpttCallMachineGrpBasicStateS2> GetInstance();
     /**
      * Gets the state ID of the McpttCallMachineGrpBasicStateS2 class.
      * \returns The state ID.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * Creates an instance of the McpttCallMachineGrpBasicStateS2 class.
      */
-    McpttCallMachineGrpBasicStateS2(void);
+    McpttCallMachineGrpBasicStateS2();
     /**
      * \brief The destructor of the McpttCallMachineGrpBasicStateS2 class.
      */
-    virtual ~McpttCallMachineGrpBasicStateS2(void);
+    ~McpttCallMachineGrpBasicStateS2() override;
     /**
      * Indicates that the timer TFG1 has expired.
      * \param machine The state machine that the action is for.
      */
-    virtual void ExpiryOfTfg1(McpttCallMachineGrpBasic& machine);
+    void ExpiryOfTfg1(McpttCallMachineGrpBasic& machine) override;
     /**
      * Indicates that the timer TFG3 has expired.
      * \param machine The state machine that the action is for.
      */
-    virtual void ExpiryOfTfg3(McpttCallMachineGrpBasic& machine);
+    void ExpiryOfTfg3(McpttCallMachineGrpBasic& machine) override;
     /**
      * Gets the state ID of this McpttCallMachineGrpBasicState instance.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    McpttEntityId GetInstanceStateId() const override;
     /**
      * Reception of a "GROUP CALL ANNOUNCEMENT" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
-    virtual void ReceiveGrpCallAnnoun(McpttCallMachineGrpBasic& machine,
-                                      const McpttCallMsgGrpAnnoun& msg);
+    void ReceiveGrpCallAnnoun(McpttCallMachineGrpBasic& machine,
+                                      const McpttCallMsgGrpAnnoun& msg) override;
     /**
      * Indicates that the call should be released.
      * \param machine The state machine that the action is for.
      */
-    virtual void ReleaseCall(McpttCallMachineGrpBasic& machine);
+    void ReleaseCall(McpttCallMachineGrpBasic& machine) override;
 };
 
 /**
@@ -303,67 +303,67 @@ class McpttCallMachineGrpBasicStateS3 : public McpttCallMachineGrpBasicState
      * Gets an instance of the McpttCallMachineGrpBasicStateS3 class.
      * \returns An instance of the S3 state.
      */
-    static Ptr<McpttCallMachineGrpBasicStateS3> GetInstance(void);
+    static Ptr<McpttCallMachineGrpBasicStateS3> GetInstance();
     /**
      * Gets the state ID of the McpttCallMachineGrpBasicStateS3 class.
      * \returns The state ID.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * Creates an instance of the McpttCallMachineGrpBasicStateS3 class.
      */
-    McpttCallMachineGrpBasicStateS3(void);
+    McpttCallMachineGrpBasicStateS3();
     /**
      * \brief The destructor of the McpttCallMachineGrpBasicStateS3 class.
      */
-    virtual ~McpttCallMachineGrpBasicStateS3(void);
+    ~McpttCallMachineGrpBasicStateS3() override;
     /**
      * Indicates that the timer TFG2 has expired.
      * \param machine The state machine that the action is for.
      */
-    virtual void ExpiryOfTfg2(McpttCallMachineGrpBasic& machine);
+    void ExpiryOfTfg2(McpttCallMachineGrpBasic& machine) override;
     /**
      * Indicates that the timer TFG6 has expired.
      * \param machine The state machine that the action is for.
      */
-    virtual void ExpiryOfTfg6(McpttCallMachineGrpBasic& machine);
+    void ExpiryOfTfg6(McpttCallMachineGrpBasic& machine) override;
     /**
      * Gets the state ID of this McpttCallMachineGrpBasicState instance.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    McpttEntityId GetInstanceStateId() const override;
     /**
      * Indicates if the call is active.
      * \param machine The state machine that the action is for.
      * \return True, if the call is active.
      */
-    virtual bool IsCallOngoing(const McpttCallMachineGrpBasic& machine) const;
+    bool IsCallOngoing(const McpttCallMachineGrpBasic& machine) const override;
     /**
      * Reception of a "GROUP CALL ACCEPT" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
-    virtual void ReceiveGrpCallAccept(McpttCallMachineGrpBasic& machine,
-                                      const McpttCallMsgGrpAccept& msg);
+    void ReceiveGrpCallAccept(McpttCallMachineGrpBasic& machine,
+                                      const McpttCallMsgGrpAccept& msg) override;
     /**
      * Reception of a "GROUP CALL ANNOUNCEMENT" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
-    virtual void ReceiveGrpCallAnnoun(McpttCallMachineGrpBasic& machine,
-                                      const McpttCallMsgGrpAnnoun& msg);
+    void ReceiveGrpCallAnnoun(McpttCallMachineGrpBasic& machine,
+                                      const McpttCallMsgGrpAnnoun& msg) override;
     /**
      * Reception of a "GROUP CALL PROBE" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
-    virtual void ReceiveGrpCallProbe(McpttCallMachineGrpBasic& machine,
-                                     const McpttCallMsgGrpProbe& msg);
+    void ReceiveGrpCallProbe(McpttCallMachineGrpBasic& machine,
+                                     const McpttCallMsgGrpProbe& msg) override;
     /**
      * Indicates that the call should be released.
      * \param machine The state machine that the action is for.
      */
-    virtual void ReleaseCall(McpttCallMachineGrpBasic& machine);
+    void ReleaseCall(McpttCallMachineGrpBasic& machine) override;
 };
 
 /**
@@ -379,51 +379,51 @@ class McpttCallMachineGrpBasicStateS4 : public McpttCallMachineGrpBasicState
      * Gets an instance of the McpttCallMachineGrpBasicStateS4 class.
      * \returns An instance of the S4 state.
      */
-    static Ptr<McpttCallMachineGrpBasicStateS4> GetInstance(void);
+    static Ptr<McpttCallMachineGrpBasicStateS4> GetInstance();
     /**
      * Gets the state ID of the McpttCallMachineGrpBasicStateS4 class.
      * \returns The state ID.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * Creates an instance of the McpttCallMachineGrpBasicStateS4 class.
      */
-    McpttCallMachineGrpBasicStateS4(void);
+    McpttCallMachineGrpBasicStateS4();
     /**
      * \brief The destructor of the McpttCallMachineGrpBasicStateS4 class.
      */
-    virtual ~McpttCallMachineGrpBasicStateS4(void);
+    ~McpttCallMachineGrpBasicStateS4() override;
     /**
      * Indicates that the call should be accepted.
      * \param machine The state machine that the action is for.
      */
-    virtual void AcceptCall(McpttCallMachineGrpBasic& machine);
+    void AcceptCall(McpttCallMachineGrpBasic& machine) override;
     /**
      * Indicates that the timer TFG4 has expired.
      * \param machine The state machine that the action is for.
      */
-    virtual void ExpiryOfTfg4(McpttCallMachineGrpBasic& machine);
+    void ExpiryOfTfg4(McpttCallMachineGrpBasic& machine) override;
     /**
      * Gets the state ID of this McpttCallMachineGrpBasicState instance.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    McpttEntityId GetInstanceStateId() const override;
     /**
      * Indicates if the call is active.
      * \param machine The state machine that the action is for.
      * \returns True, if the call is active.
      */
-    virtual bool IsCallOngoing(const McpttCallMachineGrpBasic& machine) const;
+    bool IsCallOngoing(const McpttCallMachineGrpBasic& machine) const override;
     /**
      * Indicates that the call should be rejected.
      * \param machine The state machine that the action is for.
      */
-    virtual void RejectCall(McpttCallMachineGrpBasic& machine);
+    void RejectCall(McpttCallMachineGrpBasic& machine) override;
     /**
      * Indicates that the call should be released.
      * \param machine The state machine that the action is for.
      */
-    virtual void ReleaseCall(McpttCallMachineGrpBasic& machine);
+    void ReleaseCall(McpttCallMachineGrpBasic& machine) override;
 };
 
 /**
@@ -439,51 +439,51 @@ class McpttCallMachineGrpBasicStateS5 : public McpttCallMachineGrpBasicState
      * Gets an instance of the McpttCallMachineGrpBasicStateS5 class.
      * \returns An instance of the S5 state.
      */
-    static Ptr<McpttCallMachineGrpBasicStateS5> GetInstance(void);
+    static Ptr<McpttCallMachineGrpBasicStateS5> GetInstance();
     /**
      * Gets the state ID of the McpttCallMachineGrpBasicStateS5 class.
      * \returns The state ID.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * Creates an instance of the McpttCallMachineGrpBasicStateS5 class.
      */
-    McpttCallMachineGrpBasicStateS5(void);
+    McpttCallMachineGrpBasicStateS5();
     /**
      * \brief The destructor of the McpttCallMachineGrpBasicStateS5 class.
      */
-    virtual ~McpttCallMachineGrpBasicStateS5(void);
+    ~McpttCallMachineGrpBasicStateS5() override;
     /**
      * Indicates that the call should be accepted.
      * \param machine The state machine that the action is for.
      */
-    virtual void AcceptCall(McpttCallMachineGrpBasic& machine);
+    void AcceptCall(McpttCallMachineGrpBasic& machine) override;
     /**
      * Indicates that the timer TFG4 has expired.
      * \param machine The state machine that the action is for.
      */
-    virtual void ExpiryOfTfg4(McpttCallMachineGrpBasic& machine);
+    void ExpiryOfTfg4(McpttCallMachineGrpBasic& machine) override;
     /**
      * Gets the state ID of this McpttCallMachineGrpBasicState instance.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    McpttEntityId GetInstanceStateId() const override;
     /**
      * Indicates if the call is active.
      * \param machine The state machine that the action is for.
      * \returns True, if the call is active.
      */
-    virtual bool IsCallOngoing(const McpttCallMachineGrpBasic& machine) const;
+    bool IsCallOngoing(const McpttCallMachineGrpBasic& machine) const override;
     /**
      * Indicates that the call should be rejected.
      * \param machine The state machine that the action is for.
      */
-    virtual void RejectCall(McpttCallMachineGrpBasic& machine);
+    void RejectCall(McpttCallMachineGrpBasic& machine) override;
     /**
      * Indicates that the call should be released.
      * \param machine The state machine that the action is for.
      */
-    virtual void ReleaseCall(McpttCallMachineGrpBasic& machine);
+    void ReleaseCall(McpttCallMachineGrpBasic& machine) override;
 };
 
 /**
@@ -499,42 +499,42 @@ class McpttCallMachineGrpBasicStateS6 : public McpttCallMachineGrpBasicState
      * Gets an instance of the McpttCallMachineGrpBasicStateS6 class.
      * \returns An instance of the S6 state.
      */
-    static Ptr<McpttCallMachineGrpBasicStateS6> GetInstance(void);
+    static Ptr<McpttCallMachineGrpBasicStateS6> GetInstance();
     /**
      * Gets the state ID of the McpttCallMachineGrpBasicStateS6 class.
      * \returns The state ID.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * Creates an instance of the McpttCallMachineGrpBasicStateS6 class.
      */
-    McpttCallMachineGrpBasicStateS6(void);
+    McpttCallMachineGrpBasicStateS6();
     /**
      * \brief The destructor of the McpttCallMachineGrpBasicStateS6 class.
      */
-    virtual ~McpttCallMachineGrpBasicStateS6(void);
+    ~McpttCallMachineGrpBasicStateS6() override;
     /**
      * Indicates that the timer TFG5 has expired.
      * \param machine The state machine that the action is for.
      */
-    virtual void ExpiryOfTfg5(McpttCallMachineGrpBasic& machine);
+    void ExpiryOfTfg5(McpttCallMachineGrpBasic& machine) override;
     /**
      * Gets the state ID of this McpttCallMachineGrpBasicState instance.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    McpttEntityId GetInstanceStateId() const override;
     /**
      * Indicates that a group call should be initiated.
      * \param machine The state machine that the action is for.
      */
-    virtual void InitiateCall(McpttCallMachineGrpBasic& machine);
+    void InitiateCall(McpttCallMachineGrpBasic& machine) override;
     /**
      * Reception of a "GROUP CALL ANNOUNCEMENT" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
-    virtual void ReceiveGrpCallAnnoun(McpttCallMachineGrpBasic& machine,
-                                      const McpttCallMsgGrpAnnoun& msg);
+    void ReceiveGrpCallAnnoun(McpttCallMachineGrpBasic& machine,
+                                      const McpttCallMsgGrpAnnoun& msg) override;
 };
 
 /**
@@ -550,42 +550,42 @@ class McpttCallMachineGrpBasicStateS7 : public McpttCallMachineGrpBasicState
      * Gets an instance of the McpttCallMachineGrpBasicStateS7 class.
      * \returns An instance of the S7 state.
      */
-    static Ptr<McpttCallMachineGrpBasicStateS7> GetInstance(void);
+    static Ptr<McpttCallMachineGrpBasicStateS7> GetInstance();
     /**
      * Gets the state ID of the McpttCallMachineGrpBasicStateS7 class.
      * \returns The state ID.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * Creates an instance of the McpttCallMachineGrpBasicStateS7 class.
      */
-    McpttCallMachineGrpBasicStateS7(void);
+    McpttCallMachineGrpBasicStateS7();
     /**
      * \brief The destructor of the McpttCallMachineGrpBasicStateS7 class.
      */
-    virtual ~McpttCallMachineGrpBasicStateS7(void);
+    ~McpttCallMachineGrpBasicStateS7() override;
     /**
      * Indicates that the timer TFG1 has expired.
      * \param machine The state machine that the action is for.
      */
-    virtual void ExpiryOfTfg1(McpttCallMachineGrpBasic& machine);
+    void ExpiryOfTfg1(McpttCallMachineGrpBasic& machine) override;
     /**
      * Gets the state ID of this McpttCallMachineGrpBasicState instance.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    McpttEntityId GetInstanceStateId() const override;
     /**
      * Indicates that a group call should be initiated.
      * \param machine The state machine that the action is for.
      */
-    virtual void InitiateCall(McpttCallMachineGrpBasic& machine);
+    void InitiateCall(McpttCallMachineGrpBasic& machine) override;
     /**
      * Reception of a "GROUP CALL ANNOUNCEMENT" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
-    virtual void ReceiveGrpCallAnnoun(McpttCallMachineGrpBasic& machine,
-                                      const McpttCallMsgGrpAnnoun& msg);
+    void ReceiveGrpCallAnnoun(McpttCallMachineGrpBasic& machine,
+                                      const McpttCallMsgGrpAnnoun& msg) override;
 };
 
 } // namespace psc

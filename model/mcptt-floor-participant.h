@@ -60,34 +60,34 @@ class McpttFloorParticipant : public Object, public McpttFloorMsgSink
      * \brief Gets the ID of the McpttFloorParticipant type.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * \brief Creates an instance of the McpttFloorParticipant class.
      */
-    McpttFloorParticipant(void);
+    McpttFloorParticipant();
     /**
      * \brief The destructor of the McpttFloorParticipant class.
      */
-    virtual ~McpttFloorParticipant(void);
+    ~McpttFloorParticipant() override;
     /**
      * Accepts the floor grant.
      */
-    virtual void AcceptGrant(void) = 0;
+    virtual void AcceptGrant() = 0;
     /**
      * Gets the type ID of this McpttFloorParticipant instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Indicates whether or not the current participant is the acting arbitrator.
      * \returns True, if the current participant is the acting arbitrator.
      */
-    virtual bool HasFloor(void) const = 0;
+    virtual bool HasFloor() const = 0;
     /**
      * Indicates whether or not the floor machine has been started.
      * \returns True, if the floor machine has been started.
      */
-    virtual bool IsStarted(void) const = 0;
+    virtual bool IsStarted() const = 0;
     /**
      * Indicates that media is ready to be sent.
      * \param msg The media that is ready to be sent.
@@ -96,11 +96,11 @@ class McpttFloorParticipant : public Object, public McpttFloorMsgSink
     /**
      * Releases a request.
      */
-    virtual void ReleaseRequest(void) = 0;
+    virtual void ReleaseRequest() = 0;
     /**
      * Sends a floor queue position request message.
      */
-    virtual void SendFloorQueuePositionRequest(void) = 0;
+    virtual void SendFloorQueuePositionRequest() = 0;
     /**
      * Sets the callback used to indicate that the floor has been granted.
      * \param floorGrantedCb The callback to set
@@ -124,19 +124,19 @@ class McpttFloorParticipant : public Object, public McpttFloorMsgSink
     /**
      * Starts the floor machine.
      */
-    virtual void Start(void) = 0;
+    virtual void Start() = 0;
     /**
      * Stops the floor machine.
      */
-    virtual void Stop(void) = 0;
+    virtual void Stop() = 0;
     /**
      * Notifies this machine that the button has been pushed.
      */
-    virtual void PttPush(void) = 0;
+    virtual void PttPush() = 0;
     /**
      * Notifies this machine that the button has been released.
      */
-    virtual void PttRelease(void) = 0;
+    virtual void PttRelease() = 0;
 
     /**
      * TracedCallback signature for state change traces
@@ -188,83 +188,83 @@ class McpttFloorParticipantNull : public McpttFloorParticipant
      * \brief Gets the ID of the McpttFloorParticipant type.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * \brief Creates an instance of the McpttFloorParticipantNull class.
      */
-    McpttFloorParticipantNull(void);
+    McpttFloorParticipantNull();
     /**
      * \brief The destructor of the McpttFloorParticipantNull class.
      */
-    virtual ~McpttFloorParticipantNull(void);
+    ~McpttFloorParticipantNull() override;
     /**
      * Accepts the floor grant.
      */
-    virtual void AcceptGrant(void);
+    void AcceptGrant() override;
     /**
      * Gets the type ID of this McpttFloorParticipant instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Indicates whether or not the current participant is the acting arbitrator.
      * \returns True, if the current participant is the acting arbitrator.
      */
-    virtual bool HasFloor(void) const;
+    bool HasFloor() const override;
     /**
      * Indicates whether or not the floor machine has been started.
      * \returns True, if the floor machine has been started.
      */
-    virtual bool IsStarted(void) const;
+    bool IsStarted() const override;
     /**
      * Indicates that media is ready to be sent.
      * \param msg The media that is ready to be sent.
      */
-    virtual void MediaReady(McpttMediaMsg& msg);
+    void MediaReady(McpttMediaMsg& msg) override;
     /**
      * Releases a request.
      */
-    virtual void ReleaseRequest(void);
+    void ReleaseRequest() override;
     /**
      * Sends a floor queue position request message.
      */
-    virtual void SendFloorQueuePositionRequest(void);
+    void SendFloorQueuePositionRequest() override;
     /**
      * Sets the callback used to indicate that the floor has been granted.
      * \param floorGrantedCb The callback to set
      */
-    virtual void SetFloorGrantedCb(const Callback<void> floorGrantedCb);
+    void SetFloorGrantedCb(const Callback<void> floorGrantedCb) override;
     /**
      * Sets the flag that indicates if this floor machine is the originator of the call.
      * \param originator True, if this participant is the originator of the call.
      */
-    virtual void SetOriginator(const bool& originator);
+    void SetOriginator(const bool& originator) override;
     /**
      * Sets the McpttCall associated with the machine.
      * \param call The call.
      */
-    virtual void SetCall(Ptr<McpttCall> call);
+    void SetCall(Ptr<McpttCall> call) override;
     /**
      * Sets the current priority of the floor.
      * \param priority The current priority.
      */
-    virtual void SetPriority(uint8_t priority);
+    void SetPriority(uint8_t priority) override;
     /**
      * Starts the floor machine.
      */
-    virtual void Start(void);
+    void Start() override;
     /**
      * Stops the floor machine.
      */
-    virtual void Stop(void);
+    void Stop() override;
     /**
      * Notifies this machine that the button has been pushed.
      */
-    virtual void PttPush(void);
+    void PttPush() override;
     /**
      * Notifies this machine that the button has been released.
      */
-    virtual void PttRelease(void);
+    void PttRelease() override;
 };
 
 } // namespace psc

@@ -63,71 +63,71 @@ class McpttServerCallMachine : public Object
      * Gets the type ID of the McpttServerCallMachine class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttServerCallMachine class.
      */
-    McpttServerCallMachine(void);
+    McpttServerCallMachine();
     /**
      * The destructor of the McpttServerCallMachine class.
      */
-    virtual ~McpttServerCallMachine(void);
+    ~McpttServerCallMachine() override;
     /**
      * Accepts the call.
      */
-    virtual void AcceptCall(void) = 0;
+    virtual void AcceptCall() = 0;
     /**
      * Begins an emergency alert.
      */
-    virtual void BeginEmergAlert(void) = 0;
+    virtual void BeginEmergAlert() = 0;
     /**
      * Cancels an emergency alert.
      */
-    virtual void CancelEmergAlert(void) = 0;
+    virtual void CancelEmergAlert() = 0;
     /**
      * Downgrades the call type.
      */
-    virtual void DowngradeCallType(void) = 0;
+    virtual void DowngradeCallType() = 0;
     /**
      * Gets the ID of the user that started the call.
      * \returns The MCPTT user ID.
      */
-    virtual uint32_t GetCallerUserId(void) const = 0;
+    virtual uint32_t GetCallerUserId() const = 0;
     /**
      * Gets the ID of the call.
      * \returns The call ID.
      */
-    virtual McpttCallMsgFieldCallId GetCallId(void) const = 0;
+    virtual McpttCallMsgFieldCallId GetCallId() const = 0;
     /**
      * Gets the call type.
      * \returns The call type.
      */
-    virtual McpttCallMsgFieldCallType GetCallType(void) const = 0;
+    virtual McpttCallMsgFieldCallType GetCallType() const = 0;
     /**
      * Gets the server's user ID.
      * \returns The user ID.
      */
-    virtual uint32_t GetUserId(void) const = 0;
+    virtual uint32_t GetUserId() const = 0;
     /**
      * Gets the type ID of this McpttServerCallMachine instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the pointer to the server call.
      * \returns The pointer to the server call.
      */
-    virtual Ptr<McpttServerCall> GetServerCall(void) const = 0;
+    virtual Ptr<McpttServerCall> GetServerCall() const = 0;
     /**
      * Gets the ID of the current state.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetStateId(void) const = 0;
+    virtual McpttEntityId GetStateId() const = 0;
     /**
      * Indicates if the call is active.
      * \returns True, if the call is active.
      */
-    virtual bool IsCallOngoing(void) const = 0;
+    virtual bool IsCallOngoing() const = 0;
     /**
      * Indicates if this is a group call.
      * \param grpId The particular group ID to check for when greater than 0.
@@ -154,7 +154,7 @@ class McpttServerCallMachine : public Object
     /**
      * Rejects the call.
      */
-    virtual void RejectCall(void) = 0;
+    virtual void RejectCall() = 0;
     /**
      * Sets the callback used to indicate that a new call exists.
      * \param newCallCb The callback.
@@ -175,11 +175,11 @@ class McpttServerCallMachine : public Object
     /**
      * Starts the state machine.
      */
-    virtual void Start(void) = 0;
+    virtual void Start() = 0;
     /**
      * Stops the state machine.
      */
-    virtual void Stop(void) = 0;
+    virtual void Stop() = 0;
     /**
      * Upgrades the call type.
      * \param callType The call type value.
@@ -214,15 +214,15 @@ class McpttServerCallMachineGrp : public McpttServerCallMachine
      * Gets the type Id of the McpttServerCallMachineGrp class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttServerCallMachineGrp class.
      */
-    McpttServerCallMachineGrp(void);
+    McpttServerCallMachineGrp();
     /**
      * The destructor of the McpttServerCallMachineGrp class.
      */
-    virtual ~McpttServerCallMachineGrp(void);
+    ~McpttServerCallMachineGrp() override;
     /**
      * Sets the group ID.
      * \param grpId The group ID.
@@ -232,24 +232,24 @@ class McpttServerCallMachineGrp : public McpttServerCallMachine
      * Gets the group ID.
      * \returns The group ID.
      */
-    virtual McpttCallMsgFieldGrpId GetGrpId(void) const = 0;
+    virtual McpttCallMsgFieldGrpId GetGrpId() const = 0;
     /**
      * Gets the type ID of this instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Indicates if this is a group call.
      * \param grpId The particular group ID to check for when greater than 0.
      * \returns True, if this a group call; otherwise, false.
      */
-    virtual bool IsGrpCall(uint32_t grpId = 0) const;
+    bool IsGrpCall(uint32_t grpId = 0) const override;
     /**
      * Indicates if this is a private call.
      * \param userId The particular user ID to check for when greater than 0.
      * \returns True, if this is a private call; otherwise, false.
      */
-    virtual bool IsPrivateCall(uint32_t userId = 0) const;
+    bool IsPrivateCall(uint32_t userId = 0) const override;
 };
 
 /**
@@ -264,139 +264,139 @@ class McpttServerCallMachineNull : public McpttServerCallMachine
      * Gets The null state ID.
      * \returns The state ID.
      */
-    static McpttEntityId GetNullStateId(void);
+    static McpttEntityId GetNullStateId();
     /**
      * Gets the type ID of the McpttServerCallMachineNull class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttServerCallMachineNull class.
      */
-    McpttServerCallMachineNull(void);
+    McpttServerCallMachineNull();
     /**
      * The destructor of the McpttServerCallMachineNull class.
      */
-    virtual ~McpttServerCallMachineNull(void);
+    ~McpttServerCallMachineNull() override;
     /**
      * Accepts the call.
      */
-    virtual void AcceptCall(void);
+    void AcceptCall() override;
     /**
      * Begins an emergency alert.
      */
-    virtual void BeginEmergAlert(void);
+    void BeginEmergAlert() override;
     /**
      * Cancels an emergency alert.
      */
-    virtual void CancelEmergAlert(void);
+    void CancelEmergAlert() override;
     /**
      * Downgrades the call type.
      */
-    virtual void DowngradeCallType(void);
+    void DowngradeCallType() override;
     /**
      * Gets the ID of the user that started the call.
      * \returns The MCPTT user ID.
      */
-    virtual uint32_t GetCallerUserId(void) const;
+    uint32_t GetCallerUserId() const override;
     /**
      * Gets the ID of the call.
      * \returns The call ID.
      */
-    virtual McpttCallMsgFieldCallId GetCallId(void) const;
+    McpttCallMsgFieldCallId GetCallId() const override;
     /**
      * Gets the call type.
      * \returns The call type.
      */
-    virtual McpttCallMsgFieldCallType GetCallType(void) const;
+    McpttCallMsgFieldCallType GetCallType() const override;
     /**
      * Gets the user ID.
      * \returns The user ID.
      */
-    virtual uint32_t GetUserId(void) const;
+    uint32_t GetUserId() const override;
     /**
      * Gets the type ID of this McpttServerCallMachineNull instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the pointer to the server call.
      * \returns The pointer to the server call.
      */
-    virtual Ptr<McpttServerCall> GetServerCall(void) const;
+    Ptr<McpttServerCall> GetServerCall() const override;
     /**
      * Gets the ID of the current state.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetStateId(void) const;
+    McpttEntityId GetStateId() const override;
     /**
      * Indicates if the call is active.
      * \returns True, if the call is active.
      */
-    virtual bool IsCallOngoing(void) const;
+    bool IsCallOngoing() const override;
     /**
      * Indicates if this is a group call.
      * \param grpId The particular group ID to check for when greater than 0.
      * \returns True, if this a group call; otherwise, false.
      */
-    virtual bool IsGrpCall(uint32_t grpId = 0) const;
+    bool IsGrpCall(uint32_t grpId = 0) const override;
     /**
      * Indicates if this is a private call.
      * \param userId The particular user ID to check for when greater than 0.
      * \returns True, if this a private call; otherwise, false.
      */
-    virtual bool IsPrivateCall(uint32_t userId = 0) const;
+    bool IsPrivateCall(uint32_t userId = 0) const override;
     /**
      * Receives a call control packet
      * \param pkt The packet received (without SIP header).
      * \param hdr The (deserialized) SIP header
      */
-    virtual void ReceiveCallPacket(Ptr<Packet> pkt, const sip::SipHeader& hdr);
+    void ReceiveCallPacket(Ptr<Packet> pkt, const sip::SipHeader& hdr) override;
     /**
      * Receives a media message.
      * \param msg The message to receive.
      */
-    virtual void Receive(const McpttMediaMsg& msg);
+    void Receive(const McpttMediaMsg& msg) override;
     /**
      * Rejects the call.
      */
-    virtual void RejectCall(void);
+    void RejectCall() override;
     /**
      * Sets the callback used to indicate that a new call exists.
      * \param newCallCb The callback.
      */
-    virtual void SetNewCallCb(const Callback<void, uint16_t> newCallCb);
+    void SetNewCallCb(const Callback<void, uint16_t> newCallCb) override;
     /**
      * Sets the server call pointer.
      * \param call The pointer back to the server call object.
      */
-    virtual void SetServerCall(Ptr<McpttServerCall> call);
+    void SetServerCall(Ptr<McpttServerCall> call) override;
     /**
      * Sets the userId to use for the server.
      * Normally, a SIP URI (string) but the model presently
      * uses integers in place of URIs
      * \param userId The user ID.
      */
-    virtual void SetUserId(uint32_t userId);
+    void SetUserId(uint32_t userId) override;
     /**
      * Starts the state machine.
      */
-    virtual void Start(void);
+    void Start() override;
     /**
      * Stops the state machine.
      */
-    virtual void Stop(void);
+    void Stop() override;
     /**
      * Upgrades the call type.
      * \param callType The call type value.
      */
-    virtual void UpgradeCallType(uint8_t callType);
+    void UpgradeCallType(uint8_t callType) override;
 
   protected:
     /**
      * Disposes of this McpttServerCallMachineNull instance.
      */
-    virtual void DoDispose(void);
+    void DoDispose() override;
 
   private:
     Ptr<McpttServerCall> m_serverCall; //!< The server call.

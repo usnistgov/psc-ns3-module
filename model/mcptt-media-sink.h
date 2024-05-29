@@ -55,7 +55,7 @@ class McpttMediaSink
     /**
      * The destructor of the McpttMediaSink class.
      */
-    virtual ~McpttMediaSink(void)
+    virtual ~McpttMediaSink()
     {
     }
 
@@ -70,7 +70,7 @@ class McpttMediaSink
     /**
      * The constructor of the McpttMediaSink class.
      */
-    McpttMediaSink(void)
+    McpttMediaSink()
     {
     }
 };

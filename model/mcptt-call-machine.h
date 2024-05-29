@@ -64,70 +64,70 @@ class McpttCallMachine : public Object
      * Gets the type ID of the McpttCallMachine class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMachine class.
      */
-    McpttCallMachine(void);
+    McpttCallMachine();
     /**
      * The destructor of the McpttCallMachine class.
      */
-    virtual ~McpttCallMachine(void);
+    ~McpttCallMachine() override;
     /**
      * Accepts the call.
      */
-    virtual void AcceptCall(void) = 0;
+    virtual void AcceptCall() = 0;
     /**
      * Begins an emergency alert.
      */
-    virtual void BeginEmergAlert(void) = 0;
+    virtual void BeginEmergAlert() = 0;
     /**
      * Cancels an emergency alert.
      */
-    virtual void CancelEmergAlert(void) = 0;
+    virtual void CancelEmergAlert() = 0;
     /**
      * Downgrades the call type.
      */
-    virtual void DowngradeCallType(void) = 0;
+    virtual void DowngradeCallType() = 0;
     /**
      * Gets the ID of the user that started the call.
      * \returns The MCPTT user ID.
      */
-    virtual uint32_t GetCallerUserId(void) const = 0;
+    virtual uint32_t GetCallerUserId() const = 0;
     /**
      * Gets the ID of the call.
      * \returns The call ID.
      */
-    virtual McpttCallMsgFieldCallId GetCallId(void) const = 0;
+    virtual McpttCallMsgFieldCallId GetCallId() const = 0;
     /**
      * Gets the call type.
      * \returns The call type.
      */
-    virtual McpttCallMsgFieldCallType GetCallType(void) const = 0;
+    virtual McpttCallMsgFieldCallType GetCallType() const = 0;
     /**
      * Gets the type ID of this McpttCallMachine instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the McpttCall for the call machine.
      * \returns The call object
      */
-    virtual Ptr<McpttCall> GetCall(void) const = 0;
+    virtual Ptr<McpttCall> GetCall() const = 0;
     /**
      * Gets the ID of the current state.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetStateId(void) const = 0;
+    virtual McpttEntityId GetStateId() const = 0;
     /**
      * Initiates a call.
      */
-    virtual void InitiateCall(void) = 0;
+    virtual void InitiateCall() = 0;
     /**
      * Indicates if the call is active.
      * \returns True, if the call is active.
      */
-    virtual bool IsCallOngoing(void) const = 0;
+    virtual bool IsCallOngoing() const = 0;
     /**
      * Indicates if this is a group call.
      * \param grpId The particular group ID to check for when greater than 0.
@@ -153,11 +153,11 @@ class McpttCallMachine : public Object
     /**
      * Releases the call.
      */
-    virtual void ReleaseCall(void) = 0;
+    virtual void ReleaseCall() = 0;
     /**
      * Rejects the call.
      */
-    virtual void RejectCall(void) = 0;
+    virtual void RejectCall() = 0;
     /**
      * Sends a call control message.
      * \param msg The message to send.
@@ -181,11 +181,11 @@ class McpttCallMachine : public Object
     /**
      * Starts the state machine.
      */
-    virtual void Start(void) = 0;
+    virtual void Start() = 0;
     /**
      * Stops the state machine.
      */
-    virtual void Stop(void) = 0;
+    virtual void Stop() = 0;
     /**
      * Upgrades the call type.
      * \param callType The call type value.
@@ -223,37 +223,37 @@ class McpttCallMachineGrp : public McpttCallMachine
      * Gets the type Id of the McpttCallMachineGrp class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMachineGrp class.
      */
-    McpttCallMachineGrp(void);
+    McpttCallMachineGrp();
     /**
      * The destructor of the McpttCallMachineGrp class.
      */
-    virtual ~McpttCallMachineGrp(void);
+    ~McpttCallMachineGrp() override;
     /**
      * Gets the group ID.
      * \returns The group ID.
      */
-    virtual McpttCallMsgFieldGrpId GetGrpId(void) const = 0;
+    virtual McpttCallMsgFieldGrpId GetGrpId() const = 0;
     /**
      * Gets the type ID of this instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Indicates if this is a group call.
      * \param grpId The particular group ID to check for when greater than 0.
      * \returns True, if this a group call; otherwise, false.
      */
-    virtual bool IsGrpCall(uint32_t grpId = 0) const;
+    bool IsGrpCall(uint32_t grpId = 0) const override;
     /**
      * Indicates if this is a private call.
      * \param userId The particular user ID to check for when greater than 0.
      * \returns True, if this is a private call; otherwise, false.
      */
-    virtual bool IsPrivateCall(uint32_t userId = 0) const;
+    bool IsPrivateCall(uint32_t userId = 0) const override;
     /**
      * Sets the group ID.
      * \param grpId The group ID.
@@ -273,144 +273,144 @@ class McpttCallMachineNull : public McpttCallMachine
      * Gets The null state ID.
      * \returns The state ID.
      */
-    static McpttEntityId GetNullStateId(void);
+    static McpttEntityId GetNullStateId();
     /**
      * Gets the type ID of the McpttCallMachineNull class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMachineNull class.
      */
-    McpttCallMachineNull(void);
+    McpttCallMachineNull();
     /**
      * The destructor of the McpttCallMachineNull class.
      */
-    virtual ~McpttCallMachineNull(void);
+    ~McpttCallMachineNull() override;
     /**
      * Accepts the call.
      */
-    virtual void AcceptCall(void);
+    void AcceptCall() override;
     /**
      * Begins an emergency alert.
      */
-    virtual void BeginEmergAlert(void);
+    void BeginEmergAlert() override;
     /**
      * Cancels an emergency alert.
      */
-    virtual void CancelEmergAlert(void);
+    void CancelEmergAlert() override;
     /**
      * Downgrades the call type.
      */
-    virtual void DowngradeCallType(void);
+    void DowngradeCallType() override;
     /**
      * Gets the ID of the user that started the call.
      * \returns The MCPTT user ID.
      */
-    virtual uint32_t GetCallerUserId(void) const;
+    uint32_t GetCallerUserId() const override;
     /**
      * Gets the ID of the call.
      * \returns The call ID.
      */
-    virtual McpttCallMsgFieldCallId GetCallId(void) const;
+    McpttCallMsgFieldCallId GetCallId() const override;
     /**
      * Gets the call type.
      * \returns The call type.
      */
-    virtual McpttCallMsgFieldCallType GetCallType(void) const;
+    McpttCallMsgFieldCallType GetCallType() const override;
     /**
      * Gets the type ID of this McpttCallMachineNull instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the McpttCall associated with the call machine.
      * \returns The call.
      */
-    virtual Ptr<McpttCall> GetCall(void) const;
+    Ptr<McpttCall> GetCall() const override;
     /**
      * Gets the ID of the current state.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetStateId(void) const;
+    McpttEntityId GetStateId() const override;
     /**
      * Initiates a call.
      */
-    virtual void InitiateCall(void);
+    void InitiateCall() override;
     /**
      * Indicates if the call is active.
      * \returns True, if the call is active.
      */
-    virtual bool IsCallOngoing(void) const;
+    bool IsCallOngoing() const override;
     /**
      * Indicates if this is a group call.
      * \param grpId The particular group ID to check for when greater than 0.
      * \returns True, if this a group call; otherwise, false.
      */
-    virtual bool IsGrpCall(uint32_t grpId = 0) const;
+    bool IsGrpCall(uint32_t grpId = 0) const override;
     /**
      * Indicates if this is a private call.
      * \param userId The particular user ID to check for when greater than 0.
      * \returns True, if this a private call; otherwise, false.
      */
-    virtual bool IsPrivateCall(uint32_t userId = 0) const;
+    bool IsPrivateCall(uint32_t userId = 0) const override;
     /**
      * Receives a call control message.
      * \param msg The message to receive.
      */
-    virtual void Receive(const McpttCallMsg& msg);
+    void Receive(const McpttCallMsg& msg) override;
     /**
      * Receives a media message.
      * \param msg The message to receive.
      */
-    virtual void Receive(const McpttMediaMsg& msg);
+    void Receive(const McpttMediaMsg& msg) override;
     /**
      * Releases the call.
      */
-    virtual void ReleaseCall(void);
+    void ReleaseCall() override;
     /**
      * Rejects the call.
      */
-    virtual void RejectCall(void);
+    void RejectCall() override;
     /**
      * Sends a call control message.
      * \param msg The message to send.
      */
-    virtual void Send(const McpttCallMsg& msg);
+    void Send(const McpttCallMsg& msg) override;
     /**
      * Sets the ID of the MCPTT call.
      * \param callId The ID of the MCPTT call.
      */
-    virtual void SetCallId(const McpttCallMsgFieldCallId& callId);
+    void SetCallId(const McpttCallMsgFieldCallId& callId) override;
     /**
      * Sets the callback used to indicate that a new call exists.
      * \param newCallCb The callback.
      */
-    virtual void SetNewCallCb(const Callback<void, uint16_t> newCallCb);
+    void SetNewCallCb(const Callback<void, uint16_t> newCallCb) override;
     /**
      * Sets the McpttCall associated with the call machine.
      * \param call The call.
      */
-    virtual void SetCall(Ptr<McpttCall> call);
+    void SetCall(Ptr<McpttCall> call) override;
     /**
      * Starts the state machine.
      */
-    virtual void Start(void);
+    void Start() override;
     /**
      * Stops the state machine.
      */
-    virtual void Stop(void);
+    void Stop() override;
     /**
      * Upgrades the call type.
      * \param callType The call type value.
      */
-    virtual void UpgradeCallType(uint8_t callType);
+    void UpgradeCallType(uint8_t callType) override;
 
   protected:
     /**
      * Disposes of this McpttCallMachineNull instance.
      */
-    virtual void DoDispose(void);
+    void DoDispose() override;
 
   private:
     Ptr<McpttCall> m_call; //!< The owner.

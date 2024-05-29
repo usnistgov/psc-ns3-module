@@ -62,33 +62,33 @@ class McpttMediaSrc : public Object
      * \brief Gets the identifier of the McpttMediaSrc class.
      * \return The TypeId.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * \brief Creates an instance of the McpttMediaSrc class.
      */
-    McpttMediaSrc(void);
+    McpttMediaSrc();
     /**
      * \brief The destructor of the McpttMediaSrc class.
      */
-    virtual ~McpttMediaSrc(void);
+    ~McpttMediaSrc() override;
     /**
      * \brief Indicates whether or not the requester has a sink.
      * \return True, if the requester has a sink or false otherwise.
      */
-    virtual bool HasSink(void);
+    virtual bool HasSink();
     /**
      * Indicates whether or not the requester is making request.
      * \returns True, if the requester is making requests.
      */
-    virtual bool IsMakingReq(void) const;
+    virtual bool IsMakingReq() const;
     /**
      * \brief Starts making send requests.
      */
-    virtual void StartMakingReq(void);
+    virtual void StartMakingReq();
     /**
      * \brief Stops making send requests.
      */
-    virtual void StopMakingReq(void);
+    virtual void StopMakingReq();
 
   protected:
     /**
@@ -99,19 +99,19 @@ class McpttMediaSrc : public Object
     /**
      * \brief Cancels the current request event.
      */
-    virtual void CancelRequest(void);
+    virtual void CancelRequest();
     /**
      * \brief Disposes of all dynamically allocated resources.
      */
-    virtual void DoDispose(void);
+    void DoDispose() override;
     /**
      * \brief Makes a request to send the data.
      */
-    virtual void MakeRequest(void);
+    virtual void MakeRequest();
     /**
      * Schedules the next time at which MakeRequest () should be executed.
      */
-    virtual void ScheduleNextReq(void);
+    virtual void ScheduleNextReq();
 
   private:
     uint16_t m_bytes;    //!< The number of data bytes that should be sent.
@@ -138,12 +138,12 @@ class McpttMediaSrc : public Object
      * \brief Gets a pointer to the sink.
      * \return A pointer to the sink.
      */
-    virtual McpttMediaSink* GetSink(void) const;
+    virtual McpttMediaSink* GetSink() const;
     /**
      * \brief Gets the total number of bytes that have been requested to send.
      * \return The total number of bytes.
      */
-    virtual uint16_t GetTotalBytes(void) const;
+    virtual uint16_t GetTotalBytes() const;
     /**
      * \brief Sets the pointer to the sink.
      * \param sink A pointer to the sink.
@@ -155,7 +155,7 @@ class McpttMediaSrc : public Object
      * \brief Gets the last time at which a request was made.
      * \return The last time.
      */
-    virtual Time GetLastReq(void) const;
+    virtual Time GetLastReq() const;
     /**
      * \brief Sets the last time at which a request was made.
      * \param lastReq The time.
@@ -165,7 +165,7 @@ class McpttMediaSrc : public Object
      * \brief Gets the event that describes when a send request will be made.
      * \return The event.
      */
-    virtual EventId GetReqEvent(void) const;
+    virtual EventId GetReqEvent() const;
     /**
      * \brief Sets the event that describes when a send request will be made.
      * \param reqEvent The event.

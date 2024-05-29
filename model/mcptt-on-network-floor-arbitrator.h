@@ -69,15 +69,15 @@ class McpttOnNetworkFloorArbitrator : public Object
      * \brief Gets the ID of the McpttOnNetworkFloorArbitrator type.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * \brief Creates an instance of the McpttOnNetworkFloorArbitrator class.
      */
-    McpttOnNetworkFloorArbitrator(void);
+    McpttOnNetworkFloorArbitrator();
     /**
      * \brief The destructor of the McpttOnNetworkFloorArbitrator class.
      */
-    virtual ~McpttOnNetworkFloorArbitrator(void);
+    ~McpttOnNetworkFloorArbitrator() override;
     /**
      * Adds a floor participant interface.
      * \param participant The interface for the associated participant.
@@ -93,15 +93,15 @@ class McpttOnNetworkFloorArbitrator : public Object
     /**
      * Notifies the floor machine that the call has been released (part I).
      */
-    virtual void CallRelease1(void);
+    virtual void CallRelease1();
     /**
      * Notifies the floor machine that the call has been released (part II).
      */
-    virtual void CallRelease2(void);
+    virtual void CallRelease2();
     /**
      * Notifies the floor machine that the client has been released.
      */
-    virtual void ClientRelease(void);
+    virtual void ClientRelease();
     /**
      * Changes the state of the floor machine.
      * \param state The state to change to.
@@ -111,17 +111,17 @@ class McpttOnNetworkFloorArbitrator : public Object
      * Gets the floor indicator to use when sending a message.
      * \returns The floor indicator field.
      */
-    virtual McpttFloorMsgFieldIndic GetIndicator(void) const;
+    virtual McpttFloorMsgFieldIndic GetIndicator() const;
     /**
      * Gets the type ID of this McpttOnNetworkFloorArbitrator instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the number of floor participants.
      * \returns The number of floor participants.
      */
-    virtual uint32_t GetNParticipants(void) const;
+    virtual uint32_t GetNParticipants() const;
     /**
      * Gets the pointer for the indexed participant
      * \param index index of participant
@@ -146,42 +146,42 @@ class McpttOnNetworkFloorArbitrator : public Object
      * Gets the pointer for the originating participant
      * \return The pointer of the participant, or 0 if the participant is not found.
      */
-    virtual Ptr<McpttOnNetworkFloorTowardsParticipant> GetOriginatingParticipant(void) const;
+    virtual Ptr<McpttOnNetworkFloorTowardsParticipant> GetOriginatingParticipant() const;
     /**
      * Gets the ID of the state.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetStateId(void) const;
+    virtual McpttEntityId GetStateId() const;
     /**
      * Indicates if the audio cut-in is supported for the group.
      * \returns True, if audio cut-in is supported, otherwise false.
      */
-    virtual bool IsAudioCutIn(void) const;
+    virtual bool IsAudioCutIn() const;
     /**
      * Indicates if acknowledgement is required.
      * \returns True, if acknowledgement is required; otherwise, false.
      */
-    virtual bool IsAckRequired(void) const;
+    virtual bool IsAckRequired() const;
     /**
      * Indicates whether or not dual floor has been indicated.
      * \returns True, if the dual floor has been indicated; otherwise, false.
      */
-    virtual bool IsDualFloor(void) const;
+    virtual bool IsDualFloor() const;
     /**
      * Indicates whether or not dual floor is supported.
      * \returns True, if dual floor is supported; otherwise, false.
      */
-    virtual bool IsDualFloorSupported(void) const;
+    virtual bool IsDualFloorSupported() const;
     /**
      * Indicates whether or not a client is currently permitted to send media.
      * \returns True, if a client is permitted to send media; otherwise, false.
      */
-    virtual bool IsFloorOccupied(void) const;
+    virtual bool IsFloorOccupied() const;
     /**
      * Indicates whether or not queueing of floor requests is supported.
      * \returns True, if it has been negotiated.
      */
-    virtual bool IsQueueingSupported(void) const;
+    virtual bool IsQueueingSupported() const;
     /**
      * Indicates if the given floor request is a preemptive floor request.
      * \returns True, if the given floor request is preemptive.
@@ -191,12 +191,12 @@ class McpttOnNetworkFloorArbitrator : public Object
      * Indicates whether or not the floor machine has been started.
      * \returns True, if the floor machine has been started.
      */
-    virtual bool IsStarted(void) const;
+    virtual bool IsStarted() const;
     /**
      * Gets the next sequence number.
      * \returns The next sequence number.
      */
-    virtual uint16_t NextSeqNum(void);
+    virtual uint16_t NextSeqNum();
     /**
      * Receives a floor release message.
      * \param msg The received message.
@@ -272,11 +272,11 @@ class McpttOnNetworkFloorArbitrator : public Object
     /**
      * Starts the state machine.
      */
-    virtual void Start(void);
+    virtual void Start();
     /**
      * Stops the state machine.
      */
-    virtual void Stop(void);
+    virtual void Stop();
     /**
      * TracedCallback signature for state change traces
      * \param [in] userId User ID
@@ -297,31 +297,31 @@ class McpttOnNetworkFloorArbitrator : public Object
     /**
      * \brief Disposes of the McpttLfloorMachine.
      */
-    virtual void DoDispose(void);
+    void DoDispose() override;
     /**
      * Notifies the floor machine that timer T1 has expired.
      */
-    virtual void ExpiryOfT1(void);
+    virtual void ExpiryOfT1();
     /**
      * Notifies the floor machine that timer T2 has expired.
      */
-    virtual void ExpiryOfT2(void);
+    virtual void ExpiryOfT2();
     /**
      * Notifies the floor machine that timer T3 has expired.
      */
-    virtual void ExpiryOfT3(void);
+    virtual void ExpiryOfT3();
     /**
      * Notifies the floor machine that timer T4 has expired.
      */
-    virtual void ExpiryOfT4(void);
+    virtual void ExpiryOfT4();
     /**
      * Notifies the floor machine that timer T7 has expired.
      */
-    virtual void ExpiryOfT7(void);
+    virtual void ExpiryOfT7();
     /**
      * Notifies the floor machine that timer T20 has expired.
      */
-    virtual void ExpiryOfT20(void);
+    virtual void ExpiryOfT20();
 
   private:
     bool m_ackRequired; //!< A flag that indicates if acknowledgement is required.
@@ -364,82 +364,82 @@ class McpttOnNetworkFloorArbitrator : public Object
      * Gets the counter C7
      * \returns The counter.
      */
-    virtual Ptr<McpttCounter> GetC7(void) const;
+    virtual Ptr<McpttCounter> GetC7() const;
     /**
      * Gets the counter C20
      * \returns The counter.
      */
-    virtual Ptr<McpttCounter> GetC20(void) const;
+    virtual Ptr<McpttCounter> GetC20() const;
     /**
      * Gets the dual floor control state machine.
      * \returns The dual floor control state machine.
      */
-    virtual Ptr<McpttOnNetworkFloorDualControl> GetDualControl(void) const;
+    virtual Ptr<McpttOnNetworkFloorDualControl> GetDualControl() const;
     /**
      * Gets the owner of the state machine.
      * \returns The owner.
      */
-    virtual Ptr<McpttServerCall> GetOwner(void) const;
+    virtual Ptr<McpttServerCall> GetOwner() const;
     /**
      * Gets the queue.
      * \returns The queue.
      */
-    virtual Ptr<McpttFloorQueue> GetQueue(void) const;
+    virtual Ptr<McpttFloorQueue> GetQueue() const;
     /**
      * Gets the reject cause to include in the revoke message when entering the 'G: pending Floor
      * Revoke' state. \returns The reject cause.
      */
-    virtual uint16_t GetRejectCause(void) const;
+    virtual uint16_t GetRejectCause() const;
     /**
      * Gets the SSRC of the participant who currently has permission to send media.
      * \returns The SSRC.
      */
-    virtual uint32_t GetStoredSsrc(void) const;
+    virtual uint32_t GetStoredSsrc() const;
     /**
      * Gets the stored of the state machine.
      * \returns The stored priority.
      */
-    virtual uint8_t GetStoredPriority(void) const;
+    virtual uint8_t GetStoredPriority() const;
     /**
      * Gets the track info field.
      * \returns The track info field.
      */
-    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo(void) const;
+    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo() const;
     /**
      * Gets the SSRC to use when transmitting a message.
      * \returns The SSRC.
      */
-    virtual uint32_t GetTxSsrc(void) const;
+    virtual uint32_t GetTxSsrc() const;
     /**
      * Gets the timer T1.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetT1(void) const;
+    virtual Ptr<McpttTimer> GetT1() const;
     /**
      * Gets the timer T2.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetT2(void) const;
+    virtual Ptr<McpttTimer> GetT2() const;
     /**
      * Gets the timer T3.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetT3(void) const;
+    virtual Ptr<McpttTimer> GetT3() const;
     /**
      * Gets the timer T4.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetT4(void) const;
+    virtual Ptr<McpttTimer> GetT4() const;
     /**
      * Gets the timer T7.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetT7(void) const;
+    virtual Ptr<McpttTimer> GetT7() const;
     /**
      * Gets the timer T20.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetT20(void) const;
+    virtual Ptr<McpttTimer> GetT20() const;
     /**
      * Sets the dual floor control state machine.
      * \param dualControl The state machine.

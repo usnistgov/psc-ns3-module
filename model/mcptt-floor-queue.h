@@ -62,7 +62,7 @@ class McpttFloorQueue : public Object
      * Gets the type ID of the McpttFloorQueue class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorQueue class.
      * \param capacity The maximum number of users that can be queued.
@@ -77,11 +77,11 @@ class McpttFloorQueue : public Object
     /**
      * \brief The destructor of the McpttFloorQueue class.
      */
-    virtual ~McpttFloorQueue(void);
+    ~McpttFloorQueue() override;
     /**
      * Clears the queue.
      */
-    virtual void Clear(void);
+    virtual void Clear();
     /**
      * Indicates whether or not the user with the given ID is in the queue.
      * \param userId The user ID.
@@ -92,7 +92,7 @@ class McpttFloorQueue : public Object
      * Removes and returns the next user from the queue.
      * \returns The next user.
      */
-    virtual McpttQueuedUserInfo Dequeue(void);
+    virtual McpttQueuedUserInfo Dequeue();
     /**
      * Adds a user to the queue.
      * \param user The user to queue.
@@ -108,32 +108,32 @@ class McpttFloorQueue : public Object
      * Gets the number of users that have been queue.
      * \returns The number of currently queued users.
      */
-    virtual uint16_t GetCount(void) const;
+    virtual uint16_t GetCount() const;
     /**
      * Gets the type ID of this McpttFloorQueue instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Indicates whether or not the queue is full.
      * \returns True, if the queue is full.
      */
-    virtual bool IsAtCapacity(void) const;
+    virtual bool IsAtCapacity() const;
     /**
      * Indicates whether or not the queue is enabled.
      * \returns True, if the queue is enabled.
      */
-    virtual bool IsEnabled(void) const;
+    virtual bool IsEnabled() const;
     /**
      * Indicates whether or not there is at least one queued user.
      * \returns True, if there is at least one queued user.
      */
-    virtual bool HasNext(void) const;
+    virtual bool HasNext() const;
     /**
      * Gets the next user in the queue.
      * \returns The next user.
      */
-    virtual McpttQueuedUserInfo Peek(void) const;
+    virtual McpttQueuedUserInfo Peek() const;
     /**
      * Pulls the user with the given ID out of the queue.
      * \param userId The user ID of the user to pull.
@@ -157,13 +157,13 @@ class McpttFloorQueue : public Object
      * Gets a copy of the collection of queued user info.
      * \returns A copy of the collection of queued users.
      */
-    virtual std::list<McpttQueuedUserInfo> ViewUsers(void) const;
+    virtual std::list<McpttQueuedUserInfo> ViewUsers() const;
 
   protected:
     /**
      * Disposes of the McpttFloorQueue.
      */
-    virtual void DoDispose(void);
+    void DoDispose() override;
 
   private:
     uint16_t m_capacity;                    //!< The maximum number of users that can be queued.

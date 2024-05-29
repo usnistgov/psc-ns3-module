@@ -79,13 +79,13 @@ class IntelHttpHeader : public Header
      *
      * \return The TypeId for this class
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Get the TypeId for this instance
      *
      * \return The TypeId for this instance
      */
-    TypeId GetInstanceTypeId(void) const override;
+    TypeId GetInstanceTypeId() const override;
 
     /**
      * Set the request type
@@ -98,7 +98,7 @@ class IntelHttpHeader : public Header
      *
      * \return The request type
      */
-    Type GetRequestType(void) const;
+    Type GetRequestType() const;
     /**
      * Set the number of embedded objects linked in the HTML document
      *
@@ -110,7 +110,7 @@ class IntelHttpHeader : public Header
      *
      * \return The number of embedded objects linked in the HTML document
      */
-    uint16_t GetNumberEmbeddedObjects(void) const;
+    uint16_t GetNumberEmbeddedObjects() const;
     /**
      * Set the Payload Size
      *
@@ -122,7 +122,7 @@ class IntelHttpHeader : public Header
      *
      * \return uint32_t Total bytes in the payload
      */
-    uint32_t GetPayloadSize(void) const;
+    uint32_t GetPayloadSize() const;
     /**
      * Deserialize this header in the Buffer provided as a parameter
      *
@@ -135,7 +135,7 @@ class IntelHttpHeader : public Header
      *
      * \return The size of the header in serialized form.
      */
-    uint32_t GetSerializedSize(void) const override;
+    uint32_t GetSerializedSize() const override;
     /**
      * Print a string version of the header in the ostream parameter provided.
      *
@@ -155,7 +155,7 @@ class IntelHttpHeader : public Header
      *
      * \return The size of the header
      */
-    static uint32_t GetHeaderSize(void);
+    static uint32_t GetHeaderSize();
 
   private:
     /**

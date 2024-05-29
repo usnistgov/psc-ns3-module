@@ -57,9 +57,9 @@ namespace tests
 class McpttTestCaseConfigOnNetwork : public McpttTestCaseConfig
 {
   public:
-    McpttTestCaseConfigOnNetwork(void);
-    virtual ~McpttTestCaseConfigOnNetwork(void);
-    virtual ApplicationContainer Configure(void);
+    McpttTestCaseConfigOnNetwork();
+    ~McpttTestCaseConfigOnNetwork() override;
+    ApplicationContainer Configure() override;
 
   private:
     McpttCallHelper m_callHelper;
@@ -71,7 +71,7 @@ class McpttTestCaseConfigOnNetwork : public McpttTestCaseConfig
     virtual void SetCallHelper(const McpttCallHelper& callHelper);
     virtual void SetClientHelper(const McpttHelper& clientHelper);
     virtual void SetServerHelper(const McpttServerHelper& serverHelper);
-    Ptr<McpttServerApp> GetServerApp(void) const;
+    Ptr<McpttServerApp> GetServerApp() const;
 };
 
 } // namespace tests

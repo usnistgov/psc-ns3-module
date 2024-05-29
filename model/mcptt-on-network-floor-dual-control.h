@@ -73,27 +73,27 @@ class McpttOnNetworkFloorDualControl : public Object, public McpttFloorMsgSink
      * \brief Gets the ID of the McpttOnNetworkFloorDualControl type.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * \brief Creates an instance of the McpttOnNetworkFloorDualControl class.
      */
-    McpttOnNetworkFloorDualControl(void);
+    McpttOnNetworkFloorDualControl();
     /**
      * \brief The destructor of the McpttOnNetworkFloorDualControl class.
      */
-    virtual ~McpttOnNetworkFloorDualControl(void);
+    ~McpttOnNetworkFloorDualControl() override;
     /**
      * Notifies the floor machine that the call has been released (part I).
      */
-    virtual void CallRelease1(void);
+    virtual void CallRelease1();
     /**
      * Notifies the floor machine that the call has been released (part II).
      */
-    virtual void CallRelease2(void);
+    virtual void CallRelease2();
     /**
      * Notifies the floor machine that the client has been released.
      */
-    virtual void ClientRelease(void);
+    virtual void ClientRelease();
     /**
      * Changes the state of the floor machine.
      * \param state The state to change to.
@@ -103,32 +103,32 @@ class McpttOnNetworkFloorDualControl : public Object, public McpttFloorMsgSink
      * Gets the type ID of this McpttOnNetworkFloorDualControl instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the ID of the state.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetStateId(void) const;
+    virtual McpttEntityId GetStateId() const;
     /**
      * Indicates whether or not the floor machine has been started.
      * \returns True, if the floor machine has been started.
      */
-    virtual bool IsStarted(void) const;
+    virtual bool IsStarted() const;
     /**
      * Receives a floor release message.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorRelease(const McpttFloorMsgRelease& msg);
+    void ReceiveFloorRelease(const McpttFloorMsgRelease& msg) override;
     /**
      * Receives a floor request message.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorRequest(const McpttFloorMsgRequest& msg);
+    void ReceiveFloorRequest(const McpttFloorMsgRequest& msg) override;
     /**
      * Receives an RTP media message.
      * \param msg The received message.
      */
-    virtual void ReceiveMedia(const McpttMediaMsg& msg);
+    void ReceiveMedia(const McpttMediaMsg& msg) override;
     /**
      * Receives a preemptive floor request message.
      * \param msg The received message.
@@ -147,25 +147,25 @@ class McpttOnNetworkFloorDualControl : public Object, public McpttFloorMsgSink
     /**
      * Stops the FSM.
      */
-    virtual void Stop(void);
+    virtual void Stop();
     /**
      * Indicates to the floor control server to terminate.
      */
-    virtual void Terminate(void);
+    virtual void Terminate();
 
   protected:
     /**
      * \brief Disposes of the McpttLfloorMachine.
      */
-    virtual void DoDispose(void);
+    void DoDispose() override;
     /**
      * Notifies the floor machine that timer T11 has expired.
      */
-    virtual void ExpiryOfT11(void);
+    virtual void ExpiryOfT11();
     /**
      * Notifies the floor machine that timer T12 has expired.
      */
-    virtual void ExpiryOfT12(void);
+    virtual void ExpiryOfT12();
     /**
      * TracedCallback signature for state change traces
      * \param [in] userId User ID
@@ -205,32 +205,32 @@ class McpttOnNetworkFloorDualControl : public Object, public McpttFloorMsgSink
      * Gets the owner of the state machine.
      * \returns The owner.
      */
-    virtual Ptr<McpttOnNetworkFloorArbitrator> GetOwner(void) const;
+    virtual Ptr<McpttOnNetworkFloorArbitrator> GetOwner() const;
     /**
      * Gets the SSRC of the participant who currently has permission to send media.
      * \returns The SSRC.
      */
-    virtual uint32_t GetStoredSsrc(void) const;
+    virtual uint32_t GetStoredSsrc() const;
     /**
      * Gets the stored of the state machine.
      * \returns The stored priority.
      */
-    virtual uint8_t GetStoredPriority(void) const;
+    virtual uint8_t GetStoredPriority() const;
     /**
      * Gets the track info field.
      * \returns The track info field.
      */
-    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo(void) const;
+    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo() const;
     /**
      * Gets the timer T11.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetT11(void) const;
+    virtual Ptr<McpttTimer> GetT11() const;
     /**
      * Gets the timer T12.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetT12(void) const;
+    virtual Ptr<McpttTimer> GetT12() const;
     /**
      * Sets the owner of the floor machine.
      * \param owner The owner.

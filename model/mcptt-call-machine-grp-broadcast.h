@@ -63,28 +63,28 @@ class McpttCallMachineGrpBroadcast : public McpttCallMachineGrp
      * Gets the type ID of the McpttCallMachineGrpBroadcast class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMachineGrpBroadcast class.
      * \param owner The owner of the call machine.
      */
-    McpttCallMachineGrpBroadcast(Ptr<McpttCall> owner = 0);
+    McpttCallMachineGrpBroadcast(Ptr<McpttCall> owner = nullptr);
     /**
      * \brief The destructor of the McpttCallMachineGrpBroadcast class.
      */
-    virtual ~McpttCallMachineGrpBroadcast(void);
+    ~McpttCallMachineGrpBroadcast() override;
     /**
      * Accepts the call.
      */
-    virtual void AcceptCall(void);
+    void AcceptCall() override;
     /**
      * Begins an emergency alert.
      */
-    virtual void BeginEmergAlert(void);
+    void BeginEmergAlert() override;
     /**
      * Cancels an emergency alert.
      */
-    virtual void CancelEmergAlert(void);
+    void CancelEmergAlert() override;
     /**
      * Changes the state of the state machine.
      * \param state The state to change to.
@@ -93,51 +93,51 @@ class McpttCallMachineGrpBroadcast : public McpttCallMachineGrp
     /**
      * Downgrades the call type.
      */
-    virtual void DowngradeCallType(void);
+    void DowngradeCallType() override;
     /**
      * Gets the ID of the user that started the call.
      * \returns The MCPTT user ID.
      */
-    virtual uint32_t GetCallerUserId(void) const;
+    uint32_t GetCallerUserId() const override;
     /**
      * Gets the type ID of this McpttCallMachineGrpBroadcast instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the ID of the current state.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetStateId(void) const;
+    McpttEntityId GetStateId() const override;
     /**
      * Initiates a call.
      */
-    virtual void InitiateCall(void);
+    void InitiateCall() override;
     /**
      * Indicates if the call is active.
      * \returns True, if the call is active.
      */
-    virtual bool IsCallOngoing(void) const;
+    bool IsCallOngoing() const override;
     /**
      * Indicates if the call control machine has been started.
      * \returns True, if the call control machine has been started, or false otherwise.
      */
-    virtual bool IsStarted(void) const;
+    virtual bool IsStarted() const;
     /**
      * Indicates if user acknowledgements are required.
      * \returns True, if user acknowledgements are required; otherwise, false.
      */
-    virtual bool IsUserAckReq(void) const;
+    virtual bool IsUserAckReq() const;
     /**
      * Receives a call control message.
      * \param msg The message to receive.
      */
-    virtual void Receive(const McpttCallMsg& msg);
+    void Receive(const McpttCallMsg& msg) override;
     /**
      * Receives a media message.
      * \param msg The message to receive.
      */
-    virtual void Receive(const McpttMediaMsg& msg);
+    void Receive(const McpttMediaMsg& msg) override;
     /**
      * Receives a "GROUP CALL BROADCAST" message.
      * \param msg The message to receive.
@@ -151,11 +151,11 @@ class McpttCallMachineGrpBroadcast : public McpttCallMachineGrp
     /**
      * Releases the call.
      */
-    virtual void ReleaseCall(void);
+    void ReleaseCall() override;
     /**
      * Rejects the call.
      */
-    virtual void RejectCall(void);
+    void RejectCall() override;
     /**
      * \brief Report an event to the McpttPttApp.
      * \param reason the reason to report.
@@ -165,7 +165,7 @@ class McpttCallMachineGrpBroadcast : public McpttCallMachineGrp
      * Sends a call control message.
      * \param msg The message to send.
      */
-    virtual void Send(const McpttCallMsg& msg);
+    void Send(const McpttCallMsg& msg) override;
     /**
      * Sets the delay for timer TFB1.
      * \param delayTfb1 The delay to use.
@@ -185,15 +185,15 @@ class McpttCallMachineGrpBroadcast : public McpttCallMachineGrp
      * Sets the group ID.
      * \param grpId The group ID.
      */
-    virtual void SetGrpId(uint32_t grpId);
+    void SetGrpId(uint32_t grpId) override;
     /**
      * Starts the state machine.
      */
-    virtual void Start(void);
+    void Start() override;
     /**
      * Stops the state machine.
      */
-    virtual void Stop(void);
+    void Stop() override;
     /**
      * Takes a new call notification.
      * \param callId The ID of the new call.
@@ -203,30 +203,30 @@ class McpttCallMachineGrpBroadcast : public McpttCallMachineGrp
      * Upgrades the call type.
      * \param callType The call type value.
      */
-    virtual void UpgradeCallType(uint8_t callType);
+    void UpgradeCallType(uint8_t callType) override;
 
   protected:
     /**
      * Disposes of the McpttCallMachineGrpBroadcast.
      */
-    virtual void DoDispose(void);
+    void DoDispose() override;
     /**
      * Expiry of TFB1.
      */
-    virtual void ExpiryOfTfb1(void);
+    virtual void ExpiryOfTfb1();
     /**
      * Expiry of TFB2.
      */
-    virtual void ExpiryOfTfb2(void);
+    virtual void ExpiryOfTfb2();
     /**
      * Expiry of TFB3.
      */
-    virtual void ExpiryOfTfb3(void);
+    virtual void ExpiryOfTfb3();
     /**
      * Gets the flag that indicates if the call machine has been started.
      * \returns The flag.
      */
-    virtual bool GetStarted(void) const;
+    virtual bool GetStarted() const;
     /**
      * Sets the flag that indicates if the call machine has been started.
      * \param started The flag.
@@ -264,67 +264,67 @@ class McpttCallMachineGrpBroadcast : public McpttCallMachineGrp
      * Gets the ID of the MCPTT call.
      * \returns The ID.
      */
-    virtual McpttCallMsgFieldCallId GetCallId(void) const;
+    McpttCallMsgFieldCallId GetCallId() const override;
     /**
      * Gets the current call type.
      * \returns The call type.
      */
-    virtual McpttCallMsgFieldCallType GetCallType(void) const;
+    McpttCallMsgFieldCallType GetCallType() const override;
     /**
      * Gets the ID of the MCPTT group.
      * \returns The ID of the MCPTT group.
      */
-    virtual McpttCallMsgFieldGrpId GetGrpId(void) const;
+    McpttCallMsgFieldGrpId GetGrpId() const override;
     /**
      * Gets the ID of the MCPTT user that the call originated from.
      * \returns The ID of the MCPTT user.
      */
-    virtual McpttCallMsgFieldUserId GetOrigId(void) const;
+    virtual McpttCallMsgFieldUserId GetOrigId() const;
     /**
      * Gets the McpttCall associated with the call machine.
      * \returns The call.
      */
-    virtual Ptr<McpttCall> GetCall(void) const;
+    Ptr<McpttCall> GetCall() const override;
     /**
      * Gets the ProSe per-packet priority.
      * \returns The ProSe per-packet priority.
      */
-    virtual uint8_t GetPriority(void) const;
+    virtual uint8_t GetPriority() const;
     /**
      * Generate and return a randomly generated call ID
      * \returns The random call ID generated.
      */
-    virtual uint16_t GenerateRandomCallId(void) const;
+    virtual uint16_t GenerateRandomCallId() const;
     /**
      * Gets the SDP information.
      * \returns The SDP information.
      */
-    virtual McpttCallMsgFieldSdp GetSdp(void) const;
+    virtual McpttCallMsgFieldSdp GetSdp() const;
     /**
      * Gets the state.
      * \returns The state.
      */
-    virtual Ptr<McpttCallMachineGrpBroadcastState> GetState(void) const;
+    virtual Ptr<McpttCallMachineGrpBroadcastState> GetState() const;
     /**
      * Gets the timer TFB1.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetTfb1(void) const;
+    virtual Ptr<McpttTimer> GetTfb1() const;
     /**
      * Gets the timer TFB2.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetTfb2(void) const;
+    virtual Ptr<McpttTimer> GetTfb2() const;
     /**
      * Gets the timer TFB3.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetTfb3(void) const;
+    virtual Ptr<McpttTimer> GetTfb3() const;
     /**
      * Sets the ID of the MCPTT call.
      * \param callId The ID of the MCPTT call.
      */
-    virtual void SetCallId(const McpttCallMsgFieldCallId& callId);
+    void SetCallId(const McpttCallMsgFieldCallId& callId) override;
     /**
      * Sets the current call type.
      * \param callType The current call type.
@@ -339,7 +339,7 @@ class McpttCallMachineGrpBroadcast : public McpttCallMachineGrp
      * Sets the callback used to notify a new call.
      * \param newCallCb The callback to set
      */
-    virtual void SetNewCallCb(const Callback<void, uint16_t> newCallCb);
+    void SetNewCallCb(const Callback<void, uint16_t> newCallCb) override;
     /**
      * Sets the ID of the MCPTT user that the call orignated from.
      * \param origId The ID of the MCPTT user.
@@ -349,7 +349,7 @@ class McpttCallMachineGrpBroadcast : public McpttCallMachineGrp
      * Sets the McpttCall associated with the call machine.
      * \param call The call.
      */
-    virtual void SetCall(Ptr<McpttCall> call);
+    void SetCall(Ptr<McpttCall> call) override;
     /**
      * Sets the ProSe per-packet priority.
      * \param priority The ProSe per-packet priority.

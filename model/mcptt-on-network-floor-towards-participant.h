@@ -68,15 +68,15 @@ class McpttOnNetworkFloorTowardsParticipant : public Object, public McpttFloorMs
      * \brief Gets the ID of the McpttOnNetworkFloorTowardsParticipant type.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * \brief Creates an instance of the McpttOnNetworkFloorTowardsParticipant class.
      */
-    McpttOnNetworkFloorTowardsParticipant(void);
+    McpttOnNetworkFloorTowardsParticipant();
     /**
      * \brief The destructor of the McpttOnNetworkFloorTowardsParticipant class.
      */
-    virtual ~McpttOnNetworkFloorTowardsParticipant(void);
+    ~McpttOnNetworkFloorTowardsParticipant() override;
     /**
      * Notifies the floor towards participant machine that the call has been initiated.
      * \param implicitRequest whether the floor is taken by an implicit request
@@ -85,15 +85,15 @@ class McpttOnNetworkFloorTowardsParticipant : public Object, public McpttFloorMs
     /**
      * Notifies the floor machine that the call has been released (part I).
      */
-    virtual void CallRelease1(void);
+    virtual void CallRelease1();
     /**
      * Notifies the floor machine that the call has been released (part II).
      */
-    virtual void CallRelease2(void);
+    virtual void CallRelease2();
     /**
      * Notifies the floor machine that the client has been released.
      */
-    virtual void ClientRelease(void);
+    virtual void ClientRelease();
     /**
      * Changes the state of the floor machine.
      * \param state The state to change to.
@@ -108,84 +108,84 @@ class McpttOnNetworkFloorTowardsParticipant : public Object, public McpttFloorMs
      * Gets the type ID of this McpttOnNetworkFloorTowardsParticipant instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the ID of the state.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetStateId(void) const;
+    virtual McpttEntityId GetStateId() const;
     /**
      * Indicates whether or not the associated participant is listening to two sources.
      * \returns True, if the associated participant is listening to two sources; otherwise, false.
      */
-    virtual bool IsDualFloor(void) const;
+    virtual bool IsDualFloor() const;
     /**
      * Indicates if the SDP offer included the "mc_implicit_request" fmtp attribute.
      * \returns True, if the attribute was included; otherwise, false.
      */
-    virtual bool IsImplicitRequest(void) const;
+    virtual bool IsImplicitRequest() const;
     /**
      * Indicates if the floor arbitrator supports queueing of floor control requests.
      * Whether the SDP offer included the "mc_queueing" fmtp attribute is not considered
      * by the current model; it is assumed to be supported by participants.
      * \returns True, if the queueing is supported; otherwise, false.
      */
-    virtual bool IsQueueing(void) const;
+    virtual bool IsQueueing() const;
     /**
      * Indicates whether or not the associated floor participant is the originator.
      * \returns True, if the associated participant is the originator.
      */
-    virtual bool IsOriginator(void) const;
+    virtual bool IsOriginator() const;
     /**
      * Indicates if the associated participant is overridden without revoke.
      * \returns True, if the associated participant is overridden without revoke; othwerwise, false.
      */
-    virtual bool IsOverridden(void) const;
+    virtual bool IsOverridden() const;
     /**
      * Indicates if the associated participant is overriding without revoke.
      * \returns True, if the associated participant is overriding without revoke; othwerwise, false.
      */
-    virtual bool IsOverriding(void) const;
+    virtual bool IsOverriding() const;
     /**
      * Indicates if the associated participant is "receive only".
      * \returns True, if the associated participant is "receive only".
      */
-    virtual bool IsReceiveOnly(void) const;
+    virtual bool IsReceiveOnly() const;
     /**
      * Indicates whether or not the floor machine has been started.
      * \returns True, if the floor machine has been started.
      */
-    virtual bool IsStarted(void) const;
+    virtual bool IsStarted() const;
     /**
      * \brief Receives a message.
      * \param msg The message that was received.
      */
-    virtual void Receive(const McpttFloorMsg& msg);
+    void Receive(const McpttFloorMsg& msg) override;
     /**
      * \brief Receives a message.
      * \param msg The message that was received.
      */
-    virtual void Receive(const McpttMediaMsg& msg);
+    void Receive(const McpttMediaMsg& msg) override;
     /**
      * Receives Floor Queue Position Request message.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorQueuePositionRequest(const McpttFloorMsgQueuePositionRequest& msg);
+    void ReceiveFloorQueuePositionRequest(const McpttFloorMsgQueuePositionRequest& msg) override;
     /**
      * Receives a floor release message.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorRelease(const McpttFloorMsgRelease& msg);
+    void ReceiveFloorRelease(const McpttFloorMsgRelease& msg) override;
     /**
      * Receives a floor request message.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorRequest(const McpttFloorMsgRequest& msg);
+    void ReceiveFloorRequest(const McpttFloorMsgRequest& msg) override;
     /**
      * Receives an RTP media message.
      * \param msg The received message.
      */
-    virtual void ReceiveMedia(const McpttMediaMsg& msg);
+    void ReceiveMedia(const McpttMediaMsg& msg) override;
     /**
      * Sends an MCPTT message.
      * \param msg The message to send.
@@ -194,7 +194,7 @@ class McpttOnNetworkFloorTowardsParticipant : public Object, public McpttFloorMs
     /**
      * Indicates to the floor control server to terminate.
      */
-    virtual void Terminate(void);
+    virtual void Terminate();
     /**
      * Sets the delay for timer T8.
      * \param delayT8 The delay to use.
@@ -203,21 +203,21 @@ class McpttOnNetworkFloorTowardsParticipant : public Object, public McpttFloorMs
     /**
      * Starts the FSM.
      */
-    virtual void Start(void);
+    virtual void Start();
     /**
      * Stops the FSM.
      */
-    virtual void Stop(void);
+    virtual void Stop();
 
   protected:
     /**
      * \brief Disposes of the McpttFloorMachine.
      */
-    virtual void DoDispose(void);
+    void DoDispose() override;
     /**
      * Notifies the floor machine that timer T8 has expired.
      */
-    virtual void ExpiryOfT8(void);
+    virtual void ExpiryOfT8();
     /**
      * Handles the received floor control packet.
      * \param pkt The packet that was received.
@@ -316,62 +316,62 @@ class McpttOnNetworkFloorTowardsParticipant : public Object, public McpttFloorMs
      * Gets the channel to use for floor control messages.
      * \returns The channel.
      */
-    virtual Ptr<McpttChannel> GetFloorChannel(void) const;
+    virtual Ptr<McpttChannel> GetFloorChannel() const;
     /**
      * Gets the port to use for the floor control channel.
      * \returns The port number.
      */
-    virtual uint16_t GetFloorPort(void) const;
+    virtual uint16_t GetFloorPort() const;
     /**
      * Gets the channel to use for floor control messages.
      * \returns The channel.
      */
-    virtual Ptr<McpttChannel> GetMediaChannel(void) const;
+    virtual Ptr<McpttChannel> GetMediaChannel() const;
     /**
      * Gets the port to use for the media channel.
      * \returns The port number.
      */
-    virtual uint16_t GetMediaPort(void) const;
+    virtual uint16_t GetMediaPort() const;
     /**
      * Gets the owner of the state machine.
      * \returns The owner.
      */
-    virtual Ptr<McpttOnNetworkFloorArbitrator> GetOwner(void) const;
+    virtual Ptr<McpttOnNetworkFloorArbitrator> GetOwner() const;
     /**
      * Gets the peer address.
      * \returns The peer address.
      */
-    virtual Address GetPeerAddress(void) const;
+    virtual Address GetPeerAddress() const;
     /**
      * Gets the peer user ID
      * \returns The peer user ID
      */
-    virtual uint32_t GetPeerUserId(void) const;
+    virtual uint32_t GetPeerUserId() const;
     /**
      * Gets the floor revoke message to retransmit.
      * \returns The revoke message.
      */
-    virtual McpttFloorMsgRevoke GetRevokeMsg(void) const;
+    virtual McpttFloorMsgRevoke GetRevokeMsg() const;
     /**
      * Gets the SSRC of the participant who currently has permission to send media.
      * \returns The SSRC.
      */
-    virtual uint32_t GetStoredSsrc(void) const;
+    virtual uint32_t GetStoredSsrc() const;
     /**
      * Gets the stored of the state machine.
      * \returns The stored priority.
      */
-    virtual uint8_t GetStoredPriority(void) const;
+    virtual uint8_t GetStoredPriority() const;
     /**
      * Gets the track info field.
      * \returns The track info field.
      */
-    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo(void) const;
+    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo() const;
     /**
      * Gets the timer T8.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetT8(void) const;
+    virtual Ptr<McpttTimer> GetT8() const;
     /**
      * Sets the flag that indicates if the associated participant is listening to two sources.
      * \param dualFloor true if listening to two sources

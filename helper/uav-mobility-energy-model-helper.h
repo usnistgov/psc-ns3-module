@@ -57,7 +57,7 @@ namespace psc
 class UavMobilityEnergyModelHelper
 {
   public:
-    UavMobilityEnergyModelHelper(void);
+    UavMobilityEnergyModelHelper();
 
     /**
      * Sets one of the attributes of underlying UavMobilityEnergyModel

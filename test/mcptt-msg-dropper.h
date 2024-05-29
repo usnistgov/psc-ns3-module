@@ -46,22 +46,22 @@ namespace tests
 class McpttMsgDropper : public SimpleRefCount<McpttMsgDropper>
 {
   public:
-    McpttMsgDropper(void);
-    virtual ~McpttMsgDropper(void);
+    McpttMsgDropper();
+    virtual ~McpttMsgDropper();
     virtual bool ShouldDropMsg(const McpttMsg& msg) = 0;
 };
 
 class McpttMsgDropperImpl : public McpttMsgDropper
 {
   public:
-    McpttMsgDropperImpl(void);
+    McpttMsgDropperImpl();
     McpttMsgDropperImpl(const uint32_t& limit, const TypeId& msgTypeId);
-    virtual ~McpttMsgDropperImpl(void);
-    virtual bool ShouldDropMsg(const McpttMsg& msg);
+    ~McpttMsgDropperImpl() override;
+    bool ShouldDropMsg(const McpttMsg& msg) override;
 
   protected:
     virtual void IncrementReceived(const uint32_t& amount = 1);
-    virtual bool IsLimitReached(void) const;
+    virtual bool IsLimitReached() const;
 
   private:
     uint32_t m_limit;
@@ -69,9 +69,9 @@ class McpttMsgDropperImpl : public McpttMsgDropper
     uint32_t m_received;
 
   protected:
-    virtual uint32_t GetLimit(void) const;
-    virtual TypeId GetMsgTypeId(void) const;
-    virtual uint32_t GetReceived(void) const;
+    virtual uint32_t GetLimit() const;
+    virtual TypeId GetMsgTypeId() const;
+    virtual uint32_t GetReceived() const;
     virtual void SetLimit(const uint32_t& limit);
     virtual void SetMsgTypeId(const TypeId& msgTypeId);
     virtual void SetReceived(const uint32_t& receieved);

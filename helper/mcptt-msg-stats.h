@@ -57,15 +57,15 @@ class McpttMsgStats : public Object
      * Gets the type ID of the McpttMsgStats class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttMsgStats class.
      */
-    McpttMsgStats(void);
+    McpttMsgStats();
     /**
      * \brief The destructor of the McpttMsgStats class.
      */
-    virtual ~McpttMsgStats(void);
+    ~McpttMsgStats() override;
     /**
      * The sink function for tracing the received messages.
      * \param app The app.

@@ -64,16 +64,16 @@ class McpttCallTypeMachinePrivate : public McpttCallTypeMachine
      * Gets the type ID of the McpttCallTypeMachinePrivate class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallTypeMachinePrivate class.
      * \param owner The owner of this machine.
      */
-    McpttCallTypeMachinePrivate(Ptr<McpttCallMachinePrivate> owner = 0);
+    McpttCallTypeMachinePrivate(Ptr<McpttCallMachinePrivate> owner = nullptr);
     /**
      * \brief The destructor of the McpttCallTypeMachinePrivate class.
      */
-    virtual ~McpttCallTypeMachinePrivate(void);
+    ~McpttCallTypeMachinePrivate() override;
     /**
      * Changes the state of the call machine.
      * \param state The state to change to.
@@ -82,38 +82,38 @@ class McpttCallTypeMachinePrivate : public McpttCallTypeMachine
     /**
      * Downgrade the current call type.
      */
-    virtual void Downgrade(void);
+    virtual void Downgrade();
     /**
      * The timer Tfp1 expired.
      */
-    virtual void ExpiryOfTfp1(void);
+    virtual void ExpiryOfTfp1();
     /**
      * The timer Tfp6 expired.
      */
-    virtual void ExpiryOfTfp6(void);
+    virtual void ExpiryOfTfp6();
     /**
      * The timer Tfp8 expired.
      */
-    virtual void ExpiryOfTfp8(void);
+    virtual void ExpiryOfTfp8();
     /**
      * Gets the type ID of this McpttCallTypeMachinePrivate instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the ID of the current state.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetStateId(void) const;
+    McpttEntityId GetStateId() const override;
     /**
      * Initiate a private call.
      */
-    virtual void InitiateCall(void);
+    virtual void InitiateCall();
     /**
      * Indicates if the call type machine has been started.
      * \returns True, if the call type machine has been started, otherwise false.
      */
-    virtual bool IsStarted(void) const;
+    bool IsStarted() const override;
     /**
      * Reception of a "PRIVATE CALL ACCEPT" message.
      * \param msg The received message.
@@ -152,7 +152,7 @@ class McpttCallTypeMachinePrivate : public McpttCallTypeMachine
     /**
      * Release a group call.
      */
-    virtual void ReleaseCall(void);
+    virtual void ReleaseCall();
     /**
      * Sends a call control message.
      * \param msg The message to send.
@@ -161,11 +161,11 @@ class McpttCallTypeMachinePrivate : public McpttCallTypeMachine
     /**
      * Starts the call type machine.
      */
-    virtual void Start(void);
+    void Start() override;
     /**
      * Stops the call type machine.
      */
-    virtual void Stop(void);
+    void Stop() override;
     /**
      * Upgrade the current call type.
      * \param callType The call type to upgrade to.
@@ -176,7 +176,7 @@ class McpttCallTypeMachinePrivate : public McpttCallTypeMachine
     /**
      * Disposes of the McpttCallTypeMachinePrivate.
      */
-    virtual void DoDispose(void);
+    void DoDispose() override;
 
   private:
     McpttCallMsgFieldCallType m_callType; //!< The current call type.
@@ -208,37 +208,37 @@ class McpttCallTypeMachinePrivate : public McpttCallTypeMachine
      * Gets the current call type.
      * \returns The call type.
      */
-    virtual McpttCallMsgFieldCallType GetCallType(void) const;
+    McpttCallMsgFieldCallType GetCallType() const override;
     /**
      * Gets the owner of this call type machine.
      * \returns The owner.
      */
-    virtual Ptr<McpttCallMachinePrivate> GetOwner(void) const;
+    virtual Ptr<McpttCallMachinePrivate> GetOwner() const;
     /**
      * Gets the ProSe per-packet priority.
      * \returns The ProSe per-packet priority.
      */
-    virtual uint8_t GetPriority(void) const;
+    uint8_t GetPriority() const override;
     /**
      * Gets the flag that indicates if the call type machine has been started.
      * \returns The flag.
      */
-    virtual bool GetStarted(void) const;
+    virtual bool GetStarted() const;
     /**
      * Gets the current state of the call machine.
      * \returns The current state.
      */
-    virtual Ptr<McpttCallTypeMachinePrivateState> GetState(void) const;
+    virtual Ptr<McpttCallTypeMachinePrivateState> GetState() const;
     /**
      * Sets the downgrade callback.
      * \param downgradeCb The downgrade callback.
      */
-    virtual void SetDowngradeCb(const Callback<void> downgradeCb);
+    void SetDowngradeCb(const Callback<void> downgradeCb) override;
     /**
      * Sets the current call type.
      * \param callType The current call type.
      */
-    virtual void SetCallType(const McpttCallMsgFieldCallType& callType);
+    void SetCallType(const McpttCallMsgFieldCallType& callType) override;
     /**
      * Sets the owner of this call type machine.
      * \param owner The owner.
@@ -248,7 +248,7 @@ class McpttCallTypeMachinePrivate : public McpttCallTypeMachine
      * Sets the ProSe per-packet priority.
      * \param priority The ProSe per-packet priority.
      */
-    virtual void SetPriority(uint8_t priority);
+    void SetPriority(uint8_t priority) override;
     /**
      * Sets the flag that indicates if the call type machine has been started.
      * \param started The flag.
@@ -263,7 +263,7 @@ class McpttCallTypeMachinePrivate : public McpttCallTypeMachine
      * Sets the upgrade callback.
      * \param upgradeCb The upgrade callback.
      */
-    virtual void SetUpgradeCb(const Callback<void, uint8_t> upgradeCb);
+    void SetUpgradeCb(const Callback<void, uint8_t> upgradeCb) override;
 };
 
 } // namespace psc

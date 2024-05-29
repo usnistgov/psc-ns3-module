@@ -62,34 +62,34 @@ class McpttEmergAlertMachine : public Object
      * Gets the type ID of the McpttEmergAlertMachine class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the  class.
      */
-    McpttEmergAlertMachine(void);
+    McpttEmergAlertMachine();
     /**
      * \brief The destructor of the McpttEmergAlertMachine class.
      */
-    virtual ~McpttEmergAlertMachine(void);
+    ~McpttEmergAlertMachine() override;
     /**
      * Indicates that the emergency alert should be canceled.
      */
-    virtual void CancelEmergAlert(void) = 0;
+    virtual void CancelEmergAlert() = 0;
     /**
      * Gets the type ID of this McpttEmergAlertMachine instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Indicates if the machine is in the emergency state.
      * \returns True, if the machine is in the emergency state; otherwise, false.
      */
-    virtual bool IsInEmergState(void) const = 0;
+    virtual bool IsInEmergState() const = 0;
     /**
      * Indicates if the machine has been started.
      * \returns True, if the machine has been started; false, otherwise.
      */
-    virtual bool IsStarted(void) const = 0;
+    virtual bool IsStarted() const = 0;
     /**
      * Receive a "GROUP EMERGENCY ALERT" message.
      * \param msg The message.
@@ -103,15 +103,15 @@ class McpttEmergAlertMachine : public Object
     /**
      * Indicates to the machine that an emergency alert should be sent.
      */
-    virtual void SendEmergAlert(void) = 0;
+    virtual void SendEmergAlert() = 0;
     /**
      * Starts the emergency alert machine.
      */
-    virtual void Start(void) = 0;
+    virtual void Start() = 0;
     /**
      * Stops the emergency alert machine.
      */
-    virtual void Stop(void) = 0;
+    virtual void Stop() = 0;
 };
 
 /**
@@ -126,56 +126,56 @@ class McpttEmergAlertMachineNull : public McpttEmergAlertMachine
      * Gets the type ID of the McpttEmergAlertMachineNull class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the  class.
      */
-    McpttEmergAlertMachineNull(void);
+    McpttEmergAlertMachineNull();
     /**
      * \brief The destructor of the McpttEmergAlertMachineNull class.
      */
-    virtual ~McpttEmergAlertMachineNull(void);
+    ~McpttEmergAlertMachineNull() override;
     /**
      * Indicates that the emergency alert should be canceled.
      */
-    virtual void CancelEmergAlert(void);
+    void CancelEmergAlert() override;
     /**
      * Gets the type ID of this McpttEmergAlertMachineNull instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Indicates if the machine is in the emergency state.
      * \returns True, if the machine is in the emergency state; otherwise, false.
      */
-    virtual bool IsInEmergState(void) const;
+    bool IsInEmergState() const override;
     /**
      * Indicates if the machine has been started.
      * \returns True, if the machine has been started; false, otherwise.
      */
-    virtual bool IsStarted(void) const;
+    bool IsStarted() const override;
     /**
      * Receive a "GROUP EMERGENCY ALERT" message.
      * \param msg The message.
      */
-    virtual void ReceiveGrpCallEmergAlert(const McpttCallMsgGrpEmergAlert& msg);
+    void ReceiveGrpCallEmergAlert(const McpttCallMsgGrpEmergAlert& msg) override;
     /**
      * Receive a "GROUP EMERGENCY ALERT CANCEL" message.
      * \param msg The message.
      */
-    virtual void ReceiveGrpCallEmergAlertCancel(const McpttCallMsgGrpEmergAlertCancel& msg);
+    void ReceiveGrpCallEmergAlertCancel(const McpttCallMsgGrpEmergAlertCancel& msg) override;
     /**
      * Indicates to the machine that an emergency alert should be sent.
      */
-    virtual void SendEmergAlert(void);
+    void SendEmergAlert() override;
     /**
      * Starts the emergency alert machine.
      */
-    virtual void Start(void);
+    void Start() override;
     /**
      * Stops the emergency alert machine.
      */
-    virtual void Stop(void);
+    void Stop() override;
 };
 
 } // namespace psc

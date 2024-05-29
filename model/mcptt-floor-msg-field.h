@@ -92,11 +92,11 @@ class McpttFloorMsgField : public ObjectBase
      * Gets the type ID of the McpttFloorMsgField class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgField class.
      */
-    McpttFloorMsgField(void);
+    McpttFloorMsgField();
     /**
      * Creates an instance of the McpttFloorMsgField class.
      * \param id The field ID.
@@ -106,7 +106,7 @@ class McpttFloorMsgField : public ObjectBase
     /**
      * The destructor of the McpttFloorMsgField class.
      */
-    virtual ~McpttFloorMsgField(void);
+    ~McpttFloorMsgField() override;
     /**
      * Reads the contents of the field from the byte stream.
      * \param buff The buffer to read from.
@@ -117,12 +117,12 @@ class McpttFloorMsgField : public ObjectBase
      * Get the most derived TypeId for this Object.
      * \returns The TypeId associated to the most-derived type of this instance.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the field when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    virtual uint32_t GetSerializedSize() const;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
@@ -143,12 +143,12 @@ class McpttFloorMsgField : public ObjectBase
      * Gets the ID of the field.
      * \returns The ID.
      */
-    virtual uint8_t GetId(void) const;
+    virtual uint8_t GetId() const;
     /**
      * Gets the length (in octets) of the field.
      * \returns The length (in octets).
      */
-    virtual uint8_t GetLength(void) const;
+    virtual uint8_t GetLength() const;
 
   protected:
     /**
@@ -198,11 +198,11 @@ class McpttFloorMsgFieldPriority : public McpttFloorMsgField
      * Gets the type ID of the McpttFloorMsgFieldPriority class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgFieldPriority class.
      */
-    McpttFloorMsgFieldPriority(void);
+    McpttFloorMsgFieldPriority();
     /**
      * Creates an instance of the McpttFloorMsgFieldPriority class.
      * \param priority The priority value.
@@ -211,28 +211,28 @@ class McpttFloorMsgFieldPriority : public McpttFloorMsgField
     /**
      * The destructor of the McpttFloorMsgFieldPriority class.
      */
-    virtual ~McpttFloorMsgFieldPriority(void);
+    ~McpttFloorMsgFieldPriority() override;
     /**
      * Reads the contents of the field from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t Deserialize(Buffer::Iterator& buff);
+    uint32_t Deserialize(Buffer::Iterator& buff) override;
     /**
      * Get the most derived TypeId for this Object.
      * \returns The TypeId associated to the most-derived type of this instance.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the contents of the field to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void Serialize(Buffer::Iterator& buff) const;
+    void Serialize(Buffer::Iterator& buff) const override;
 
   private:
     uint8_t m_priority; //!< The priority value.
@@ -242,7 +242,7 @@ class McpttFloorMsgFieldPriority : public McpttFloorMsgField
      * Gets the floor priority value.
      * \returns The priority value.
      */
-    virtual uint8_t GetPriority(void) const;
+    virtual uint8_t GetPriority() const;
     /**
      * Sets the floor priority value.
      * \param priority The priority value.
@@ -272,11 +272,11 @@ class McpttFloorMsgFieldDuration : public McpttFloorMsgField
      * Gets the type ID of the McpttFloorMsgFieldDuration class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgFieldDuration class.
      */
-    McpttFloorMsgFieldDuration(void);
+    McpttFloorMsgFieldDuration();
     /**
      * Creates an instance of the McpttFloorMsgFieldDuration class.
      * \param duration The duration (in seconds).
@@ -285,28 +285,28 @@ class McpttFloorMsgFieldDuration : public McpttFloorMsgField
     /**
      * The destructor of the McpttFloorMsgFieldDuration class.
      */
-    virtual ~McpttFloorMsgFieldDuration(void);
+    ~McpttFloorMsgFieldDuration() override;
     /**
      * Reads the contents of the field from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t Deserialize(Buffer::Iterator& buff);
+    uint32_t Deserialize(Buffer::Iterator& buff) override;
     /**
      * Gets the most derived TypeId for this Object.
      * \returns The TypeId associated to the most-derived type of this instance.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the contents of the field to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void Serialize(Buffer::Iterator& buff) const;
+    void Serialize(Buffer::Iterator& buff) const override;
 
   private:
     uint16_t m_duration; //!< The duration (in seconds).
@@ -316,7 +316,7 @@ class McpttFloorMsgFieldDuration : public McpttFloorMsgField
      * Gets the duration value (in seconds).
      * \returns The value (in seconds).
      */
-    virtual uint16_t GetDuration(void) const;
+    virtual uint16_t GetDuration() const;
     /**
      * Sets the duration value (in seconds).
      * \param duration The value (in seconds).
@@ -378,11 +378,11 @@ class McpttFloorMsgFieldRejectCause : public McpttFloorMsgField
      * Gets the type ID of the McpttFloorMsgFieldRejectCause class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgFieldRejectCause class.
      */
-    McpttFloorMsgFieldRejectCause(void);
+    McpttFloorMsgFieldRejectCause();
     /**
      * Creates an instance of the McpttFloorMsgFieldRejectCause class.
      * \param cause The reject cause value.
@@ -391,28 +391,28 @@ class McpttFloorMsgFieldRejectCause : public McpttFloorMsgField
     /**
      * The destructor of the McpttFloorMsgFieldRejectCause class.
      */
-    virtual ~McpttFloorMsgFieldRejectCause(void);
+    ~McpttFloorMsgFieldRejectCause() override;
     /**
      * Reads the contents of the field from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t Deserialize(Buffer::Iterator& buff);
+    uint32_t Deserialize(Buffer::Iterator& buff) override;
     /**
      * Gets the most derived TypeId for this Object.
      * \returns The TypeId associated to the most-derived type of this instance.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the contents of the field to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void Serialize(Buffer::Iterator& buff) const;
+    void Serialize(Buffer::Iterator& buff) const override;
 
   private:
     uint16_t m_cause; //!< The reject cause value.
@@ -422,7 +422,7 @@ class McpttFloorMsgFieldRejectCause : public McpttFloorMsgField
      * Gets the reject cause value.
      * \returns The reject cause value.
      */
-    virtual uint16_t GetCause(void) const;
+    virtual uint16_t GetCause() const;
     /**
      * Sets the reject cause value.
      * \param cause The reject cause value.
@@ -460,11 +460,11 @@ class McpttFloorMsgFieldQueuePositionInfo : public McpttFloorMsgField
      * Gets the type ID of the McpttFloorMsgFieldQueuePositionInfo class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgFieldQueuePositionInfo class.
      */
-    McpttFloorMsgFieldQueuePositionInfo(void);
+    McpttFloorMsgFieldQueuePositionInfo();
     /**
      * Creates an instance of the McpttFloorMsgFieldQueuePositionInfo class.
      * \param position The queue position value.
@@ -474,28 +474,28 @@ class McpttFloorMsgFieldQueuePositionInfo : public McpttFloorMsgField
     /**
      * The destructor of the McpttFloorMsgFieldQueuePositionInfo class.
      */
-    virtual ~McpttFloorMsgFieldQueuePositionInfo(void);
+    ~McpttFloorMsgFieldQueuePositionInfo() override;
     /**
      * Reads the contents of the field from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t Deserialize(Buffer::Iterator& buff);
+    uint32_t Deserialize(Buffer::Iterator& buff) override;
     /**
      * Gets the most derived TypeId for this Object.
      * \returns The TypeId associated to the most-derived type of this instance.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the contents of the field to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void Serialize(Buffer::Iterator& buff) const;
+    void Serialize(Buffer::Iterator& buff) const override;
 
   private:
     uint8_t m_position; //!< The queue position info value.
@@ -506,12 +506,12 @@ class McpttFloorMsgFieldQueuePositionInfo : public McpttFloorMsgField
      * Gets the queue position info value.
      * \returns The value.
      */
-    virtual uint8_t GetPosition(void) const;
+    virtual uint8_t GetPosition() const;
     /**
      * Gets the queue priority value.
      * \returns The priority value.
      */
-    virtual uint8_t GetPriority(void) const;
+    virtual uint8_t GetPriority() const;
     /**
      * Sets the queue position info value.
      * \param position The queue position info value.
@@ -554,11 +554,11 @@ class McpttFloorMsgFieldGrantedPartyId : public McpttFloorMsgField
      * Gets the type ID of the McpttGrandPartyIdentityField class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgFieldGrantedPartyId class.
      */
-    McpttFloorMsgFieldGrantedPartyId(void);
+    McpttFloorMsgFieldGrantedPartyId();
     /**
      * Creates an instance of the McpttFloorMsgFieldGrantedPartyId class.
      * \param partyId The granted party's identity value.
@@ -567,28 +567,28 @@ class McpttFloorMsgFieldGrantedPartyId : public McpttFloorMsgField
     /**
      * The destructor of the McpttGrantedPartyField class.
      */
-    virtual ~McpttFloorMsgFieldGrantedPartyId(void);
+    ~McpttFloorMsgFieldGrantedPartyId() override;
     /**
      * Reads the contents of the field from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t Deserialize(Buffer::Iterator& buff);
+    uint32_t Deserialize(Buffer::Iterator& buff) override;
     /**
      * Gets the most derived TypeId for this Object.
      * \returns The TypeId associated to the most-derived type of this instance.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the contents of the field to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void Serialize(Buffer::Iterator& buff) const;
+    void Serialize(Buffer::Iterator& buff) const override;
 
   private:
     uint32_t m_partyId; //!< The granted party's identity value.
@@ -598,7 +598,7 @@ class McpttFloorMsgFieldGrantedPartyId : public McpttFloorMsgField
      * Gets the granted party's identity value.
      * \returns The granted party's identity value.
      */
-    virtual uint32_t GetPartyId(void) const;
+    virtual uint32_t GetPartyId() const;
     /**
      * Sets the granted party's identity value.
      * \param partyId The granted party's identity value.
@@ -635,11 +635,11 @@ class McpttFloorMsgFieldPermToReq : public McpttFloorMsgField
      * Gets the type ID of the McpttFloorMsgFieldPermToReq class.
      * \returns The type Id.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgFieldPermToReq class.
      */
-    McpttFloorMsgFieldPermToReq(void);
+    McpttFloorMsgFieldPermToReq();
     /**
      * Creates an instance of the McpttFloorMsgFieldPermToReq class.
      * \param permission The permission to request the floor value.
@@ -648,28 +648,28 @@ class McpttFloorMsgFieldPermToReq : public McpttFloorMsgField
     /**
      * The destructor of the McpttFloorMsgFieldPermToReq class.
      */
-    virtual ~McpttFloorMsgFieldPermToReq(void);
+    ~McpttFloorMsgFieldPermToReq() override;
     /**
      * Reads the contents of the field from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t Deserialize(Buffer::Iterator& buff);
+    uint32_t Deserialize(Buffer::Iterator& buff) override;
     /**
      * Gets the most derived TypeId for this Object.
      * \returns The TypeId associated to the most-derived type of this instance.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the contents of the field to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void Serialize(Buffer::Iterator& buff) const;
+    void Serialize(Buffer::Iterator& buff) const override;
 
   private:
     uint16_t m_permission; //!< The permission to request the floor value.
@@ -679,7 +679,7 @@ class McpttFloorMsgFieldPermToReq : public McpttFloorMsgField
      * Gets the permission to request the floor value.
      * \returns The permission to request the floor value.
      */
-    virtual uint16_t GetPermission(void) const;
+    virtual uint16_t GetPermission() const;
     /**
      * Sets the permission to request the floor value.
      * \param permission The permission to request the floor value.
@@ -720,11 +720,11 @@ class McpttFloorMsgFieldUserId : public McpttFloorMsgField
      * Gets the type ID of the McpttFloorMsgFieldUserId class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgFieldUserId class.
      */
-    McpttFloorMsgFieldUserId(void);
+    McpttFloorMsgFieldUserId();
     /**
      * Creates an instance of the McpttFloorMsgFieldUserId class.
      * \param userId The user ID value.
@@ -733,28 +733,28 @@ class McpttFloorMsgFieldUserId : public McpttFloorMsgField
     /**
      * The destructor of the McpttFloorMsgFieldUserId class.
      */
-    virtual ~McpttFloorMsgFieldUserId(void);
+    ~McpttFloorMsgFieldUserId() override;
     /**
      * Reads the contents of the field from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t Deserialize(Buffer::Iterator& buff);
+    uint32_t Deserialize(Buffer::Iterator& buff) override;
     /**
      * Gets the most derived TypeId for this Object.
      * \returns The TypeId associated to the most-derived type of this instance.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the contents of the field to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void Serialize(Buffer::Iterator& buff) const;
+    void Serialize(Buffer::Iterator& buff) const override;
 
   protected:
     /**
@@ -773,7 +773,7 @@ class McpttFloorMsgFieldUserId : public McpttFloorMsgField
      * Gets the user ID value.
      * \returns The user ID value.
      */
-    virtual uint32_t GetUserId(void) const;
+    virtual uint32_t GetUserId() const;
     /**
      * Sets the user ID value.
      * \param userId The user ID value.
@@ -807,11 +807,11 @@ class McpttFloorMsgFieldQueueSize : public McpttFloorMsgField
      * Gets the type ID of the McpttFloorMsgFieldQueueSize class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgFieldQueueSize class.
      */
-    McpttFloorMsgFieldQueueSize(void);
+    McpttFloorMsgFieldQueueSize();
     /**
      * Creates an instance of the McpttFloorMsgFieldQueueSize class.
      * \param queueSize The queue size value.
@@ -820,28 +820,28 @@ class McpttFloorMsgFieldQueueSize : public McpttFloorMsgField
     /**
      * The destructor of the McpttFloorMsgFieldQueueSize class.
      */
-    virtual ~McpttFloorMsgFieldQueueSize(void);
+    ~McpttFloorMsgFieldQueueSize() override;
     /**
      * Reads the contents of the field from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t Deserialize(Buffer::Iterator& buff);
+    uint32_t Deserialize(Buffer::Iterator& buff) override;
     /**
      * Gets the most derived TypeId for this Object.
      * \returns The TypeId associated to the most-derived type of this instance.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the contents of the field to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void Serialize(Buffer::Iterator& buff) const;
+    void Serialize(Buffer::Iterator& buff) const override;
 
   private:
     uint16_t m_queueSize; //!< The queue size value.
@@ -851,7 +851,7 @@ class McpttFloorMsgFieldQueueSize : public McpttFloorMsgField
      * Gets the queue size value.
      * \returns The queue size value.
      */
-    virtual uint16_t GetQueueSize(void) const;
+    virtual uint16_t GetQueueSize() const;
     /**
      * Sets the queueSize value.
      * \param queueSize The queue size value.
@@ -888,11 +888,11 @@ class McpttFloorMsgFieldSeqNum : public McpttFloorMsgField
      * Gets the type ID of the McpttFloorMsgFieldSeqNum class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgFieldSeqNum class.
      */
-    McpttFloorMsgFieldSeqNum(void);
+    McpttFloorMsgFieldSeqNum();
     /**
      * Creates an instance of the McpttFloorMsgFieldSeqNum class.
      * \param seqNum The message sequence number value.
@@ -901,28 +901,28 @@ class McpttFloorMsgFieldSeqNum : public McpttFloorMsgField
     /**
      * The destructor of the McpttFloorMsgFieldSeqNum class.
      */
-    virtual ~McpttFloorMsgFieldSeqNum(void);
+    ~McpttFloorMsgFieldSeqNum() override;
     /**
      * Reads the contents of the field from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t Deserialize(Buffer::Iterator& buff);
+    uint32_t Deserialize(Buffer::Iterator& buff) override;
     /**
      * Gets the most derived TypeId for this Object.
      * \returns The TypeId associated to the most-derived type of this instance.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the contents of the field to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void Serialize(Buffer::Iterator& buff) const;
+    void Serialize(Buffer::Iterator& buff) const override;
 
   private:
     uint16_t m_seqNum; //!< The message sequence number value.
@@ -932,7 +932,7 @@ class McpttFloorMsgFieldSeqNum : public McpttFloorMsgField
      * Gets the message sequence number value.
      * \returns The message sequence number value.
      */
-    virtual uint16_t GetSeqNum(void) const;
+    virtual uint16_t GetSeqNum() const;
     /**
      * Sets the message sequence number value.
      * \param seqNum The message sequence number value.
@@ -970,11 +970,11 @@ class McpttFloorMsgFieldQueuedUserId : public McpttFloorMsgFieldUserId
      * Gets the type ID of the McpttFloorMsgFieldQueuedUserId class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgFieldQueuedUserId class.
      */
-    McpttFloorMsgFieldQueuedUserId(void);
+    McpttFloorMsgFieldQueuedUserId();
     /**
      * Creates an instance of the McpttFloorMsgFieldQueuedUserId class.
      * \param userId The queued user ID value.
@@ -983,28 +983,28 @@ class McpttFloorMsgFieldQueuedUserId : public McpttFloorMsgFieldUserId
     /**
      * The destructor of the McpttFloorMsgFieldQueuedUserId class.
      */
-    virtual ~McpttFloorMsgFieldQueuedUserId(void);
+    ~McpttFloorMsgFieldQueuedUserId() override;
     /**
      * Reads the contents of the field from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t Deserialize(Buffer::Iterator& buff);
+    uint32_t Deserialize(Buffer::Iterator& buff) override;
     /**
      * Gets the most derived TypeId for this Object.
      * \returns The TypeId associated to the most-derived type of this instance.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the contents of the field to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void Serialize(Buffer::Iterator& buff) const;
+    void Serialize(Buffer::Iterator& buff) const override;
 };
 
 /**
@@ -1041,11 +1041,11 @@ class McpttFloorMsgFieldSource : public McpttFloorMsgField
      * Gets the type Id of the McpttFloorMsgFieldSource class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgFieldSource class.
      */
-    McpttFloorMsgFieldSource(void);
+    McpttFloorMsgFieldSource();
     /**
      * Creates an instance of the McpttFloorMsgFieldSource class.
      * \param source The source value.
@@ -1054,28 +1054,28 @@ class McpttFloorMsgFieldSource : public McpttFloorMsgField
     /**
      * The destructor of the McpttFloorMsgFieldSource class.
      */
-    virtual ~McpttFloorMsgFieldSource(void);
+    ~McpttFloorMsgFieldSource() override;
     /**
      * Reads the contents of the field from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t Deserialize(Buffer::Iterator& buff);
+    uint32_t Deserialize(Buffer::Iterator& buff) override;
     /**
      * Gets the most derived TypeId for this Object.
      * \returns The TypeId associated to the most-derived type of this instance.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the contents of the field to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void Serialize(Buffer::Iterator& buff) const;
+    void Serialize(Buffer::Iterator& buff) const override;
 
   private:
     uint16_t m_source; //!< The source value.
@@ -1085,7 +1085,7 @@ class McpttFloorMsgFieldSource : public McpttFloorMsgField
      * Gets the source value.
      * \returns The source value.
      */
-    virtual uint16_t GetSource(void) const;
+    virtual uint16_t GetSource() const;
     /**
      * Sets the source value.
      * \param source The source value.
@@ -1140,11 +1140,11 @@ class McpttFloorMsgFieldTrackInfo : public McpttFloorMsgField
      * Gets the type ID of the McpttFloorMsgFieldTrackInfo class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgFieldTrackInfo class.
      */
-    McpttFloorMsgFieldTrackInfo(void);
+    McpttFloorMsgFieldTrackInfo();
     /**
      * Creates an instance of the McpttFloorMsgFieldTrackInfo class.
      * \param queueCap The queuing capability value.
@@ -1153,7 +1153,7 @@ class McpttFloorMsgFieldTrackInfo : public McpttFloorMsgField
     /**
      * The destructor of the McpttFloorMsgFieldTrackInfo class.
      */
-    virtual ~McpttFloorMsgFieldTrackInfo(void);
+    ~McpttFloorMsgFieldTrackInfo() override;
     /**
      * Adds a reference to the collection of floor participant references.
      * \param ref The reference to add.
@@ -1162,38 +1162,38 @@ class McpttFloorMsgFieldTrackInfo : public McpttFloorMsgField
     /**
      * Removes all floor participant references from the collection.
      */
-    virtual void ClearRefs(void);
+    virtual void ClearRefs();
     /**
      * Reads the contents of the field from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t Deserialize(Buffer::Iterator& buff);
+    uint32_t Deserialize(Buffer::Iterator& buff) override;
     /**
      * Gets the most derived TypeId for this Object.
      * \returns The TypeId associated to the most-derived type of this instance.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the participant type length value including the number of octets needed for padding.
      * \returns The participant type length with padding octets included.
      */
-    virtual uint8_t GetPtLengthWithPadding(void) const;
+    virtual uint8_t GetPtLengthWithPadding() const;
     /**
      * Gets the size (in bytes) of the field when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the contents of the field to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void Serialize(Buffer::Iterator& buff) const;
+    void Serialize(Buffer::Iterator& buff) const override;
     /**
      * Updates the participant type length value.
      * \param ptLength The updated value to use.
@@ -1210,17 +1210,17 @@ class McpttFloorMsgFieldTrackInfo : public McpttFloorMsgField
      * Gets the participant type length value.
      * \returns The participant type length value.
      */
-    virtual uint8_t GetPtLength(void) const;
+    virtual uint8_t GetPtLength() const;
     /**
      * Gets the queuing capability value.
      * \returns The queuing capability value.
      */
-    virtual uint8_t GetQueueCap(void) const;
+    virtual uint8_t GetQueueCap() const;
     /**
      * Gets the collection of floor participant references.
      * \returns The collection of floor participant references.
      */
-    virtual std::vector<uint32_t> GetRefs(void) const;
+    virtual std::vector<uint32_t> GetRefs() const;
     /**
      * Sets the queing capability value.
      * \param queueCap The queuing capability value.
@@ -1266,11 +1266,11 @@ class McpttFloorMsgFieldType : public McpttFloorMsgField
      * Gets the type ID of the McpttFloorMsgFieldType class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgFieldType class.
      */
-    McpttFloorMsgFieldType(void);
+    McpttFloorMsgFieldType();
     /**
      * Creates an instance of the McpttFloorMsgFieldType class.
      * \param msgType The message type value.
@@ -1279,28 +1279,28 @@ class McpttFloorMsgFieldType : public McpttFloorMsgField
     /**
      * The destructor of the McpttFloorMsgFieldType class.
      */
-    virtual ~McpttFloorMsgFieldType(void);
+    ~McpttFloorMsgFieldType() override;
     /**
      * Reads the contents of the field from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t Deserialize(Buffer::Iterator& buff);
+    uint32_t Deserialize(Buffer::Iterator& buff) override;
     /**
      * Gets the most derived TypeId for this Object.
      * \returns The TypeId associated to the most-derived type of this instance.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the contents of the field to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void Serialize(Buffer::Iterator& buff) const;
+    void Serialize(Buffer::Iterator& buff) const override;
 
   private:
     uint8_t m_msgType; //!< The message type value.
@@ -1310,7 +1310,7 @@ class McpttFloorMsgFieldType : public McpttFloorMsgField
      * Gets the message type value.
      * \returns The message type value.
      */
-    virtual uint8_t GetMsgType(void) const;
+    virtual uint8_t GetMsgType() const;
     /**
      * Sets the message type value.
      * \param msgType The message type value.
@@ -1367,26 +1367,26 @@ class McpttFloorMsgFieldIndic : public McpttFloorMsgField
      * Gets the type ID of the McpttFloorMsgFieldIndic class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgFieldIndic class.
      */
-    McpttFloorMsgFieldIndic(void);
+    McpttFloorMsgFieldIndic();
     /**
      * The destructor of the McpttFloorMsgFieldIndic class.
      */
-    virtual ~McpttFloorMsgFieldIndic(void);
+    ~McpttFloorMsgFieldIndic() override;
     /**
      * Reads the contents of the field from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t Deserialize(Buffer::Iterator& buff);
+    uint32_t Deserialize(Buffer::Iterator& buff) override;
     /**
      * Gets the most derived TypeId for this Object.
      * \returns The TypeId associated to the most-derived type of this instance.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Sets all bits in the given pattern to 1.
      * \param pattern The given pattern.
@@ -1402,12 +1402,12 @@ class McpttFloorMsgFieldIndic : public McpttFloorMsgField
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the contents of the field to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void Serialize(Buffer::Iterator& buff) const;
+    void Serialize(Buffer::Iterator& buff) const override;
     /**
      * Sets all bits in the given pattern to 0.
      * \param pattern The given pattern.
@@ -1422,7 +1422,7 @@ class McpttFloorMsgFieldIndic : public McpttFloorMsgField
      * Gets the floor indicator value.
      * \returns the floor indicator value.
      */
-    virtual uint16_t GetFlags(void) const;
+    virtual uint16_t GetFlags() const;
     /**
      * Sets the floor indicator value.
      * \param flags The floor indicator value.
@@ -1460,11 +1460,11 @@ class McpttFloorMsgFieldSsrc : public McpttFloorMsgField
      * Gets the type ID of the McpttFloorMsgFieldSsrc class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgFieldSsrc class.
      */
-    McpttFloorMsgFieldSsrc(void);
+    McpttFloorMsgFieldSsrc();
     /**
      * Creates an instance of the McpttFloorMsgFieldSsrc class.
      * \param ssrc The SSRC value.
@@ -1473,28 +1473,28 @@ class McpttFloorMsgFieldSsrc : public McpttFloorMsgField
     /**
      * The destructor of the McpttFloorMsgFieldSsrc class.
      */
-    virtual ~McpttFloorMsgFieldSsrc(void);
+    ~McpttFloorMsgFieldSsrc() override;
     /**
      * Reads the contents of the field from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t Deserialize(Buffer::Iterator& buff);
+    uint32_t Deserialize(Buffer::Iterator& buff) override;
     /**
      * Gets the most derived TypeId for this Object.
      * \returns The TypeId associated to the most-derived type of this instance.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the contents of the field to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void Serialize(Buffer::Iterator& buff) const;
+    void Serialize(Buffer::Iterator& buff) const override;
 
   protected:
     /**
@@ -1513,7 +1513,7 @@ class McpttFloorMsgFieldSsrc : public McpttFloorMsgField
      * Gets the SSRC value.
      * \returns The SSRC value.
      */
-    virtual uint32_t GetSsrc(void) const;
+    virtual uint32_t GetSsrc() const;
     /**
      * Sets the SSRC value.
      * \param ssrc The SSRC value.

@@ -92,7 +92,7 @@ class McpttOnNetworkFloorParticipantState
     /**
      * \brief The destructor of the McpttOnNetworkFloorParticipantState class.
      */
-    virtual ~McpttOnNetworkFloorParticipantState(void);
+    virtual ~McpttOnNetworkFloorParticipantState();
     /**
      * Accepts a grant.
      * \param machine The FSM.
@@ -147,7 +147,7 @@ class McpttOnNetworkFloorParticipantState
      * Gets the ID of the machine state.
      * \returns The ID of the state.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    virtual McpttEntityId GetInstanceStateId() const;
     /**
      * Indicates whether or not this machine state has the floor.
      * \param machine The FSM.
@@ -251,13 +251,13 @@ class McpttOnNetworkFloorParticipantState
      * GetInstanceStateId ().GetName ())
      * \returns The name of the state.
      */
-    virtual std::string GetName(void) const;
+    virtual std::string GetName() const;
 
   protected:
     /**
      * Creates an instance of the McpttOnNetworkFloorParticipantState class.
      */
-    McpttOnNetworkFloorParticipantState(void);
+    McpttOnNetworkFloorParticipantState();
 };
 
 /**
@@ -279,96 +279,96 @@ class McpttOnNetworkFloorParticipantStateStartStop : public McpttOnNetworkFloorP
      * Gets an instance of the McpttOnNetworkFloorParticipantStateStartStop.
      * \returns An instance.
      */
-    static Ptr<McpttOnNetworkFloorParticipantStateStartStop> GetInstance(void);
+    static Ptr<McpttOnNetworkFloorParticipantStateStartStop> GetInstance();
     /**
      * \brief Gets the ID of the state.
      * \returns The ID of the state.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * \brief Creates an instance of the McpttOnNetworkFloorParticipantStateStartStop class.
      */
-    McpttOnNetworkFloorParticipantStateStartStop(void);
+    McpttOnNetworkFloorParticipantStateStartStop();
     /**
      * \brief The destructor of the McpttOnNetworkFloorParticipantStateStartStop class.
      */
-    virtual ~McpttOnNetworkFloorParticipantStateStartStop(void);
+    ~McpttOnNetworkFloorParticipantStateStartStop() override;
     /**
      * Gets the ID of the machine state.
      * \returns The ID of the state.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    McpttEntityId GetInstanceStateId() const override;
     /**
      * Notifies this machine state that the button has been pushed.
      * \param machine The FSM.
      */
-    virtual void PttPush(McpttOnNetworkFloorParticipant& machine) const;
+    void PttPush(McpttOnNetworkFloorParticipant& machine) const override;
     /**
      * Notifies the floor machine state that the call was established.
      * \param machine The FSM.
      */
-    virtual void CallEstablished(McpttOnNetworkFloorParticipant& machine) const;
+    void CallEstablished(McpttOnNetworkFloorParticipant& machine) const override;
     /**
      * Notifies the floor machine state that the call was initiated.
      * \param machine The FSM.
      */
-    virtual void CallInitiated(McpttOnNetworkFloorParticipant& machine) const;
+    void CallInitiated(McpttOnNetworkFloorParticipant& machine) const override;
     /**
      * Receives a floor ack message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorAck(McpttOnNetworkFloorParticipant& machine,
-                                 const McpttFloorMsgAck& msg) const;
+    void ReceiveFloorAck(McpttOnNetworkFloorParticipant& machine,
+                                 const McpttFloorMsgAck& msg) const override;
     /**
      * Receives a floor deny message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorDeny(McpttOnNetworkFloorParticipant& machine,
-                                  const McpttFloorMsgDeny& msg) const;
+    void ReceiveFloorDeny(McpttOnNetworkFloorParticipant& machine,
+                                  const McpttFloorMsgDeny& msg) const override;
     /**
      * Receives a floor granted message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorGranted(McpttOnNetworkFloorParticipant& machine,
-                                     const McpttFloorMsgGranted& msg) const;
+    void ReceiveFloorGranted(McpttOnNetworkFloorParticipant& machine,
+                                     const McpttFloorMsgGranted& msg) const override;
     /**
      * Receives a floor granted message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorIdle(McpttOnNetworkFloorParticipant& machine,
-                                  const McpttFloorMsgIdle& msg) const;
+    void ReceiveFloorIdle(McpttOnNetworkFloorParticipant& machine,
+                                  const McpttFloorMsgIdle& msg) const override;
     /**
      * Receives a floor queue position info message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorQueuePositionInfo(McpttOnNetworkFloorParticipant& machine,
-                                               const McpttFloorMsgQueuePositionInfo& msg) const;
+    void ReceiveFloorQueuePositionInfo(McpttOnNetworkFloorParticipant& machine,
+                                               const McpttFloorMsgQueuePositionInfo& msg) const override;
     /**
      * Receives a floor revoke message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorRevoke(McpttOnNetworkFloorParticipant& machine,
-                                    const McpttFloorMsgRevoke& msg) const;
+    void ReceiveFloorRevoke(McpttOnNetworkFloorParticipant& machine,
+                                    const McpttFloorMsgRevoke& msg) const override;
     /**
      * Receives a floor taken message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorTaken(McpttOnNetworkFloorParticipant& machine,
-                                   const McpttFloorMsgTaken& msg) const;
+    void ReceiveFloorTaken(McpttOnNetworkFloorParticipant& machine,
+                                   const McpttFloorMsgTaken& msg) const override;
     /**
      * Receives a media message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveMedia(McpttOnNetworkFloorParticipant& machine,
-                              const McpttMediaMsg& msg) const;
+    void ReceiveMedia(McpttOnNetworkFloorParticipant& machine,
+                              const McpttMediaMsg& msg) const override;
 };
 
 /**
@@ -383,61 +383,61 @@ class McpttOnNetworkFloorParticipantStateHasNoPermission
      * Gets an instance of the McpttOnNetworkFloorParticipantStateHasNoPermission.
      * \returns An instance.
      */
-    static Ptr<McpttOnNetworkFloorParticipantStateHasNoPermission> GetInstance(void);
+    static Ptr<McpttOnNetworkFloorParticipantStateHasNoPermission> GetInstance();
     /**
      * \brief Gets the ID of the state.
      * \returns The ID of the state.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * \brief Creates an instance of the McpttOnNetworkFloorParticipantStateHasNoPermission class.
      */
-    McpttOnNetworkFloorParticipantStateHasNoPermission(void);
+    McpttOnNetworkFloorParticipantStateHasNoPermission();
     /**
      * \brief The destructor of the McpttOnNetworkFloorParticipantStateHasNoPermission class.
      */
-    virtual ~McpttOnNetworkFloorParticipantStateHasNoPermission(void);
+    ~McpttOnNetworkFloorParticipantStateHasNoPermission() override;
     /**
      * Gets the ID of the machine state.
      * \returns The ID of the state.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    McpttEntityId GetInstanceStateId() const override;
     /**
      * Receives a floor granted message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorIdle(McpttOnNetworkFloorParticipant& machine,
-                                  const McpttFloorMsgIdle& msg) const;
+    void ReceiveFloorIdle(McpttOnNetworkFloorParticipant& machine,
+                                  const McpttFloorMsgIdle& msg) const override;
     /**
      * Receives a floor taken message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorTaken(McpttOnNetworkFloorParticipant& machine,
-                                   const McpttFloorMsgTaken& msg) const;
+    void ReceiveFloorTaken(McpttOnNetworkFloorParticipant& machine,
+                                   const McpttFloorMsgTaken& msg) const override;
     /**
      * Receives a media message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveMedia(McpttOnNetworkFloorParticipant& machine,
-                              const McpttMediaMsg& msg) const;
+    void ReceiveMedia(McpttOnNetworkFloorParticipant& machine,
+                              const McpttMediaMsg& msg) const override;
     /**
      * Notifies this machine state that the button has been pushed.
      * \param machine The FSM.
      */
-    virtual void PttPush(McpttOnNetworkFloorParticipant& machine) const;
+    void PttPush(McpttOnNetworkFloorParticipant& machine) const override;
     /**
      * Notifies the floor machine state that timer T103 has expired.
      * \param machine The FSM.
      */
-    virtual void ExpiryOfT103(McpttOnNetworkFloorParticipant& machine) const;
+    void ExpiryOfT103(McpttOnNetworkFloorParticipant& machine) const override;
     /**
      * Notifies the floor machine state that it has been selected.
      * \param machine The FSM.
      */
-    virtual void Selected(McpttOnNetworkFloorParticipant& machine) const;
+    void Selected(McpttOnNetworkFloorParticipant& machine) const override;
 };
 
 /**
@@ -451,75 +451,75 @@ class McpttOnNetworkFloorParticipantStatePendingRequest : public McpttOnNetworkF
      * Gets an instance of the McpttOnNetworkFloorParticipantStatePendingRequest.
      * \returns An instance.
      */
-    static Ptr<McpttOnNetworkFloorParticipantStatePendingRequest> GetInstance(void);
+    static Ptr<McpttOnNetworkFloorParticipantStatePendingRequest> GetInstance();
     /**
      * \brief Gets the ID of the state.
      * \returns The ID of the state.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * \brief Creates an instance of the McpttOnNetworkFloorParticipantStatePendingRequest class.
      */
-    McpttOnNetworkFloorParticipantStatePendingRequest(void);
+    McpttOnNetworkFloorParticipantStatePendingRequest();
     /**
      * \brief The destructor of the McpttOnNetworkFloorParticipantStatePendingRequest class.
      */
-    virtual ~McpttOnNetworkFloorParticipantStatePendingRequest(void);
+    ~McpttOnNetworkFloorParticipantStatePendingRequest() override;
     /**
      * Gets the ID of the machine state.
      * \returns The ID of the state.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    McpttEntityId GetInstanceStateId() const override;
     /**
      * Notifies the machine state that it has been selected.
      * \param machine The FSM.
      */
-    virtual void Selected(McpttOnNetworkFloorParticipant& machine) const;
+    void Selected(McpttOnNetworkFloorParticipant& machine) const override;
     /**
      * Receives a floor revoke message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorRevoke(McpttOnNetworkFloorParticipant& machine,
-                                    const McpttFloorMsgRevoke& msg) const;
+    void ReceiveFloorRevoke(McpttOnNetworkFloorParticipant& machine,
+                                    const McpttFloorMsgRevoke& msg) const override;
     /**
      * Receives a floor granted message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorGranted(McpttOnNetworkFloorParticipant& machine,
-                                     const McpttFloorMsgGranted& msg) const;
+    void ReceiveFloorGranted(McpttOnNetworkFloorParticipant& machine,
+                                     const McpttFloorMsgGranted& msg) const override;
     /**
      * Receives a floor deny message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorDeny(McpttOnNetworkFloorParticipant& machine,
-                                  const McpttFloorMsgDeny& msg) const;
+    void ReceiveFloorDeny(McpttOnNetworkFloorParticipant& machine,
+                                  const McpttFloorMsgDeny& msg) const override;
     /**
      * Notifies the floor machine state that timer T101 has expired.
      * \param machine The FSM.
      */
-    virtual void ExpiryOfT101(McpttOnNetworkFloorParticipant& machine) const;
+    void ExpiryOfT101(McpttOnNetworkFloorParticipant& machine) const override;
     /**
      * Receives a media message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveMedia(McpttOnNetworkFloorParticipant& machine,
-                              const McpttMediaMsg& msg) const;
+    void ReceiveMedia(McpttOnNetworkFloorParticipant& machine,
+                              const McpttMediaMsg& msg) const override;
     /**
      * Notifies this machine state that the button has been released.
      * \param machine The FSM.
      */
-    virtual void PttRelease(McpttOnNetworkFloorParticipant& machine) const;
+    void PttRelease(McpttOnNetworkFloorParticipant& machine) const override;
     /**
      * Receives a floor queue position info message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorQueuePositionInfo(McpttOnNetworkFloorParticipant& machine,
-                                               const McpttFloorMsgQueuePositionInfo& msg) const;
+    void ReceiveFloorQueuePositionInfo(McpttOnNetworkFloorParticipant& machine,
+                                               const McpttFloorMsgQueuePositionInfo& msg) const override;
 };
 
 /**
@@ -533,87 +533,87 @@ class McpttOnNetworkFloorParticipantStateHasPermission : public McpttOnNetworkFl
      * Gets an instance of the McpttOnNetworkFloorParticipantStateHasPermission.
      * \returns An instance.
      */
-    static Ptr<McpttOnNetworkFloorParticipantStateHasPermission> GetInstance(void);
+    static Ptr<McpttOnNetworkFloorParticipantStateHasPermission> GetInstance();
     /**
      * \brief Gets the ID of the state.
      * \returns The ID of the state.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * \brief Creates an instance of the McpttOnNetworkFloorParticipantStateHasPermission class.
      */
-    McpttOnNetworkFloorParticipantStateHasPermission(void);
+    McpttOnNetworkFloorParticipantStateHasPermission();
     /**
      * \brief The destructor of the McpttOnNetworkFloorParticipantStateHasPermission class.
      */
-    virtual ~McpttOnNetworkFloorParticipantStateHasPermission(void);
+    ~McpttOnNetworkFloorParticipantStateHasPermission() override;
     /**
      * Gets the ID of the machine state.
      * \returns The ID of the state.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    McpttEntityId GetInstanceStateId() const override;
     /**
      * Indicates whether or not this machine state has the floor.
      * \param machine The FSM.
      * \returns True, if this state has the floor.
      */
-    virtual bool HasFloor(const McpttOnNetworkFloorParticipant& machine) const;
+    bool HasFloor(const McpttOnNetworkFloorParticipant& machine) const override;
     /**
      * Notifies the floor machine that media is ready to be sent.
      * \param machine The FSM.
      * \param msg The media message to be sent.
      */
-    virtual void MediaReady(McpttOnNetworkFloorParticipant& machine, McpttMediaMsg& msg) const;
+    void MediaReady(McpttOnNetworkFloorParticipant& machine, McpttMediaMsg& msg) const override;
     /**
      * Notifies this machine state that the button has been released.
      * \param machine The FSM.
      */
-    virtual void PttRelease(McpttOnNetworkFloorParticipant& machine) const;
+    void PttRelease(McpttOnNetworkFloorParticipant& machine) const override;
     /**
      * Receives a floor revoke message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorRevoke(McpttOnNetworkFloorParticipant& machine,
-                                    const McpttFloorMsgRevoke& msg) const;
+    void ReceiveFloorRevoke(McpttOnNetworkFloorParticipant& machine,
+                                    const McpttFloorMsgRevoke& msg) const override;
     /**
      * Receives a floor granted message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorGranted(McpttOnNetworkFloorParticipant& machine,
-                                     const McpttFloorMsgGranted& msg) const;
+    void ReceiveFloorGranted(McpttOnNetworkFloorParticipant& machine,
+                                     const McpttFloorMsgGranted& msg) const override;
     /**
      * Receives a media message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveMedia(McpttOnNetworkFloorParticipant& machine,
-                              const McpttMediaMsg& msg) const;
+    void ReceiveMedia(McpttOnNetworkFloorParticipant& machine,
+                              const McpttMediaMsg& msg) const override;
     /**
      * Receives a floor granted message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorIdle(McpttOnNetworkFloorParticipant& machine,
-                                  const McpttFloorMsgIdle& msg) const;
+    void ReceiveFloorIdle(McpttOnNetworkFloorParticipant& machine,
+                                  const McpttFloorMsgIdle& msg) const override;
     /**
      * Receives a floor taken message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorTaken(McpttOnNetworkFloorParticipant& machine,
-                                   const McpttFloorMsgTaken& msg) const;
+    void ReceiveFloorTaken(McpttOnNetworkFloorParticipant& machine,
+                                   const McpttFloorMsgTaken& msg) const override;
     /**
      * Notifies the floor machine state that it has been selected.
      * \param machine The FSM.
      */
-    virtual void Selected(McpttOnNetworkFloorParticipant& machine) const;
+    void Selected(McpttOnNetworkFloorParticipant& machine) const override;
     /**
      * Notifies the floor machine state that it has been unselected.
      * \param machine The FSM.
      */
-    virtual void Unselected(McpttOnNetworkFloorParticipant& machine) const;
+    void Unselected(McpttOnNetworkFloorParticipant& machine) const override;
 };
 
 /**
@@ -627,65 +627,65 @@ class McpttOnNetworkFloorParticipantStatePendingRelease : public McpttOnNetworkF
      * Gets an instance of the McpttOnNetworkFloorParticipantStatePendingRelease.
      * \returns An instance.
      */
-    static Ptr<McpttOnNetworkFloorParticipantStatePendingRelease> GetInstance(void);
+    static Ptr<McpttOnNetworkFloorParticipantStatePendingRelease> GetInstance();
     /**
      * \brief Gets the ID of the state.
      * \returns The ID of the state.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * \brief Creates an instance of the McpttOnNetworkFloorParticipantStatePendingRelease class.
      */
-    McpttOnNetworkFloorParticipantStatePendingRelease(void);
+    McpttOnNetworkFloorParticipantStatePendingRelease();
     /**
      * \brief The destructor of the McpttOnNetworkFloorParticipantStatePendingRelease class.
      */
-    virtual ~McpttOnNetworkFloorParticipantStatePendingRelease(void);
+    ~McpttOnNetworkFloorParticipantStatePendingRelease() override;
     /**
      * Gets the ID of the machine state.
      * \returns The ID of the state.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    McpttEntityId GetInstanceStateId() const override;
     /**
      * Notifies the floor machine state that timer T100 has expired.
      * \param machine The FSM.
      */
-    virtual void ExpiryOfT100(McpttOnNetworkFloorParticipant& machine) const;
+    void ExpiryOfT100(McpttOnNetworkFloorParticipant& machine) const override;
     /**
      * Receives a floor idle message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorIdle(McpttOnNetworkFloorParticipant& machine,
-                                  const McpttFloorMsgIdle& msg) const;
+    void ReceiveFloorIdle(McpttOnNetworkFloorParticipant& machine,
+                                  const McpttFloorMsgIdle& msg) const override;
     /**
      * Receives a floor taken message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorTaken(McpttOnNetworkFloorParticipant& machine,
-                                   const McpttFloorMsgTaken& msg) const;
+    void ReceiveFloorTaken(McpttOnNetworkFloorParticipant& machine,
+                                   const McpttFloorMsgTaken& msg) const override;
     /**
      * Receives a media message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveMedia(McpttOnNetworkFloorParticipant& machine,
-                              const McpttMediaMsg& msg) const;
+    void ReceiveMedia(McpttOnNetworkFloorParticipant& machine,
+                              const McpttMediaMsg& msg) const override;
     /**
      * Receives a floor revoke message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorRevoke(McpttOnNetworkFloorParticipant& machine,
-                                    const McpttFloorMsgRevoke& msg) const;
+    void ReceiveFloorRevoke(McpttOnNetworkFloorParticipant& machine,
+                                    const McpttFloorMsgRevoke& msg) const override;
     /**
      * Receives a floor granted message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorGranted(McpttOnNetworkFloorParticipant& machine,
-                                     const McpttFloorMsgGranted& msg) const;
+    void ReceiveFloorGranted(McpttOnNetworkFloorParticipant& machine,
+                                     const McpttFloorMsgGranted& msg) const override;
 };
 
 /**
@@ -699,30 +699,30 @@ class McpttOnNetworkFloorParticipantStateReleasing : public McpttOnNetworkFloorP
      * Gets an instance of the McpttOnNetworkFloorParticipantStateReleasing.
      * \returns An instance.
      */
-    static Ptr<McpttOnNetworkFloorParticipantStateReleasing> GetInstance(void);
+    static Ptr<McpttOnNetworkFloorParticipantStateReleasing> GetInstance();
     /**
      * \brief Gets the ID of the state.
      * \returns The ID of the state.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * \brief Creates an instance of the McpttOnNetworkFloorParticipantStateReleasing class.
      */
-    McpttOnNetworkFloorParticipantStateReleasing(void);
+    McpttOnNetworkFloorParticipantStateReleasing();
     /**
      * \brief The destructor of the McpttOnNetworkFloorParticipantStateReleasing class.
      */
-    virtual ~McpttOnNetworkFloorParticipantStateReleasing(void);
+    ~McpttOnNetworkFloorParticipantStateReleasing() override;
     /**
      * Gets the ID of the machine state.
      * \returns The ID of the state.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    McpttEntityId GetInstanceStateId() const override;
     /**
      * Notifies the floor machine state that the call was released (part II).
      * \param machine The FSM.
      */
-    virtual void CallRelease2(McpttOnNetworkFloorParticipant& machine) const;
+    void CallRelease2(McpttOnNetworkFloorParticipant& machine) const override;
 };
 
 /**
@@ -736,99 +736,99 @@ class McpttOnNetworkFloorParticipantStateQueued : public McpttOnNetworkFloorPart
      * Gets an instance of the McpttOnNetworkFloorParticipantStateQueued.
      * \returns An instance.
      */
-    static Ptr<McpttOnNetworkFloorParticipantStateQueued> GetInstance(void);
+    static Ptr<McpttOnNetworkFloorParticipantStateQueued> GetInstance();
     /**
      * \brief Gets the ID of the state.
      * \returns The ID of the state.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * \brief Creates an instance of the McpttOnNetworkFloorParticipantStateQueued class.
      */
-    McpttOnNetworkFloorParticipantStateQueued(void);
+    McpttOnNetworkFloorParticipantStateQueued();
     /**
      * \brief The destructor of the McpttOnNetworkFloorParticipantStateQueued class.
      */
-    virtual ~McpttOnNetworkFloorParticipantStateQueued(void);
+    ~McpttOnNetworkFloorParticipantStateQueued() override;
     /**
      * Gets the ID of the machine state.
      * \returns The ID of the state.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    McpttEntityId GetInstanceStateId() const override;
     /**
      * Receives a media message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveMedia(McpttOnNetworkFloorParticipant& machine,
-                              const McpttMediaMsg& msg) const;
+    void ReceiveMedia(McpttOnNetworkFloorParticipant& machine,
+                              const McpttMediaMsg& msg) const override;
     /**
      * Receives a floor taken message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorTaken(McpttOnNetworkFloorParticipant& machine,
-                                   const McpttFloorMsgTaken& msg) const;
+    void ReceiveFloorTaken(McpttOnNetworkFloorParticipant& machine,
+                                   const McpttFloorMsgTaken& msg) const override;
     /**
      * Receives a floor granted message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorGranted(McpttOnNetworkFloorParticipant& machine,
-                                     const McpttFloorMsgGranted& msg) const;
+    void ReceiveFloorGranted(McpttOnNetworkFloorParticipant& machine,
+                                     const McpttFloorMsgGranted& msg) const override;
     /**
      * Receives a floor revoke message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorRevoke(McpttOnNetworkFloorParticipant& machine,
-                                    const McpttFloorMsgRevoke& msg) const;
+    void ReceiveFloorRevoke(McpttOnNetworkFloorParticipant& machine,
+                                    const McpttFloorMsgRevoke& msg) const override;
     /**
      * Receives a floor deny message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorDeny(McpttOnNetworkFloorParticipant& machine,
-                                  const McpttFloorMsgDeny& msg) const;
+    void ReceiveFloorDeny(McpttOnNetworkFloorParticipant& machine,
+                                  const McpttFloorMsgDeny& msg) const override;
     /**
      * Notifies this machine state that the button has been released.
      * \param machine The FSM.
      */
-    virtual void PttRelease(McpttOnNetworkFloorParticipant& machine) const;
+    void PttRelease(McpttOnNetworkFloorParticipant& machine) const override;
     /**
      * Receives a floor queue position info message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorQueuePositionInfo(McpttOnNetworkFloorParticipant& machine,
-                                               const McpttFloorMsgQueuePositionInfo& msg) const;
+    void ReceiveFloorQueuePositionInfo(McpttOnNetworkFloorParticipant& machine,
+                                               const McpttFloorMsgQueuePositionInfo& msg) const override;
     /**
      * Receives a floor idle message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorIdle(McpttOnNetworkFloorParticipant& machine,
-                                  const McpttFloorMsgIdle& msg) const;
+    void ReceiveFloorIdle(McpttOnNetworkFloorParticipant& machine,
+                                  const McpttFloorMsgIdle& msg) const override;
     /**
      * Sends a floor queue position request message.
      * \param machine The FSM.
      */
-    virtual void SendFloorQueuePositionRequest(McpttOnNetworkFloorParticipant& machine) const;
+    void SendFloorQueuePositionRequest(McpttOnNetworkFloorParticipant& machine) const override;
     /**
      * Notifies the floor machine state that timer T104 has expired.
      * \param machine The FSM.
      */
-    virtual void ExpiryOfT104(McpttOnNetworkFloorParticipant& machine) const;
+    void ExpiryOfT104(McpttOnNetworkFloorParticipant& machine) const override;
     /**
      * Accepts a grant.
      * \param machine The FSM.
      */
-    virtual void AcceptGrant(McpttOnNetworkFloorParticipant& machine) const;
+    void AcceptGrant(McpttOnNetworkFloorParticipant& machine) const override;
     /**
      * Notifies the floor machine state that timer T1 has expired.
      * \param machine The FSM.
      */
-    virtual void ExpiryOfT132(McpttOnNetworkFloorParticipant& machine) const;
+    void ExpiryOfT132(McpttOnNetworkFloorParticipant& machine) const override;
 };
 
 } // namespace psc

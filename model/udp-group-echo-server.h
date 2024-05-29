@@ -65,7 +65,7 @@ class UdpGroupEchoServer : public Application
      * \brief Get the type ID.
      * \return the object TypeId
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
 
     /**
      * \brief Mode of echo operation
@@ -78,7 +78,7 @@ class UdpGroupEchoServer : public Application
     };
 
     UdpGroupEchoServer();
-    virtual ~UdpGroupEchoServer();
+    ~UdpGroupEchoServer() override;
     /**
      * Adds a new client to the list of clients to echo messages
      * \param client The new client address to add
@@ -86,11 +86,11 @@ class UdpGroupEchoServer : public Application
     virtual void AddClient(const Address& client);
 
   protected:
-    virtual void DoDispose(void);
+    void DoDispose() override;
 
   private:
-    virtual void StartApplication(void);
-    virtual void StopApplication(void);
+    void StartApplication() override;
+    void StopApplication() override;
 
     /**
      * \brief Handle a packet reception.
@@ -107,7 +107,7 @@ class UdpGroupEchoServer : public Application
      * To log the output, at least NS_LOG_INFO must be enabled for this class.
      *
      */
-    void LogClients(void);
+    void LogClients();
 
     Mode_t m_mode;          ///< Mode of echo operation
     uint16_t m_port;        ///< Port on which we listen for incoming packets.

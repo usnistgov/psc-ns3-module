@@ -67,55 +67,55 @@ class McpttPusherOrchestratorContention : public McpttPusherOrchestratorInterfac
      * \brief Get the type ID.
      * \return the object TypeId
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * \brief Creates an instance of the McpttPusherOrchestratorContention class.
      */
-    McpttPusherOrchestratorContention(void);
+    McpttPusherOrchestratorContention();
     /**
      * \brief The destructor of the McpttPusherOrchestratorContention class.
      */
-    virtual ~McpttPusherOrchestratorContention(void);
+    ~McpttPusherOrchestratorContention() override;
     /**
      * \brief Adds a pusher to the orchestrated set.
      * \param pusher The pusher to add.
      */
-    virtual void AddPusher(Ptr<McpttPusher> pusher);
+    void AddPusher(Ptr<McpttPusher> pusher) override;
     /**
      * \brief Set the stream for each random variable.
      * \param stream The starting stream number.
      * \returns The number of streams that were set.
      */
-    virtual int64_t AssignStreams(int64_t stream);
+    int64_t AssignStreams(int64_t stream) override;
     /**
      * \brief Gets the set of orchestrated pushers.
      * \returns The set of pushers.
      */
-    virtual std::vector<Ptr<McpttPusher>> GetPushers(void) const;
+    std::vector<Ptr<McpttPusher>> GetPushers() const override;
     /**
      * \brief Gets the set of pushers that are currently pushing the button.
      * \returns The set of pushers.
      */
-    virtual std::vector<Ptr<McpttPusher>> GetActivePushers(void) const;
+    std::vector<Ptr<McpttPusher>> GetActivePushers() const override;
     /**
      * \brief Generates an interarrival time.
      * \returns The interarrival time.
      */
-    virtual Time NextPttIat(void);
+    Time NextPttIat() override;
     /**
      * \brief Generates a PTT duration.
      * \returns The PTT duration.
      */
-    virtual Time NextPttDuration(void);
+    Time NextPttDuration() override;
     /**
      * \brief Starts generating push and release events.
      */
-    virtual void Start(void);
+    void Start() override;
     /**
      * \brief Stops generating push and release events.
      * This method may be called multiple times consecutively without side effect.
      */
-    virtual void Stop(void);
+    void Stop() override;
 
   protected:
     /**
@@ -126,19 +126,19 @@ class McpttPusherOrchestratorContention : public McpttPusherOrchestratorInterfac
     /**
      * Deactivates the current pusher.
      */
-    virtual void DeactivatePusher(void);
+    virtual void DeactivatePusher();
     /**
      * Disposes of Object's resources.
      */
-    virtual void DoDispose(void);
+    void DoDispose() override;
     /**
      * Initiates a PTT push.
      */
-    virtual void PttPush(void);
+    virtual void PttPush();
     /**
      * Initiates a PTT release.
      */
-    virtual void PttRelease(void);
+    virtual void PttRelease();
     /**
      * The trace to keep track of the underlying orchestrator PTT durations.
      * \param userId The MCPTT user ID of the pusher.
@@ -159,7 +159,7 @@ class McpttPusherOrchestratorContention : public McpttPusherOrchestratorInterfac
      * Gets the underlying orchestrator.
      * \returns The underlying orchestrator.
      */
-    virtual Ptr<McpttPusherOrchestratorInterface> GetOrchestrator(void) const;
+    virtual Ptr<McpttPusherOrchestratorInterface> GetOrchestrator() const;
     /**
      * Sets the underlying orchestrator.
      * \param orchestrator The underlying orchestrator.

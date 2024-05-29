@@ -60,29 +60,29 @@ class McpttChannel : public Object
      * Gets the type ID of the McpttChannel class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttChannel class.
      */
-    McpttChannel(void);
+    McpttChannel();
     /**
      * \brief The destructor of the McpttChannel class.
      */
-    virtual ~McpttChannel(void);
+    ~McpttChannel() override;
     /**
      * Closes the channel.
      */
-    virtual void Close(void);
+    virtual void Close();
     /**
      * Gets the type ID of this McpttChannel instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Indicates if the channel is open.
      * \returns True, if the channel is open.
      */
-    virtual bool IsOpen(void) const;
+    virtual bool IsOpen() const;
     /**
      * Opens the channel.
      * \param node The node in which the socket will reside.
@@ -113,7 +113,7 @@ class McpttChannel : public Object
     /**
      * Disposes of this McpttChannel instance.
      */
-    virtual void DoDispose(void);
+    void DoDispose() override;
     /**
      * The function used to receive a single packet.
      * \param pkt The packet that was received.
@@ -143,7 +143,7 @@ class McpttChannel : public Object
      * Gets the underlying socket of the channel.
      * \returns The underlying socket.
      */
-    virtual Ptr<Socket> GetSocket(void) const;
+    virtual Ptr<Socket> GetSocket() const;
     /**
      * Sets the sink used for receiving received packets.
      * \param rxPktCb The callback.

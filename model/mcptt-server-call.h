@@ -75,15 +75,15 @@ class McpttServerCall : public Object
      * Gets the type ID of the McpttServerCall class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttServerCall class.
      */
-    McpttServerCall(void);
+    McpttServerCall();
     /**
      * The destructor of the McpttServerCall class.
      */
-    virtual ~McpttServerCall(void);
+    ~McpttServerCall() override;
     /**
      * Sets the ID of the call.
      * \param callId The call ID.
@@ -93,17 +93,17 @@ class McpttServerCall : public Object
      * Gets the ID of the call.
      * \returns The call ID.
      */
-    uint16_t GetCallId(void) const;
+    uint16_t GetCallId() const;
     /**
      * Indicates if the call is configured for ambient listening.
      * \returns True, if the call is configured for ambient listening; otherwise, false.
      */
-    virtual bool IsAmbientListening(void) const;
+    virtual bool IsAmbientListening() const;
     /**
      * Indicates if the call is configured for a temporary group session.
      * \returns True, if the call is configured for a temporary group session; false, otherwise.
      */
-    virtual bool IsTemporaryGroup(void) const;
+    virtual bool IsTemporaryGroup() const;
     /**
      * Receive an on-network SIP call message
      * \param pkt The packet (without SIP header)
@@ -133,7 +133,7 @@ class McpttServerCall : public Object
     /**
      * Disposes of the McpttServerCall instance.
      */
-    void DoDispose(void);
+    void DoDispose() override;
 
   private:
     uint16_t m_callId;                     //!< Call ID of the call.
@@ -152,17 +152,17 @@ class McpttServerCall : public Object
      * Gets the call control state machine.
      * \returns The call machine.
      */
-    Ptr<McpttServerCallMachine> GetCallMachine(void) const;
+    Ptr<McpttServerCallMachine> GetCallMachine() const;
     /**
      * Gets the arbitrator.
      * \returns The arbitrator
      */
-    Ptr<McpttOnNetworkFloorArbitrator> GetArbitrator(void) const;
+    Ptr<McpttOnNetworkFloorArbitrator> GetArbitrator() const;
     /**
      * Gets the owner of this call.
      * \returns The owner.
      */
-    Ptr<McpttServerApp> GetOwner(void) const;
+    Ptr<McpttServerApp> GetOwner() const;
     /**
      * Sets the call control state machine.
      * \param callMachine The call control state machine.
@@ -187,7 +187,7 @@ class McpttServerCall : public Object
      * Gets the list of client MCPTT user IDs belonging to this call
      * \return the client UserIds
      */
-    std::vector<uint32_t> GetClientUserIds(void) const;
+    std::vector<uint32_t> GetClientUserIds() const;
     /**
      * Sets the originating client MCPTT user IDs belonging to this call
      * \param originator the originating client's user ID
@@ -197,7 +197,7 @@ class McpttServerCall : public Object
      * Gets the originating client MCPTT user IDs for this call
      * \returns the originating client's user ID
      */
-    uint32_t GetOriginator(void) const;
+    uint32_t GetOriginator() const;
 };
 
 } // namespace psc

@@ -97,11 +97,11 @@ class McpttFloorMsg : public McpttMsg
      * Gets the type ID of the McpttFloorMsg.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsg class.
      */
-    McpttFloorMsg(void);
+    McpttFloorMsg();
     /**
      * Creates an instance of the McpttFloorMsg class.
      * \param subtype The subtype (or ID) of the message.
@@ -119,33 +119,33 @@ class McpttFloorMsg : public McpttMsg
     /**
      * The destructor of the McpttFloorMsg class.
      */
-    virtual ~McpttFloorMsg(void);
+    ~McpttFloorMsg() override;
     /**
      * Reads the contents of the message from the byte stream.
      * \param start The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t Deserialize(Buffer::Iterator start);
+    uint32_t Deserialize(Buffer::Iterator start) override;
     /**
      * Gets the type ID of this McpttFloorMsg instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the contents of the message to the byte stream.
      * \param start The byte stream to write to.
      */
-    virtual void Serialize(Buffer::Iterator start) const;
+    void Serialize(Buffer::Iterator start) const override;
     /**
      * Visits the given floor machine.
      * \param floorMsgSink The floor machine to visit.
@@ -186,37 +186,37 @@ class McpttFloorMsg : public McpttMsg
      * Gets the length (in bytes) of the message (not including the header).
      * \returns The length (in bytes).
      */
-    virtual uint16_t GetLength(void) const;
+    virtual uint16_t GetLength() const;
     /**
      * Gets the name.
      * \returns The name.
      */
-    virtual std::string GetName(void) const;
+    virtual std::string GetName() const;
     /**
      * Gets the padding bit value (P).
      * \returns The padding bit value.
      */
-    virtual uint8_t GetPadding(void) const;
+    virtual uint8_t GetPadding() const;
     /**
      * Gets the value of the payload type (PT) value.
      * \returns The payload type (PT) value.
      */
-    virtual uint8_t GetPayloadType(void) const;
+    virtual uint8_t GetPayloadType() const;
     /**
      * Gets the synchronization source (SSRC).
      * \returns The synchronization source.
      */
-    virtual uint32_t GetSsrc(void) const;
+    virtual uint32_t GetSsrc() const;
     /**
      * Gets the message type (Subtype).
      * \returns The message type.
      */
-    virtual uint8_t GetSubtype(void) const;
+    virtual uint8_t GetSubtype() const;
     /**
      * Gets the version number (V).
      * \returns The version number.
      */
-    virtual uint8_t GetVersion(void) const;
+    virtual uint8_t GetVersion() const;
     /**
      * Sets the length (in bytes) of the message (not including the header).
      * \param length The length of the message (in bytes).
@@ -291,7 +291,7 @@ class McpttFloorMsgRequest : public McpttFloorMsg
      * Gets the type ID of the floor request message.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgRequest class.
      * \param ssrc The synchronization source.
@@ -300,28 +300,28 @@ class McpttFloorMsgRequest : public McpttFloorMsg
     /**
      * The destructor of the McpttFloorMsgRequest class.
      */
-    virtual ~McpttFloorMsgRequest(void);
+    ~McpttFloorMsgRequest() override;
     /**
      * Reads the application-dependent data of the message from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Gets the type ID of this instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the application-dependent data of the message to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
     /**
      * Updates the track info field.
      * \param trackInfo The track info field.
@@ -331,7 +331,7 @@ class McpttFloorMsgRequest : public McpttFloorMsg
      * Visits the given floor machine.
      * \param floorMsgSink The floor machine to visit.
      */
-    virtual void Visit(McpttFloorMsgSink& floorMsgSink) const;
+    void Visit(McpttFloorMsgSink& floorMsgSink) const override;
 
   private:
     McpttFloorMsgFieldIndic m_indicator;     //!< The floor indicator field.
@@ -344,22 +344,22 @@ class McpttFloorMsgRequest : public McpttFloorMsg
      * Gets the floor indicator field.
      * \returns The floor indicator field.
      */
-    virtual McpttFloorMsgFieldIndic GetIndicator(void) const;
+    virtual McpttFloorMsgFieldIndic GetIndicator() const;
     /**
      * Gets the floor priority field.
      * \returns The floor priority field.
      */
-    virtual McpttFloorMsgFieldPriority GetPriority(void) const;
+    virtual McpttFloorMsgFieldPriority GetPriority() const;
     /**
      * Gets the track info field.
      * \returns The track info field.
      */
-    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo(void) const;
+    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo() const;
     /**
      * Gets the user ID field.
      * \returns The user ID field.
      */
-    virtual McpttFloorMsgFieldUserId GetUserId(void) const;
+    virtual McpttFloorMsgFieldUserId GetUserId() const;
     /**
      * Sets the floor indicator field.
      * \param indicator The floor indicator field.
@@ -458,7 +458,7 @@ class McpttFloorMsgGranted : public McpttFloorMsg
      * Gets the type ID of the McpttFloorMsgGranted class.
      * \return the TypeId of the class
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgGranted class.
      * \param ssrc The SSRC of the floor participant.
@@ -467,7 +467,7 @@ class McpttFloorMsgGranted : public McpttFloorMsg
     /**
      * The destructor of the McpttFloorMsgGranted class.
      */
-    virtual ~McpttFloorMsgGranted(void);
+    ~McpttFloorMsgGranted() override;
     /**
      * Adds a queued user's information.
      * \param userInfo The queued users's information.
@@ -476,28 +476,28 @@ class McpttFloorMsgGranted : public McpttFloorMsg
     /**
      * Clears the collection of queued user's info.
      */
-    virtual void ClearUserInfo(void);
+    virtual void ClearUserInfo();
     /**
      * Reads the application-dependent data of the message from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Gets the type ID of this instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the application-dependent data of the message to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
     /**
      * Updates the track info field.
      * \param trackInfo The track info field.
@@ -512,7 +512,7 @@ class McpttFloorMsgGranted : public McpttFloorMsg
      * Visits the given floor machine.
      * \param floorMsgSink The floor machine to visit.
      */
-    virtual void Visit(McpttFloorMsgSink& floorMsgSink) const;
+    void Visit(McpttFloorMsgSink& floorMsgSink) const override;
 
   private:
     McpttFloorMsgFieldDuration m_duration;   //!< The duration field.
@@ -529,42 +529,42 @@ class McpttFloorMsgGranted : public McpttFloorMsg
      * Gets the duration field.
      * \returns The duration field.
      */
-    virtual McpttFloorMsgFieldDuration GetDuration(void) const;
+    virtual McpttFloorMsgFieldDuration GetDuration() const;
     /**
      * Gets the SSRC of the granted floor particpant.
      * \returns The SSRC.
      */
-    virtual McpttFloorMsgFieldSsrc GetGrantedSsrc(void) const;
+    virtual McpttFloorMsgFieldSsrc GetGrantedSsrc() const;
     /**
      * Gets the floor indicator field.
      * \returns The floor indicator field.
      */
-    virtual McpttFloorMsgFieldIndic GetIndicator(void) const;
+    virtual McpttFloorMsgFieldIndic GetIndicator() const;
     /**
      * Gets the floor priority field.
      * \returns The floor priority field.
      */
-    virtual McpttFloorMsgFieldPriority GetPriority(void) const;
+    virtual McpttFloorMsgFieldPriority GetPriority() const;
     /**
      * Gets the queue size field.
      * \returns The queue size field.
      */
-    virtual McpttFloorMsgFieldQueueSize GetQueueSize(void) const;
+    virtual McpttFloorMsgFieldQueueSize GetQueueSize() const;
     /**
      * Gets the track info field.
      * \returns The track info field.
      */
-    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo(void) const;
+    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo() const;
     /**
      * Gets the user ID of the granted floor participant.
      * \returns The user ID.
      */
-    virtual McpttFloorMsgFieldUserId GetUserId(void) const;
+    virtual McpttFloorMsgFieldUserId GetUserId() const;
     /**
      * Gets the collection of queued users.
      * \returns The collection of queued users.
      */
-    virtual std::list<McpttQueuedUserInfo> GetUsers(void) const;
+    virtual std::list<McpttQueuedUserInfo> GetUsers() const;
     /**
      * Sets the duration field.
      * \param duration The duration field.
@@ -659,7 +659,7 @@ class McpttFloorMsgDeny : public McpttFloorMsg
      * Gets the type ID of thie McpttFloorMsgDeny class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgDeny class.
      * \param ssrc The synchronization source.
@@ -668,28 +668,28 @@ class McpttFloorMsgDeny : public McpttFloorMsg
     /**
      * The destructor of the McpttFloorMsgDeny class.
      */
-    virtual ~McpttFloorMsgDeny(void);
+    ~McpttFloorMsgDeny() override;
     /**
      * Reads the application-dependent data of the message from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Gets the type ID of this instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the application-dependent data of the message to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
     /**
      * Updates the track info field.
      * \param trackInfo The track info field.
@@ -699,7 +699,7 @@ class McpttFloorMsgDeny : public McpttFloorMsg
      * Visits the given floor machine.
      * \param floorMsgSink The floor machine to visit.
      */
-    virtual void Visit(McpttFloorMsgSink& floorMsgSink) const;
+    void Visit(McpttFloorMsgSink& floorMsgSink) const override;
 
   private:
     McpttFloorMsgFieldIndic m_indicator;      //!< The floor indicator field.
@@ -712,22 +712,22 @@ class McpttFloorMsgDeny : public McpttFloorMsg
      * Gets the floor indicator field.
      * \returns The floor indicator field.
      */
-    virtual McpttFloorMsgFieldIndic GetIndicator(void) const;
+    virtual McpttFloorMsgFieldIndic GetIndicator() const;
     /**
      * Gets the reject cause field.
      * \returns The reject cause field.
      */
-    virtual McpttFloorMsgFieldRejectCause GetRejCause(void) const;
+    virtual McpttFloorMsgFieldRejectCause GetRejCause() const;
     /**
      * Gets the track info field.
      * \returns The track info field.
      */
-    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo(void) const;
+    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo() const;
     /**
      * Gets the user ID field.
      * \returns The user ID field.
      */
-    virtual McpttFloorMsgFieldUserId GetUserId(void) const;
+    virtual McpttFloorMsgFieldUserId GetUserId() const;
     /**
      * Sets the floor indicator field.
      * \param indicator The floor indicator field.
@@ -795,7 +795,7 @@ class McpttFloorMsgRelease : public McpttFloorMsg
      * Gets the type ID of the McpttFloorMsgRelease class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgRelease class.
      * \param ssrc The SSRC of the floor participant with permission to send.
@@ -804,28 +804,28 @@ class McpttFloorMsgRelease : public McpttFloorMsg
     /**
      * The destructor of the McpttFloorMsgRelease class.
      */
-    virtual ~McpttFloorMsgRelease(void);
+    ~McpttFloorMsgRelease() override;
     /**
      * Reads the application-dependent data of the message from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Gets the type ID of this instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the application-dependent data of the message to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
     /**
      * Updates the track info field.
      * \param trackInfo The track info field.
@@ -835,7 +835,7 @@ class McpttFloorMsgRelease : public McpttFloorMsg
      * Visits the given floor machine.
      * \param floorMsgSink The floor machine to visit.
      */
-    virtual void Visit(McpttFloorMsgSink& floorMsgSink) const;
+    void Visit(McpttFloorMsgSink& floorMsgSink) const override;
 
   private:
     McpttFloorMsgFieldIndic m_indicator;     //!< The floor indicator field.
@@ -847,17 +847,17 @@ class McpttFloorMsgRelease : public McpttFloorMsg
      * Gets the floor indicator field.
      * \returns The floor indicator field.
      */
-    virtual McpttFloorMsgFieldIndic GetIndicator(void) const;
+    virtual McpttFloorMsgFieldIndic GetIndicator() const;
     /**
      * Gets the track info field.
      * \returns The track info field.
      */
-    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo(void) const;
+    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo() const;
     /**
      * Gets the user ID field.
      * \returns The user ID field.
      */
-    virtual McpttFloorMsgFieldUserId GetUserId(void) const;
+    virtual McpttFloorMsgFieldUserId GetUserId() const;
     /**
      * Sets the indicator field.
      * \param indicator The indicator field.
@@ -919,7 +919,7 @@ class McpttFloorMsgRevoke : public McpttFloorMsg
      * Gets the type ID of thie McpttFloorMsgRevoke class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgRevoke class.
      * \param ssrc The synchronization source.
@@ -928,28 +928,28 @@ class McpttFloorMsgRevoke : public McpttFloorMsg
     /**
      * The destructor of the McpttFloorMsgRevoke class.
      */
-    virtual ~McpttFloorMsgRevoke(void);
+    ~McpttFloorMsgRevoke() override;
     /**
      * Reads the application-dependent data of the message from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Gets the type ID of this instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the application-dependent data of the message to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
     /**
      * Updates the track info field.
      * \param trackInfo The track info field.
@@ -959,7 +959,7 @@ class McpttFloorMsgRevoke : public McpttFloorMsg
      * Visits the given floor machine.
      * \param floorMsgSink The floor machine to visit.
      */
-    virtual void Visit(McpttFloorMsgSink& floorMsgSink) const;
+    void Visit(McpttFloorMsgSink& floorMsgSink) const override;
 
   private:
     McpttFloorMsgFieldIndic m_indicator;      //!< The floor indicator field.
@@ -971,17 +971,17 @@ class McpttFloorMsgRevoke : public McpttFloorMsg
      * Gets the floor indicator field.
      * \returns The floor indicator field.
      */
-    virtual McpttFloorMsgFieldIndic GetIndicator(void) const;
+    virtual McpttFloorMsgFieldIndic GetIndicator() const;
     /**
      * Gets the reject cause field.
      * \returns The reject cause field.
      */
-    virtual McpttFloorMsgFieldRejectCause GetRejCause(void) const;
+    virtual McpttFloorMsgFieldRejectCause GetRejCause() const;
     /**
      * Gets the track info field.
      * \returns The track info field.
      */
-    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo(void) const;
+    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo() const;
     /**
      * Sets the floor indicator field.
      * \param indicator The floor indicator field.
@@ -1047,7 +1047,7 @@ class McpttFloorMsgIdle : public McpttFloorMsg
      * Gets the type ID of the McpttFloorMsgIdle class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgIdle class.
      * \param ssrc The SSRC of the floor control server.
@@ -1056,28 +1056,28 @@ class McpttFloorMsgIdle : public McpttFloorMsg
     /**
      * The destructor of the McpttFloorMsgIdle class.
      */
-    virtual ~McpttFloorMsgIdle(void);
+    ~McpttFloorMsgIdle() override;
     /**
      * Reads the application-dependent data of the message from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Gets the type ID of this instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the application-dependent data of the message to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
     /**
      * Updates the track info field.
      * \param trackInfo The track info field.
@@ -1087,7 +1087,7 @@ class McpttFloorMsgIdle : public McpttFloorMsg
      * Visits the given floor machine.
      * \param floorMsgSink The floor machine to visit.
      */
-    virtual void Visit(McpttFloorMsgSink& floorMsgSink) const;
+    void Visit(McpttFloorMsgSink& floorMsgSink) const override;
 
   private:
     McpttFloorMsgFieldIndic m_indicator;     //!< The floor indicator field.
@@ -1099,17 +1099,17 @@ class McpttFloorMsgIdle : public McpttFloorMsg
      * Gets the floor indicator field.
      * \returns The floor indicator field.
      */
-    virtual McpttFloorMsgFieldIndic GetIndicator(void) const;
+    virtual McpttFloorMsgFieldIndic GetIndicator() const;
     /**
      * Gets the message sequence number field.
      * \returns The message sequence number field.
      */
-    virtual McpttFloorMsgFieldSeqNum GetSeqNum(void) const;
+    virtual McpttFloorMsgFieldSeqNum GetSeqNum() const;
     /**
      * Gets the track info field.
      * \returns The track info field.
      */
-    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo(void) const;
+    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo() const;
     /**
      * Sets the floor indicator field.
      * \param indicator The floor indicator field.
@@ -1185,7 +1185,7 @@ class McpttFloorMsgTaken : public McpttFloorMsg
      * Gets the type ID of the McpttFloorMsgTaken class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgTaken class.
      * \param ssrc The SSRC of the floor control server.
@@ -1194,28 +1194,28 @@ class McpttFloorMsgTaken : public McpttFloorMsg
     /**
      * The destructor of the McpttFloorMsgTaken class.
      */
-    virtual ~McpttFloorMsgTaken(void);
+    ~McpttFloorMsgTaken() override;
     /**
      * Reads the application-dependent data of the message from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Gets the type ID of this instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the application-dependent data of the message to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
     /**
      * Updates the track info field.
      * \param trackInfo The track info field.
@@ -1225,7 +1225,7 @@ class McpttFloorMsgTaken : public McpttFloorMsg
      * Visits the given floor machine.
      * \param floorMsgSink The floor machine to visit.
      */
-    virtual void Visit(McpttFloorMsgSink& floorMsgSink) const;
+    void Visit(McpttFloorMsgSink& floorMsgSink) const override;
 
   private:
     McpttFloorMsgFieldIndic m_indicator;        //!< The floor indicator field.
@@ -1240,32 +1240,32 @@ class McpttFloorMsgTaken : public McpttFloorMsg
      * Gets the floor indicator field.
      * \returns The floor indicator field.
      */
-    virtual McpttFloorMsgFieldIndic GetIndicator(void) const;
+    virtual McpttFloorMsgFieldIndic GetIndicator() const;
     /**
      * Gets the granted party's ID field.
      * \returns The granted party's ID field.
      */
-    virtual McpttFloorMsgFieldGrantedPartyId GetPartyId(void) const;
+    virtual McpttFloorMsgFieldGrantedPartyId GetPartyId() const;
     /**
      * Gets the permission to request the floor field.
      * \returns The permission to request the floor field.
      */
-    virtual McpttFloorMsgFieldPermToReq GetPermission(void) const;
+    virtual McpttFloorMsgFieldPermToReq GetPermission() const;
     /**
      * Gets the message sequence number field.
      * \returns The message sequence number field.
      */
-    virtual McpttFloorMsgFieldSeqNum GetSeqNum(void) const;
+    virtual McpttFloorMsgFieldSeqNum GetSeqNum() const;
     /**
      * Gets the track info field.
      * \returns The track info field.
      */
-    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo(void) const;
+    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo() const;
     /**
      * Gets the user ID field.
      * \returns The user ID field.
      */
-    virtual McpttFloorMsgFieldUserId GetUserId(void) const;
+    virtual McpttFloorMsgFieldUserId GetUserId() const;
     /**
      * Sets the floor indicator field.
      * \param indicator The floor indicator field.
@@ -1336,7 +1336,7 @@ class McpttFloorMsgQueuePositionRequest : public McpttFloorMsg
      * Gets the type ID of the McpttFloorMsgQueuePositionRequest class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgQueuePositionRequest class.
      * \param ssrc The SSRC of the floor control server.
@@ -1345,28 +1345,28 @@ class McpttFloorMsgQueuePositionRequest : public McpttFloorMsg
     /**
      * The destructor of the McpttFloorMsgQueuePositionRequest class.
      */
-    virtual ~McpttFloorMsgQueuePositionRequest(void);
+    ~McpttFloorMsgQueuePositionRequest() override;
     /**
      * Reads the application-dependent data of the message from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Gets the type ID of this instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the application-dependent data of the message to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
     /**
      * Updates the track info field.
      * \param trackInfo The track info field.
@@ -1376,7 +1376,7 @@ class McpttFloorMsgQueuePositionRequest : public McpttFloorMsg
      * Visits the given floor machine.
      * \param floorMsgSink The floor machine to visit.
      */
-    virtual void Visit(McpttFloorMsgSink& floorMsgSink) const;
+    void Visit(McpttFloorMsgSink& floorMsgSink) const override;
 
   private:
     McpttFloorMsgFieldTrackInfo m_trackInfo; //!< The track info field.
@@ -1387,12 +1387,12 @@ class McpttFloorMsgQueuePositionRequest : public McpttFloorMsg
      * Gets the track info field.
      * \returns The track info field.
      */
-    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo(void) const;
+    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo() const;
     /**
      * Gets the user ID field.
      * \returns The user ID field.
      */
-    virtual McpttFloorMsgFieldUserId GetUserId(void) const;
+    virtual McpttFloorMsgFieldUserId GetUserId() const;
     /**
      * Sets the user ID field.
      * \param userId The user ID field.
@@ -1459,7 +1459,7 @@ class McpttFloorMsgQueuePositionInfo : public McpttFloorMsg
      * Gets the type ID of the McpttFloorMsgQueuePositionInfo class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgQueuePositionInfo class.
      * \param ssrc The SSRC of the floor control server.
@@ -1468,28 +1468,28 @@ class McpttFloorMsgQueuePositionInfo : public McpttFloorMsg
     /**
      * The destructor of the McpttFloorMsgQueuePositionInfo class.
      */
-    virtual ~McpttFloorMsgQueuePositionInfo(void);
+    ~McpttFloorMsgQueuePositionInfo() override;
     /**
      * Reads the application-dependent data of the message from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Gets the type ID of this instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the application-dependent data of the message to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
     /**
      * Updates the track info field.
      * \param trackInfo The track info field.
@@ -1499,7 +1499,7 @@ class McpttFloorMsgQueuePositionInfo : public McpttFloorMsg
      * Visits the given floor machine.
      * \param floorMsgSink The floor machine to visit.
      */
-    virtual void Visit(McpttFloorMsgSink& floorMsgSink) const;
+    void Visit(McpttFloorMsgSink& floorMsgSink) const override;
 
   private:
     McpttFloorMsgFieldUserId
@@ -1517,32 +1517,32 @@ class McpttFloorMsgQueuePositionInfo : public McpttFloorMsg
      * Gets the MCPTT ID of the floor partipant that sent the message.
      * \returns The MCPTT ID.
      */
-    virtual McpttFloorMsgFieldUserId GetUserId(void) const;
+    virtual McpttFloorMsgFieldUserId GetUserId() const;
     /**
      * Gets the SSRC of the queued floor participant.
      * \returns The SSRC.
      */
-    virtual uint32_t GetQueuedSsrc(void) const;
+    virtual uint32_t GetQueuedSsrc() const;
     /**
      * Gets the MCPTT ID of the queued floor participant.
      * \returns The MCPTT ID.
      */
-    virtual McpttFloorMsgFieldQueuedUserId GetQueuedUserId(void) const;
+    virtual McpttFloorMsgFieldQueuedUserId GetQueuedUserId() const;
     /**
      * Gets the field that the defines the queue position and granted floor priority.
      * \returns The queue info.
      */
-    virtual McpttFloorMsgFieldQueuePositionInfo GetQueuePositionInfo(void) const;
+    virtual McpttFloorMsgFieldQueuePositionInfo GetQueuePositionInfo() const;
     /**
      * Gets the track info field.
      * \returns The track info field.
      */
-    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo(void) const;
+    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo() const;
     /**
      * Gets the floor indicator field.
      * \returns The floor indicator field.
      */
-    virtual McpttFloorMsgFieldIndic GetIndicator(void) const;
+    virtual McpttFloorMsgFieldIndic GetIndicator() const;
     /**
      * Sets the MCPTT ID of the floor participant that sent the message.
      * \param userId The MCPTT ID.
@@ -1619,7 +1619,7 @@ class McpttFloorMsgAck : public McpttFloorMsg
      * Gets the type ID of the McpttFloorMsgAck class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttFloorMsgAck class.
      * \param ssrc The SSRC of the floor control server.
@@ -1628,28 +1628,28 @@ class McpttFloorMsgAck : public McpttFloorMsg
     /**
      * The destructor of the McpttFloorMsgAck class.
      */
-    virtual ~McpttFloorMsgAck(void);
+    ~McpttFloorMsgAck() override;
     /**
      * Reads the application-dependent data of the message from the byte stream.
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Gets the type ID of this instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the application-dependent data of the message to the byte stream.
      * \param buff The byte stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
     /**
      * Updates the track info field.
      * \param trackInfo The track info field.
@@ -1659,7 +1659,7 @@ class McpttFloorMsgAck : public McpttFloorMsg
      * Visits the given floor machine.
      * \param floorMsgSink The floor machine to visit.
      */
-    virtual void Visit(McpttFloorMsgSink& floorMsgSink) const;
+    void Visit(McpttFloorMsgSink& floorMsgSink) const override;
 
   private:
     McpttFloorMsgFieldSource m_source;       //!< The source field.
@@ -1671,17 +1671,17 @@ class McpttFloorMsgAck : public McpttFloorMsg
      * Gets the source field.
      * \returns The source field.
      */
-    virtual McpttFloorMsgFieldSource GetSource(void) const;
+    virtual McpttFloorMsgFieldSource GetSource() const;
     /**
      * Gets the message type field.
      * \returns The message type field.
      */
-    virtual McpttFloorMsgFieldType GetMsgType(void) const;
+    virtual McpttFloorMsgFieldType GetMsgType() const;
     /**
      * Gets the track info field.
      * \returns The track info field.
      */
-    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo(void) const;
+    virtual McpttFloorMsgFieldTrackInfo GetTrackInfo() const;
     /**
      * Sets the source field.
      * \param source The source field.

@@ -208,8 +208,9 @@ main(int argc, char* argv[])
 
     cmd.Parse(argc, argv);
 
-    if (useHelperApi)
+    if (useHelperApi) {
         helperApiExample();
-    else
+    } else {
         noHelperApiExample();
+}
 }

@@ -59,15 +59,15 @@ class McpttPusherOrchestratorInterface : public Object
      * \brief Get the type ID.
      * \return the object TypeId
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * \brief Creates an instance of the McpttPusherOrchestratorInterface class.
      */
-    McpttPusherOrchestratorInterface(void);
+    McpttPusherOrchestratorInterface();
     /**
      * \brief The destructor of the McpttPusherOrchestratorInterface class.
      */
-    virtual ~McpttPusherOrchestratorInterface(void);
+    ~McpttPusherOrchestratorInterface() override;
     /**
      * \brief Adds a pusher to the orchestrated set.
      * \param pusher The pusher to add.
@@ -83,26 +83,26 @@ class McpttPusherOrchestratorInterface : public Object
      * \brief Gets the set of orchestrated pushers.
      * \returns The set of pushers.
      */
-    virtual std::vector<Ptr<McpttPusher>> GetPushers(void) const = 0;
+    virtual std::vector<Ptr<McpttPusher>> GetPushers() const = 0;
     /**
      * \brief Gets the set of pushers that are currently pushing the button.
      * \returns The set of pushers.
      */
-    virtual std::vector<Ptr<McpttPusher>> GetActivePushers(void) const = 0;
+    virtual std::vector<Ptr<McpttPusher>> GetActivePushers() const = 0;
     /**
      * \brief Generates an interarrival time.
      * \returns The interarrival time.
      */
-    virtual Time NextPttIat(void) = 0;
+    virtual Time NextPttIat() = 0;
     /**
      * \brief Generates a PTT duration.
      * \returns The PTT duration.
      */
-    virtual Time NextPttDuration(void) = 0;
+    virtual Time NextPttDuration() = 0;
     /**
      * \brief Starts orchestrating the pushers.
      */
-    virtual void Start(void) = 0;
+    virtual void Start() = 0;
     /**
      * \brief Schedules the orchestrator to start at the given time.
      * \brief t The time at which to start.
@@ -111,7 +111,7 @@ class McpttPusherOrchestratorInterface : public Object
     /**
      * \brief Stops orchestrating the pushers.
      */
-    virtual void Stop(void) = 0;
+    virtual void Stop() = 0;
     /**
      * \brief Schedules the orchestrator to stop at the given time.
      * \brief t The time at which to stop the orchestrator.
@@ -122,7 +122,7 @@ class McpttPusherOrchestratorInterface : public Object
     /**
      * \brief Disposes of Object resources.
      */
-    virtual void DoDispose(void);
+    void DoDispose() override;
     /**
      * Traces the interarrival time.
      * \param userId The MCPTT user ID of the pusher.

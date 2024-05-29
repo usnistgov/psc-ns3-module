@@ -61,11 +61,11 @@ class McpttCounter : public Object
      * Gets the type ID of the  class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCounter class.
      */
-    McpttCounter(void);
+    McpttCounter();
     /**
      * Creates an instance of the McpttCounter class.
      * \param id The id of the counter.
@@ -76,12 +76,12 @@ class McpttCounter : public Object
     /**
      * \brief The destructor of the McpttCounter class.
      */
-    virtual ~McpttCounter(void);
+    ~McpttCounter() override;
     /**
      * Gets the type ID of this McpttCounter instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Increments the counter.
      * \param amount The amount by which to increment the counter.
@@ -91,12 +91,12 @@ class McpttCounter : public Object
      * Indicates whether or not the limit has been exceeded.
      * \returns True, if the limit has been exceeed, or false otherwise.
      */
-    virtual bool IsLimitExceeded(void) const;
+    virtual bool IsLimitExceeded() const;
     /**
      * Indicates whether or not the limit has been reached.
      * \returns True, if the limit has been reached, or false otherwise.
      */
-    virtual bool IsLimitReached(void) const;
+    virtual bool IsLimitReached() const;
     /**
      * Prints the counter to the givne output stream.
      * \param os The given output stream.
@@ -118,22 +118,22 @@ class McpttCounter : public Object
      * Gets the ID of the counter.
      * \returns The ID.
      */
-    virtual McpttEntityId GetId(void) const;
+    virtual McpttEntityId GetId() const;
     /**
      * Gets the limit of the counter.
      * \returns limit The limit.
      */
-    virtual uint32_t GetLimit(void) const;
+    virtual uint32_t GetLimit() const;
     /**
      * Gets the start value.
      * \returns The start value.
      */
-    virtual uint32_t GetStart(void) const;
+    virtual uint32_t GetStart() const;
     /**
      * Gets the value of the counter.
      * \returns The value.
      */
-    virtual uint32_t GetValue(void) const;
+    virtual uint32_t GetValue() const;
     /**
      * Sets the ID of the counter.
      * \param id The ID of the counter.

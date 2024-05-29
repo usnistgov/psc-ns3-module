@@ -58,16 +58,16 @@ class McpttMsg : public Header
      * Gets the type ID of the McpttMsg class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * The destructor of the McpttMsg class.
      */
-    virtual ~McpttMsg(void);
+    ~McpttMsg() override;
     /**
      * Gets the type ID of this McpttMsg instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Indicates whether or not the message is a given type.
      * \param type The message type.
@@ -75,21 +75,21 @@ class McpttMsg : public Header
      */
     virtual bool IsA(const TypeId& type) const;
 
-    virtual uint32_t Deserialize(Buffer::Iterator start)
+    uint32_t Deserialize(Buffer::Iterator start) override
     {
         return 0;
     }
 
-    virtual uint32_t GetSerializedSize(void) const
+    uint32_t GetSerializedSize() const override
     {
         return 0;
     }
 
-    virtual void Print(std::ostream& os) const
+    void Print(std::ostream& os) const override
     {
     }
 
-    virtual void Serialize(Buffer::Iterator start) const
+    void Serialize(Buffer::Iterator start) const override
     {
     }
 
@@ -97,7 +97,7 @@ class McpttMsg : public Header
     /**
      * Creates an instance of the McpttMsg class.
      */
-    McpttMsg(void);
+    McpttMsg();
 };
 
 } // namespace psc

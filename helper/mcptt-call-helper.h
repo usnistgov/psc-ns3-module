@@ -49,11 +49,11 @@ class McpttCallHelper
     /**
      * \brief Creates an instance of the McpttCallHelper class.
      */
-    McpttCallHelper(void);
+    McpttCallHelper();
     /**
      * \brief Destructor of the McpttCallHelper class.
      */
-    virtual ~McpttCallHelper(void);
+    virtual ~McpttCallHelper();
 
     /**
      * Configure a call for a set of on-network clients and a server.

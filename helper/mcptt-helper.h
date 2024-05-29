@@ -67,20 +67,20 @@ class McpttHelper
     /**
      * Helper to enable all MCPTT log components with one statement
      */
-    static void EnableLogComponents(void);
+    static void EnableLogComponents();
     /**
      * \brief Gets the MCPTT ID that will be assigned to the next application that is created.
      * \returns The MCPTT ID
      */
-    static uint32_t GetNextUserId(void);
+    static uint32_t GetNextUserId();
     /**
      * \brief Creates an instance of the McpttHelper class.
      */
-    McpttHelper(void);
+    McpttHelper();
     /**
      * \brief Destructor of the McpttHelper class.
      */
-    virtual ~McpttHelper(void);
+    virtual ~McpttHelper();
     /**
      * \brief Associate an ns3::psc::McpttPusherOrchestratorInterface with the pushers from a set of
      * ns3::psc::McpttPttApp objects. \param orchestrator The orchestrator. \param apps The set of

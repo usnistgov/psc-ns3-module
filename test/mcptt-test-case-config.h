@@ -55,15 +55,15 @@ class McpttTestCall;
 class McpttTestCaseConfig : public SimpleRefCount<McpttTestCaseConfig>
 {
   public:
-    McpttTestCaseConfig(void);
+    McpttTestCaseConfig();
     McpttTestCaseConfig(const uint32_t& appCount,
                         const TypeId& appTid,
                         const TypeId& callTid,
                         const TypeId& floorTid,
                         const Time& start,
                         const Time& stop);
-    virtual ~McpttTestCaseConfig(void);
-    virtual ApplicationContainer Configure(void);
+    virtual ~McpttTestCaseConfig();
+    virtual ApplicationContainer Configure();
 
   private:
     uint32_t m_appCount;
@@ -74,12 +74,12 @@ class McpttTestCaseConfig : public SimpleRefCount<McpttTestCaseConfig>
     Time m_stop;
 
   public:
-    virtual uint32_t GetAppCount(void) const;
-    virtual TypeId GetAppTid(void) const;
-    virtual TypeId GetCallTid(void) const;
-    virtual TypeId GetFloorTid(void) const;
-    virtual Time GetStart(void) const;
-    virtual Time GetStop(void) const;
+    virtual uint32_t GetAppCount() const;
+    virtual TypeId GetAppTid() const;
+    virtual TypeId GetCallTid() const;
+    virtual TypeId GetFloorTid() const;
+    virtual Time GetStart() const;
+    virtual Time GetStop() const;
     virtual void SetAppCount(const uint32_t& appCount);
     virtual void SetAppTid(const TypeId& appTid);
     virtual void SetCallTid(const TypeId& callTid);

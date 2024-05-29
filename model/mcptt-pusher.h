@@ -65,42 +65,42 @@ class McpttPusher : public Object
      * \brief Get the type ID.
      * \return the object TypeId
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * \brief Creates an instance of the McpttPusher class.
      */
-    McpttPusher(void);
+    McpttPusher();
     /**
      * \brief The destructor of the McpttPusher class.
      */
-    virtual ~McpttPusher(void);
+    ~McpttPusher() override;
     /**
      * \brief Indicates whether or not the pusher is in the "push" state.
      * \returns True, if the pusher is pushing, or false otherwise.
      */
-    virtual bool IsPushing(void) const;
+    virtual bool IsPushing() const;
     /**
      * Pushes the PTT app's button and enters the pushed state.
      */
-    virtual void Push(void);
+    virtual void Push();
     /**
      * Enter the pushed state based on a callback.
      */
-    virtual void NotifyPushed(void);
+    virtual void NotifyPushed();
     /**
      * Releases the PTT app's button and enters the released state.
      */
-    virtual void Release(void);
+    virtual void Release();
     /**
      * Enter the released state based on a callback.
      */
-    virtual void NotifyReleased(void);
+    virtual void NotifyReleased();
     /**
      * Schedules when the pusher will perform a push, based on random variable.
      * This method will return false if there is already a scheduled push event.
      * \return true if schedule was successful, false if not
      */
-    virtual bool SchedulePush(void);
+    virtual bool SchedulePush();
     /**
      * Schedules a specific delay after which the pusher will perform a push.
      * This method will return false if there is already a scheduled push event.
@@ -113,13 +113,13 @@ class McpttPusher : public Object
      * This method will return false if there was not a scheduled push event.
      * \return true if cancel was successful, false if not
      */
-    virtual bool CancelPush(void);
+    virtual bool CancelPush();
     /**
      * Schedules when the pusher will perform a release.
      * This method will return false if there is already a scheduled release event.
      * \return true if schedule was successful, false if not
      */
-    virtual bool ScheduleRelease(void);
+    virtual bool ScheduleRelease();
     /**
      * Schedules a specific delay after which the pusher will perform a release.
      * This method will return false if there is already a scheduled release event.
@@ -132,22 +132,22 @@ class McpttPusher : public Object
      * This method will return false if there was not a scheduled release event.
      * \return true if cancel was successful, false if not
      */
-    virtual bool CancelRelease(void);
+    virtual bool CancelRelease();
     /**
      * \brief Starts pushing and releasing the PTT app's button.
      */
-    virtual void Start(void);
+    virtual void Start();
     /**
      * \brief Stops pushing and releasing the PTT app's button.
      * This method may be called multiple times consecutively without side effect.
      */
-    virtual void Stop(void);
+    virtual void Stop();
 
   protected:
     /**
      * \brief Disposes of the McpttPttApp instance.
      */
-    virtual void DoDispose(void);
+    void DoDispose() override;
 
   private:
     /**
@@ -170,7 +170,7 @@ class McpttPusher : public Object
      * \brief Gets the object with the button to push.
      * \return The object with the button to push.
      */
-    virtual Ptr<McpttPttApp> GetPttApp(void) const;
+    virtual Ptr<McpttPttApp> GetPttApp() const;
     /**
      * Sets the object with the button to push.
      * \param pttApp The object with the button to push.
@@ -186,7 +186,7 @@ class McpttPusher : public Object
     /**
      * \brief Cancels all push-release events.
      */
-    virtual void CancelEvents(void);
+    virtual void CancelEvents();
 };
 
 } // namespace psc

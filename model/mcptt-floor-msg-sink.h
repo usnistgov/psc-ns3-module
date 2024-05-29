@@ -62,11 +62,11 @@ class McpttFloorMsgSink
     /**
      * \brief Creates an instance of the McpttFloorMsgSink class.
      */
-    McpttFloorMsgSink(void);
+    McpttFloorMsgSink();
     /**
      * \brief The destructor of the McpttFloorMsgSink class.
      */
-    virtual ~McpttFloorMsgSink(void);
+    virtual ~McpttFloorMsgSink();
     /**
      * Receives a message.
      * \param msg The message that was received.

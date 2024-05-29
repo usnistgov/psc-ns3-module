@@ -67,19 +67,19 @@ class McpttOffNetworkFloorParticipant : public McpttFloorParticipant
      * \brief Gets the ID of the McpttOffNetworkFloorParticipant type.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * \brief Creates an instance of the McpttOffNetworkFloorParticipant class.
      */
-    McpttOffNetworkFloorParticipant(void);
+    McpttOffNetworkFloorParticipant();
     /**
      * \brief The destructor of the McpttOffNetworkFloorParticipant class.
      */
-    virtual ~McpttOffNetworkFloorParticipant(void);
+    ~McpttOffNetworkFloorParticipant() override;
     /**
      * Accepts the floor grant.
      */
-    virtual void AcceptGrant(void);
+    void AcceptGrant() override;
     /**
      * Changes the state of the floor machine.
      * \param state The state to change to.
@@ -88,143 +88,143 @@ class McpttOffNetworkFloorParticipant : public McpttFloorParticipant
     /**
      * Clears the SSRC stored for the candidate arbitrator.
      */
-    virtual void ClearCandidateSsrc(void);
+    virtual void ClearCandidateSsrc();
     /**
      * Clears the SSRC stored for the current arbitrator.
      */
-    virtual void ClearCurrentSsrc(void);
+    virtual void ClearCurrentSsrc();
     /**
      * Gets the ID of the current call type.
      * \returns The call type ID.
      */
-    virtual uint8_t GetCallTypeId(void) const;
+    virtual uint8_t GetCallTypeId() const;
     /**
      * Gets the floor indicator to use when sending a message.
      * \returns The floor indicator field.
      */
-    virtual McpttFloorMsgFieldIndic GetIndicator(void) const;
+    virtual McpttFloorMsgFieldIndic GetIndicator() const;
     /**
      * Gets the type ID of this McpttOffNetworkFloorParticipant instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the ID of the state.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetStateId(void) const;
+    virtual McpttEntityId GetStateId() const;
     /**
      * Gets the SSRC to use when sending a message.
      * \returns The SSRC to use when sending a message.
      */
-    virtual uint32_t GetTxSsrc(void) const;
+    virtual uint32_t GetTxSsrc() const;
     /**
      * Indicates if an SSRC is stored for the candidate arbitrator.
      * \returns True, if the an SSRC is stored; otherwise false.
      */
-    virtual bool HasCandidateSsrc(void) const;
+    virtual bool HasCandidateSsrc() const;
     /**
      * Indicates if an SSRC is stored for the current arbitrator.
      * \returns True, if an SSRC is stored; otherwise false.
      */
-    virtual bool HasCurrentSsrc(void) const;
+    virtual bool HasCurrentSsrc() const;
     /**
      * Indicates whether or not the current participant is the acting arbitrator.
      * \returns True, if the current participant is the acting arbitrator.
      */
-    virtual bool HasFloor(void) const;
+    bool HasFloor() const override;
     /**
      * Indicates whether or not this participant is the origninator.
      * \returns True, if this participant is the orignator, or false otherwise.
      */
-    virtual bool IsOriginator(void) const;
+    virtual bool IsOriginator() const;
     /**
      * Indicates whether or not the floor machine has been started.
      * \returns True, if the floor machine has been started.
      */
-    virtual bool IsStarted(void) const;
+    bool IsStarted() const override;
     /**
      * Notifies the floor machine that RTP media is ready to be sent.
      * \param msg The message ready to be sent.
      */
-    virtual void MediaReady(McpttMediaMsg& msg);
+    void MediaReady(McpttMediaMsg& msg) override;
     /**
      * Notifes the floor machine that it has been granted the floor.
      */
-    virtual void NotifyFloorGranted(void);
+    virtual void NotifyFloorGranted();
     /**
      * \brief Receives a message.
      * \param msg The message that was received.
      */
-    virtual void Receive(const McpttFloorMsg& msg);
+    void Receive(const McpttFloorMsg& msg) override;
     /**
      * \brief Receives a message.
      * \param msg The message that was received.
      */
-    virtual void Receive(const McpttMediaMsg& msg);
+    void Receive(const McpttMediaMsg& msg) override;
     /**
      * Receives a floor deny message.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorDeny(const McpttFloorMsgDeny& msg);
+    void ReceiveFloorDeny(const McpttFloorMsgDeny& msg) override;
     /**
      * Receives a floor acknowledgement message.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorAck(const McpttFloorMsgAck& msg);
+    void ReceiveFloorAck(const McpttFloorMsgAck& msg) override;
     /**
      * Receives a floor granted message.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorGranted(const McpttFloorMsgGranted& msg);
+    void ReceiveFloorGranted(const McpttFloorMsgGranted& msg) override;
     /**
      * Receives a floor idle message.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorIdle(const McpttFloorMsgIdle& msg);
+    void ReceiveFloorIdle(const McpttFloorMsgIdle& msg) override;
     /**
      * Receives Floor Queue Position Request message.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorQueuePositionRequest(const McpttFloorMsgQueuePositionRequest& msg);
+    void ReceiveFloorQueuePositionRequest(const McpttFloorMsgQueuePositionRequest& msg) override;
     /**
      * Receives a floor queue position info message.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorQueuePositionInfo(const McpttFloorMsgQueuePositionInfo& msg);
+    void ReceiveFloorQueuePositionInfo(const McpttFloorMsgQueuePositionInfo& msg) override;
     /**
      * Receives a floor release message.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorRelease(const McpttFloorMsgRelease& msg);
+    void ReceiveFloorRelease(const McpttFloorMsgRelease& msg) override;
     /**
      * Receives a floor request message.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorRequest(const McpttFloorMsgRequest& msg);
+    void ReceiveFloorRequest(const McpttFloorMsgRequest& msg) override;
     /**
      * Receives a floor revoke message.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorRevoke(const McpttFloorMsgRevoke& msg);
+    void ReceiveFloorRevoke(const McpttFloorMsgRevoke& msg) override;
     /**
      * Receives a floor taken message.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorTaken(const McpttFloorMsgTaken& msg);
+    void ReceiveFloorTaken(const McpttFloorMsgTaken& msg) override;
     /**
      * Receives an RTP media message.
      * \param msg The received message.
      */
-    virtual void ReceiveMedia(const McpttMediaMsg& msg);
+    void ReceiveMedia(const McpttMediaMsg& msg) override;
     /**
      * Releases a request.
      */
-    virtual void ReleaseRequest(void);
+    void ReleaseRequest() override;
     /**
      * Resets all counters.
      */
-    virtual void ResetCounters(void);
+    virtual void ResetCounters();
     /**
      * Reports an MCPTT event.
      */
@@ -237,7 +237,7 @@ class McpttOffNetworkFloorParticipant : public McpttFloorParticipant
     /**
      * Sends a floor queue position request message.
      */
-    virtual void SendFloorQueuePositionRequest(void);
+    void SendFloorQueuePositionRequest() override;
     /**
      * Sets the delay for timer T201.
      * \param delayT201 The delay to use.
@@ -297,65 +297,65 @@ class McpttOffNetworkFloorParticipant : public McpttFloorParticipant
      * Indicates if media should automatically be generated in the 'O: has permission' state.
      * \returns True, if media should be generated; false, otherwise.
      */
-    virtual bool ShouldGenMedia(void) const;
+    virtual bool ShouldGenMedia() const;
     /**
      * Starts the floor machine.
      */
-    virtual void Start(void);
+    void Start() override;
     /**
      * Stops the floor machine.
      */
-    virtual void Stop(void);
+    void Stop() override;
     /**
      * Stops all timers.
      */
-    virtual void StopTimers(void);
+    virtual void StopTimers();
     /**
      * Notifies this machine that the button has been pushed.
      */
-    virtual void PttPush(void);
+    void PttPush() override;
     /**
      * Notifies this machine that the button has been released.
      */
-    virtual void PttRelease(void);
+    void PttRelease() override;
 
   protected:
     /**
      * \brief Disposes of the McpttLfloorMachine.
      */
-    virtual void DoDispose(void);
+    void DoDispose() override;
     /**
      * Notifies the floor machine that timer T201 has expired.
      */
-    virtual void ExpiryOfT201(void);
+    virtual void ExpiryOfT201();
     /**
      * Notifies the floor machine that timer T203 has expired.
      */
-    virtual void ExpiryOfT203(void);
+    virtual void ExpiryOfT203();
     /**
      * Notifies the floor machine that timer T204 has expired.
      */
-    virtual void ExpiryOfT204(void);
+    virtual void ExpiryOfT204();
     /**
      * Notifies the floor machine that timer T205 has expired.
      */
-    virtual void ExpiryOfT205(void);
+    virtual void ExpiryOfT205();
     /**
      * Notifies the floor machine that timer T206 has expired.
      */
-    virtual void ExpiryOfT206(void);
+    virtual void ExpiryOfT206();
     /**
      * Notifies the floor machine that timer T207 has expired.
      */
-    virtual void ExpiryOfT207(void);
+    virtual void ExpiryOfT207();
     /**
      * Notifies the floor machine that timer T230 has expired.
      */
-    virtual void ExpiryOfT230(void);
+    virtual void ExpiryOfT230();
     /**
      * Notifies the floor machine that timer T233 has expired.
      */
-    virtual void ExpiryOfT233(void);
+    virtual void ExpiryOfT233();
 
   private:
     Ptr<McpttCounter> m_c201;            //!< The counter associated with T201.
@@ -413,107 +413,107 @@ class McpttOffNetworkFloorParticipant : public McpttFloorParticipant
      * Gets the counter associated with timer T201.
      * \returns The counter.
      */
-    virtual Ptr<McpttCounter> GetC201(void) const;
+    virtual Ptr<McpttCounter> GetC201() const;
     /**
      * Gets the counter associated with timer T204.
      * \returns The counter.
      */
-    virtual Ptr<McpttCounter> GetC204(void) const;
+    virtual Ptr<McpttCounter> GetC204() const;
     /**
      * Gets the counter associated with timer T205.
      * \returns The counter.
      */
-    virtual Ptr<McpttCounter> GetC205(void) const;
+    virtual Ptr<McpttCounter> GetC205() const;
     /**
      * Gets the last floor granted message that was sent.
      * \returns The message.
      */
-    virtual McpttFloorMsgGranted GetLastGrantMsg(void) const;
+    virtual McpttFloorMsgGranted GetLastGrantMsg() const;
     /**
      * Gets the flag that is used to indicate if this floor machine is the call originator.
      * \returns True, if this participant is the originator, or false otherwise.
      */
-    virtual bool GetOriginator(void) const;
+    virtual bool GetOriginator() const;
     /**
      * Gets the McpttCall for the state machine.
      * \returns The call object
      */
-    virtual Ptr<McpttCall> GetCall(void) const;
+    virtual Ptr<McpttCall> GetCall() const;
     /**
      * Gets the current priority of the floor.
      * \returns The current priority.
      */
-    virtual uint8_t GetPriority(void) const;
+    virtual uint8_t GetPriority() const;
     /**
      * Gets the queue.
      * \returns The queue.
      */
-    virtual Ptr<McpttFloorQueue> GetQueue(void) const;
+    virtual Ptr<McpttFloorQueue> GetQueue() const;
     /**
      * Gets the setup delay.
      * \returns The setup delay time.
      */
-    virtual Time GetSetupDelayStartTime(void) const;
+    virtual Time GetSetupDelayStartTime() const;
     /**
      * Gets the flag that indicates whether or not the floor machine has been started.
      * \returns The flag.
      */
-    virtual bool GetStarted(void) const;
+    virtual bool GetStarted() const;
     /**
      * Gets the state of the floor machine.
      * \returns The state.
      */
-    virtual Ptr<McpttOffNetworkFloorParticipantState> GetState(void) const;
+    virtual Ptr<McpttOffNetworkFloorParticipantState> GetState() const;
     /**
      * Gets the SSRC stored for the candidate arbitrator.
      * \returns The SSRC.
      */
-    virtual uint32_t GetCandidateSsrc(void) const;
+    virtual uint32_t GetCandidateSsrc() const;
     /**
      * Gets the SSRC stored for the current arbitrator.
      * \returns The SSRC.
      */
-    virtual uint32_t GetCurrentSsrc(void) const;
+    virtual uint32_t GetCurrentSsrc() const;
     /**
      * Gets the timer T201.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetT201(void) const;
+    virtual Ptr<McpttTimer> GetT201() const;
     /**
      * Gets the timer T203.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetT203(void) const;
+    virtual Ptr<McpttTimer> GetT203() const;
     /**
      * Gets the timer T204.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetT204(void) const;
+    virtual Ptr<McpttTimer> GetT204() const;
     /**
      * Gets the timer T205.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetT205(void) const;
+    virtual Ptr<McpttTimer> GetT205() const;
     /**
      * Gets the timer T206.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetT206(void) const;
+    virtual Ptr<McpttTimer> GetT206() const;
     /**
      * Gets the timer T207.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetT207(void) const;
+    virtual Ptr<McpttTimer> GetT207() const;
     /**
      * Gets the timer T230.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetT230(void) const;
+    virtual Ptr<McpttTimer> GetT230() const;
     /**
      * Gets the timer T233.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetT233(void) const;
+    virtual Ptr<McpttTimer> GetT233() const;
     /**
      * Sets the counter associated with timer T201.
      * \param c201 The counter.
@@ -533,7 +533,7 @@ class McpttOffNetworkFloorParticipant : public McpttFloorParticipant
      * Sets the callback used to notify a floor granted.
      * \param floorGrantedCb The callback.
      */
-    virtual void SetFloorGrantedCb(const Callback<void> floorGrantedCb);
+    void SetFloorGrantedCb(const Callback<void> floorGrantedCb) override;
     /**
      * Sets the last floor granted message that was sent.
      * \param msg The last sent floor granted message.
@@ -543,17 +543,17 @@ class McpttOffNetworkFloorParticipant : public McpttFloorParticipant
      * Sets the flag that indicates if this floor machine is the originator of the call.
      * \param originator True, if this participant is the originator of the call.
      */
-    virtual void SetOriginator(const bool& originator);
+    void SetOriginator(const bool& originator) override;
     /**
      * Sets the McpttCall associated with the floor machine.
      * \param call The call.
      */
-    virtual void SetCall(Ptr<McpttCall> call);
+    void SetCall(Ptr<McpttCall> call) override;
     /**
      * Sets the current priority of the floor.
      * \param priority The current priority.
      */
-    virtual void SetPriority(uint8_t priority);
+    void SetPriority(uint8_t priority) override;
     /**
      * Sets the queue.
      * \param queue The queue.

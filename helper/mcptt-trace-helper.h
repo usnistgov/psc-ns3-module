@@ -71,35 +71,35 @@ class McpttTraceHelper : public Object
      * Gets the TypeId of the McpttTraceHelper.
      * \returns The TypeId.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * \brief Creates an instance of the McpttTraceHelper class.
      */
-    McpttTraceHelper(void);
+    McpttTraceHelper();
     /**
      * \brief Destructor of the McpttHelper class.
      */
-    virtual ~McpttTraceHelper(void);
+    ~McpttTraceHelper() override;
     /**
      * Enables the MCPTT message trace at the application layer.
      */
-    virtual void EnableMsgTraces(void);
+    virtual void EnableMsgTraces();
     /**
      * Disables the MCPTT message trace at the application layer.
      */
-    virtual void DisableMsgTraces(void);
+    virtual void DisableMsgTraces();
     /**
      * Enables the MCPTT state machine traces.
      */
-    virtual void EnableStateMachineTraces(void);
+    virtual void EnableStateMachineTraces();
     /**
      * Disables the MCPTT state machine traces.
      */
-    virtual void DisableStateMachineTraces(void);
+    virtual void DisableStateMachineTraces();
     /**
      * Enables a trace for MCPTT access time statistics
      */
-    virtual void EnableAccessTimeTrace(void);
+    virtual void EnableAccessTimeTrace();
     /**
      * Enables a trace for MCPTT access time statistics
      * \param filename Filename to open for writing the trace
@@ -108,11 +108,11 @@ class McpttTraceHelper : public Object
     /**
      * Disables any traces for MCPTT access time statistics
      */
-    virtual void DisableAccessTimeTrace(void);
+    virtual void DisableAccessTimeTrace();
     /**
      * Enables a trace for MCPTT mouth-to-ear latency statistics
      */
-    virtual void EnableMouthToEarLatencyTrace(void);
+    virtual void EnableMouthToEarLatencyTrace();
     /**
      * Enables a trace for MCPTT mouth-to-ear latency statistics
      * \param filename Filename to open for writing the trace
@@ -121,13 +121,13 @@ class McpttTraceHelper : public Object
     /**
      * Disables any traces for MCPTT mouth-to-ear latency statistics
      */
-    virtual void DisableMouthToEarLatencyTrace(void);
+    virtual void DisableMouthToEarLatencyTrace();
 
   protected:
     /**
      * Releases resources.
      */
-    virtual void DoDispose(void) override;
+    void DoDispose() override;
     /**
      * TracedCallback signature for an access time trace sample
      * \param [in] ts The time at which the sample was reported

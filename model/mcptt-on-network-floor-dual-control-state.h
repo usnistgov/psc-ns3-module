@@ -75,7 +75,7 @@ class McpttOnNetworkFloorDualControlState
     /**
      * \brief The destructor of the McpttOnNetworkFloorDualControlState class.
      */
-    virtual ~McpttOnNetworkFloorDualControlState(void);
+    virtual ~McpttOnNetworkFloorDualControlState();
     /**
      * Indicates to the floor control server that the call has been released (part I).
      * \param machine The FSM.
@@ -109,7 +109,7 @@ class McpttOnNetworkFloorDualControlState
      * Gets the ID of the machine state.
      * \returns The ID of the state.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    virtual McpttEntityId GetInstanceStateId() const;
     /**
      * Receives a floor release message.
      * \param machine The FSM.
@@ -158,7 +158,7 @@ class McpttOnNetworkFloorDualControlState
     /**
      * Creates an instance of the McpttOnNetworkFloorDualControlState class.
      */
-    McpttOnNetworkFloorDualControlState(void);
+    McpttOnNetworkFloorDualControlState();
 };
 
 /**
@@ -180,32 +180,32 @@ class McpttOnNetworkFloorDualControlStateStartStop : public McpttOnNetworkFloorD
      * Gets an instance of the McpttOnNetworkFloorDualControlStateStartStop.
      * \returns An instance.
      */
-    static Ptr<McpttOnNetworkFloorDualControlStateStartStop> GetInstance(void);
+    static Ptr<McpttOnNetworkFloorDualControlStateStartStop> GetInstance();
     /**
      * \brief Gets the ID of the state.
      * \returns The ID of the state.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * \brief Creates an instance of the McpttOnNetworkFloorDualControlStateStartStop class.
      */
-    McpttOnNetworkFloorDualControlStateStartStop(void);
+    McpttOnNetworkFloorDualControlStateStartStop();
     /**
      * \brief The destructor of the McpttOnNetworkFloorDualControlStateStartStop class.
      */
-    virtual ~McpttOnNetworkFloorDualControlStateStartStop(void);
+    ~McpttOnNetworkFloorDualControlStateStartStop() override;
     /**
      * Gets the ID of the machine state.
      * \returns The ID of the state.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    McpttEntityId GetInstanceStateId() const override;
     /**
      * Receives a preemptive floor request message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceivePreemptiveFloorRequest(McpttOnNetworkFloorDualControl& machine,
-                                               const McpttFloorMsgRequest& msg) const;
+    void ReceivePreemptiveFloorRequest(McpttOnNetworkFloorDualControl& machine,
+                                               const McpttFloorMsgRequest& msg) const override;
 };
 
 /**
@@ -219,71 +219,71 @@ class McpttOnNetworkFloorDualControlStateTaken : public McpttOnNetworkFloorDualC
      * Gets an instance of the McpttOnNetworkFloorDualControlStateTaken.
      * \returns An instance.
      */
-    static Ptr<McpttOnNetworkFloorDualControlStateTaken> GetInstance(void);
+    static Ptr<McpttOnNetworkFloorDualControlStateTaken> GetInstance();
     /**
      * \brief Gets the ID of the state.
      * \returns The ID of the state.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * \brief Creates an instance of the McpttOnNetworkFloorDualControlStateTaken class.
      */
-    McpttOnNetworkFloorDualControlStateTaken(void);
+    McpttOnNetworkFloorDualControlStateTaken();
     /**
      * \brief The destructor of the McpttOnNetworkFloorDualControlStateTaken class.
      */
-    virtual ~McpttOnNetworkFloorDualControlStateTaken(void);
+    ~McpttOnNetworkFloorDualControlStateTaken() override;
     /**
      * Gets the ID of the machine state.
      * \returns The ID of the state.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    McpttEntityId GetInstanceStateId() const override;
     /**
      * Notifies the machine state that it has been selected.
      * \param machine The FSM.
      */
-    virtual void Enter(McpttOnNetworkFloorDualControl& machine) const;
+    void Enter(McpttOnNetworkFloorDualControl& machine) const override;
     /**
      * Notifies the floor machine state that timer T11 has expired.
      * \param machine The FSM.
      */
-    virtual void ExpiryOfT11(McpttOnNetworkFloorDualControl& machine) const;
+    void ExpiryOfT11(McpttOnNetworkFloorDualControl& machine) const override;
     /**
      * Notifies the floor machine state that timer T12 has expired.
      * \param machine The FSM.
      */
-    virtual void ExpiryOfT12(McpttOnNetworkFloorDualControl& machine) const;
+    void ExpiryOfT12(McpttOnNetworkFloorDualControl& machine) const override;
     /**
      * Receives a media message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveMedia(McpttOnNetworkFloorDualControl& machine,
-                              const McpttMediaMsg& msg) const;
+    void ReceiveMedia(McpttOnNetworkFloorDualControl& machine,
+                              const McpttMediaMsg& msg) const override;
     /**
      * Receives a floor release message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorRelease(McpttOnNetworkFloorDualControl& machine,
-                                     const McpttFloorMsgRelease& msg) const;
+    void ReceiveFloorRelease(McpttOnNetworkFloorDualControl& machine,
+                                     const McpttFloorMsgRelease& msg) const override;
     /**
      * Receives a floor request message.
      * \param machine The FSM.
      * \param msg The received message.
      */
-    virtual void ReceiveFloorRequest(McpttOnNetworkFloorDualControl& machine,
-                                     const McpttFloorMsgRequest& msg) const;
+    void ReceiveFloorRequest(McpttOnNetworkFloorDualControl& machine,
+                                     const McpttFloorMsgRequest& msg) const override;
     /**
      * Indicates to the floor control server that the client has disconnected.
      * \param machine The FSM.
      */
-    virtual void ClientRelease(McpttOnNetworkFloorDualControl& machine) const;
+    void ClientRelease(McpttOnNetworkFloorDualControl& machine) const override;
     /**
      * Indicates to the floor control server to terminate.
      * \param machine The FSM.
      */
-    virtual void Terminate(McpttOnNetworkFloorDualControl& machine) const;
+    void Terminate(McpttOnNetworkFloorDualControl& machine) const override;
 };
 
 /**
@@ -297,30 +297,30 @@ class McpttOnNetworkFloorDualControlStateReleasing : public McpttOnNetworkFloorD
      * Gets an instance of the McpttOnNetworkFloorDualControlStateReleasing.
      * \returns An instance.
      */
-    static Ptr<McpttOnNetworkFloorDualControlStateReleasing> GetInstance(void);
+    static Ptr<McpttOnNetworkFloorDualControlStateReleasing> GetInstance();
     /**
      * \brief Gets the ID of the state.
      * \returns The ID of the state.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * \brief Creates an instance of the McpttOnNetworkFloorDualControlStateReleasing class.
      */
-    McpttOnNetworkFloorDualControlStateReleasing(void);
+    McpttOnNetworkFloorDualControlStateReleasing();
     /**
      * \brief The destructor of the McpttOnNetworkFloorDualControlStateReleasing class.
      */
-    virtual ~McpttOnNetworkFloorDualControlStateReleasing(void);
+    ~McpttOnNetworkFloorDualControlStateReleasing() override;
     /**
      * Gets the ID of the machine state.
      * \returns The ID of the state.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    McpttEntityId GetInstanceStateId() const override;
     /**
      * Notifies the machine state that the call has been released (part II).
      * \param machine The FSM.
      */
-    virtual void CallRelease2(McpttOnNetworkFloorDualControl& machine) const;
+    void CallRelease2(McpttOnNetworkFloorDualControl& machine) const override;
 };
 
 } // namespace psc

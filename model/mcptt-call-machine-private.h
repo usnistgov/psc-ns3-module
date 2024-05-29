@@ -69,28 +69,28 @@ class McpttCallMachinePrivate : public McpttCallMachineGrp
      * Gets the type ID of the McpttCallMachinePrivate class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the  class.
      * \param owner The owner of this machine
      */
-    McpttCallMachinePrivate(Ptr<McpttCall> owner = 0);
+    McpttCallMachinePrivate(Ptr<McpttCall> owner = nullptr);
     /**
      * \brief The destructor of the McpttCallMachinePrivate class.
      */
-    virtual ~McpttCallMachinePrivate(void);
+    ~McpttCallMachinePrivate() override;
     /**
      * Indicates that the call should be accepted.
      */
-    virtual void AcceptCall(void);
+    void AcceptCall() override;
     /**
      * Starts an emergency alert.
      */
-    virtual void BeginEmergAlert(void);
+    void BeginEmergAlert() override;
     /**
      * Stops an emergency alert.
      */
-    virtual void CancelEmergAlert(void);
+    void CancelEmergAlert() override;
     /**
      * Changes the state of the call machine.
      * \param state The state to change to.
@@ -99,61 +99,61 @@ class McpttCallMachinePrivate : public McpttCallMachineGrp
     /**
      * Downgrades the call from imminent peril.
      */
-    virtual void DowngradeCallType(void);
+    void DowngradeCallType() override;
     /**
      * Gets the user ID of the user that started the call.
      * \returns The MCPTT user ID.
      */
-    virtual uint32_t GetCallerUserId(void) const;
+    uint32_t GetCallerUserId() const override;
     /**
      * Gets the current call type.
      * \returns The call type.
      */
-    virtual McpttCallMsgFieldCallType GetCallType(void) const;
+    McpttCallMsgFieldCallType GetCallType() const override;
     /**
      * Gets the group ID.
      * \returns The group ID.
      */
-    virtual McpttCallMsgFieldGrpId GetGrpId(void) const;
+    McpttCallMsgFieldGrpId GetGrpId() const override;
     /**
      * Gets the type ID of this McpttCallMachinePrivate instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the ID of the current state.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetStateId(void) const;
+    McpttEntityId GetStateId() const override;
     /**
      * Gets the call type machine.
      * \returns The call type machine.
      */
-    virtual Ptr<McpttCallTypeMachine> GetCallTypeMachine(void) const;
+    virtual Ptr<McpttCallTypeMachine> GetCallTypeMachine() const;
     /**
      * Indicates that a private call should be initiated.
      */
-    virtual void InitiateCall(void);
+    void InitiateCall() override;
     /**
      * Indicates if automatic commencement mode should be indicated.
      * \returns True, if automatic commencement mode should be indicated.
      */
-    virtual bool IsAutoCommencement(void) const;
+    virtual bool IsAutoCommencement() const;
     /**
      * Indicates if confirm mode is indicated.
      * \returns True, if confirm mode is indicated; otherwise, false.
      */
-    virtual bool IsCallOngoing(void) const;
+    bool IsCallOngoing() const override;
     /**
      * Indicates if the call is a failure.
      * \returns True, if the setup should fail.
      */
-    virtual bool IsFailure(void) const;
+    virtual bool IsFailure() const;
     /**
      * Indicates if the call control machine has been started.
      * \returns True, if the call control machine has been started, or false otherwise.
      */
-    virtual bool IsStarted(void) const;
+    virtual bool IsStarted() const;
     /**
      * Notifes the call machine that a new call has been started.
      * \param callId The ID of the new call.
@@ -163,12 +163,12 @@ class McpttCallMachinePrivate : public McpttCallMachineGrp
      * Receives a call control message.
      * \param msg The call control message.
      */
-    virtual void Receive(const McpttCallMsg& msg);
+    void Receive(const McpttCallMsg& msg) override;
     /**
      * Receives a media message.
      * \param msg The message to receive.
      */
-    virtual void Receive(const McpttMediaMsg& msg);
+    void Receive(const McpttMediaMsg& msg) override;
     /**
      * Reception of a "PRIVATE CALL ACCEPT" message.
      * \param msg The received message.
@@ -232,11 +232,11 @@ class McpttCallMachinePrivate : public McpttCallMachineGrp
     /**
      * Indicates that the call should be rejected.
      */
-    virtual void RejectCall(void);
+    void RejectCall() override;
     /**
      * Indicates that the call should be released.
      */
-    virtual void ReleaseCall(void);
+    void ReleaseCall() override;
     /**
      * \brief Report an event to the McpttPttApp.
      * \param reason the reason to report.
@@ -246,7 +246,7 @@ class McpttCallMachinePrivate : public McpttCallMachineGrp
      * Sends a call control message.
      * \param msg The message to send.
      */
-    virtual void Send(const McpttCallMsg& msg);
+    void Send(const McpttCallMsg& msg) override;
     /**
      * Sets the delay for timer TFP1.
      * \param delayTfp1 The delay to use.
@@ -291,7 +291,7 @@ class McpttCallMachinePrivate : public McpttCallMachineGrp
      * Sets the group ID.
      * \param grpId The group ID.
      */
-    virtual void SetGrpId(uint32_t grpId);
+    void SetGrpId(uint32_t grpId) override;
     /**
      * Sets the limit for counter CFP1.
      * \param limitCfp1 The limit to use.
@@ -315,59 +315,59 @@ class McpttCallMachinePrivate : public McpttCallMachineGrp
     /**
      * Starts the call machine.
      */
-    virtual void Start(void);
+    void Start() override;
     /**
      * Stops the call machine.
      */
-    virtual void Stop(void);
+    void Stop() override;
     /**
      * Upgrades the call type.
      * \param callType The call type to upgrade to.
      */
-    virtual void UpgradeCallType(uint8_t callType);
+    void UpgradeCallType(uint8_t callType) override;
 
   protected:
     /**
      * Disposes of the McpttCallMachinePrivate.
      */
-    virtual void DoDispose(void);
+    void DoDispose() override;
     /**
      * Indicates that the timer TFP1 has expired.
      */
-    virtual void ExpiryOfTfp1(void);
+    virtual void ExpiryOfTfp1();
     /**
      * Indicates that the timer TFP2 has expired.
      */
-    virtual void ExpiryOfTfp2(void);
+    virtual void ExpiryOfTfp2();
     /**
      * Indicates that the timer TFP3 has expired.
      */
-    virtual void ExpiryOfTfp3(void);
+    virtual void ExpiryOfTfp3();
     /**
      * Indicates that the timer TFP4 has expired.
      */
-    virtual void ExpiryOfTfp4(void);
+    virtual void ExpiryOfTfp4();
     /**
      * Indicates that the timer TFP5 has expired.
      */
-    virtual void ExpiryOfTfp5(void);
+    virtual void ExpiryOfTfp5();
     /**
      * Indicates that the timer TFP6 has expired.
      */
-    virtual void ExpiryOfTfp6(void);
+    virtual void ExpiryOfTfp6();
     /**
      * Indicates that the timer TFP7 has expired.
      */
-    virtual void ExpiryOfTfp7(void);
+    virtual void ExpiryOfTfp7();
     /**
      * Indicates that the timer TFP8 has expired.
      */
-    virtual void ExpiryOfTfp8(void);
+    virtual void ExpiryOfTfp8();
     /**
      * Gets the flag that indicates if the call machine has been started.
      * \returns The flag.
      */
-    virtual bool GetStarted(void) const;
+    virtual bool GetStarted() const;
     /**
      * Sets the flag that indicates if the call machine has been started.
      * \param started The flag.
@@ -421,122 +421,122 @@ class McpttCallMachinePrivate : public McpttCallMachineGrp
      * Gets the ID of the MCPTT call.
      * \returns The ID.
      */
-    virtual McpttCallMsgFieldCallId GetCallId(void) const;
+    McpttCallMsgFieldCallId GetCallId() const override;
     /**
      * Gets the MCPTT user ID of the callee.
      * \returns The user ID.
      */
-    virtual McpttCallMsgFieldUserId GetCalleeId(void) const;
+    virtual McpttCallMsgFieldUserId GetCalleeId() const;
     /**
      * Gets the MCPTT user ID of the caller.
      * \returns The user ID.
      */
-    virtual McpttCallMsgFieldUserId GetCallerId(void) const;
+    virtual McpttCallMsgFieldUserId GetCallerId() const;
     /**
      * Gets the counter CFP1.
      * \returns The counter.
      */
-    virtual Ptr<McpttCounter> GetCfp1(void) const;
+    virtual Ptr<McpttCounter> GetCfp1() const;
     /**
      * Gets the counter CFP3.
      * \returns The counter.
      */
-    virtual Ptr<McpttCounter> GetCfp3(void) const;
+    virtual Ptr<McpttCounter> GetCfp3() const;
     /**
      * Gets the counter CFP4.
      * \returns The counter.
      */
-    virtual Ptr<McpttCounter> GetCfp4(void) const;
+    virtual Ptr<McpttCounter> GetCfp4() const;
     /**
      * Gets the counter CFP6.
      * \returns The counter.
      */
-    virtual Ptr<McpttCounter> GetCfp6(void) const;
+    virtual Ptr<McpttCounter> GetCfp6() const;
     /**
      * Gets the stored commencement mode.
      * \returns The stored commencement mode.
      */
-    virtual McpttCallMsgFieldCommMode GetCommMode(void) const;
+    virtual McpttCallMsgFieldCommMode GetCommMode() const;
     /**
      * Gets the emergency alert state machine.
      * \returns The state machine.
      */
-    virtual Ptr<McpttEmergAlertMachineBasic> GetEmergMachine(void) const;
+    virtual Ptr<McpttEmergAlertMachineBasic> GetEmergMachine() const;
     /**
      * Gets the McpttCall associated with the call machine.
      * \returns The call.
      */
-    virtual Ptr<McpttCall> GetCall(void) const;
+    Ptr<McpttCall> GetCall() const override;
     /**
      * Generate and return a randomly generated call ID
      * \returns The random call ID generated.
      */
-    virtual uint16_t GenerateRandomCallId(void) const;
+    virtual uint16_t GenerateRandomCallId() const;
     /**
      * Gets the SDP information.
      * \returns The SDP information.
      */
-    virtual McpttCallMsgFieldSdp GetSdp(void) const;
+    virtual McpttCallMsgFieldSdp GetSdp() const;
     /**
      * Gets the emergency SDP information.
      * \returns The SDP information.
      */
-    virtual McpttCallMsgFieldSdp GetSdpEmerg(void) const;
+    virtual McpttCallMsgFieldSdp GetSdpEmerg() const;
     /**
      * Gets the current state of the call machine.
      * \returns The current state.
      */
-    virtual Ptr<McpttCallMachinePrivateState> GetState(void) const;
+    virtual Ptr<McpttCallMachinePrivateState> GetState() const;
     /**
      * Gets the timer TFP1.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetTfp1(void) const;
+    virtual Ptr<McpttTimer> GetTfp1() const;
     /**
      * Gets the timer TFP2.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetTfp2(void) const;
+    virtual Ptr<McpttTimer> GetTfp2() const;
     /**
      * Gets the timer TFP3.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetTfp3(void) const;
+    virtual Ptr<McpttTimer> GetTfp3() const;
     /**
      * Gets the timer TFP4.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetTfp4(void) const;
+    virtual Ptr<McpttTimer> GetTfp4() const;
     /**
      * Gets the timer TFP5.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetTfp5(void) const;
+    virtual Ptr<McpttTimer> GetTfp5() const;
     /**
      * Gets the timer TFP6.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetTfp6(void) const;
+    virtual Ptr<McpttTimer> GetTfp6() const;
     /**
      * Gets the timer TFP7.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetTfp7(void) const;
+    virtual Ptr<McpttTimer> GetTfp7() const;
     /**
      * Gets the timer TFP8.
      * \returns The timer.
      */
-    virtual Ptr<McpttTimer> GetTfp8(void) const;
+    virtual Ptr<McpttTimer> GetTfp8() const;
     /**
      * Gets the call type machine.
      * \returns The call type machine.
      */
-    virtual Ptr<McpttCallTypeMachinePrivate> GetTypeMachine(void) const;
+    virtual Ptr<McpttCallTypeMachinePrivate> GetTypeMachine() const;
     /**
      * Sets the ID of the MCPTT call.
      * \param callId The ID of the MCPTT call.
      */
-    virtual void SetCallId(const McpttCallMsgFieldCallId& callId);
+    void SetCallId(const McpttCallMsgFieldCallId& callId) override;
     /**
      * Sets the MCPTT user ID of the callee.
      * \param calleeId The MCPTT user ID.
@@ -581,12 +581,12 @@ class McpttCallMachinePrivate : public McpttCallMachineGrp
      * Sets the callback used to notify a new call.
      * \param newCallCb The callback
      */
-    virtual void SetNewCallCb(const Callback<void, uint16_t> newCallCb);
+    void SetNewCallCb(const Callback<void, uint16_t> newCallCb) override;
     /**
      * Sets the McpttCall associated with the call machine.
      * \param call The call.
      */
-    virtual void SetCall(Ptr<McpttCall> call);
+    void SetCall(Ptr<McpttCall> call) override;
     /**
      * Sets the SDP inforamtion.
      * \param sdp The SDP information.

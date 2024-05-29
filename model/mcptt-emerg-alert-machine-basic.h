@@ -91,57 +91,57 @@ class McpttEmergAlertMachineBasic : public McpttEmergAlertMachine
         /**
          * The destructor of the EmergUser struct.
          */
-        virtual ~EmergUser(void);
+        virtual ~EmergUser();
     };
 
     /**
      * Gets the type ID of the McpttEmergAlertMachineBasic class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the  class.
      * \param owner The owner of the machine.
      */
-    McpttEmergAlertMachineBasic(Ptr<McpttCallMachineGrp> owner = 0);
+    McpttEmergAlertMachineBasic(Ptr<McpttCallMachineGrp> owner = nullptr);
     /**
      * \brief The destructor of the McpttEmergAlertMachineBasic class.
      */
-    virtual ~McpttEmergAlertMachineBasic(void);
+    ~McpttEmergAlertMachineBasic() override;
     /**
      * Indicates that the emergency alert should be canceled.
      */
-    virtual void CancelEmergAlert(void);
+    void CancelEmergAlert() override;
     /**
      * Gets the type ID of this McpttEmergAlertMachineBasic instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Indicates if the machine is in the emergency state.
      * \returns True, if the machine is in the emergency state; otherwise, false.
      */
-    virtual bool IsInEmergState(void) const;
+    bool IsInEmergState() const override;
     /**
      * Indicates if the machine has been started.
      * \returns True, if the machine has been started; false, otherwise.
      */
-    virtual bool IsStarted(void) const;
+    bool IsStarted() const override;
     /**
      * Indicates if another user is in the emergency state.
      * \returns True, if another user is still in the emergency state; otherwise false.
      */
-    virtual bool IsOtherInEmergState(void) const;
+    virtual bool IsOtherInEmergState() const;
     /**
      * Receive a "GROUP EMERGENCY ALERT" message.
      * \param msg The message.
      */
-    virtual void ReceiveGrpCallEmergAlert(const McpttCallMsgGrpEmergAlert& msg);
+    void ReceiveGrpCallEmergAlert(const McpttCallMsgGrpEmergAlert& msg) override;
     /**
      * Receive a "GROUP EMERGENCY ALERT CANCEL" message.
      * \param msg The message.
      */
-    virtual void ReceiveGrpCallEmergAlertCancel(const McpttCallMsgGrpEmergAlertCancel& msg);
+    void ReceiveGrpCallEmergAlertCancel(const McpttCallMsgGrpEmergAlertCancel& msg) override;
     /**
      * Sends a call control message.
      * \param msg The message to send.
@@ -150,7 +150,7 @@ class McpttEmergAlertMachineBasic : public McpttEmergAlertMachine
     /**
      * Indicates to the machine that an emergency alert should be sent.
      */
-    virtual void SendEmergAlert(void);
+    void SendEmergAlert() override;
     /**
      * Sets the delay for timer TFE2.
      * \param delayTfe2 The delay to use.
@@ -159,11 +159,11 @@ class McpttEmergAlertMachineBasic : public McpttEmergAlertMachine
     /**
      * Starts the emergency alert machine.
      */
-    virtual void Start(void);
+    void Start() override;
     /**
      * Stops the emergency alert machine.
      */
-    virtual void Stop(void);
+    void Stop() override;
 
   protected:
     /**
@@ -174,7 +174,7 @@ class McpttEmergAlertMachineBasic : public McpttEmergAlertMachine
     /**
      * Disposes of the McpttEmergAlertMachineBasic.
      */
-    virtual void DoDispose(void);
+    void DoDispose() override;
     /**
      * Indicates expiration of TFE1.
      * \param userId The ID of the user whose TFE1 timer expired.
@@ -183,7 +183,7 @@ class McpttEmergAlertMachineBasic : public McpttEmergAlertMachine
     /**
      * Indicates expiration of TFE2.
      */
-    virtual void ExpiryOfTfe2(void);
+    virtual void ExpiryOfTfe2();
     /**
      * Searches for the user with the given ID.
      * \param userId The ID of the user to search for.
@@ -220,12 +220,12 @@ class McpttEmergAlertMachineBasic : public McpttEmergAlertMachine
      * Gets the list of users in emergency.
      * \returns The list of users.
      */
-    virtual std::list<EmergUser> GetEmergUsers(void) const;
+    virtual std::list<EmergUser> GetEmergUsers() const;
     /**
      * Get the TFE2 timer.
      * \returns The TFE2 timer.
      */
-    virtual Ptr<McpttTimer> GetTfe2(void) const;
+    virtual Ptr<McpttTimer> GetTfe2() const;
     /**
      * Sets the list of users in emergency.
      * \param emergUsers The list of users.
@@ -242,22 +242,22 @@ class McpttEmergAlertMachineBasic : public McpttEmergAlertMachine
      * Gets the flag that indicates if the machine is in the emergency state.
      * \returns The flag.
      */
-    virtual bool GetEmerg(void) const;
+    virtual bool GetEmerg() const;
     /**
      * Gets the name of the MCPTT organization.
      * \returns The name of the MCPTT organization.
      */
-    virtual McpttCallMsgFieldOrgName GetOrgName(void) const;
+    virtual McpttCallMsgFieldOrgName GetOrgName() const;
     /**
      * Gets the owner of this emergency alert state machine.
      * \returns The owner.
      */
-    virtual Ptr<McpttCallMachineGrp> GetOwner(void) const;
+    virtual Ptr<McpttCallMachineGrp> GetOwner() const;
     /**
      * Gets the flag used to indicate if the emergency alert machine has been started.
      * \returns The flag.
      */
-    virtual bool GetStarted(void) const;
+    virtual bool GetStarted() const;
     /**
      * Sets the flag that indicates if the machine is in the emergency state.
      * \param emerg The flag.

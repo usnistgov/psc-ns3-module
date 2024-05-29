@@ -57,20 +57,20 @@ class McpttStateMachineStats : public Object
      * Gets the type ID of the McpttStateMachineStats class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttStateMachineStats class.
      */
-    McpttStateMachineStats(void);
+    McpttStateMachineStats();
     /**
      * \brief The destructor of the McpttStateMachineStats class.
      */
-    virtual ~McpttStateMachineStats(void);
+    ~McpttStateMachineStats() override;
     /**
      * Gets the type ID of this  instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * The callback for capturing state changes
      * \param userId The user ID of the state machine.

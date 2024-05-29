@@ -94,11 +94,11 @@ class McpttCallMsg : public McpttMsg
      * Gets the type ID of the McpttCallMsg class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMsg class.
      */
-    McpttCallMsg(void);
+    McpttCallMsg();
     /**
      * Creates an instance of the McpttCallMsg class.
      * \param msgType The message type field.
@@ -107,33 +107,33 @@ class McpttCallMsg : public McpttMsg
     /**
      * \brief The destructor of the McpttCallMsg class.
      */
-    virtual ~McpttCallMsg(void);
+    ~McpttCallMsg() override;
     /**
      * Reads the contents of the message from the byte stream.
      * \param start The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t Deserialize(Buffer::Iterator start);
+    uint32_t Deserialize(Buffer::Iterator start) override;
     /**
      * Gets the type ID of this McpttCallMsg instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the contents of the message to the byte stream.
      * \param start The byte stream to write to.
      */
-    virtual void Serialize(Buffer::Iterator start) const;
+    void Serialize(Buffer::Iterator start) const override;
     /**
      * Visits a call machine.
      * \param callMachine The call machine to visit.
@@ -171,7 +171,7 @@ class McpttCallMsg : public McpttMsg
      * Gets the message type.
      * \returns The message type.
      */
-    virtual McpttCallMsgFieldMsgType GetMsgType(void) const;
+    virtual McpttCallMsgFieldMsgType GetMsgType() const;
     /**
      * Sets the message type.
      * \param msgType The message type.
@@ -198,35 +198,35 @@ class McpttCallMsgGrpProbe : public McpttCallMsg
      * Gets the type ID of the McpttCallMsgGrpProbe class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMsgGrpProbe class.
      */
-    McpttCallMsgGrpProbe(void);
+    McpttCallMsgGrpProbe();
     /**
      * \brief The destructor of the McpttCallMsgGrpProbe class.
      */
-    virtual ~McpttCallMsgGrpProbe(void);
+    ~McpttCallMsgGrpProbe() override;
     /**
      * Gets the type ID of this McpttCallMsgGrpProbe instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Visits a call machine.
      * \param callMachine The call machine to visit.
      */
-    virtual void Visit(McpttCallMachineGrpBasic& callMachine) const;
+    void Visit(McpttCallMachineGrpBasic& callMachine) const override;
 
   protected:
     /**
@@ -234,12 +234,12 @@ class McpttCallMsgGrpProbe : public McpttCallMsg
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Writes the data of the message to the byte sream.
      * \param buff The stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
 
   private:
     McpttCallMsgFieldGrpId m_grpId; //!< The MCPTT group ID field.
@@ -249,7 +249,7 @@ class McpttCallMsgGrpProbe : public McpttCallMsg
      * Gets the MCPTT group ID field.
      * \returns The MCPTT group ID field.
      */
-    virtual McpttCallMsgFieldGrpId GetGrpId(void) const;
+    virtual McpttCallMsgFieldGrpId GetGrpId() const;
     /**
      * Sets the MCPTT group ID field.
      * \param grpId The MCPTT group ID field.
@@ -276,45 +276,45 @@ class McpttCallMsgGrpAnnoun : public McpttCallMsg
      * Gets the type ID of the McpttCallMsgGrpAnnoun class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMsgGrpAnnoun class.
      */
-    McpttCallMsgGrpAnnoun(void);
+    McpttCallMsgGrpAnnoun();
     /**
      * \brief The destructor of the McpttCallMsgGrpAnnoun class.
      */
-    virtual ~McpttCallMsgGrpAnnoun(void);
+    ~McpttCallMsgGrpAnnoun() override;
     /**
      * Gets the type ID of this McpttCallMsgGrpAnnoun instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Indicates if the message contains a confirm mode indication IE.
      * \returns True, if the confirm mode indication IE is included.
      */
-    virtual bool IsConfirmModeIndicated(void) const;
+    virtual bool IsConfirmModeIndicated() const;
     /**
      * Indicates if the message contains a call probe response IE.
      * \returns True, if the call probe response IE is included.
      */
-    virtual bool IsProbeResp(void) const;
+    virtual bool IsProbeResp() const;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Visits a call machine.
      * \param callMachine The call machine to visit.
      */
-    virtual void Visit(McpttCallMachineGrpBasic& callMachine) const;
+    void Visit(McpttCallMachineGrpBasic& callMachine) const override;
 
   protected:
     /**
@@ -322,12 +322,12 @@ class McpttCallMsgGrpAnnoun : public McpttCallMsg
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Writes the data of the message to the byte sream.
      * \param buff The stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
 
   private:
     McpttCallMsgFieldCallId m_callId;           //!< The call identifier.
@@ -348,57 +348,57 @@ class McpttCallMsgGrpAnnoun : public McpttCallMsg
      * Gets the call identifier field.
      * \returns The call identifier field.
      */
-    virtual McpttCallMsgFieldCallId GetCallId(void) const;
+    virtual McpttCallMsgFieldCallId GetCallId() const;
     /**
      * Gets the call type field.
      * \returns The call type field.
      */
-    virtual McpttCallMsgFieldCallType GetCallType(void) const;
+    virtual McpttCallMsgFieldCallType GetCallType() const;
     /**
      * Gets the confirm mode indication flag.
      * \returns the flag.
      */
-    virtual bool GetConfirmMode(void) const;
+    virtual bool GetConfirmMode() const;
     /**
      * Gets the group ID field.
      * \returns The group ID field.
      */
-    virtual McpttCallMsgFieldGrpId GetGrpId(void) const;
+    virtual McpttCallMsgFieldGrpId GetGrpId() const;
     /**
      * Gets the last call type change time field.
      * \returns The last call type change time field.
      */
-    virtual McpttCallMsgFieldLastChgTime GetLastChgTime(void) const;
+    virtual McpttCallMsgFieldLastChgTime GetLastChgTime() const;
     /**
      * Gets the MCPTT user ID of the last user to change the call type.
      * \returns The MCPTT user ID.
      */
-    virtual McpttCallMsgFieldUserId GetLastChgUserId(void) const;
+    virtual McpttCallMsgFieldUserId GetLastChgUserId() const;
     /**
      * Gets the user ID field.
      * \returns The user ID field.
      */
-    virtual McpttCallMsgFieldUserId GetOrigId(void) const;
+    virtual McpttCallMsgFieldUserId GetOrigId() const;
     /**
      * Gets the probe response flag.
      * \returns The flag.
      */
-    virtual bool GetProbeResp(void) const;
+    virtual bool GetProbeResp() const;
     /**
      * Gets the refresh interval field.
      * \returns The refresh interval field.
      */
-    virtual McpttCallMsgFieldRefreshInterval GetRefInt(void) const;
+    virtual McpttCallMsgFieldRefreshInterval GetRefInt() const;
     /**
      * Gets the SDP field.
      * \returns The SDP field.
      */
-    virtual McpttCallMsgFieldSdp GetSdp(void) const;
+    virtual McpttCallMsgFieldSdp GetSdp() const;
     /**
      * Gets the call start time field.
      * \returns The call start time field.
      */
-    virtual McpttCallMsgFieldStartTime GetStartTime(void) const;
+    virtual McpttCallMsgFieldStartTime GetStartTime() const;
     /**
      * Sets the call identifier field.
      * \param callId The call identifier field.
@@ -475,35 +475,35 @@ class McpttCallMsgGrpAccept : public McpttCallMsg
      * Gets the type ID of the McpttCallMsgGrpAccept class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMsgGrpAccept class.
      */
-    McpttCallMsgGrpAccept(void);
+    McpttCallMsgGrpAccept();
     /**
      * \brief The destructor of the McpttCallMsgGrpAccept class.
      */
-    virtual ~McpttCallMsgGrpAccept(void);
+    ~McpttCallMsgGrpAccept() override;
     /**
      * Gets the type ID of this McpttCallMsgGrpAccept instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Visits a call machine.
      * \param callMachine The call machine to visit.
      */
-    virtual void Visit(McpttCallMachineGrpBasic& callMachine) const;
+    void Visit(McpttCallMachineGrpBasic& callMachine) const override;
 
   protected:
     /**
@@ -511,12 +511,12 @@ class McpttCallMsgGrpAccept : public McpttCallMsg
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Writes the data of the message to the byte sream.
      * \param buff The stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
 
   private:
     McpttCallMsgFieldCallId m_callId;     //!< The call identifier field.
@@ -529,22 +529,22 @@ class McpttCallMsgGrpAccept : public McpttCallMsg
      * Gets the call identifier field.
      * \returns The call identifier field.
      */
-    virtual McpttCallMsgFieldCallId GetCallId(void) const;
+    virtual McpttCallMsgFieldCallId GetCallId() const;
     /**
      * Gets the call type field.
      * \returns The call type field.
      */
-    virtual McpttCallMsgFieldCallType GetCallType(void) const;
+    virtual McpttCallMsgFieldCallType GetCallType() const;
     /**
      * Gets the group ID field.
      * \returns The group ID field.
      */
-    virtual McpttCallMsgFieldGrpId GetGrpId(void) const;
+    virtual McpttCallMsgFieldGrpId GetGrpId() const;
     /**
      * Gets the user ID field.
      * \returns The user ID field.
      */
-    virtual McpttCallMsgFieldUserId GetUserId(void) const;
+    virtual McpttCallMsgFieldUserId GetUserId() const;
     /**
      * Sets the call identifier field.
      * \param callId The call identifier field.
@@ -587,35 +587,35 @@ class McpttCallMsgGrpImmPerilEnd : public McpttCallMsg
      * Gets the type ID of the McpttCallMsgGrpImmPerilEnd class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMsgGrpImmPerilEnd class.
      */
-    McpttCallMsgGrpImmPerilEnd(void);
+    McpttCallMsgGrpImmPerilEnd();
     /**
      * \brief The destructor of the McpttCallMsgGrpImmPerilEnd class.
      */
-    virtual ~McpttCallMsgGrpImmPerilEnd(void);
+    ~McpttCallMsgGrpImmPerilEnd() override;
     /**
      * Gets the type ID of this McpttCallMsgGrpImmPerilEnd instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Visits a call machine.
      * \param callMachine The call machine to visit.
      */
-    virtual void Visit(McpttCallMachineGrpBasic& callMachine) const;
+    void Visit(McpttCallMachineGrpBasic& callMachine) const override;
 
   protected:
     /**
@@ -623,12 +623,12 @@ class McpttCallMsgGrpImmPerilEnd : public McpttCallMsg
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Writes the data of the message to the byte sream.
      * \param buff The stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
 
   private:
     McpttCallMsgFieldCallId m_callId;           //!< The call identifier field.
@@ -643,27 +643,27 @@ class McpttCallMsgGrpImmPerilEnd : public McpttCallMsg
      * Gets the call identifier field.
      * \returns The call identifier field.
      */
-    virtual McpttCallMsgFieldCallId GetCallId(void) const;
+    virtual McpttCallMsgFieldCallId GetCallId() const;
     /**
      * Gets the MCPTT group ID field.
      * \returns The MCPTT group ID field.
      */
-    virtual McpttCallMsgFieldGrpId GetGrpId(void) const;
+    virtual McpttCallMsgFieldGrpId GetGrpId() const;
     /**
      * Gets the last call type change time field.
      * \returns The last call type change time field.
      */
-    virtual McpttCallMsgFieldLastChgTime GetLastChgTime(void) const;
+    virtual McpttCallMsgFieldLastChgTime GetLastChgTime() const;
     /**
      * Gets the MCPTT user ID of the last user to change the call type.
      * \returns The MCPTT user ID of the last user to change the call type.
      */
-    virtual McpttCallMsgFieldUserId GetLastChgUserId(void) const;
+    virtual McpttCallMsgFieldUserId GetLastChgUserId() const;
     /**
      * Gets the MCPTT user ID of the sending user.
      * \returns The MCPTT user ID of the sending user.
      */
-    virtual McpttCallMsgFieldUserId GetUserId(void) const;
+    virtual McpttCallMsgFieldUserId GetUserId() const;
     /**
      * Sets the call identifier field.
      * \param callId The call identifier field.
@@ -711,35 +711,35 @@ class McpttCallMsgGrpEmergEnd : public McpttCallMsg
      * Gets the type ID of the McpttCallMsgGrpEmergEnd class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMsgGrpEmergEnd class.
      */
-    McpttCallMsgGrpEmergEnd(void);
+    McpttCallMsgGrpEmergEnd();
     /**
      * \brief The destructor of the McpttCallMsgGrpEmergEnd class.
      */
-    virtual ~McpttCallMsgGrpEmergEnd(void);
+    ~McpttCallMsgGrpEmergEnd() override;
     /**
      * Gets the type ID of this McpttCallMsgGrpEmergEnd instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Visits a call machine.
      * \param callMachine The call machine to visit.
      */
-    virtual void Visit(McpttCallMachineGrpBasic& callMachine) const;
+    void Visit(McpttCallMachineGrpBasic& callMachine) const override;
 
   protected:
     /**
@@ -747,12 +747,12 @@ class McpttCallMsgGrpEmergEnd : public McpttCallMsg
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Writes the data of the message to the byte sream.
      * \param buff The stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
 
   private:
     McpttCallMsgFieldCallId m_callId;           //!< The call identifier field.
@@ -767,27 +767,27 @@ class McpttCallMsgGrpEmergEnd : public McpttCallMsg
      * Gets the call identifier field.
      * \returns The call identifier field.
      */
-    virtual McpttCallMsgFieldCallId GetCallId(void) const;
+    virtual McpttCallMsgFieldCallId GetCallId() const;
     /**
      * Gets the MCPTT group ID field.
      * \returns The MCPTT group ID field.
      */
-    virtual McpttCallMsgFieldGrpId GetGrpId(void) const;
+    virtual McpttCallMsgFieldGrpId GetGrpId() const;
     /**
      * Gets the last call type change time field.
      * \returns The last call type change time field.
      */
-    virtual McpttCallMsgFieldLastChgTime GetLastChgTime(void) const;
+    virtual McpttCallMsgFieldLastChgTime GetLastChgTime() const;
     /**
      * Gets the MCPTT user ID of the last user to change the call type.
      * \returns The MCPTT user ID of the last user to change the call type.
      */
-    virtual McpttCallMsgFieldUserId GetLastChgUserId(void) const;
+    virtual McpttCallMsgFieldUserId GetLastChgUserId() const;
     /**
      * Gets the MCPTT user ID of the sending user.
      * \returns The MCPTT user ID of the sending user.
      */
-    virtual McpttCallMsgFieldUserId GetUserId(void) const;
+    virtual McpttCallMsgFieldUserId GetUserId() const;
     /**
      * Sets the call identifier field.
      * \param callId The call identifier field.
@@ -834,40 +834,40 @@ class McpttCallMsgGrpEmergAlert : public McpttCallMsg
      * Gets the type ID of the McpttCallMsgGrpEmergAlert class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMsgGrpEmergAlert class.
      */
-    McpttCallMsgGrpEmergAlert(void);
+    McpttCallMsgGrpEmergAlert();
     /**
      * \brief The destructor of the McpttCallMsgGrpEmergAlert class.
      */
-    virtual ~McpttCallMsgGrpEmergAlert(void);
+    ~McpttCallMsgGrpEmergAlert() override;
     /**
      * Gets the type ID of this McpttCallMsgGrpEmergAlert instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Visits a call machine.
      * \param callMachine The call machine to visit.
      */
-    virtual void Visit(McpttCallMachineGrpBasic& callMachine) const;
+    void Visit(McpttCallMachineGrpBasic& callMachine) const override;
     /**
      * Visits a call machine.
      * \param callMachine The call machine to visit.
      */
-    virtual void Visit(McpttCallMachinePrivate& callMachine) const;
+    void Visit(McpttCallMachinePrivate& callMachine) const override;
 
   protected:
     /**
@@ -875,12 +875,12 @@ class McpttCallMsgGrpEmergAlert : public McpttCallMsg
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Writes the data of the message to the byte sream.
      * \param buff The stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
 
   private:
     McpttCallMsgFieldGrpId m_grpId;     //!< The MCPTT group ID field.
@@ -893,22 +893,22 @@ class McpttCallMsgGrpEmergAlert : public McpttCallMsg
      * Gets the MCPTT group ID field.
      * \returns The MCPTT group ID field.
      */
-    virtual McpttCallMsgFieldGrpId GetGrpId(void) const;
+    virtual McpttCallMsgFieldGrpId GetGrpId() const;
     /**
      * Gets the organization name field.
      * \returns The organization name field.
      */
-    virtual McpttCallMsgFieldOrgName GetOrgName(void) const;
+    virtual McpttCallMsgFieldOrgName GetOrgName() const;
     /**
      * Gets the MCPTT user ID field.
      * \returns The MCPTT user ID field.
      */
-    virtual McpttCallMsgFieldUserId GetUserId(void) const;
+    virtual McpttCallMsgFieldUserId GetUserId() const;
     /**
      * Gets the user location field.
      * \returns The user location field.
      */
-    virtual McpttCallMsgFieldUserLoc GetUserLoc(void) const;
+    virtual McpttCallMsgFieldUserLoc GetUserLoc() const;
     /**
      * Sets the MCPTT group ID field.
      * \param grpId The MCPTT group ID field.
@@ -950,35 +950,35 @@ class McpttCallMsgGrpEmergAlertAck : public McpttCallMsg
      * Gets the type ID of the McpttCallMsgGrpEmergAlertAck class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMsgGrpEmergAlertAck class.
      */
-    McpttCallMsgGrpEmergAlertAck(void);
+    McpttCallMsgGrpEmergAlertAck();
     /**
      * \brief The destructor of the McpttCallMsgGrpEmergAlertAck class.
      */
-    virtual ~McpttCallMsgGrpEmergAlertAck(void);
+    ~McpttCallMsgGrpEmergAlertAck() override;
     /**
      * Gets the type ID of this McpttCallMsgGrpEmergAlertAck instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Visits a call machine.
      * \param callMachine The call machine to visit.
      */
-    virtual void Visit(McpttCallMachineGrpBasic& callMachine) const;
+    void Visit(McpttCallMachineGrpBasic& callMachine) const override;
 
   protected:
     /**
@@ -986,12 +986,12 @@ class McpttCallMsgGrpEmergAlertAck : public McpttCallMsg
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Writes the data of the message to the byte sream.
      * \param buff The stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
 
   private:
     McpttCallMsgFieldGrpId m_grpId;      //!< The MCPTT group ID field.
@@ -1003,17 +1003,17 @@ class McpttCallMsgGrpEmergAlertAck : public McpttCallMsg
      * Gets the MCPTT group ID field.
      * \returns The MCPTT group ID field.
      */
-    virtual McpttCallMsgFieldGrpId GetGrpId(void) const;
+    virtual McpttCallMsgFieldGrpId GetGrpId() const;
     /**
      * Gets the MCPTT user ID of the originating user.
      * \returns The MCPTT user ID of the originating user.
      */
-    virtual McpttCallMsgFieldUserId GetOrigId(void) const;
+    virtual McpttCallMsgFieldUserId GetOrigId() const;
     /**
      * Gets the MCPTT user ID of the sending user.
      * \returns The MCPTT user ID of the sending user.
      */
-    virtual McpttCallMsgFieldUserId GetSendingId(void) const;
+    virtual McpttCallMsgFieldUserId GetSendingId() const;
     /**
      * Sets the MCPTT group ID field.
      * \param grpId The MCPTT group ID field.
@@ -1050,40 +1050,40 @@ class McpttCallMsgGrpEmergAlertCancel : public McpttCallMsg
      * Gets the type ID of the McpttCallMsgGrpEmergAlertCancel class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMsgGrpEmergAlertCancel class.
      */
-    McpttCallMsgGrpEmergAlertCancel(void);
+    McpttCallMsgGrpEmergAlertCancel();
     /**
      * \brief The destructor of the McpttCallMsgGrpEmergAlertCancel class.
      */
-    virtual ~McpttCallMsgGrpEmergAlertCancel(void);
+    ~McpttCallMsgGrpEmergAlertCancel() override;
     /**
      * Gets the type ID of this McpttCallMsgGrpEmergAlertCancel instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Visits a call machine.
      * \param callMachine The call machine to visit.
      */
-    virtual void Visit(McpttCallMachineGrpBasic& callMachine) const;
+    void Visit(McpttCallMachineGrpBasic& callMachine) const override;
     /**
      * Visits a call machine.
      * \param callMachine The call machine to visit.
      */
-    virtual void Visit(McpttCallMachinePrivate& callMachine) const;
+    void Visit(McpttCallMachinePrivate& callMachine) const override;
 
   protected:
     /**
@@ -1091,12 +1091,12 @@ class McpttCallMsgGrpEmergAlertCancel : public McpttCallMsg
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Writes the data of the message to the byte sream.
      * \param buff The stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
 
   private:
     McpttCallMsgFieldGrpId m_grpId;      //!< The MCPTT group ID field.
@@ -1108,17 +1108,17 @@ class McpttCallMsgGrpEmergAlertCancel : public McpttCallMsg
      * Gets the MCPTT group ID field.
      * \returns The MCPTT group ID field.
      */
-    virtual McpttCallMsgFieldGrpId GetGrpId(void) const;
+    virtual McpttCallMsgFieldGrpId GetGrpId() const;
     /**
      * Gets the MCPTT user ID of the originating user.
      * \returns The MCPTT user ID of the originating user.
      */
-    virtual McpttCallMsgFieldUserId GetOrigId(void) const;
+    virtual McpttCallMsgFieldUserId GetOrigId() const;
     /**
      * Gets the MCPTT user ID of the sending user.
      * \returns The MCPTT user ID of the sending user.
      */
-    virtual McpttCallMsgFieldUserId GetSendingId(void) const;
+    virtual McpttCallMsgFieldUserId GetSendingId() const;
     /**
      * Sets the MCPTT group ID field.
      * \param grpId The MCPTT group ID field.
@@ -1156,35 +1156,35 @@ class McpttCallMsgGrpEmergAlertCancelAck : public McpttCallMsg
      * Gets the type ID of the McpttCallMsgGrpEmergAlertCancelAck class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMsgGrpEmergAlertCancelAck class.
      */
-    McpttCallMsgGrpEmergAlertCancelAck(void);
+    McpttCallMsgGrpEmergAlertCancelAck();
     /**
      * \brief The destructor of the McpttCallMsgGrpEmergAlertCancelAck class.
      */
-    virtual ~McpttCallMsgGrpEmergAlertCancelAck(void);
+    ~McpttCallMsgGrpEmergAlertCancelAck() override;
     /**
      * Gets the type ID of this McpttCallMsgGrpEmergAlertCancelAck instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Visits a call machine.
      * \param callMachine The call machine to visit.
      */
-    virtual void Visit(McpttCallMachineGrpBasic& callMachine) const;
+    void Visit(McpttCallMachineGrpBasic& callMachine) const override;
 
   protected:
     /**
@@ -1192,12 +1192,12 @@ class McpttCallMsgGrpEmergAlertCancelAck : public McpttCallMsg
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Writes the data of the message to the byte sream.
      * \param buff The stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
 
   private:
     McpttCallMsgFieldGrpId m_grpId;      //!< The MCPTT group ID field.
@@ -1209,17 +1209,17 @@ class McpttCallMsgGrpEmergAlertCancelAck : public McpttCallMsg
      * Gets the MCPTT group ID field.
      * \returns The MCPTT group ID field.
      */
-    virtual McpttCallMsgFieldGrpId GetGrpId(void) const;
+    virtual McpttCallMsgFieldGrpId GetGrpId() const;
     /**
      * Gets the MCPTT user ID of the originating user.
      * \returns The MCPTT user ID of the originating user.
      */
-    virtual McpttCallMsgFieldUserId GetOrigId(void) const;
+    virtual McpttCallMsgFieldUserId GetOrigId() const;
     /**
      * Gets the MCPTT user ID of the sending user.
      * \returns The MCPTT user ID of the sending user.
      */
-    virtual McpttCallMsgFieldUserId GetSendingId(void) const;
+    virtual McpttCallMsgFieldUserId GetSendingId() const;
     /**
      * Sets the MCPTT group ID field.
      * \param grpId The MCPTT group ID field.
@@ -1257,35 +1257,35 @@ class McpttCallMsgGrpBroadcast : public McpttCallMsg
      * Gets the type ID of the McpttCallMsgGrpBroadcast class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMsgGrpBroadcast class.
      */
-    McpttCallMsgGrpBroadcast(void);
+    McpttCallMsgGrpBroadcast();
     /**
      * \brief The destructor of the McpttCallMsgGrpBroadcast class.
      */
-    virtual ~McpttCallMsgGrpBroadcast(void);
+    ~McpttCallMsgGrpBroadcast() override;
     /**
      * Gets the type ID of this McpttCallMsgGrpBroadcast instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Visits a call machine.
      * \param callMachine The call machine to visit.
      */
-    virtual void Visit(McpttCallMachineGrpBroadcast& callMachine) const;
+    void Visit(McpttCallMachineGrpBroadcast& callMachine) const override;
 
   protected:
     /**
@@ -1293,12 +1293,12 @@ class McpttCallMsgGrpBroadcast : public McpttCallMsg
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Writes the data of the message to the byte sream.
      * \param buff The stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
 
   private:
     McpttCallMsgFieldCallId m_callId;     //!< The call identifier.
@@ -1312,27 +1312,27 @@ class McpttCallMsgGrpBroadcast : public McpttCallMsg
      * Gets the call identifier field.
      * \returns The call identifier field.
      */
-    virtual McpttCallMsgFieldCallId GetCallId(void) const;
+    virtual McpttCallMsgFieldCallId GetCallId() const;
     /**
      * Gets the call type field.
      * \returns The call type field.
      */
-    virtual McpttCallMsgFieldCallType GetCallType(void) const;
+    virtual McpttCallMsgFieldCallType GetCallType() const;
     /**
      * Gets the group ID field.
      * \returns The group ID field.
      */
-    virtual McpttCallMsgFieldGrpId GetGrpId(void) const;
+    virtual McpttCallMsgFieldGrpId GetGrpId() const;
     /**
      * Gets the user ID field.
      * \returns The user ID field.
      */
-    virtual McpttCallMsgFieldUserId GetOrigId(void) const;
+    virtual McpttCallMsgFieldUserId GetOrigId() const;
     /**
      * Gets the SDP field.
      * \returns The SDP field.
      */
-    virtual McpttCallMsgFieldSdp GetSdp(void) const;
+    virtual McpttCallMsgFieldSdp GetSdp() const;
     /**
      * Sets the call identifier field.
      * \param callId The call identifier field.
@@ -1380,35 +1380,35 @@ class McpttCallMsgGrpBroadcastEnd : public McpttCallMsg
      * Gets the type ID of the McpttCallMsgGrpBroadcastEnd class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMsgGrpBroadcastEnd class.
      */
-    McpttCallMsgGrpBroadcastEnd(void);
+    McpttCallMsgGrpBroadcastEnd();
     /**
      * \brief The destructor of the McpttCallMsgGrpBroadcastEnd class.
      */
-    virtual ~McpttCallMsgGrpBroadcastEnd(void);
+    ~McpttCallMsgGrpBroadcastEnd() override;
     /**
      * Gets the type ID of this McpttCallMsgGrpBroadcastEnd instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Visits a call machine.
      * \param callMachine The call machine to visit.
      */
-    virtual void Visit(McpttCallMachineGrpBroadcast& callMachine) const;
+    void Visit(McpttCallMachineGrpBroadcast& callMachine) const override;
 
   protected:
     /**
@@ -1416,12 +1416,12 @@ class McpttCallMsgGrpBroadcastEnd : public McpttCallMsg
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Writes the data of the message to the byte sream.
      * \param buff The stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
 
   private:
     McpttCallMsgFieldCallId m_callId; //!< The call identifier.
@@ -1433,17 +1433,17 @@ class McpttCallMsgGrpBroadcastEnd : public McpttCallMsg
      * Gets the call identifier field.
      * \returns The call identifier field.
      */
-    virtual McpttCallMsgFieldCallId GetCallId(void) const;
+    virtual McpttCallMsgFieldCallId GetCallId() const;
     /**
      * Gets the group ID field.
      * \returns The group ID field.
      */
-    virtual McpttCallMsgFieldGrpId GetGrpId(void) const;
+    virtual McpttCallMsgFieldGrpId GetGrpId() const;
     /**
      * Gets the user ID field.
      * \returns The user ID field.
      */
-    virtual McpttCallMsgFieldUserId GetOrigId(void) const;
+    virtual McpttCallMsgFieldUserId GetOrigId() const;
     /**
      * Sets the call identifier field.
      * \param callId The call identifier field.
@@ -1480,35 +1480,35 @@ class McpttCallMsgPrivateSetupReq : public McpttCallMsg
      * Gets the type ID of the McpttCallMsgPrivateSetupReq class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMsgPrivateSetupReq class.
      */
-    McpttCallMsgPrivateSetupReq(void);
+    McpttCallMsgPrivateSetupReq();
     /**
      * \brief The destructor of the McpttCallMsgPrivateSetupReq class.
      */
-    virtual ~McpttCallMsgPrivateSetupReq(void);
+    ~McpttCallMsgPrivateSetupReq() override;
     /**
      * Gets the type ID of this McpttCallMsgPrivateSetupReq instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Visits a call machine.
      * \param callMachine The call machine to visit.
      */
-    virtual void Visit(McpttCallMachinePrivate& callMachine) const;
+    void Visit(McpttCallMachinePrivate& callMachine) const override;
 
   protected:
     /**
@@ -1516,12 +1516,12 @@ class McpttCallMsgPrivateSetupReq : public McpttCallMsg
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Writes the data of the message to the byte sream.
      * \param buff The stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
 
   private:
     McpttCallMsgFieldCallId m_callId;     //!< The call identifier field.
@@ -1537,37 +1537,37 @@ class McpttCallMsgPrivateSetupReq : public McpttCallMsg
      * Gets the call identifier field.
      * \returns The call identifier field.
      */
-    virtual McpttCallMsgFieldCallId GetCallId(void) const;
+    virtual McpttCallMsgFieldCallId GetCallId() const;
     /**
      * Gets the call type field.
      * \returns The call type field.
      */
-    virtual McpttCallMsgFieldCallType GetCallType(void) const;
+    virtual McpttCallMsgFieldCallType GetCallType() const;
     /**
      * Gets the callee user ID field.
      * \returns the callee user ID field.
      */
-    virtual McpttCallMsgFieldUserId GetCalleeId(void) const;
+    virtual McpttCallMsgFieldUserId GetCalleeId() const;
     /**
      * Gets the caller user ID field.
      * \returns The caller user ID field.
      */
-    virtual McpttCallMsgFieldUserId GetCallerId(void) const;
+    virtual McpttCallMsgFieldUserId GetCallerId() const;
     /**
      * Gets the commencement mode field.
      * \returns The commencement mode field.
      */
-    virtual McpttCallMsgFieldCommMode GetCommMode(void) const;
+    virtual McpttCallMsgFieldCommMode GetCommMode() const;
     /**
      * Gets the SDP field.
      * \returns The SDP field.
      */
-    virtual McpttCallMsgFieldSdp GetSdp(void) const;
+    virtual McpttCallMsgFieldSdp GetSdp() const;
     /**
      * Gets the user location field.
      * \returns The user location field.
      */
-    virtual McpttCallMsgFieldUserLoc GetUserLoc(void) const;
+    virtual McpttCallMsgFieldUserLoc GetUserLoc() const;
     /**
      * Sets the call identifier field.
      * \param callIdField The call identifier field.
@@ -1626,35 +1626,35 @@ class McpttCallMsgPrivateRinging : public McpttCallMsg
      * Gets the type ID of the McpttCallMsgPrivateRinging class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMsgPrivateRinging class.
      */
-    McpttCallMsgPrivateRinging(void);
+    McpttCallMsgPrivateRinging();
     /**
      * \brief The destructor of the McpttCallMsgPrivateRinging class.
      */
-    virtual ~McpttCallMsgPrivateRinging(void);
+    ~McpttCallMsgPrivateRinging() override;
     /**
      * Gets the type ID of this McpttCallMsgPrivateRinging instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Visits a call machine.
      * \param callMachine The call machine to visit.
      */
-    virtual void Visit(McpttCallMachinePrivate& callMachine) const;
+    void Visit(McpttCallMachinePrivate& callMachine) const override;
 
   protected:
     /**
@@ -1662,12 +1662,12 @@ class McpttCallMsgPrivateRinging : public McpttCallMsg
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Writes the data of the message to the byte sream.
      * \param buff The stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
 
   private:
     McpttCallMsgFieldCallId m_callId;   //!< The call identifier field.
@@ -1679,17 +1679,17 @@ class McpttCallMsgPrivateRinging : public McpttCallMsg
      * Gets the call identifier field.
      * \returns The call identifier field.
      */
-    virtual McpttCallMsgFieldCallId GetCallId(void) const;
+    virtual McpttCallMsgFieldCallId GetCallId() const;
     /**
      * Gets the callee user ID field.
      * \returns the called user ID field.
      */
-    virtual McpttCallMsgFieldUserId GetCalleeId(void) const;
+    virtual McpttCallMsgFieldUserId GetCalleeId() const;
     /**
      * Gets the caller user ID field.
      * \returns The caller user ID field.
      */
-    virtual McpttCallMsgFieldUserId GetCallerId(void) const;
+    virtual McpttCallMsgFieldUserId GetCallerId() const;
     /**
      * Sets the call identifier field.
      * \param callIdField The call identifier field.
@@ -1728,35 +1728,35 @@ class McpttCallMsgPrivateAccept : public McpttCallMsg
      * Gets the type ID of the McpttCallMsgPrivateAccept class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMsgPrivateAccept class.
      */
-    McpttCallMsgPrivateAccept(void);
+    McpttCallMsgPrivateAccept();
     /**
      * \brief The destructor of the McpttCallMsgPrivateAccept class.
      */
-    virtual ~McpttCallMsgPrivateAccept(void);
+    ~McpttCallMsgPrivateAccept() override;
     /**
      * Gets the type ID of this McpttCallMsgPrivateAccept instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Visits a call machine.
      * \param callMachine The call machine to visit.
      */
-    virtual void Visit(McpttCallMachinePrivate& callMachine) const;
+    void Visit(McpttCallMachinePrivate& callMachine) const override;
 
   protected:
     /**
@@ -1764,12 +1764,12 @@ class McpttCallMsgPrivateAccept : public McpttCallMsg
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Writes the data of the message to the byte sream.
      * \param buff The stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
 
   private:
     McpttCallMsgFieldCallId m_callId;   //!< The call identifier field.
@@ -1782,22 +1782,22 @@ class McpttCallMsgPrivateAccept : public McpttCallMsg
      * Gets the call identifier field.
      * \returns The call identifier field.
      */
-    virtual McpttCallMsgFieldCallId GetCallId(void) const;
+    virtual McpttCallMsgFieldCallId GetCallId() const;
     /**
      * Gets the callee user ID field.
      * \returns the callee user ID field.
      */
-    virtual McpttCallMsgFieldUserId GetCalleeId(void) const;
+    virtual McpttCallMsgFieldUserId GetCalleeId() const;
     /**
      * Gets the caller user ID field.
      * \returns The caller user ID field.
      */
-    virtual McpttCallMsgFieldUserId GetCallerId(void) const;
+    virtual McpttCallMsgFieldUserId GetCallerId() const;
     /**
      * Gets the SDP field.
      * \returns The SDP field.
      */
-    virtual McpttCallMsgFieldSdp GetSdp(void) const;
+    virtual McpttCallMsgFieldSdp GetSdp() const;
     /**
      * Sets the call identifier field.
      * \param callIdField The call identifier field.
@@ -1841,35 +1841,35 @@ class McpttCallMsgPrivateReject : public McpttCallMsg
      * Gets the type ID of the McpttCallMsgPrivateReject class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMsgPrivateReject class.
      */
-    McpttCallMsgPrivateReject(void);
+    McpttCallMsgPrivateReject();
     /**
      * \brief The destructor of the McpttCallMsgPrivateReject class.
      */
-    virtual ~McpttCallMsgPrivateReject(void);
+    ~McpttCallMsgPrivateReject() override;
     /**
      * Gets the type ID of this McpttCallMsgPrivateReject instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Visits a call machine.
      * \param callMachine The call machine to visit.
      */
-    virtual void Visit(McpttCallMachinePrivate& callMachine) const;
+    void Visit(McpttCallMachinePrivate& callMachine) const override;
 
   protected:
     /**
@@ -1877,12 +1877,12 @@ class McpttCallMsgPrivateReject : public McpttCallMsg
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Writes the data of the message to the byte sream.
      * \param buff The stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
 
   private:
     McpttCallMsgFieldCallId m_callId;   //!< The call identifier field.
@@ -1895,22 +1895,22 @@ class McpttCallMsgPrivateReject : public McpttCallMsg
      * Gets the call identifier field.
      * \returns The call identifier field.
      */
-    virtual McpttCallMsgFieldCallId GetCallId(void) const;
+    virtual McpttCallMsgFieldCallId GetCallId() const;
     /**
      * Gets the callee user ID field.
      * \returns the callee user ID field.
      */
-    virtual McpttCallMsgFieldUserId GetCalleeId(void) const;
+    virtual McpttCallMsgFieldUserId GetCalleeId() const;
     /**
      * Gets the caller user ID field.
      * \returns The caller user ID field.
      */
-    virtual McpttCallMsgFieldUserId GetCallerId(void) const;
+    virtual McpttCallMsgFieldUserId GetCallerId() const;
     /**
      * Gets the reason field.
      * \returns The reason field.
      */
-    virtual McpttCallMsgFieldReason GetReason(void) const;
+    virtual McpttCallMsgFieldReason GetReason() const;
     /**
      * Sets the call identifier field.
      * \param callIdField The call identifier field.
@@ -1952,35 +1952,35 @@ class McpttCallMsgPrivateRelease : public McpttCallMsg
      * Gets the type ID of the McpttCallMsgPrivateRelease class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMsgPrivateRelease class.
      */
-    McpttCallMsgPrivateRelease(void);
+    McpttCallMsgPrivateRelease();
     /**
      * \brief The destructor of the McpttCallMsgPrivateRelease class.
      */
-    virtual ~McpttCallMsgPrivateRelease(void);
+    ~McpttCallMsgPrivateRelease() override;
     /**
      * Gets the type ID of this McpttCallMsgPrivateRelease instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Visits a call machine.
      * \param callMachine The call machine to visit.
      */
-    virtual void Visit(McpttCallMachinePrivate& callMachine) const;
+    void Visit(McpttCallMachinePrivate& callMachine) const override;
 
   protected:
     /**
@@ -1988,12 +1988,12 @@ class McpttCallMsgPrivateRelease : public McpttCallMsg
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Writes the data of the message to the byte sream.
      * \param buff The stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
 
   private:
     McpttCallMsgFieldCallId m_callId;   //!< The call identifier field.
@@ -2005,17 +2005,17 @@ class McpttCallMsgPrivateRelease : public McpttCallMsg
      * Gets the call identifier field.
      * \returns The call identifier field.
      */
-    virtual McpttCallMsgFieldCallId GetCallId(void) const;
+    virtual McpttCallMsgFieldCallId GetCallId() const;
     /**
      * Gets the callee user ID field.
      * \returns the callee user ID field.
      */
-    virtual McpttCallMsgFieldUserId GetCalleeId(void) const;
+    virtual McpttCallMsgFieldUserId GetCalleeId() const;
     /**
      * Gets the caller user ID field.
      * \returns The caller user ID field.
      */
-    virtual McpttCallMsgFieldUserId GetCallerId(void) const;
+    virtual McpttCallMsgFieldUserId GetCallerId() const;
     /**
      * Sets the call identifier field.
      * \param callIdField The call identifier field.
@@ -2053,35 +2053,35 @@ class McpttCallMsgPrivateReleaseAck : public McpttCallMsg
      * Gets the type ID of the McpttCallMsgPrivateReleaseAck class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMsgPrivateReleaseAck class.
      */
-    McpttCallMsgPrivateReleaseAck(void);
+    McpttCallMsgPrivateReleaseAck();
     /**
      * \brief The destructor of the McpttCallMsgPrivateReleaseAck class.
      */
-    virtual ~McpttCallMsgPrivateReleaseAck(void);
+    ~McpttCallMsgPrivateReleaseAck() override;
     /**
      * Gets the type ID of this McpttCallMsgPrivateReleaseAck instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Visits a call machine.
      * \param callMachine The call machine to visit.
      */
-    virtual void Visit(McpttCallMachinePrivate& callMachine) const;
+    void Visit(McpttCallMachinePrivate& callMachine) const override;
 
   protected:
     /**
@@ -2089,12 +2089,12 @@ class McpttCallMsgPrivateReleaseAck : public McpttCallMsg
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Writes the data of the message to the byte sream.
      * \param buff The stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
 
   private:
     McpttCallMsgFieldCallId m_callId;   //!< The call identifier field.
@@ -2106,17 +2106,17 @@ class McpttCallMsgPrivateReleaseAck : public McpttCallMsg
      * Gets the call identifier field.
      * \returns The call identifier field.
      */
-    virtual McpttCallMsgFieldCallId GetCallId(void) const;
+    virtual McpttCallMsgFieldCallId GetCallId() const;
     /**
      * Gets the callee user ID field.
      * \returns the callee user ID field.
      */
-    virtual McpttCallMsgFieldUserId GetCalleeId(void) const;
+    virtual McpttCallMsgFieldUserId GetCalleeId() const;
     /**
      * Gets the caller user ID field.
      * \returns The caller user ID field.
      */
-    virtual McpttCallMsgFieldUserId GetCallerId(void) const;
+    virtual McpttCallMsgFieldUserId GetCallerId() const;
     /**
      * Sets the call identifier field.
      * \param callIdField The call identifier field.
@@ -2154,35 +2154,35 @@ class McpttCallMsgPrivateAcceptAck : public McpttCallMsg
      * Gets the type ID of the McpttCallMsgPrivateAcceptAck class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMsgPrivateAcceptAck class.
      */
-    McpttCallMsgPrivateAcceptAck(void);
+    McpttCallMsgPrivateAcceptAck();
     /**
      * \brief The destructor of the McpttCallMsgPrivateAcceptAck class.
      */
-    virtual ~McpttCallMsgPrivateAcceptAck(void);
+    ~McpttCallMsgPrivateAcceptAck() override;
     /**
      * Gets the type ID of this McpttCallMsgPrivateAcceptAck instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Visits a call machine.
      * \param callMachine The call machine to visit.
      */
-    virtual void Visit(McpttCallMachinePrivate& callMachine) const;
+    void Visit(McpttCallMachinePrivate& callMachine) const override;
 
   protected:
     /**
@@ -2190,12 +2190,12 @@ class McpttCallMsgPrivateAcceptAck : public McpttCallMsg
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Writes the data of the message to the byte sream.
      * \param buff The stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
 
   private:
     McpttCallMsgFieldCallId m_callId;   //!< The call identifier field.
@@ -2207,17 +2207,17 @@ class McpttCallMsgPrivateAcceptAck : public McpttCallMsg
      * Gets the call identifier field.
      * \returns The call identifier field.
      */
-    virtual McpttCallMsgFieldCallId GetCallId(void) const;
+    virtual McpttCallMsgFieldCallId GetCallId() const;
     /**
      * Gets the callee user ID field.
      * \returns the callee user ID field.
      */
-    virtual McpttCallMsgFieldUserId GetCalleeId(void) const;
+    virtual McpttCallMsgFieldUserId GetCalleeId() const;
     /**
      * Gets the caller user ID field.
      * \returns The caller user ID field.
      */
-    virtual McpttCallMsgFieldUserId GetCallerId(void) const;
+    virtual McpttCallMsgFieldUserId GetCallerId() const;
     /**
      * Sets the call identifier field.
      * \param callIdField The call identifier field.
@@ -2255,35 +2255,35 @@ class McpttCallMsgPrivateEmergCancel : public McpttCallMsg
      * Gets the type ID of the McpttCallMsgPrivateEmergCancel class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMsgPrivateEmergCancel class.
      */
-    McpttCallMsgPrivateEmergCancel(void);
+    McpttCallMsgPrivateEmergCancel();
     /**
      * \brief The destructor of the McpttCallMsgPrivateEmergCancel class.
      */
-    virtual ~McpttCallMsgPrivateEmergCancel(void);
+    ~McpttCallMsgPrivateEmergCancel() override;
     /**
      * Gets the type ID of this McpttCallMsgPrivateEmergCancel instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Visits a call machine.
      * \param callMachine The call machine to visit.
      */
-    virtual void Visit(McpttCallMachinePrivate& callMachine) const;
+    void Visit(McpttCallMachinePrivate& callMachine) const override;
 
   protected:
     /**
@@ -2291,12 +2291,12 @@ class McpttCallMsgPrivateEmergCancel : public McpttCallMsg
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Writes the data of the message to the byte sream.
      * \param buff The stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
 
   private:
     McpttCallMsgFieldCallId m_callId;   //!< The call identifier field.
@@ -2308,17 +2308,17 @@ class McpttCallMsgPrivateEmergCancel : public McpttCallMsg
      * Gets the call identifier field.
      * \returns The call identifier field.
      */
-    virtual McpttCallMsgFieldCallId GetCallId(void) const;
+    virtual McpttCallMsgFieldCallId GetCallId() const;
     /**
      * Gets the callee user ID field.
      * \returns the callee user ID field.
      */
-    virtual McpttCallMsgFieldUserId GetCalleeId(void) const;
+    virtual McpttCallMsgFieldUserId GetCalleeId() const;
     /**
      * Gets the caller user ID field.
      * \returns The caller user ID field.
      */
-    virtual McpttCallMsgFieldUserId GetCallerId(void) const;
+    virtual McpttCallMsgFieldUserId GetCallerId() const;
     /**
      * Sets the call identifier field.
      * \param callIdField The call identifier field.
@@ -2356,35 +2356,35 @@ class McpttCallMsgPrivateEmergCancelAck : public McpttCallMsg
      * Gets the type ID of the McpttCallMsgPrivateEmergCancelAck class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallMsgPrivateEmergCancelAck class.
      */
-    McpttCallMsgPrivateEmergCancelAck(void);
+    McpttCallMsgPrivateEmergCancelAck();
     /**
      * \brief The destructor of the McpttCallMsgPrivateEmergCancelAck class.
      */
-    virtual ~McpttCallMsgPrivateEmergCancelAck(void);
+    ~McpttCallMsgPrivateEmergCancelAck() override;
     /**
      * Gets the type ID of this McpttCallMsgPrivateEmergCancelAck instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Visits a call machine.
      * \param callMachine The call machine to visit.
      */
-    virtual void Visit(McpttCallMachinePrivate& callMachine) const;
+    void Visit(McpttCallMachinePrivate& callMachine) const override;
 
   protected:
     /**
@@ -2392,12 +2392,12 @@ class McpttCallMsgPrivateEmergCancelAck : public McpttCallMsg
      * \param buff The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t ReadData(Buffer::Iterator& buff);
+    uint32_t ReadData(Buffer::Iterator& buff) override;
     /**
      * Writes the data of the message to the byte sream.
      * \param buff The stream to write to.
      */
-    virtual void WriteData(Buffer::Iterator& buff) const;
+    void WriteData(Buffer::Iterator& buff) const override;
 
   private:
     McpttCallMsgFieldCallId m_callId;   //!< The call identifier field.
@@ -2409,17 +2409,17 @@ class McpttCallMsgPrivateEmergCancelAck : public McpttCallMsg
      * Gets the call identifier field.
      * \returns The call identifier field.
      */
-    virtual McpttCallMsgFieldCallId GetCallId(void) const;
+    virtual McpttCallMsgFieldCallId GetCallId() const;
     /**
      * Gets the callee user ID field.
      * \returns the callee user ID field.
      */
-    virtual McpttCallMsgFieldUserId GetCalleeId(void) const;
+    virtual McpttCallMsgFieldUserId GetCalleeId() const;
     /**
      * Gets the caller user ID field.
      * \returns The caller user ID field.
      */
-    virtual McpttCallMsgFieldUserId GetCallerId(void) const;
+    virtual McpttCallMsgFieldUserId GetCallerId() const;
     /**
      * Sets the call identifier field.
      * \param callIdField The call identifier field.

@@ -55,7 +55,7 @@ class McpttEntityId
     /**
      * Creates an instance of the McpttEntityId class.
      */
-    McpttEntityId(void);
+    McpttEntityId();
     /**
      * Creates an instance of the McpttEntityId class.
      * \param number The entity ID number.
@@ -65,7 +65,7 @@ class McpttEntityId
     /**
      * The destructor of the McpttEntityId class.
      */
-    virtual ~McpttEntityId(void);
+    virtual ~McpttEntityId();
     /**
      * Prints this instance of the McpttEntityId class to an output stream.
      * \param os The output stream to write to.
@@ -83,12 +83,12 @@ class McpttEntityId
      * Gets the name of the entity.
      * \returns The name.
      */
-    virtual std::string GetName(void) const;
+    virtual std::string GetName() const;
     /**
      * Gets the number of the entity.
      * \returns The number.
      */
-    virtual uint32_t GetNumber(void) const;
+    virtual uint32_t GetNumber() const;
     /**
      * Sets the name of the entity.
      * \param name The name.

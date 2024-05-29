@@ -66,7 +66,7 @@ class IntelHttpServer : public Application
      * \brief Get the type ID.
      * \return the object TypeId
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Default constructor.
      */
@@ -110,17 +110,17 @@ class IntelHttpServer : public Application
     /**
      * Method to orderly clean up the instance before destroying it.
      */
-    void DoDispose(void) override;
+    void DoDispose() override;
 
   private:
     /**
      * Method that starts the operation of this application.
      */
-    void StartApplication(void) override;
+    void StartApplication() override;
     /**
      * Method that stops the operation of this application.
      */
-    void StopApplication(void) override;
+    void StopApplication() override;
 
     /**
      * Method that processes a received packet. Note that, as we are using TCP, this packet

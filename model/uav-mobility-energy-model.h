@@ -101,7 +101,7 @@ class UavMobilityEnergyModel : public DeviceEnergyModel
      *
      * \return the TypeId
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
 
     /**
      * \brief Construct a new Uav Mobility Energy Model
@@ -109,7 +109,7 @@ class UavMobilityEnergyModel : public DeviceEnergyModel
      *
      * The Init() must be called before this object should be considered usable
      */
-    UavMobilityEnergyModel(void);
+    UavMobilityEnergyModel();
 
     /**
      * \brief Sets Up a new UavMobilityEnergyModel, attaching it to the passed
@@ -123,7 +123,7 @@ class UavMobilityEnergyModel : public DeviceEnergyModel
      */
     void Init(Ptr<Node> node, Ptr<EnergySource> energySource);
 
-    ~UavMobilityEnergyModel(void) override;
+    ~UavMobilityEnergyModel() override;
 
     /**
      * \brief Attaches an EnergySource to the model
@@ -137,14 +137,14 @@ class UavMobilityEnergyModel : public DeviceEnergyModel
      *
      * \return The attached EnergySource
      */
-    Ptr<EnergySource> GetEnergySource(void) const;
+    Ptr<EnergySource> GetEnergySource() const;
 
     /**
      * \brief Calculates the total energy consumed by this model over its lifetime
      *
      * \return double The total joules consumed by this energy model
      */
-    double GetTotalEnergyConsumption(void) const override;
+    double GetTotalEnergyConsumption() const override;
 
     /**
      * \brief Implemented to complete the interface DeviceEnergyModel
@@ -158,7 +158,7 @@ class UavMobilityEnergyModel : public DeviceEnergyModel
      * Gets the current movement state of the model
      * \return the movement state
      */
-    State GetState(void) const;
+    State GetState() const;
 
     /**
      * \brief Stops all energy consumption.
@@ -166,7 +166,7 @@ class UavMobilityEnergyModel : public DeviceEnergyModel
      * Meant to simulate landing/disabling the drone.
      * For stopping in air see Hover()
      */
-    void Stop(void);
+    void Stop();
 
     /**
      * \brief Set the current for increasing the elevation of the UAV.
@@ -205,35 +205,35 @@ class UavMobilityEnergyModel : public DeviceEnergyModel
      *
      * Cost is configurable through the HoverCurrent attribute
      */
-    void Hover(void);
+    void Hover();
 
     /**
      * \brief Invokes the EnergyDepletionCallBack if it was set
      *
      * Called when the attached EnergySource has crossed the low energy threshold.
      */
-    void HandleEnergyDepletion(void) override;
+    void HandleEnergyDepletion() override;
 
     /**
      * \brief Invokes the EnergyRecharged if it was set
      *
      * Called when the attached EnergySource has been recharged.
      */
-    void HandleEnergyRecharged(void) override;
+    void HandleEnergyRecharged() override;
 
     /**
      * Called when energy in the attached EnergySource has been updated.
      *
      * Not implemented
      */
-    void HandleEnergyChanged(void) override
+    void HandleEnergyChanged() override
     {
     }
 
     /**
      * \return The Ascend Energy Conversion Factor A/(m/s)
      */
-    double GetAscendEnergyConversionFactor(void) const;
+    double GetAscendEnergyConversionFactor() const;
 
     /**
      * \param ascendEnergyConversionFactor
@@ -246,7 +246,7 @@ class UavMobilityEnergyModel : public DeviceEnergyModel
     /**
      * \return The descend energy conversion factor in A/(1/(m/s)).
      */
-    double GetDescendEnergyConversionFactor(void) const;
+    double GetDescendEnergyConversionFactor() const;
 
     /**
      * \param descendEnergyConversionFactor
@@ -259,7 +259,7 @@ class UavMobilityEnergyModel : public DeviceEnergyModel
     /**
      * \return The move energy conversion factor in A/(m/s).
      */
-    double GetMoveEnergyConversionFactor(void) const;
+    double GetMoveEnergyConversionFactor() const;
 
     /**
      * \param moveEnergyConversionFactor
@@ -272,7 +272,7 @@ class UavMobilityEnergyModel : public DeviceEnergyModel
     /**
      * \return The fixed amperage to hover the UAV. In amperes.
      */
-    double GetHoverCurrent(void) const;
+    double GetHoverCurrent() const;
 
     /**
      * \param hoverEnergyCurrent The new fixed amperage to hover the UAV
@@ -324,9 +324,9 @@ class UavMobilityEnergyModel : public DeviceEnergyModel
      * Gets the current draw of this model in amperes
      * \return the current draw in amperes
      */
-    double DoGetCurrentA(void) const override;
+    double DoGetCurrentA() const override;
 
-    void DoDispose(void) override;
+    void DoDispose() override;
 
     /**
      * \brief Changes the current and updates the energy source
@@ -383,7 +383,7 @@ class UavMobilityEnergyModel : public DeviceEnergyModel
     /**
      * Refreshes the total energy consumed by this model
      */
-    void UpdateTotalEnergyConsumption(void);
+    void UpdateTotalEnergyConsumption();
 };
 
 } // namespace psc

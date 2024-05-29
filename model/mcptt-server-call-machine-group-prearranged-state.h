@@ -98,12 +98,12 @@ class McpttServerCallMachineGroupPrearrangedState
     /**
      * \brief The destructor of the McpttServerCallMachineGroupPrearrangedState class.
      */
-    virtual ~McpttServerCallMachineGroupPrearrangedState(void);
+    virtual ~McpttServerCallMachineGroupPrearrangedState();
     /**
      * Gets the state ID of this McpttServerCallMachineGroupPrearrangedState instance.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetInstanceStateId(void) const;
+    virtual McpttEntityId GetInstanceStateId() const;
     /**
      * Indicates if the call is active.
      * \param machine The machine that the action is for.
@@ -142,7 +142,7 @@ class McpttServerCallMachineGroupPrearrangedState
     /**
      * Creates an instance of the McpttServerCallMachineGroupPrearrangedState class.
      */
-    McpttServerCallMachineGroupPrearrangedState(void);
+    McpttServerCallMachineGroupPrearrangedState();
 };
 
 /**
@@ -166,22 +166,22 @@ class McpttServerCallMachineGroupPrearrangedStateS1
      * Gets an instance of the McpttServerCallMachineGroupPrearrangedStateS1 class.
      * \returns The S1 instance.
      */
-    static Ptr<McpttServerCallMachineGroupPrearrangedStateS1> GetInstance(void);
+    static Ptr<McpttServerCallMachineGroupPrearrangedStateS1> GetInstance();
     /**
      * Gets the state ID of the McpttServerCallMachineGroupPrearrangedStateS1 class.
      * \returns The state ID.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * Creates an instance of the McpttServerCallMachineGroupPrearrangedStateS1 class.
      */
-    McpttServerCallMachineGroupPrearrangedStateS1(void);
+    McpttServerCallMachineGroupPrearrangedStateS1();
     // Documented in base class
-    virtual ~McpttServerCallMachineGroupPrearrangedStateS1(void);
-    virtual McpttEntityId GetInstanceStateId(void) const;
-    virtual void ReceiveInvite(McpttServerCallMachineGroupPrearranged& machine,
+    ~McpttServerCallMachineGroupPrearrangedStateS1() override;
+    McpttEntityId GetInstanceStateId() const override;
+    void ReceiveInvite(McpttServerCallMachineGroupPrearranged& machine,
                                Ptr<Packet> pkt,
-                               const sip::SipHeader& hdr);
+                               const sip::SipHeader& hdr) override;
 };
 
 /**
@@ -198,28 +198,28 @@ class McpttServerCallMachineGroupPrearrangedStateS2
      * Gets an instance of the McpttServerCallMachineGroupPrearrangedStateS2 class.
      * \returns The S2 instance.
      */
-    static Ptr<McpttServerCallMachineGroupPrearrangedStateS2> GetInstance(void);
+    static Ptr<McpttServerCallMachineGroupPrearrangedStateS2> GetInstance();
     /**
      * Gets the state ID of the McpttServerCallMachineGroupPrearrangedStateS2 class.
      * \returns The state ID.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * Creates an instance of the McpttServerCallMachineGroupPrearrangedStateS2 class.
      */
-    McpttServerCallMachineGroupPrearrangedStateS2(void);
+    McpttServerCallMachineGroupPrearrangedStateS2();
     // Documented in base class
-    virtual ~McpttServerCallMachineGroupPrearrangedStateS2(void);
-    virtual McpttEntityId GetInstanceStateId(void) const;
-    virtual void ReceiveInvite(McpttServerCallMachineGroupPrearranged& machine,
+    ~McpttServerCallMachineGroupPrearrangedStateS2() override;
+    McpttEntityId GetInstanceStateId() const override;
+    void ReceiveInvite(McpttServerCallMachineGroupPrearranged& machine,
                                Ptr<Packet> pkt,
-                               const sip::SipHeader& hdr);
-    virtual void ReceiveResponse(McpttServerCallMachineGroupPrearranged& machine,
+                               const sip::SipHeader& hdr) override;
+    void ReceiveResponse(McpttServerCallMachineGroupPrearranged& machine,
                                  Ptr<Packet> pkt,
-                                 const sip::SipHeader& hdr);
-    virtual void ReceiveBye(McpttServerCallMachineGroupPrearranged& machine,
+                                 const sip::SipHeader& hdr) override;
+    void ReceiveBye(McpttServerCallMachineGroupPrearranged& machine,
                             Ptr<Packet> pkt,
-                            const sip::SipHeader& hdr);
+                            const sip::SipHeader& hdr) override;
 };
 
 /**
@@ -236,29 +236,29 @@ class McpttServerCallMachineGroupPrearrangedStateS3
      * Gets an instance of the McpttServerCallMachineGroupPrearrangedStateS3 class.
      * \returns An instance of the S3 state.
      */
-    static Ptr<McpttServerCallMachineGroupPrearrangedStateS3> GetInstance(void);
+    static Ptr<McpttServerCallMachineGroupPrearrangedStateS3> GetInstance();
     /**
      * Gets the state ID of the McpttServerCallMachineGroupPrearrangedStateS3 class.
      * \returns The state ID.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * Creates an instance of the McpttServerCallMachineGroupPrearrangedStateS3 class.
      */
-    McpttServerCallMachineGroupPrearrangedStateS3(void);
+    McpttServerCallMachineGroupPrearrangedStateS3();
     /**
      * \brief The destructor of the McpttServerCallMachineGroupPrearrangedStateS3 class.
      */
-    virtual ~McpttServerCallMachineGroupPrearrangedStateS3(void);
+    ~McpttServerCallMachineGroupPrearrangedStateS3() override;
     // Documented in base class
-    virtual McpttEntityId GetInstanceStateId(void) const;
-    virtual bool IsCallOngoing(const McpttServerCallMachineGroupPrearranged& machine) const;
-    virtual void ReceiveResponse(McpttServerCallMachineGroupPrearranged& machine,
+    McpttEntityId GetInstanceStateId() const override;
+    bool IsCallOngoing(const McpttServerCallMachineGroupPrearranged& machine) const override;
+    void ReceiveResponse(McpttServerCallMachineGroupPrearranged& machine,
                                  Ptr<Packet> pkt,
-                                 const sip::SipHeader& hdr);
-    virtual void ReceiveBye(McpttServerCallMachineGroupPrearranged& machine,
+                                 const sip::SipHeader& hdr) override;
+    void ReceiveBye(McpttServerCallMachineGroupPrearranged& machine,
                             Ptr<Packet> pkt,
-                            const sip::SipHeader& hdr);
+                            const sip::SipHeader& hdr) override;
 };
 
 /**
@@ -275,28 +275,28 @@ class McpttServerCallMachineGroupPrearrangedStateS4
      * Gets an instance of the McpttServerCallMachineGroupPrearrangedStateS4 class.
      * \returns An instance of the S4 state.
      */
-    static Ptr<McpttServerCallMachineGroupPrearrangedStateS4> GetInstance(void);
+    static Ptr<McpttServerCallMachineGroupPrearrangedStateS4> GetInstance();
     /**
      * Gets the state ID of the McpttServerCallMachineGroupPrearrangedStateS4 class.
      * \returns The state ID.
      */
-    static McpttEntityId GetStateId(void);
+    static McpttEntityId GetStateId();
     /**
      * Creates an instance of the McpttServerCallMachineGroupPrearrangedStateS4 class.
      */
-    McpttServerCallMachineGroupPrearrangedStateS4(void);
+    McpttServerCallMachineGroupPrearrangedStateS4();
     /**
      * \brief The destructor of the McpttServerCallMachineGroupPrearrangedStateS4 class.
      */
-    virtual ~McpttServerCallMachineGroupPrearrangedStateS4(void);
+    ~McpttServerCallMachineGroupPrearrangedStateS4() override;
     // Documented in base class
-    virtual McpttEntityId GetInstanceStateId(void) const;
-    virtual void ReceiveBye(McpttServerCallMachineGroupPrearranged& machine,
+    McpttEntityId GetInstanceStateId() const override;
+    void ReceiveBye(McpttServerCallMachineGroupPrearranged& machine,
                             Ptr<Packet> pkt,
-                            const sip::SipHeader& hdr);
-    virtual void ReceiveResponse(McpttServerCallMachineGroupPrearranged& machine,
+                            const sip::SipHeader& hdr) override;
+    void ReceiveResponse(McpttServerCallMachineGroupPrearranged& machine,
                                  Ptr<Packet> pkt,
-                                 const sip::SipHeader& hdr);
+                                 const sip::SipHeader& hdr) override;
 };
 
 } // namespace psc

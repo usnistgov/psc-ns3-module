@@ -77,7 +77,7 @@ class IntelHttpClient : public Application
      * \brief Get the type ID.
      * \return the object TypeId
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
 
     /**
      * Default constructor.
@@ -141,22 +141,22 @@ class IntelHttpClient : public Application
     /**
      * Method to orderly clean up the instance before destroying it.
      */
-    void DoDispose(void) override;
+    void DoDispose() override;
 
   private:
     /**
      * Method that starts the operation of this application.
      */
-    void StartApplication(void) override;
+    void StartApplication() override;
     /**
      * Method that stops the operation of this application.
      */
-    void StopApplication(void) override;
+    void StopApplication() override;
 
     /**
      * Method that actually sends a request for an HTML page to the server.
      */
-    void SendRequestPage(void);
+    void SendRequestPage();
 
     /**
      * Method that processes a received packet.

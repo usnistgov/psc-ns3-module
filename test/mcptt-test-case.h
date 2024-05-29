@@ -58,20 +58,20 @@ class McpttTestCase : public TestCase
     virtual Ptr<McpttFloorParticipant> GetFloorMachine(uint32_t index = 0);
 
   protected:
-    virtual void Configure(void);
-    virtual void Execute(void) = 0;
-    virtual void Stop(void);
+    virtual void Configure();
+    virtual void Execute() = 0;
+    virtual void Stop();
 
   private:
-    virtual void DoRun(void);
+    void DoRun() override;
 
   private:
     ApplicationContainer m_clientApps;
     Ptr<McpttTestCaseConfig> m_config;
 
   protected:
-    virtual ApplicationContainer GetClientApps(void) const;
-    virtual Ptr<McpttTestCaseConfig> GetConfig(void) const;
+    virtual ApplicationContainer GetClientApps() const;
+    virtual Ptr<McpttTestCaseConfig> GetConfig() const;
     virtual void SetClientApps(const ApplicationContainer& clientApps);
     virtual void SetConfig(Ptr<McpttTestCaseConfig> config);
 };

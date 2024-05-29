@@ -62,11 +62,11 @@ class McpttQueuedUserInfo : public ObjectBase
      * Gets the type ID of the McpttQueuedUserInfo class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttQueuedUserInfo class.
      */
-    McpttQueuedUserInfo(void);
+    McpttQueuedUserInfo();
     /**
      * Creates an instance of the McpttQueuedUserInfo class.
      * \param ssrc The SSRC of the queued floor participant.
@@ -79,7 +79,7 @@ class McpttQueuedUserInfo : public ObjectBase
     /**
      * The destructor of the McpttQueuedUserInfo class.
      */
-    virtual ~McpttQueuedUserInfo(void);
+    ~McpttQueuedUserInfo() override;
     /**
      * Reads the contents of the message from the byte stream.
      * \param buff The buffer to read from.
@@ -90,12 +90,12 @@ class McpttQueuedUserInfo : public ObjectBase
      * Gets the serialized size (in bytes) of the queued user information.
      * \returns The serialized size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    virtual uint32_t GetSerializedSize() const;
     /**
      * Gets the type ID of this instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
@@ -117,17 +117,17 @@ class McpttQueuedUserInfo : public ObjectBase
      * Gets the queue info field.
      * \returns The queue info field.
      */
-    virtual McpttFloorMsgFieldQueuePositionInfo GetInfo(void) const;
+    virtual McpttFloorMsgFieldQueuePositionInfo GetInfo() const;
     /**
      * Gets the SSRC of the queued floor participant.
      * \returns The SSRC.
      */
-    virtual uint32_t GetSsrc(void) const;
+    virtual uint32_t GetSsrc() const;
     /**
      * Gets the queued user ID field.
      * \returns The queued user ID field.
      */
-    virtual McpttFloorMsgFieldQueuedUserId GetUserId(void) const;
+    virtual McpttFloorMsgFieldQueuedUserId GetUserId() const;
     /**
      * Sets the queue info field.
      * \param info The queue info field.

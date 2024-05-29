@@ -66,15 +66,15 @@ class McpttServerCallMachineGroupPrearranged : public McpttServerCallMachineGrp
      * Gets the type ID of the McpttServerCallMachineGroupPrearranged class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttServerCallMachineGroupPrearranged class.
      */
-    McpttServerCallMachineGroupPrearranged(void);
+    McpttServerCallMachineGroupPrearranged();
     /**
      * The destructor of the McpttServerCallMachineGroupPrearranged class.
      */
-    virtual ~McpttServerCallMachineGroupPrearranged(void);
+    ~McpttServerCallMachineGroupPrearranged() override;
     /**
      * Sets the current state of the call machine.
      * \param state The current state.
@@ -84,7 +84,7 @@ class McpttServerCallMachineGroupPrearranged : public McpttServerCallMachineGrp
      * Gets the current state of the call machine.
      * \returns The current state.
      */
-    virtual Ptr<McpttServerCallMachineGroupPrearrangedState> GetState(void) const;
+    virtual Ptr<McpttServerCallMachineGroupPrearrangedState> GetState() const;
     /**
      * Sets the state change callback.
      * \param stateChangeCb The callback.
@@ -118,81 +118,81 @@ class McpttServerCallMachineGroupPrearranged : public McpttServerCallMachineGrp
     /**
      * Accepts the call.
      */
-    virtual void AcceptCall(void);
+    void AcceptCall() override;
     /**
      * Begins an emergency alert.
      */
-    virtual void BeginEmergAlert(void);
+    void BeginEmergAlert() override;
     /**
      * Cancels an emergency alert.
      */
-    virtual void CancelEmergAlert(void);
+    void CancelEmergAlert() override;
     /**
      * Downgrades the call type.
      */
-    virtual void DowngradeCallType(void);
+    void DowngradeCallType() override;
     /**
      * Gets the ID of the user that started the call.
      * \returns The MCPTT user ID.
      */
-    virtual uint32_t GetCallerUserId(void) const;
+    uint32_t GetCallerUserId() const override;
     /**
      * Gets the ID of the call.
      * \returns The call ID.
      */
-    virtual McpttCallMsgFieldCallId GetCallId(void) const;
+    McpttCallMsgFieldCallId GetCallId() const override;
     /**
      * Gets the call type.
      * \returns The call type.
      */
-    virtual McpttCallMsgFieldCallType GetCallType(void) const;
+    McpttCallMsgFieldCallType GetCallType() const override;
     /**
      * Gets the type ID of this McpttServerCallMachineGroupPrearranged instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the pointer to the server call object.
      * \returns The server call pointer.
      */
-    virtual Ptr<McpttServerCall> GetServerCall(void) const;
+    Ptr<McpttServerCall> GetServerCall() const override;
     /**
      * Gets the ID of the current state.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetStateId(void) const;
+    McpttEntityId GetStateId() const override;
     /**
      * Indicates if the call is active.
      * \returns True, if the call is active.
      */
-    virtual bool IsCallOngoing(void) const;
+    bool IsCallOngoing() const override;
     /**
      * Indicates if this is a group call.
      * \param grpId The particular group ID to check for when greater than 0.
      * \returns True, if this a group call; otherwise, false.
      */
-    virtual bool IsGrpCall(uint32_t grpId = 0) const;
+    bool IsGrpCall(uint32_t grpId = 0) const override;
     /**
      * Indicates if this is a private call.
      * \param userId The particular user ID to check for when greater than 0.
      * \returns True, if this a private call; otherwise, false.
      */
-    virtual bool IsPrivateCall(uint32_t userId = 0) const;
+    bool IsPrivateCall(uint32_t userId = 0) const override;
     /**
      * Receives a call control packet
      * \param pkt The packet to receive.
      * \param hdr The (deserialized) SIP header.
      */
-    virtual void ReceiveCallPacket(Ptr<Packet> pkt, const sip::SipHeader& hdr);
+    void ReceiveCallPacket(Ptr<Packet> pkt, const sip::SipHeader& hdr) override;
     /**
      * Receives a media message.
      * \param msg The message to receive.
      */
-    virtual void Receive(const McpttMediaMsg& msg);
+    void Receive(const McpttMediaMsg& msg) override;
     /**
      * Rejects the call.
      */
-    virtual void RejectCall(void);
+    void RejectCall() override;
     /**
      * Sets the ID of the MCPTT call.
      * \param callId The ID of the MCPTT call.
@@ -202,32 +202,32 @@ class McpttServerCallMachineGroupPrearranged : public McpttServerCallMachineGrp
      * Sets the callback used to indicate that a new call exists.
      * \param newCallCb The callback.
      */
-    virtual void SetNewCallCb(const Callback<void, uint16_t> newCallCb);
+    void SetNewCallCb(const Callback<void, uint16_t> newCallCb) override;
     /**
      * Sets the pointer back to the call.
      * \param call The server call pointer.
      */
-    virtual void SetServerCall(Ptr<McpttServerCall> call);
+    void SetServerCall(Ptr<McpttServerCall> call) override;
     /**
      * Sets the group ID
      * \param grpId The group ID
      */
-    virtual void SetGrpId(uint32_t grpId);
+    void SetGrpId(uint32_t grpId) override;
     /**
      * Gets the group ID
      * \return The group ID
      */
-    virtual McpttCallMsgFieldGrpId GetGrpId(void) const;
+    McpttCallMsgFieldGrpId GetGrpId() const override;
     /**
      * Sets the user ID
      * \param userId The user ID
      */
-    virtual void SetUserId(uint32_t userId);
+    void SetUserId(uint32_t userId) override;
     /**
      * Gets the user ID
      * \return The user ID
      */
-    virtual uint32_t GetUserId(void) const;
+    uint32_t GetUserId() const override;
     /**
      * Set list of pending SIP transactions
      * (note:  will be replaced by SipTransaction class)
@@ -245,35 +245,35 @@ class McpttServerCallMachineGroupPrearranged : public McpttServerCallMachineGrp
      * Get number of pending SIP transactions
      * \return number of pending transactions
      */
-    virtual uint32_t GetNPendingTransactions(void) const;
+    virtual uint32_t GetNPendingTransactions() const;
     /**
      * Starts the state machine.
      */
-    virtual void Start(void);
+    void Start() override;
     /**
      * Stops the state machine.
      */
-    virtual void Stop(void);
+    void Stop() override;
     /**
      * Upgrades the call type.
      * \param callType The call type value.
      */
-    virtual void UpgradeCallType(uint8_t callType);
+    void UpgradeCallType(uint8_t callType) override;
     /**
      * Get the notional SIP INVITE payload size
      * \return The notional payload size, in bytes
      */
-    uint32_t GetInvitePayloadSize(void);
+    uint32_t GetInvitePayloadSize();
     /**
      * Get the notional SIP BYE payload size
      * \return The notional payload size, in bytes
      */
-    uint32_t GetByePayloadSize(void);
+    uint32_t GetByePayloadSize();
     /**
      * Get the notional SIP 200 OK payload size
      * \return The notional payload size, in bytes
      */
-    uint32_t GetResponsePayloadSize(void);
+    uint32_t GetResponsePayloadSize();
     /**
      * \brief Set the stream for each random variable.
      * \param stream The starting stream number.
@@ -285,7 +285,7 @@ class McpttServerCallMachineGroupPrearranged : public McpttServerCallMachineGrp
     /**
      * Disposes of this McpttServerCallMachineGroupPrearranged instance.
      */
-    virtual void DoDispose(void);
+    void DoDispose() override;
 
   private:
     Ptr<McpttServerCall> m_serverCall;               //!< The server call.

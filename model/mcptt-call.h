@@ -70,7 +70,7 @@ class McpttCall : public Object
      * Gets the type ID of the McpttCall class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
 
     /**
      * Types of MCPTT calls
@@ -94,15 +94,15 @@ class McpttCall : public Object
     /**
      * The destructor of the McpttCall class.
      */
-    virtual ~McpttCall(void);
+    ~McpttCall() override;
     /**
      * Closes the floor channel.
      */
-    void CloseFloorChannel(void);
+    void CloseFloorChannel();
     /**
      * Closes the media channel.
      */
-    void CloseMediaChannel(void);
+    void CloseMediaChannel();
     /**
      * Sets the ID of the call.
      * \param callId The call ID.
@@ -112,7 +112,7 @@ class McpttCall : public Object
      * Gets the ID of the call.
      * \returns The call ID.
      */
-    uint16_t GetCallId(void) const;
+    uint16_t GetCallId() const;
     /**
      * Set the type of network for the McpttCall
      * \param callType type of network call
@@ -122,7 +122,7 @@ class McpttCall : public Object
      * Get the type of network for the McpttCall
      * \return the type of network call
      */
-    NetworkCallType GetNetworkCallType(void) const;
+    NetworkCallType GetNetworkCallType() const;
     /**
      * Sets the push on select flag.
      * \param pushOnSelect true if call should start pusher upon select.
@@ -132,17 +132,17 @@ class McpttCall : public Object
      * Gets the push on select flag.
      * \returns true if call should start pusher upon select.
      */
-    bool GetPushOnSelect(void) const;
+    bool GetPushOnSelect() const;
     /**
      * Indicates if the floor channel is open.
      * \returns True, if the channel is open.
      */
-    bool IsFloorChannelOpen(void) const;
+    bool IsFloorChannelOpen() const;
     /**
      * Indicates if the media channel is open.
      * \returns True, if the channel is open.
      */
-    bool IsMediaChannelOpen(void) const;
+    bool IsMediaChannelOpen() const;
     /**
      * Opens the floor channel.
      * \param peerAddr The peer address.
@@ -195,12 +195,12 @@ class McpttCall : public Object
      * Return an InetSocketAddress or Inet6SocketAddress for the peer
      * \return the peer address
      */
-    Address GetPeerSocketAddress(void) const;
+    Address GetPeerSocketAddress() const;
     /**
      * Return the peer user ID (applicable mainly to on-network calls for which
      * it can be used as a SIP URI according to the ns-3 SIP model).
      */
-    uint32_t GetPeerUserId(void) const;
+    uint32_t GetPeerUserId() const;
     /**
      * Sends a SIP call control message.
      * \param pkt The packet (already serialized with SIP header)
@@ -226,17 +226,17 @@ class McpttCall : public Object
     /**
      * Starts the call.
      */
-    void Start(void);
+    void Start();
     /**
      * Stops the call.
      */
-    void Stop(void);
+    void Stop();
 
   protected:
     /**
      * Disposes of the McpttCall instance.
      */
-    void DoDispose(void);
+    void DoDispose() override;
     /**
      * Handles the received floor control packet.
      * \param pkt The packet that was received.
@@ -272,42 +272,42 @@ class McpttCall : public Object
      * Gets the channel used for call control messages.
      * \returns The channel.
      */
-    virtual Ptr<McpttChannel> GetCallChannel(void) const;
+    virtual Ptr<McpttChannel> GetCallChannel() const;
     /**
      * Gets the call control state machine.
      * \returns The call machine.
      */
-    Ptr<McpttCallMachine> GetCallMachine(void) const;
+    Ptr<McpttCallMachine> GetCallMachine() const;
     /**
      * Gets the channel to use for floor control messages.
      * \returns The channel.
      */
-    Ptr<McpttChannel> GetFloorChannel(void) const;
+    Ptr<McpttChannel> GetFloorChannel() const;
     /**
      * Gets the floor machine.
      * \returns The floor machine.
      */
-    Ptr<McpttFloorParticipant> GetFloorMachine(void) const;
+    Ptr<McpttFloorParticipant> GetFloorMachine() const;
     /**
      * Gets the channel to use for floor control messages.
      * \returns The channel.
      */
-    Ptr<McpttChannel> GetMediaChannel(void) const;
+    Ptr<McpttChannel> GetMediaChannel() const;
     /**
      * Gets the owner of this call.
      * \returns The owner.
      */
-    Ptr<McpttPttApp> GetOwner(void) const;
+    Ptr<McpttPttApp> GetOwner() const;
     /**
      * Gets the call start time
      * \return The call start time.
      */
-    Time GetStartTime(void) const;
+    Time GetStartTime() const;
     /**
      * Gets the call stop time
      * \return The call stop time.
      */
-    Time GetStopTime(void) const;
+    Time GetStopTime() const;
     /**
      * Sets the call control state machine.
      * \param callMachine The call control state machine.

@@ -70,11 +70,11 @@ class McpttMediaMsg : public McpttMsg
      * Gets the type ID of the McpttMediaMsg class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttMediaMsg class.
      */
-    McpttMediaMsg(void);
+    McpttMediaMsg();
     /**
      * Creates an instance of the McpttMediaMsg class.
      * \param header The header of the message.
@@ -101,38 +101,38 @@ class McpttMediaMsg : public McpttMsg
     /**
      * The destructor of the McpttMediaMsg class.
      */
-    virtual ~McpttMediaMsg(void);
+    ~McpttMediaMsg() override;
     /**
      * Reads the contents of the message from the byte stream.
      * \param start The buffer to read from.
      * \returns The number of bytes that were read.
      */
-    virtual uint32_t Deserialize(Buffer::Iterator start);
+    uint32_t Deserialize(Buffer::Iterator start) override;
     /**
      * Gets the type ID of this McpttFloorMsg instance.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const;
+    TypeId GetInstanceTypeId() const override;
     /**
      * Gets the SSRC of this message.
      * \returns The SSRC.
      */
-    virtual uint32_t GetSsrc(void) const;
+    virtual uint32_t GetSsrc() const;
     /**
      * Gets the size (in bytes) of the message when it is serialized.
      * \returns The size (in bytes).
      */
-    virtual uint32_t GetSerializedSize(void) const;
+    uint32_t GetSerializedSize() const override;
     /**
      * Prints the contents of the header to the given output stream.
      * \param os The output stream to write to.
      */
-    virtual void Print(std::ostream& os) const;
+    void Print(std::ostream& os) const override;
     /**
      * Writes the contents of the message to the byte stream.
      * \param start The byte stream to write to.
      */
-    virtual void Serialize(Buffer::Iterator start) const;
+    void Serialize(Buffer::Iterator start) const override;
     /**
      * Sets the SSRC of the media message.
      * \param ssrc The SSRC.
@@ -159,17 +159,17 @@ class McpttMediaMsg : public McpttMsg
      * Gets the header of the message.
      * \returns The header of the message.
      */
-    virtual McpttRtpHeader GetHeader(void) const;
+    virtual McpttRtpHeader GetHeader() const;
     /**
      * Gets the size (in bytes) of the payload.
      * \returns The size (in bytes).
      */
-    virtual uint16_t GetPayloadSize(void) const;
+    virtual uint16_t GetPayloadSize() const;
     /**
      * Gets the time of the talk spurt start, if set (will return zero if unset)
      * \returns The stored value of the talk spurt start time
      */
-    virtual Time GetTalkSpurtStart(void) const;
+    virtual Time GetTalkSpurtStart() const;
     /**
      * Sets the header of the message.
      * \param header The header of the message.

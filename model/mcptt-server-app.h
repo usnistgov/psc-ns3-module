@@ -68,25 +68,25 @@ class McpttServerApp : public Application
      * Get the type ID.
      * \return the object TypeId
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttServerApp class.
      */
-    McpttServerApp(void);
+    McpttServerApp();
     /**
      * The destructor of the McpttServerApp class.
      */
-    virtual ~McpttServerApp(void);
+    ~McpttServerApp() override;
     /**
      * Get the SipProxy associated with this application.
      * \return pointer to SipProxy
      */
-    Ptr<sip::SipProxy> GetSipProxy(void) const;
+    Ptr<sip::SipProxy> GetSipProxy() const;
     /**
      * Return a new call ID value
      * \return new call ID value
      */
-    uint16_t AllocateCallId(void);
+    uint16_t AllocateCallId();
     /**
      * Add a call definition to the server
      * \param call a pointer to the call object
@@ -107,7 +107,7 @@ class McpttServerApp : public Application
      * Gets the address of the host.
      * \returns The address.
      */
-    Address GetLocalAddress(void) const;
+    Address GetLocalAddress() const;
     /**
      * Sets the address of the host.
      * \param localAddress The address.
@@ -117,7 +117,7 @@ class McpttServerApp : public Application
      * Indicates whether or not the application is running
      * \returns True, if the application is running.
      */
-    virtual bool IsRunning(void) const;
+    virtual bool IsRunning() const;
     /**
      * Trace the transmission of a message for a given callId
      * \param callId The call that the message is for
@@ -138,15 +138,15 @@ class McpttServerApp : public Application
     /**
      * Disposes of the McpttServerApp instance.
      */
-    virtual void DoDispose(void);
+    void DoDispose() override;
     /**
      * Starts the McpttServerApp application.
      */
-    virtual void StartApplication(void);
+    void StartApplication() override;
     /**
      * Stops the McpttServerApp application.
      */
-    virtual void StopApplication(void);
+    void StopApplication() override;
 
     /**
      * TracedCallback signature for McpttMsg transmission or reception events

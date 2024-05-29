@@ -59,40 +59,40 @@ class McpttCallTypeMachine : public Object
      * Gets the type ID of the McpttCallTypeMachine class.
      * \returns The type ID.
      */
-    static TypeId GetTypeId(void);
+    static TypeId GetTypeId();
     /**
      * Creates an instance of the McpttCallTypeMachine class.
      */
-    McpttCallTypeMachine(void);
+    McpttCallTypeMachine();
     /**
      * \brief The destructor of the McpttCallTypeMachineclass.
      */
-    virtual ~McpttCallTypeMachine(void);
+    ~McpttCallTypeMachine() override;
     /**
      * Gets the current call type.
      * \returns The call type.
      */
-    virtual McpttCallMsgFieldCallType GetCallType(void) const = 0;
+    virtual McpttCallMsgFieldCallType GetCallType() const = 0;
     /**
      * Gets the type ID of the object.
      * \returns The type ID.
      */
-    virtual TypeId GetInstanceTypeId(void) const = 0;
+    TypeId GetInstanceTypeId() const override = 0;
     /**
      * Gets the ProSe per-packet priority.
      * \returns The ProSe per-packet priority.
      */
-    virtual uint8_t GetPriority(void) const = 0;
+    virtual uint8_t GetPriority() const = 0;
     /**
      * Gets the ID of the current state.
      * \returns The state ID.
      */
-    virtual McpttEntityId GetStateId(void) const = 0;
+    virtual McpttEntityId GetStateId() const = 0;
     /**
      * Indicates if the call type machine has been started.
      * \returns True, if the machine has been started.
      */
-    virtual bool IsStarted(void) const = 0;
+    virtual bool IsStarted() const = 0;
     /**
      * Sets the current call type.
      * \param callType The current call type.
@@ -116,11 +116,11 @@ class McpttCallTypeMachine : public Object
     /**
      * Starts the call type machine.
      */
-    virtual void Start(void) = 0;
+    virtual void Start() = 0;
     /**
      * Stops the call type machine.
      */
-    virtual void Stop(void) = 0;
+    virtual void Stop() = 0;
 };
 
 } // namespace psc

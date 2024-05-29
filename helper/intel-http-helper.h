@@ -138,7 +138,7 @@ class IntelHttpServerHelper
      * Create a new helper used to configure, create, & install
      * one to many IntelHttpServer applications
      */
-    IntelHttpServerHelper(void);
+    IntelHttpServerHelper();
 
     /**
      * Sets one of the attributes of underlying IntelHttpServer
