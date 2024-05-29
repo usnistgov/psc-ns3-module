@@ -39,12 +39,28 @@ The ``psc`` module includes:
 6) a configurable generic client/server application.
 
 There is no support for legacy public safety communications such as
-land mobile radio system (LMRS).  While LTE sidelink supports both
-IPv4 and IPv6, the UE-to-Network Relay feature only supports IPv6.
+land mobile radio system (LMRS).
 
 ---------------
 Release History
 ---------------
+
+This module derives from an earlier repository (NIST psc-dev repository;
+see the Module History section below).  The release history of this module
+is as follows.
+
+======= ============ =========================================================
+Release Date         Summary of features
+======= ============ =========================================================
+v1.0    May 31, 2024 Release 1.0 based on ns-3.42 and v7.0 of NIST psc-dev
+======= ============ =========================================================
+
+--------------
+Module History
+--------------
+This section describes the history of the code in this module prior to
+organizing it and releasing it as an ns-3 extension module.
+
 The first release of public safety communications models for ns-3 was in
 2018, as extensions of the 4G LTE models of ns-3.  This was released in
 a modified version of ns-3, hosted at NIST GitHub_ account, containing these
