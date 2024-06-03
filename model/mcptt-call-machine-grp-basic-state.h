@@ -232,7 +232,7 @@ class McpttCallMachineGrpBasicStateS1 : public McpttCallMachineGrpBasicState
      * \param msg The received message.
      */
     void ReceiveGrpCallAnnoun(McpttCallMachineGrpBasic& machine,
-                                      const McpttCallMsgGrpAnnoun& msg) override;
+                              const McpttCallMsgGrpAnnoun& msg) override;
 };
 
 /**
@@ -282,7 +282,7 @@ class McpttCallMachineGrpBasicStateS2 : public McpttCallMachineGrpBasicState
      * \param msg The received message.
      */
     void ReceiveGrpCallAnnoun(McpttCallMachineGrpBasic& machine,
-                                      const McpttCallMsgGrpAnnoun& msg) override;
+                              const McpttCallMsgGrpAnnoun& msg) override;
     /**
      * Indicates that the call should be released.
      * \param machine The state machine that the action is for.
@@ -344,21 +344,21 @@ class McpttCallMachineGrpBasicStateS3 : public McpttCallMachineGrpBasicState
      * \param msg The received message.
      */
     void ReceiveGrpCallAccept(McpttCallMachineGrpBasic& machine,
-                                      const McpttCallMsgGrpAccept& msg) override;
+                              const McpttCallMsgGrpAccept& msg) override;
     /**
      * Reception of a "GROUP CALL ANNOUNCEMENT" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
     void ReceiveGrpCallAnnoun(McpttCallMachineGrpBasic& machine,
-                                      const McpttCallMsgGrpAnnoun& msg) override;
+                              const McpttCallMsgGrpAnnoun& msg) override;
     /**
      * Reception of a "GROUP CALL PROBE" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
     void ReceiveGrpCallProbe(McpttCallMachineGrpBasic& machine,
-                                     const McpttCallMsgGrpProbe& msg) override;
+                             const McpttCallMsgGrpProbe& msg) override;
     /**
      * Indicates that the call should be released.
      * \param machine The state machine that the action is for.
@@ -534,7 +534,7 @@ class McpttCallMachineGrpBasicStateS6 : public McpttCallMachineGrpBasicState
      * \param msg The received message.
      */
     void ReceiveGrpCallAnnoun(McpttCallMachineGrpBasic& machine,
-                                      const McpttCallMsgGrpAnnoun& msg) override;
+                              const McpttCallMsgGrpAnnoun& msg) override;
 };
 
 /**
@@ -585,7 +585,7 @@ class McpttCallMachineGrpBasicStateS7 : public McpttCallMachineGrpBasicState
      * \param msg The received message.
      */
     void ReceiveGrpCallAnnoun(McpttCallMachineGrpBasic& machine,
-                                      const McpttCallMsgGrpAnnoun& msg) override;
+                              const McpttCallMsgGrpAnnoun& msg) override;
 };
 
 } // namespace psc

@@ -47,6 +47,7 @@
 // after 11 seconds have passed.
 
 using namespace ns3;
+using namespace ns3::energy;
 using namespace psc;
 
 NS_LOG_COMPONENT_DEFINE("UavEnergyMobility");
@@ -208,9 +209,12 @@ main(int argc, char* argv[])
 
     cmd.Parse(argc, argv);
 
-    if (useHelperApi) {
+    if (useHelperApi)
+    {
         helperApiExample();
-    } else {
+    }
+    else
+    {
         noHelperApiExample();
-}
+    }
 }

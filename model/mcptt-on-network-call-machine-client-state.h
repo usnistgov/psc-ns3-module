@@ -178,9 +178,9 @@ class McpttOnNetworkCallMachineClientStateS1 : public McpttOnNetworkCallMachineC
     McpttEntityId GetInstanceStateId() const override;
     void InitiateCall(McpttOnNetworkCallMachineClient& machine) override;
     void ReceiveInvite(McpttOnNetworkCallMachineClient& machine,
-                               uint32_t from,
-                               Ptr<Packet> pkt,
-                               const sip::SipHeader& hdr) override;
+                       uint32_t from,
+                       Ptr<Packet> pkt,
+                       const sip::SipHeader& hdr) override;
 };
 
 /**
@@ -210,17 +210,17 @@ class McpttOnNetworkCallMachineClientStateS2 : public McpttOnNetworkCallMachineC
     ~McpttOnNetworkCallMachineClientStateS2() override;
     McpttEntityId GetInstanceStateId() const override;
     void ReceiveInvite(McpttOnNetworkCallMachineClient& machine,
-                               uint32_t from,
-                               Ptr<Packet> pkt,
-                               const sip::SipHeader& hdr) override;
+                       uint32_t from,
+                       Ptr<Packet> pkt,
+                       const sip::SipHeader& hdr) override;
     void ReceiveResponse(McpttOnNetworkCallMachineClient& machine,
-                                 uint32_t from,
-                                 Ptr<Packet> pkt,
-                                 const sip::SipHeader& hdr) override;
+                         uint32_t from,
+                         Ptr<Packet> pkt,
+                         const sip::SipHeader& hdr) override;
     void ReceiveBye(McpttOnNetworkCallMachineClient& machine,
-                            uint32_t from,
-                            Ptr<Packet> pkt,
-                            const sip::SipHeader& hdr) override;
+                    uint32_t from,
+                    Ptr<Packet> pkt,
+                    const sip::SipHeader& hdr) override;
     void ReleaseCall(McpttOnNetworkCallMachineClient& machine) override;
 };
 
@@ -255,13 +255,13 @@ class McpttOnNetworkCallMachineClientStateS3 : public McpttOnNetworkCallMachineC
     McpttEntityId GetInstanceStateId() const override;
     bool IsCallOngoing(const McpttOnNetworkCallMachineClient& machine) const override;
     void ReceiveResponse(McpttOnNetworkCallMachineClient& machine,
-                                 uint32_t from,
-                                 Ptr<Packet> pkt,
-                                 const sip::SipHeader& hdr) override;
+                         uint32_t from,
+                         Ptr<Packet> pkt,
+                         const sip::SipHeader& hdr) override;
     void ReceiveBye(McpttOnNetworkCallMachineClient& machine,
-                            uint32_t from,
-                            Ptr<Packet> pkt,
-                            const sip::SipHeader& hdr) override;
+                    uint32_t from,
+                    Ptr<Packet> pkt,
+                    const sip::SipHeader& hdr) override;
     void ReleaseCall(McpttOnNetworkCallMachineClient& machine) override;
 };
 
@@ -295,13 +295,13 @@ class McpttOnNetworkCallMachineClientStateS4 : public McpttOnNetworkCallMachineC
     // Documented in base class
     McpttEntityId GetInstanceStateId() const override;
     void ReceiveBye(McpttOnNetworkCallMachineClient& machine,
-                            uint32_t from,
-                            Ptr<Packet> pkt,
-                            const sip::SipHeader& hdr) override;
+                    uint32_t from,
+                    Ptr<Packet> pkt,
+                    const sip::SipHeader& hdr) override;
     void ReceiveResponse(McpttOnNetworkCallMachineClient& machine,
-                                 uint32_t from,
-                                 Ptr<Packet> pkt,
-                                 const sip::SipHeader& hdr) override;
+                         uint32_t from,
+                         Ptr<Packet> pkt,
+                         const sip::SipHeader& hdr) override;
 };
 
 } // namespace psc

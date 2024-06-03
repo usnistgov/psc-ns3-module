@@ -54,33 +54,33 @@ UavMobilityEnergyModelHelper::Set(const std::string& name, const AttributeValue&
     m_energyModel.Set(name, v);
 }
 
-DeviceEnergyModelContainer
+energy::DeviceEnergyModelContainer
 UavMobilityEnergyModelHelper::Install(Ptr<Node> node) const
 {
     NS_LOG_FUNCTION(this << node);
     CheckInstallMobilityModel(node);
     auto energySource = CheckInstallEnergySource(node);
 
-    DeviceEnergyModelContainer container = DoInstall(node, energySource);
+    energy::DeviceEnergyModelContainer container = DoInstall(node, energySource);
     return container;
 }
 
-DeviceEnergyModelContainer
-UavMobilityEnergyModelHelper::Install(Ptr<Node> node, Ptr<EnergySource> source) const
+energy::DeviceEnergyModelContainer
+UavMobilityEnergyModelHelper::Install(Ptr<Node> node, Ptr<energy::EnergySource> source) const
 {
     NS_LOG_FUNCTION(this << node << source);
     CheckInstallMobilityModel(node);
     node->AggregateObject(source);
 
-    DeviceEnergyModelContainer container = DoInstall(node, source);
+    energy::DeviceEnergyModelContainer container = DoInstall(node, source);
     return container;
 }
 
-DeviceEnergyModelContainer
+energy::DeviceEnergyModelContainer
 UavMobilityEnergyModelHelper::Install(NodeContainer& nodes) const
 {
     NS_LOG_FUNCTION(this);
-    DeviceEnergyModelContainer results;
+    energy::DeviceEnergyModelContainer results;
     for (auto node = nodes.Begin(); node != nodes.End(); node++)
     {
         results.Add(Install(*node));
@@ -89,8 +89,9 @@ UavMobilityEnergyModelHelper::Install(NodeContainer& nodes) const
     return results;
 }
 
-DeviceEnergyModelContainer
-UavMobilityEnergyModelHelper::Install(NodeContainer& nodes, EnergySourceContainer& sources) const
+energy::DeviceEnergyModelContainer
+UavMobilityEnergyModelHelper::Install(NodeContainer& nodes,
+                                      energy::EnergySourceContainer& sources) const
 {
     NS_LOG_FUNCTION(this);
     NS_ABORT_MSG_IF(nodes.GetN() > sources.GetN(),
@@ -104,7 +105,7 @@ UavMobilityEnergyModelHelper::Install(NodeContainer& nodes, EnergySourceContaine
                     << " EnergySource(s) "
                        "will be used.");
     }
-    DeviceEnergyModelContainer results;
+    energy::DeviceEnergyModelContainer results;
 
     auto node = nodes.Begin();
     auto energySource = sources.Begin();
@@ -209,11 +210,11 @@ UavMobilityEnergyModelHelper::CheckInstallMobilityModel(Ptr<Node> node) const
     return mobility;
 }
 
-Ptr<EnergySource>
+Ptr<energy::EnergySource>
 UavMobilityEnergyModelHelper::CheckInstallEnergySource(Ptr<Node> node) const
 {
     NS_LOG_FUNCTION(this << node);
-    auto energySource = node->GetObject<EnergySource>();
+    auto energySource = node->GetObject<energy::EnergySource>();
     if (!energySource)
     {
         if (m_energySource.GetTypeId().GetName().empty())
@@ -222,7 +223,7 @@ UavMobilityEnergyModelHelper::CheckInstallEnergySource(Ptr<Node> node) const
                          "SetEnergySource not called");
         }
 
-        energySource = m_energySource.Create()->GetObject<EnergySource>();
+        energySource = m_energySource.Create()->GetObject<energy::EnergySource>();
         if (!energySource)
         {
             NS_ABORT_MSG("Failed to create EnergySource " << m_energySource.GetTypeId().GetName());
@@ -234,8 +235,8 @@ UavMobilityEnergyModelHelper::CheckInstallEnergySource(Ptr<Node> node) const
     return energySource;
 }
 
-Ptr<DeviceEnergyModel>
-UavMobilityEnergyModelHelper::DoInstall(Ptr<Node> node, Ptr<EnergySource> source) const
+Ptr<energy::DeviceEnergyModel>
+UavMobilityEnergyModelHelper::DoInstall(Ptr<Node> node, Ptr<energy::EnergySource> source) const
 {
     NS_LOG_FUNCTION(this << node << source);
     NS_ABORT_MSG_UNLESS(node, "Cannot install on a NULL node");

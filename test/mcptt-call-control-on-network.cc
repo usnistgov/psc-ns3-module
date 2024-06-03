@@ -390,9 +390,9 @@ McpttTestCasePreArrangedGroupCO::ServerTxCb(Ptr<const Application> app,
 }
 
 McpttTestSuiteCallControlOnNetwork::McpttTestSuiteCallControlOnNetwork()
-    : TestSuite("mcptt-call-control-on-network", TestSuite::SYSTEM)
+    : TestSuite("mcptt-call-control-on-network", TestSuite::Type::SYSTEM)
 {
-    AddTestCase(new McpttTestCasePreArrangedGroupCO(), TestCase::QUICK);
+    AddTestCase(new McpttTestCasePreArrangedGroupCO(), TestCase::Duration::QUICK);
 }
 
 static McpttTestSuiteCallControlOnNetwork suite;

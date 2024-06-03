@@ -58,7 +58,7 @@ namespace psc
  *
  * Movement costs are only calculated when the UAV state changes (e.g. Hover() to Move())
  */
-class UavMobilityEnergyModel : public DeviceEnergyModel
+class UavMobilityEnergyModel : public energy::DeviceEnergyModel
 {
   public:
     /**
@@ -121,7 +121,7 @@ class UavMobilityEnergyModel : public DeviceEnergyModel
      * \param energySource The EnergySource that this model will draw from
      * Low/Recharged energy events come from this source
      */
-    void Init(Ptr<Node> node, Ptr<EnergySource> energySource);
+    void Init(Ptr<Node> node, Ptr<energy::EnergySource> energySource);
 
     ~UavMobilityEnergyModel() override;
 
@@ -130,14 +130,14 @@ class UavMobilityEnergyModel : public DeviceEnergyModel
      *
      * \param source The EnergySource to connect to this model
      */
-    void SetEnergySource(Ptr<EnergySource> source) override;
+    void SetEnergySource(Ptr<energy::EnergySource> source) override;
 
     /**
      * \brief Get the EnergySource attached to this model
      *
      * \return The attached EnergySource
      */
-    Ptr<EnergySource> GetEnergySource() const;
+    Ptr<energy::EnergySource> GetEnergySource() const;
 
     /**
      * \brief Calculates the total energy consumed by this model over its lifetime
@@ -299,7 +299,7 @@ class UavMobilityEnergyModel : public DeviceEnergyModel
   private:
     Time m_lastUpdateTime{Seconds(0)};               //!< tracks last energy update time
     Ptr<MobilityModel> m_mobility;                   //!< Ptr to the mobility model
-    Ptr<EnergySource> m_source;                      //!< Ptr to the energy source
+    Ptr<energy::EnergySource> m_source;              //!< Ptr to the energy source
     State m_state{State::STOP};                      //!< The state of the model
     double m_current{0};                             //!< The current in amperes
     TracedValue<double> m_totalEnergyConsumption{0}; //!< Trace of energy consumption

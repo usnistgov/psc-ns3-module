@@ -6047,16 +6047,16 @@ PrivateCallExpiration::UeBStateChangeCb(const PrivateTestCallMachine& machine,
 }
 
 McpttPrivateCallControlTestSuite::McpttPrivateCallControlTestSuite()
-    : TestSuite("mcptt-call-control-private", TestSuite::SYSTEM)
+    : TestSuite("mcptt-call-control-private", TestSuite::Type::SYSTEM)
 {
-    AddTestCase(new PrivateCallSetupAuto1(), TestCase::QUICK);
-    AddTestCase(new PrivateCallSetupAuto3(), TestCase::QUICK);
-    AddTestCase(new PrivateCallSetupManual1(), TestCase::QUICK);
-    AddTestCase(new PrivateCallSetupManual3(), TestCase::QUICK);
-    AddTestCase(new PrivateCallSetupFailure(), TestCase::QUICK);
-    AddTestCase(new PrivateCallCancel1(), TestCase::QUICK);
-    AddTestCase(new PrivateCallCancel2(), TestCase::QUICK);
-    AddTestCase(new PrivateCallExpiration(), TestCase::QUICK);
+    AddTestCase(new PrivateCallSetupAuto1(), TestCase::Duration::QUICK);
+    AddTestCase(new PrivateCallSetupAuto3(), TestCase::Duration::QUICK);
+    AddTestCase(new PrivateCallSetupManual1(), TestCase::Duration::QUICK);
+    AddTestCase(new PrivateCallSetupManual3(), TestCase::Duration::QUICK);
+    AddTestCase(new PrivateCallSetupFailure(), TestCase::Duration::QUICK);
+    AddTestCase(new PrivateCallCancel1(), TestCase::Duration::QUICK);
+    AddTestCase(new PrivateCallCancel2(), TestCase::Duration::QUICK);
+    AddTestCase(new PrivateCallExpiration(), TestCase::Duration::QUICK);
 }
 
 } // namespace tests

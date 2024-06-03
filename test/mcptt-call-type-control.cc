@@ -7316,22 +7316,22 @@ McpttCallTypeMerge::UeCStateChangeCb(const TestCallTypeMachine& machine,
 }
 
 McpttCallTypeControlTestSuite::McpttCallTypeControlTestSuite()
-    : TestSuite("mcptt-call-type-control", TestSuite::SYSTEM)
+    : TestSuite("mcptt-call-type-control", TestSuite::Type::SYSTEM)
 {
-    AddTestCase(new McpttCallTypeInitEstabNewCall(), TestCase::QUICK);
-    AddTestCase(new McpttCallTypeInitJoinEmergCall(), TestCase::QUICK);
-    AddTestCase(new McpttCallTypeInitJoinImmPerilCall(), TestCase::QUICK);
-    AddTestCase(new McpttCallTypeInitJoinBasicCall(), TestCase::QUICK);
-    AddTestCase(new McpttCallTypeInitJoinEmergCallUserAck(), TestCase::QUICK);
-    AddTestCase(new McpttCallTypeInitJoinEmergCallNoUserAck(), TestCase::QUICK);
-    AddTestCase(new McpttCallTypeUpgradeFromBasicCall(), TestCase::QUICK);
-    AddTestCase(new McpttCallTypeUpgradeFromImmPerilCall(), TestCase::QUICK);
-    AddTestCase(new McpttCallTypeExplicitDowngradeFromEmerg(), TestCase::QUICK);
-    AddTestCase(new McpttCallTypeExplicitDowngradeFromImmPeril(), TestCase::QUICK);
-    AddTestCase(new McpttCallTypeImplicitDowngradeFromEmerg(), TestCase::QUICK);
-    AddTestCase(new McpttCallTypeImplicitDowngradeFromImmPeril(), TestCase::QUICK);
-    AddTestCase(new McpttCallTypeReleaseAfterCallEstab(), TestCase::QUICK);
-    AddTestCase(new McpttCallTypeMerge(), TestCase::QUICK);
+    AddTestCase(new McpttCallTypeInitEstabNewCall(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallTypeInitJoinEmergCall(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallTypeInitJoinImmPerilCall(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallTypeInitJoinBasicCall(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallTypeInitJoinEmergCallUserAck(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallTypeInitJoinEmergCallNoUserAck(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallTypeUpgradeFromBasicCall(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallTypeUpgradeFromImmPerilCall(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallTypeExplicitDowngradeFromEmerg(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallTypeExplicitDowngradeFromImmPeril(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallTypeImplicitDowngradeFromEmerg(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallTypeImplicitDowngradeFromImmPeril(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallTypeReleaseAfterCallEstab(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallTypeMerge(), TestCase::Duration::QUICK);
 }
 
 } // namespace tests

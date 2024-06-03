@@ -188,7 +188,7 @@ bool
 McpttPusher::SchedulePush(const Time& delay)
 {
     NS_LOG_FUNCTION(this << delay);
-    if (!m_pushEvent.IsRunning())
+    if (!m_pushEvent.IsPending())
     {
         NS_LOG_LOGIC("Pusher scheduling to push button in " << delay.GetSeconds() << "s.");
         m_pushEvent = Simulator::Schedule(delay, &McpttPusher::Push, this);
@@ -206,7 +206,7 @@ bool
 McpttPusher::CancelPush()
 {
     NS_LOG_FUNCTION(this);
-    if (!m_pushEvent.IsRunning())
+    if (!m_pushEvent.IsPending())
     {
         NS_LOG_LOGIC("No push event to cancel");
         return false;
@@ -236,7 +236,7 @@ bool
 McpttPusher::ScheduleRelease(const Time& delay)
 {
     NS_LOG_FUNCTION(this << delay);
-    if (!m_releaseEvent.IsRunning())
+    if (!m_releaseEvent.IsPending())
     {
         NS_LOG_LOGIC("Pusher scheduling to release button in " << delay.GetSeconds() << "s.");
         m_releaseEvent = Simulator::Schedule(delay, &McpttPusher::Release, this);
@@ -254,7 +254,7 @@ bool
 McpttPusher::CancelRelease()
 {
     NS_LOG_FUNCTION(this);
-    if (!m_releaseEvent.IsRunning())
+    if (!m_releaseEvent.IsPending())
     {
         NS_LOG_LOGIC("No release event to cancel");
         return false;
@@ -286,7 +286,7 @@ void
 McpttPusher::Stop()
 {
     NS_LOG_FUNCTION(this);
-    if (m_releaseEvent.IsRunning() || m_pushEvent.IsRunning())
+    if (m_releaseEvent.IsPending() || m_pushEvent.IsPending())
     {
         NS_LOG_LOGIC("Pusher stopping pushes and releases.");
         if (IsPushing())

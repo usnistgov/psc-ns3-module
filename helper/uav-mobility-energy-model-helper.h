@@ -92,7 +92,7 @@ class UavMobilityEnergyModelHelper
      * \return DeviceEnergyModelContainer
      *    A container containing the installed model
      */
-    DeviceEnergyModelContainer Install(Ptr<Node> node) const;
+    energy::DeviceEnergyModelContainer Install(Ptr<Node> node) const;
 
     /**
      * \brief Install the configured UavMobilityEnergyModel on node
@@ -112,7 +112,8 @@ class UavMobilityEnergyModelHelper
      * \return DeviceEnergyModelContainer
      *    A container containing the installed model
      */
-    DeviceEnergyModelContainer Install(Ptr<Node> node, Ptr<EnergySource> source) const;
+    energy::DeviceEnergyModelContainer Install(Ptr<Node> node,
+                                               Ptr<energy::EnergySource> source) const;
 
     /**
      * \brief Install the configured UavMobilityEnergyModel
@@ -141,7 +142,7 @@ class UavMobilityEnergyModelHelper
      * \return DeviceEnergyModelContainer
      *    A container containing the installed models
      */
-    DeviceEnergyModelContainer Install(NodeContainer& nodes) const;
+    energy::DeviceEnergyModelContainer Install(NodeContainer& nodes) const;
 
     /**
      * \brief Install the configured UavMobilityEnergyModel on each node
@@ -173,7 +174,8 @@ class UavMobilityEnergyModelHelper
      * \return DeviceEnergyModelContainer
      *    A container containing the installed model
      */
-    DeviceEnergyModelContainer Install(NodeContainer& nodes, EnergySourceContainer& sources) const;
+    energy::DeviceEnergyModelContainer Install(NodeContainer& nodes,
+                                               energy::EnergySourceContainer& sources) const;
 
     /**
      * \param name the name of the model to set
@@ -296,7 +298,7 @@ class UavMobilityEnergyModelHelper
      *    (if one was already aggregated), or the newly created
      *    EnergySource, with the configuration from m_energySource.
      */
-    Ptr<EnergySource> CheckInstallEnergySource(Ptr<Node> node) const;
+    Ptr<energy::EnergySource> CheckInstallEnergySource(Ptr<Node> node) const;
 
     /**
      * Sets node as the Node on source,
@@ -318,7 +320,8 @@ class UavMobilityEnergyModelHelper
      *
      * \return Ptr<DeviceEnergyModel> An Init ()'ed UavMobilityEnergyModel.
      */
-    Ptr<DeviceEnergyModel> DoInstall(Ptr<Node> node, Ptr<EnergySource> source) const;
+    Ptr<energy::DeviceEnergyModel> DoInstall(Ptr<Node> node,
+                                             Ptr<energy::EnergySource> source) const;
 };
 
 } // namespace psc

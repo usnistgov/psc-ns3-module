@@ -112,7 +112,7 @@ UavMobilityEnergyModelTestCaseEnergyConsumption::DoRun()
     // Be sure to attach the mobility model first
     AttachMockMobility(node);
 
-    Ptr<BasicEnergySource> energySource = CreateObject<BasicEnergySource>();
+    Ptr<energy::BasicEnergySource> energySource = CreateObject<energy::BasicEnergySource>();
     energySource->SetNode(node);
     energySource->SetSupplyVoltage(VOLTAGE);
     energySource->SetInitialEnergy(INITIAL_ENERGY);
@@ -168,7 +168,7 @@ UavMobilityEnergyModelTestCaseZeroEnergyCost::DoRun()
     // Be sure to attach the mobility model first
     AttachMockMobility(node);
 
-    Ptr<BasicEnergySource> energySource = CreateObject<BasicEnergySource>();
+    Ptr<energy::BasicEnergySource> energySource = CreateObject<energy::BasicEnergySource>();
     energySource->SetNode(node);
     node->AggregateObject(energySource);
 
@@ -232,7 +232,7 @@ UavMobilityEnergyModelTestCaseMoveEnergy::DoRun()
     Ptr<ConstantVelocityMobilityModel> mobilityModel =
         node->GetObject<ConstantVelocityMobilityModel>();
 
-    Ptr<BasicEnergySource> energySource = CreateObject<BasicEnergySource>();
+    Ptr<energy::BasicEnergySource> energySource = CreateObject<energy::BasicEnergySource>();
     energySource->SetNode(node);
 
     Ptr<UavMobilityEnergyModel> model = CreateObject<UavMobilityEnergyModel>();
@@ -296,7 +296,7 @@ UavMobilityEnergyModelTestCaseLowEnergyTrace::DoRun()
     // Be sure to attach the mobility model first
     AttachMockMobility(node);
 
-    Ptr<BasicEnergySource> energySource = CreateObject<BasicEnergySource>();
+    Ptr<energy::BasicEnergySource> energySource = CreateObject<energy::BasicEnergySource>();
     node->AggregateObject(energySource);
     energySource->SetNode(node);
     energySource->SetSupplyVoltage(VOLTAGE);
@@ -370,7 +370,7 @@ UavMobilityEnergyModelTestCaseLiIonEnergySource::DoRun()
     // Be sure to attach the mobility model first
     AttachMockMobility(node);
 
-    Ptr<LiIonEnergySource> liIon = CreateObject<LiIonEnergySource>();
+    Ptr<energy::LiIonEnergySource> liIon = CreateObject<energy::LiIonEnergySource>();
     node->AggregateObject(liIon);
     liIon->SetNode(node);
 
@@ -436,7 +436,7 @@ UavMobilityEnergyModelTestCaseMobilityModel::DoRun()
     Ptr<ConstantVelocityMobilityModel> mobilityModel =
         node->GetObject<ConstantVelocityMobilityModel>();
 
-    Ptr<BasicEnergySource> energySource = CreateObject<BasicEnergySource>();
+    Ptr<energy::BasicEnergySource> energySource = CreateObject<energy::BasicEnergySource>();
     node->AggregateObject(energySource);
     energySource->SetInitialEnergy(INITIAL_ENERGY);
     energySource->SetSupplyVoltage(VOLTAGE);
@@ -509,7 +509,7 @@ UavMobilityEnergyModelTestCaseChangeCostsRuntime::DoRun()
     Ptr<ConstantVelocityMobilityModel> mobilityModel =
         node->GetObject<ConstantVelocityMobilityModel>();
 
-    Ptr<BasicEnergySource> energySource = CreateObject<BasicEnergySource>();
+    Ptr<energy::BasicEnergySource> energySource = CreateObject<energy::BasicEnergySource>();
     node->AggregateObject(energySource);
     energySource->SetInitialEnergy(INITIAL_ENERGY);
     energySource->SetSupplyVoltage(VOLTAGE);
@@ -593,7 +593,7 @@ UavMobilityEnergyModelTestCaseTotalEnergyConsumption::DoRun()
     Ptr<ConstantVelocityMobilityModel> mobilityModel =
         node->GetObject<ConstantVelocityMobilityModel>();
 
-    Ptr<BasicEnergySource> energySource = CreateObject<BasicEnergySource>();
+    Ptr<energy::BasicEnergySource> energySource = CreateObject<energy::BasicEnergySource>();
     node->AggregateObject(energySource);
     energySource->SetInitialEnergy(INITIAL_ENERGY);
     energySource->SetSupplyVoltage(VOLTAGE);
@@ -684,7 +684,7 @@ UavMobilityEnergyModelTestCaseInitialVelocity::DoRun()
 
     mobilityModel->SetVelocity(MOVE_X_VELOCITY);
 
-    Ptr<BasicEnergySource> energySource = CreateObject<BasicEnergySource>();
+    Ptr<energy::BasicEnergySource> energySource = CreateObject<energy::BasicEnergySource>();
     node->AggregateObject(energySource);
     energySource->SetInitialEnergy(INITIAL_ENERGY);
     energySource->SetSupplyVoltage(VOLTAGE);
@@ -756,7 +756,7 @@ UavMobilityEnergyModelTestCaseState::DoRun()
 
     // No energy should be consumed during this test,
     // so we don't worry about the voltage/energy level
-    Ptr<BasicEnergySource> energySource = CreateObject<BasicEnergySource>();
+    Ptr<energy::BasicEnergySource> energySource = CreateObject<energy::BasicEnergySource>();
     node->AggregateObject(energySource);
     energySource->SetNode(node);
 
@@ -862,7 +862,7 @@ UavMobilityEnergyModelTestCaseTraceCurrent::DoRun()
 
     // No energy should be consumed during this test,
     // so we don't worry about the voltage/energy level
-    Ptr<BasicEnergySource> energySource = CreateObject<BasicEnergySource>();
+    Ptr<energy::BasicEnergySource> energySource = CreateObject<energy::BasicEnergySource>();
     node->AggregateObject(energySource);
     energySource->SetNode(node);
 
@@ -946,7 +946,7 @@ UavMobilityEnergyModelTestCaseAttributeEnergySource::DoRun()
     Ptr<ConstantVelocityMobilityModel> mobilityModel =
         node->GetObject<ConstantVelocityMobilityModel>();
 
-    Ptr<BasicEnergySource> energySource = CreateObject<BasicEnergySource>();
+    Ptr<energy::BasicEnergySource> energySource = CreateObject<energy::BasicEnergySource>();
     node->AggregateObject(energySource);
     energySource->SetNode(node);
 
@@ -961,7 +961,7 @@ UavMobilityEnergyModelTestCaseAttributeEnergySource::DoRun()
 
     PointerValue attributeValue;
     model->GetAttribute("EnergySource", attributeValue);
-    Ptr<EnergySource> retrievedEnergySource = attributeValue.Get<EnergySource>();
+    Ptr<energy::EnergySource> retrievedEnergySource = attributeValue.Get<energy::EnergySource>();
     NS_TEST_ASSERT_MSG_NE(retrievedEnergySource,
                           nullptr,
                           "Retrieved Energy Source should not be null");
@@ -1009,7 +1009,7 @@ UavMobilityEnergyModelTestCaseFixedStateChangeSpeed::DoRun()
     Ptr<ConstantVelocityMobilityModel> mobilityModel =
         node->GetObject<ConstantVelocityMobilityModel>();
 
-    Ptr<BasicEnergySource> energySource = CreateObject<BasicEnergySource>();
+    Ptr<energy::BasicEnergySource> energySource = CreateObject<energy::BasicEnergySource>();
     energySource->SetNode(node);
     node->AggregateObject(energySource);
 
@@ -1104,7 +1104,7 @@ UavMobilityEnergyModelTestCaseVelocityTraces::DoRun()
     Ptr<ConstantVelocityMobilityModel> mobilityModel =
         node->GetObject<ConstantVelocityMobilityModel>();
 
-    Ptr<BasicEnergySource> energySource = CreateObject<BasicEnergySource>();
+    Ptr<energy::BasicEnergySource> energySource = CreateObject<energy::BasicEnergySource>();
     energySource->SetNode(node);
     node->AggregateObject(energySource);
 

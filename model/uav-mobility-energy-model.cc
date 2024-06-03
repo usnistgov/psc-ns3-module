@@ -97,7 +97,7 @@ UavMobilityEnergyModel::GetTypeId()
                           PointerValue(),
                           MakePointerAccessor(&UavMobilityEnergyModel::SetEnergySource,
                                               &UavMobilityEnergyModel::GetEnergySource),
-                          MakePointerChecker<EnergySource>())
+                          MakePointerChecker<energy::EnergySource>())
             .AddTraceSource(
                 "EnergyDepleted",
                 "The attached energy source has indicated that "
@@ -134,7 +134,7 @@ UavMobilityEnergyModel::UavMobilityEnergyModel()
 }
 
 void
-UavMobilityEnergyModel::Init(Ptr<Node> node, Ptr<EnergySource> energySource)
+UavMobilityEnergyModel::Init(Ptr<Node> node, Ptr<energy::EnergySource> energySource)
 {
     NS_LOG_FUNCTION(this);
 
@@ -151,14 +151,14 @@ UavMobilityEnergyModel::~UavMobilityEnergyModel()
 }
 
 void
-UavMobilityEnergyModel::SetEnergySource(Ptr<EnergySource> source)
+UavMobilityEnergyModel::SetEnergySource(Ptr<energy::EnergySource> source)
 {
     NS_LOG_FUNCTION(this << source);
     source->AppendDeviceEnergyModel(this);
     m_source = source;
 }
 
-Ptr<EnergySource>
+Ptr<energy::EnergySource>
 UavMobilityEnergyModel::GetEnergySource() const
 {
     NS_LOG_FUNCTION(this);

@@ -464,15 +464,15 @@ FloorMsgQueuePositionInfoTest::DoRun()
 }
 
 McpttFloorControlMsgTestSuite::McpttFloorControlMsgTestSuite()
-    : TestSuite("mcptt-floor-control-messages", TestSuite::UNIT)
+    : TestSuite("mcptt-floor-control-messages", TestSuite::Type::UNIT)
 {
-    AddTestCase(new FloorMsgRequestTest(), TestCase::QUICK);
-    AddTestCase(new FloorMsgGrantedTest(), TestCase::QUICK);
-    AddTestCase(new FloorMsgDenyTest(), TestCase::QUICK);
-    AddTestCase(new FloorMsgReleaseTest(), TestCase::QUICK);
-    AddTestCase(new FloorMsgTakenTest(), TestCase::QUICK);
-    AddTestCase(new FloorMsgQueuePositionRequestTest(), TestCase::QUICK);
-    AddTestCase(new FloorMsgQueuePositionInfoTest(), TestCase::QUICK);
+    AddTestCase(new FloorMsgRequestTest(), TestCase::Duration::QUICK);
+    AddTestCase(new FloorMsgGrantedTest(), TestCase::Duration::QUICK);
+    AddTestCase(new FloorMsgDenyTest(), TestCase::Duration::QUICK);
+    AddTestCase(new FloorMsgReleaseTest(), TestCase::Duration::QUICK);
+    AddTestCase(new FloorMsgTakenTest(), TestCase::Duration::QUICK);
+    AddTestCase(new FloorMsgQueuePositionRequestTest(), TestCase::Duration::QUICK);
+    AddTestCase(new FloorMsgQueuePositionInfoTest(), TestCase::Duration::QUICK);
 }
 
 } // namespace tests

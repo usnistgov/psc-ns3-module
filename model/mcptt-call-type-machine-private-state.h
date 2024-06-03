@@ -221,21 +221,21 @@ class McpttCallTypeMachinePrivateStateQ0 : public McpttCallTypeMachinePrivateSta
      * \param msg The received message.
      */
     void ReceiveAccept(McpttCallTypeMachinePrivate& machine,
-                               const McpttCallMsgPrivateAccept& msg) override;
+                       const McpttCallMsgPrivateAccept& msg) override;
     /**
      * Reception of a "PRIVATE CALL ACCEPT ACK" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
     void ReceiveAcceptAck(McpttCallTypeMachinePrivate& machine,
-                                  const McpttCallMsgPrivateAcceptAck& msg) override;
+                          const McpttCallMsgPrivateAcceptAck& msg) override;
     /**
      * Reception of a "PRIVATE CALL SETUP REQUEST" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
     void ReceiveSetupRequest(McpttCallTypeMachinePrivate& machine,
-                                     const McpttCallMsgPrivateSetupReq& msg) override;
+                             const McpttCallMsgPrivateSetupReq& msg) override;
 };
 
 /**
@@ -281,35 +281,35 @@ class McpttCallTypeMachinePrivateStateQ1 : public McpttCallTypeMachinePrivateSta
      * \param msg The received message.
      */
     void ReceiveAccept(McpttCallTypeMachinePrivate& machine,
-                               const McpttCallMsgPrivateAccept& msg) override;
+                       const McpttCallMsgPrivateAccept& msg) override;
     /**
      * Reception of a "PRIVATE CALL EMERGENCY CANCEL" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
     void ReceiveEmergencyCancel(McpttCallTypeMachinePrivate& machine,
-                                        const McpttCallMsgPrivateEmergCancel& msg) override;
+                                const McpttCallMsgPrivateEmergCancel& msg) override;
     /**
      * Reception of a "PRIVATE CALL EMERGENCY CANCEL ACK" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
     void ReceiveEmergencyCancelAck(McpttCallTypeMachinePrivate& machine,
-                                           const McpttCallMsgPrivateEmergCancelAck& msg) override;
+                                   const McpttCallMsgPrivateEmergCancelAck& msg) override;
     /**
      * Reception of a "PRIVATE CALL SETUP REQUEST" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
     void ReceiveSetupRequest(McpttCallTypeMachinePrivate& machine,
-                                     const McpttCallMsgPrivateSetupReq& msg) override;
+                             const McpttCallMsgPrivateSetupReq& msg) override;
     /**
      * Upgrade the current call type.
      * \param machine The state machine that the action is for.
      * \param callType The call type to upgrade to.
      */
     void UpgradeTo(McpttCallTypeMachinePrivate& machine,
-                           const McpttCallMsgFieldCallType& callType) override;
+                   const McpttCallMsgFieldCallType& callType) override;
     /**
      * Indicates that the call should be released.
      * \param machine The state machine that the action is for.
@@ -370,28 +370,28 @@ class McpttCallTypeMachinePrivateStateQ2 : public McpttCallTypeMachinePrivateSta
      * \param msg The received message.
      */
     void ReceiveAccept(McpttCallTypeMachinePrivate& machine,
-                               const McpttCallMsgPrivateAccept& msg) override;
+                       const McpttCallMsgPrivateAccept& msg) override;
     /**
      * Reception of a "PRIVATE CALL EMERGENCY CANCEL" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
     void ReceiveEmergencyCancel(McpttCallTypeMachinePrivate& machine,
-                                        const McpttCallMsgPrivateEmergCancel& msg) override;
+                                const McpttCallMsgPrivateEmergCancel& msg) override;
     /**
      * Reception of a "PRIVATE CALL REJECT" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
     void ReceiveReject(McpttCallTypeMachinePrivate& machine,
-                               const McpttCallMsgPrivateReject& msg) override;
+                       const McpttCallMsgPrivateReject& msg) override;
     /**
      * Reception of a "PRIVATE CALL SETUP REQUEST" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
     void ReceiveSetupRequest(McpttCallTypeMachinePrivate& machine,
-                                     const McpttCallMsgPrivateSetupReq& msg) override;
+                             const McpttCallMsgPrivateSetupReq& msg) override;
     /**
      * Indicates that the call should be released.
      * \param machine The state machine that the action is for.

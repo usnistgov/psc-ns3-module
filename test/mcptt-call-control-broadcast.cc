@@ -2418,12 +2418,12 @@ BroadcastCallScenario4::UeCStateChangeCb(const BroadcastTestCallMachine& machine
 }
 
 McpttBroadcastCallControlTestSuite::McpttBroadcastCallControlTestSuite()
-    : TestSuite("mcptt-call-control-broadcast", TestSuite::SYSTEM)
+    : TestSuite("mcptt-call-control-broadcast", TestSuite::Type::SYSTEM)
 {
-    AddTestCase(new BroadcastCallScenario1(), TestCase::QUICK);
-    AddTestCase(new BroadcastCallScenario2(), TestCase::QUICK);
-    AddTestCase(new BroadcastCallScenario3(), TestCase::QUICK);
-    AddTestCase(new BroadcastCallScenario4(), TestCase::QUICK);
+    AddTestCase(new BroadcastCallScenario1(), TestCase::Duration::QUICK);
+    AddTestCase(new BroadcastCallScenario2(), TestCase::Duration::QUICK);
+    AddTestCase(new BroadcastCallScenario3(), TestCase::Duration::QUICK);
+    AddTestCase(new BroadcastCallScenario4(), TestCase::Duration::QUICK);
 }
 
 } // namespace tests

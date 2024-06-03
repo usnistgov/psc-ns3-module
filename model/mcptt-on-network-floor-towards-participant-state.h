@@ -315,49 +315,49 @@ class McpttOnNetworkFloorTowardsParticipantStateNotPermittedIdle
      * \param msg The message to send.
      */
     void SendFloorTaken(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                                McpttFloorMsgTaken& msg) const override;
+                        McpttFloorMsgTaken& msg) const override;
     /**
      * Receives a floor request message.
      * \param machine The FSM.
      * \param msg The received message.
      */
     void ReceiveFloorRequest(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                                     const McpttFloorMsgRequest& msg) const override;
+                             const McpttFloorMsgRequest& msg) const override;
     /**
      * Sends a floor granted message.
      * \param machine The FSM.
      * \param msg The message to send.
      */
     void SendFloorGranted(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                                  McpttFloorMsgGranted& msg) const override;
+                          McpttFloorMsgGranted& msg) const override;
     /**
      * Sends a floor deny message.
      * \param machine The FSM.
      * \param msg The message to send.
      */
     void SendFloorDeny(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                               McpttFloorMsgDeny& msg) const override;
+                       McpttFloorMsgDeny& msg) const override;
     /**
      * Receives a floor release message.
      * \param machine The FSM.
      * \param msg The received message.
      */
     void ReceiveFloorRelease(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                                     const McpttFloorMsgRelease& msg) const override;
+                             const McpttFloorMsgRelease& msg) const override;
     /**
      * Receives a media message.
      * \param machine The FSM.
      * \param msg The received message.
      */
     void ReceiveMedia(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                              const McpttMediaMsg& msg) const override;
+                      const McpttMediaMsg& msg) const override;
     /**
      * Sends a floor idle message.
      * \param machine The FSM.
      * \param msg The message to send.
      */
     void SendFloorIdle(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                               McpttFloorMsgIdle& msg) const override;
+                       McpttFloorMsgIdle& msg) const override;
 };
 
 /**
@@ -403,28 +403,28 @@ class McpttOnNetworkFloorTowardsParticipantStateNotPermittedTaken
      * \param msg The message to send.
      */
     void SendFloorIdle(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                               McpttFloorMsgIdle& msg) const override;
+                       McpttFloorMsgIdle& msg) const override;
     /**
      * Receives a floor request message.
      * \param machine The FSM.
      * \param msg The received message.
      */
     void ReceiveFloorRequest(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                                     const McpttFloorMsgRequest& msg) const override;
+                             const McpttFloorMsgRequest& msg) const override;
     /**
      * Receives a floor release message.
      * \param machine The FSM.
      * \param msg The received message.
      */
     void ReceiveFloorRelease(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                                     const McpttFloorMsgRelease& msg) const override;
+                             const McpttFloorMsgRelease& msg) const override;
     /**
      * Receives a media message.
      * \param machine The FSM.
      * \param msg The received message.
      */
     void ReceiveMedia(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                              const McpttMediaMsg& msg) const override;
+                      const McpttMediaMsg& msg) const override;
     /**
      * Receives Floor Queue Position Request message.
      * \param machine The FSM.
@@ -439,14 +439,14 @@ class McpttOnNetworkFloorTowardsParticipantStateNotPermittedTaken
      * \param msg The message to send.
      */
     void SendFloorGranted(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                                  McpttFloorMsgGranted& msg) const override;
+                          McpttFloorMsgGranted& msg) const override;
     /**
      * Sends a floor taken message.
      * \param machine The FSM.
      * \param msg The message to send.
      */
     void SendFloorTaken(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                                McpttFloorMsgTaken& msg) const override;
+                        McpttFloorMsgTaken& msg) const override;
 };
 
 /**
@@ -490,49 +490,49 @@ class McpttOnNetworkFloorTowardsParticipantStatePermitted
      * \param msg The received message.
      */
     void ReceiveFloorRelease(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                                     const McpttFloorMsgRelease& msg) const override;
+                             const McpttFloorMsgRelease& msg) const override;
     /**
      * Sends a floor idle message.
      * \param machine The FSM.
      * \param msg The message to send.
      */
     void SendFloorIdle(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                               McpttFloorMsgIdle& msg) const override;
+                       McpttFloorMsgIdle& msg) const override;
     /**
      * Sends a floor revoke message.
      * \param machine The FSM.
      * \param msg The message to send.
      */
     void SendFloorRevoke(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                                 McpttFloorMsgRevoke& msg) const override;
+                         McpttFloorMsgRevoke& msg) const override;
     /**
      * Receives a media message.
      * \param machine The FSM.
      * \param msg The received message.
      */
     void ReceiveMedia(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                              const McpttMediaMsg& msg) const override;
+                      const McpttMediaMsg& msg) const override;
     /**
      * Receives a floor request message.
      * \param machine The FSM.
      * \param msg The received message.
      */
     void ReceiveFloorRequest(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                                     const McpttFloorMsgRequest& msg) const override;
+                             const McpttFloorMsgRequest& msg) const override;
     /**
      * Sends a media message.
      * \param machine The FSM.
      * \param msg The message to send.
      */
     void SendMedia(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                           McpttMediaMsg& msg) const override;
+                   McpttMediaMsg& msg) const override;
     /**
      * Sends a floor taken message.
      * \param machine The FSM.
      * \param msg The message to send.
      */
     void SendFloorTaken(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                                McpttFloorMsgTaken& msg) const override;
+                        McpttFloorMsgTaken& msg) const override;
 };
 
 /**
@@ -582,28 +582,28 @@ class McpttOnNetworkFloorTowardsParticipantStatePendingRevoke
      * \param msg The received message.
      */
     void ReceiveMedia(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                              const McpttMediaMsg& msg) const override;
+                      const McpttMediaMsg& msg) const override;
     /**
      * Receives a floor release message.
      * \param machine The FSM.
      * \param msg The received message.
      */
     void ReceiveFloorRelease(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                                     const McpttFloorMsgRelease& msg) const override;
+                             const McpttFloorMsgRelease& msg) const override;
     /**
      * Sends a floor idle message.
      * \param machine The FSM.
      * \param msg The message to send.
      */
     void SendFloorIdle(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                               McpttFloorMsgIdle& msg) const override;
+                       McpttFloorMsgIdle& msg) const override;
     /**
      * Sends a floor taken message.
      * \param machine The FSM.
      * \param msg The message to send.
      */
     void SendFloorTaken(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                                McpttFloorMsgTaken& msg) const override;
+                        McpttFloorMsgTaken& msg) const override;
 };
 
 /**
@@ -654,7 +654,7 @@ class McpttOnNetworkFloorTowardsParticipantStateNotPermittedMedia
      * \param msg The received message.
      */
     void ReceiveFloorRelease(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                                     const McpttFloorMsgRelease& msg) const override;
+                             const McpttFloorMsgRelease& msg) const override;
 };
 
 /**
@@ -738,35 +738,35 @@ class McpttOnNetworkFloorTowardsParticipantStateNotPermittedInitiating
      * \param msg The message to send.
      */
     void SendFloorTaken(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                                McpttFloorMsgTaken& msg) const override;
+                        McpttFloorMsgTaken& msg) const override;
     /**
      * Sends a floor idle message.
      * \param machine The FSM.
      * \param msg The message to send.
      */
     void SendFloorIdle(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                               McpttFloorMsgIdle& msg) const override;
+                       McpttFloorMsgIdle& msg) const override;
     /**
      * Receives a floor request message.
      * \param machine The FSM.
      * \param msg The received message.
      */
     void ReceiveFloorRequest(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                                     const McpttFloorMsgRequest& msg) const override;
+                             const McpttFloorMsgRequest& msg) const override;
     /**
      * Sends a floor granted message.
      * \param machine The FSM.
      * \param msg The message to send.
      */
     void SendFloorGranted(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                                  McpttFloorMsgGranted& msg) const override;
+                          McpttFloorMsgGranted& msg) const override;
     /**
      * Receives a floor release message.
      * \param machine The FSM.
      * \param msg The received message.
      */
     void ReceiveFloorRelease(Ptr<McpttOnNetworkFloorTowardsParticipant> machine,
-                                     const McpttFloorMsgRelease& msg) const override;
+                             const McpttFloorMsgRelease& msg) const override;
 };
 
 } // namespace psc

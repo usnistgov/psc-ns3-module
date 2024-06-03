@@ -87,7 +87,7 @@ void
 UavMobilityEnergyModelHelperTestOneNode::DoRun()
 {
     Ptr<Node> node = CreateObject<Node>();
-    Ptr<BasicEnergySource> energySource = CreateObject<BasicEnergySource>();
+    Ptr<energy::BasicEnergySource> energySource = CreateObject<energy::BasicEnergySource>();
 
     MobilityHelper mobility;
     mobility.SetMobilityModel("ns3::ConstantVelocityMobilityModel");
@@ -102,7 +102,7 @@ UavMobilityEnergyModelHelperTestOneNode::DoRun()
     // Aggregation
     auto model = node->GetObject<UavMobilityEnergyModel>();
     NS_TEST_ASSERT_MSG_NE(model, nullptr, "Model should not be null");
-    auto aggregateSource = node->GetObject<BasicEnergySource>();
+    auto aggregateSource = node->GetObject<energy::BasicEnergySource>();
     NS_TEST_ASSERT_MSG_NE(aggregateSource, nullptr, "Energy Source should not be null");
     Simulator::Destroy();
 }
@@ -139,7 +139,7 @@ UavMobilityEnergyModelHelperTestFullSetup::DoRun()
     auto mobilityModel = node->GetObject<ConstantVelocityMobilityModel>();
     NS_TEST_ASSERT_MSG_NE(mobilityModel, nullptr, "Mobility Model should not be null");
 
-    auto energySource = node->GetObject<BasicEnergySource>();
+    auto energySource = node->GetObject<energy::BasicEnergySource>();
     NS_TEST_ASSERT_MSG_NE(energySource, nullptr, "Energy Source should not be null");
 
     auto energyModel = node->GetObject<UavMobilityEnergyModel>();
@@ -190,7 +190,7 @@ UavMobilityEnergyModelHelperTestCollections::TestFullSetup()
                               nullptr,
                               "Mobility Model should not be null");
 
-        NS_TEST_ASSERT_MSG_NE((*node)->GetObject<BasicEnergySource>(),
+        NS_TEST_ASSERT_MSG_NE((*node)->GetObject<energy::BasicEnergySource>(),
                               nullptr,
                               "Energy Source should not be null");
 
@@ -208,10 +208,10 @@ UavMobilityEnergyModelHelperTestCollections::TestNodeEnergyContainers()
     NodeContainer nodes;
     nodes.Create(NODES);
 
-    EnergySourceContainer sources;
+    energy::EnergySourceContainer sources;
     for (uint32_t i = 0; i < NODES; i++)
     {
-        sources.Add(CreateObject<BasicEnergySource>());
+        sources.Add(CreateObject<energy::BasicEnergySource>());
     }
 
     UavMobilityEnergyModelHelper helper;
@@ -225,7 +225,7 @@ UavMobilityEnergyModelHelperTestCollections::TestNodeEnergyContainers()
                               nullptr,
                               "Mobility Model should not be null");
 
-        NS_TEST_ASSERT_MSG_NE((*node)->GetObject<BasicEnergySource>(),
+        NS_TEST_ASSERT_MSG_NE((*node)->GetObject<energy::BasicEnergySource>(),
                               nullptr,
                               "Energy Source should not be null");
 

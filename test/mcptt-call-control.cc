@@ -6644,18 +6644,18 @@ McpttCallReject::UeCStateChangeCb(const TestCallMachine& machine,
 }
 
 McpttCallControlTestSuite::McpttCallControlTestSuite()
-    : TestSuite("mcptt-call-control", TestSuite::SYSTEM)
+    : TestSuite("mcptt-call-control", TestSuite::Type::SYSTEM)
 {
-    AddTestCase(new McpttCallSetupJoinCall(), TestCase::QUICK);
-    AddTestCase(new McpttCallSetupNewCall(), TestCase::QUICK);
-    AddTestCase(new McpttCallMerge(), TestCase::QUICK);
-    AddTestCase(new McpttCallRelease(), TestCase::QUICK);
-    AddTestCase(new McpttCallReleaseAfterProbe(), TestCase::QUICK);
-    AddTestCase(new McpttCallReleasePendingUserAction1(), TestCase::QUICK);
-    AddTestCase(new McpttCallReleasePendingUserAction2(), TestCase::QUICK);
-    AddTestCase(new McpttCallReleaseMaxDuration(), TestCase::QUICK);
-    AddTestCase(new McpttCallReleaseAndSetup(), TestCase::QUICK);
-    AddTestCase(new McpttCallReject(), TestCase::QUICK);
+    AddTestCase(new McpttCallSetupJoinCall(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallSetupNewCall(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallMerge(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallRelease(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallReleaseAfterProbe(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallReleasePendingUserAction1(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallReleasePendingUserAction2(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallReleaseMaxDuration(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallReleaseAndSetup(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallReject(), TestCase::Duration::QUICK);
 }
 
 } // namespace tests

@@ -541,17 +541,17 @@ McpttCallMsgGrpEmergAlertCancelAckTest::DoRun()
 }
 
 McpttCallControlMsgTestSuite::McpttCallControlMsgTestSuite()
-    : TestSuite("mcptt-call-control-messages", TestSuite::UNIT)
+    : TestSuite("mcptt-call-control-messages", TestSuite::Type::UNIT)
 {
-    AddTestCase(new McpttCallMsgGrpProbeTest(), TestCase::QUICK);
-    AddTestCase(new McpttCallMsgGrpAnnounTest(), TestCase::QUICK);
-    AddTestCase(new McpttCallMsgGrpAcceptTest(), TestCase::QUICK);
-    AddTestCase(new McpttCallMsgGrpImmPerilEndTest(), TestCase::QUICK);
-    AddTestCase(new McpttCallMsgGrpEmergEndTest(), TestCase::QUICK);
-    AddTestCase(new McpttCallMsgGrpEmergAlertTest(), TestCase::QUICK);
-    AddTestCase(new McpttCallMsgGrpEmergAlertAckTest(), TestCase::QUICK);
-    AddTestCase(new McpttCallMsgGrpEmergAlertCancelTest(), TestCase::QUICK);
-    AddTestCase(new McpttCallMsgGrpEmergAlertCancelAckTest(), TestCase::QUICK);
+    AddTestCase(new McpttCallMsgGrpProbeTest(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallMsgGrpAnnounTest(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallMsgGrpAcceptTest(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallMsgGrpImmPerilEndTest(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallMsgGrpEmergEndTest(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallMsgGrpEmergAlertTest(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallMsgGrpEmergAlertAckTest(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallMsgGrpEmergAlertCancelTest(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallMsgGrpEmergAlertCancelAckTest(), TestCase::Duration::QUICK);
 }
 
 } // namespace tests

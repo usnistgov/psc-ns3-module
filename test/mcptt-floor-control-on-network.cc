@@ -2588,15 +2588,15 @@ McpttTestCaseOnNetworkDualFloorControl::Ue3TxCb(Ptr<const Application> app,
 }
 
 McpttTestSuiteFloorControlOnNetwork::McpttTestSuiteFloorControlOnNetwork()
-    : TestSuite("mcptt-floor-control-on-network", TestSuite::SYSTEM)
+    : TestSuite("mcptt-floor-control-on-network", TestSuite::Type::SYSTEM)
 {
-    AddTestCase(new McpttTestCaseOnNetworkFloorRelease(), TestCase::QUICK);
-    AddTestCase(new McpttTestCaseOnNetworkFloorGranted(), TestCase::QUICK);
-    AddTestCase(new McpttTestCaseOnNetworkFloorRevoke(), TestCase::QUICK);
-    AddTestCase(new McpttTestCaseOnNetworkFloorDeny(), TestCase::QUICK);
-    AddTestCase(new McpttTestCaseOnNetworkFloorQueueAndCancel(), TestCase::QUICK);
-    AddTestCase(new McpttTestCaseOnNetworkFloorQueueAndGranted(), TestCase::QUICK);
-    AddTestCase(new McpttTestCaseOnNetworkDualFloorControl(), TestCase::QUICK);
+    AddTestCase(new McpttTestCaseOnNetworkFloorRelease(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttTestCaseOnNetworkFloorGranted(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttTestCaseOnNetworkFloorRevoke(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttTestCaseOnNetworkFloorDeny(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttTestCaseOnNetworkFloorQueueAndCancel(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttTestCaseOnNetworkFloorQueueAndGranted(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttTestCaseOnNetworkDualFloorControl(), TestCase::Duration::QUICK);
 }
 
 } // namespace tests

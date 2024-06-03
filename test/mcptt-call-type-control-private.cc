@@ -4318,16 +4318,16 @@ McpttCallTypePrivateDowngradeCall3::UeBStateChangeCb(const TestCallTypeMachinePr
 }
 
 McpttCallTypePrivateControlTestSuite::McpttCallTypePrivateControlTestSuite()
-    : TestSuite("mcptt-call-type-control-private", TestSuite::UNIT)
+    : TestSuite("mcptt-call-type-control-private", TestSuite::Type::UNIT)
 {
-    AddTestCase(new McpttCallTypePrivateEnterPrivateCall(), TestCase::QUICK);
-    AddTestCase(new McpttCallTypePrivateEnterPrivateEmergencyCall(), TestCase::QUICK);
-    AddTestCase(new McpttCallTypePrivateUpgradeCall1(), TestCase::QUICK);
-    AddTestCase(new McpttCallTypePrivateUpgradeCall2(), TestCase::QUICK);
-    AddTestCase(new McpttCallTypePrivateUpgradeCall3(), TestCase::QUICK);
-    AddTestCase(new McpttCallTypePrivateDowngradeCall1(), TestCase::QUICK);
-    AddTestCase(new McpttCallTypePrivateDowngradeCall2(), TestCase::QUICK);
-    AddTestCase(new McpttCallTypePrivateDowngradeCall3(), TestCase::QUICK);
+    AddTestCase(new McpttCallTypePrivateEnterPrivateCall(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallTypePrivateEnterPrivateEmergencyCall(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallTypePrivateUpgradeCall1(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallTypePrivateUpgradeCall2(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallTypePrivateUpgradeCall3(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallTypePrivateDowngradeCall1(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallTypePrivateDowngradeCall2(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttCallTypePrivateDowngradeCall3(), TestCase::Duration::QUICK);
 }
 
 } // namespace tests

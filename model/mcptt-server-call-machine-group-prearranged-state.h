@@ -180,8 +180,8 @@ class McpttServerCallMachineGroupPrearrangedStateS1
     ~McpttServerCallMachineGroupPrearrangedStateS1() override;
     McpttEntityId GetInstanceStateId() const override;
     void ReceiveInvite(McpttServerCallMachineGroupPrearranged& machine,
-                               Ptr<Packet> pkt,
-                               const sip::SipHeader& hdr) override;
+                       Ptr<Packet> pkt,
+                       const sip::SipHeader& hdr) override;
 };
 
 /**
@@ -212,14 +212,14 @@ class McpttServerCallMachineGroupPrearrangedStateS2
     ~McpttServerCallMachineGroupPrearrangedStateS2() override;
     McpttEntityId GetInstanceStateId() const override;
     void ReceiveInvite(McpttServerCallMachineGroupPrearranged& machine,
-                               Ptr<Packet> pkt,
-                               const sip::SipHeader& hdr) override;
+                       Ptr<Packet> pkt,
+                       const sip::SipHeader& hdr) override;
     void ReceiveResponse(McpttServerCallMachineGroupPrearranged& machine,
-                                 Ptr<Packet> pkt,
-                                 const sip::SipHeader& hdr) override;
+                         Ptr<Packet> pkt,
+                         const sip::SipHeader& hdr) override;
     void ReceiveBye(McpttServerCallMachineGroupPrearranged& machine,
-                            Ptr<Packet> pkt,
-                            const sip::SipHeader& hdr) override;
+                    Ptr<Packet> pkt,
+                    const sip::SipHeader& hdr) override;
 };
 
 /**
@@ -254,11 +254,11 @@ class McpttServerCallMachineGroupPrearrangedStateS3
     McpttEntityId GetInstanceStateId() const override;
     bool IsCallOngoing(const McpttServerCallMachineGroupPrearranged& machine) const override;
     void ReceiveResponse(McpttServerCallMachineGroupPrearranged& machine,
-                                 Ptr<Packet> pkt,
-                                 const sip::SipHeader& hdr) override;
+                         Ptr<Packet> pkt,
+                         const sip::SipHeader& hdr) override;
     void ReceiveBye(McpttServerCallMachineGroupPrearranged& machine,
-                            Ptr<Packet> pkt,
-                            const sip::SipHeader& hdr) override;
+                    Ptr<Packet> pkt,
+                    const sip::SipHeader& hdr) override;
 };
 
 /**
@@ -292,11 +292,11 @@ class McpttServerCallMachineGroupPrearrangedStateS4
     // Documented in base class
     McpttEntityId GetInstanceStateId() const override;
     void ReceiveBye(McpttServerCallMachineGroupPrearranged& machine,
-                            Ptr<Packet> pkt,
-                            const sip::SipHeader& hdr) override;
+                    Ptr<Packet> pkt,
+                    const sip::SipHeader& hdr) override;
     void ReceiveResponse(McpttServerCallMachineGroupPrearranged& machine,
-                                 Ptr<Packet> pkt,
-                                 const sip::SipHeader& hdr) override;
+                         Ptr<Packet> pkt,
+                         const sip::SipHeader& hdr) override;
 };
 
 } // namespace psc

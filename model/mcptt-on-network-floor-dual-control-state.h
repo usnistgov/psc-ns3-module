@@ -205,7 +205,7 @@ class McpttOnNetworkFloorDualControlStateStartStop : public McpttOnNetworkFloorD
      * \param msg The received message.
      */
     void ReceivePreemptiveFloorRequest(McpttOnNetworkFloorDualControl& machine,
-                                               const McpttFloorMsgRequest& msg) const override;
+                                       const McpttFloorMsgRequest& msg) const override;
 };
 
 /**
@@ -259,21 +259,21 @@ class McpttOnNetworkFloorDualControlStateTaken : public McpttOnNetworkFloorDualC
      * \param msg The received message.
      */
     void ReceiveMedia(McpttOnNetworkFloorDualControl& machine,
-                              const McpttMediaMsg& msg) const override;
+                      const McpttMediaMsg& msg) const override;
     /**
      * Receives a floor release message.
      * \param machine The FSM.
      * \param msg The received message.
      */
     void ReceiveFloorRelease(McpttOnNetworkFloorDualControl& machine,
-                                     const McpttFloorMsgRelease& msg) const override;
+                             const McpttFloorMsgRelease& msg) const override;
     /**
      * Receives a floor request message.
      * \param machine The FSM.
      * \param msg The received message.
      */
     void ReceiveFloorRequest(McpttOnNetworkFloorDualControl& machine,
-                                     const McpttFloorMsgRequest& msg) const override;
+                             const McpttFloorMsgRequest& msg) const override;
     /**
      * Indicates to the floor control server that the client has disconnected.
      * \param machine The FSM.

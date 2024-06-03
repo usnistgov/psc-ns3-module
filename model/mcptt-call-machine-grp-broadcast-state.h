@@ -195,7 +195,7 @@ class McpttCallMachineGrpBroadcastStateB1 : public McpttCallMachineGrpBroadcastS
      * \param msg The received message.
      */
     void ReceiveGrpCallBroadcast(McpttCallMachineGrpBroadcast& machine,
-                                         const McpttCallMsgGrpBroadcast& msg) const override;
+                                 const McpttCallMsgGrpBroadcast& msg) const override;
 };
 
 /**
@@ -251,7 +251,7 @@ class McpttCallMachineGrpBroadcastStateB2 : public McpttCallMachineGrpBroadcastS
      * \param msg The received message.
      */
     void ReceiveGrpCallBroadcastEnd(McpttCallMachineGrpBroadcast& machine,
-                                            const McpttCallMsgGrpBroadcastEnd& msg) const override;
+                                    const McpttCallMsgGrpBroadcastEnd& msg) const override;
     /**
      * Releases the call.
      * \param machine The FSM.
@@ -349,14 +349,14 @@ class McpttCallMachineGrpBroadcastStateB4 : public McpttCallMachineGrpBroadcastS
      * \param msg The received message.
      */
     void ReceiveGrpCallBroadcast(McpttCallMachineGrpBroadcast& machine,
-                                         const McpttCallMsgGrpBroadcast& msg) const override;
+                                 const McpttCallMsgGrpBroadcast& msg) const override;
     /**
      * Receives a "GROUP CALL BROADCAST END" message.
      * \param machine The FSM.
      * \param msg The received message.
      */
     void ReceiveGrpCallBroadcastEnd(McpttCallMachineGrpBroadcast& machine,
-                                            const McpttCallMsgGrpBroadcastEnd& msg) const override;
+                                    const McpttCallMsgGrpBroadcastEnd& msg) const override;
 };
 
 } // namespace psc

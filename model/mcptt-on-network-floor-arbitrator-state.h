@@ -239,7 +239,7 @@ class McpttOnNetworkFloorArbitratorStateStartStop : public McpttOnNetworkFloorAr
      * \param participant The participant that initiated the call.
      */
     void CallInitialized(Ptr<McpttOnNetworkFloorArbitrator> machine,
-                                 Ptr<McpttOnNetworkFloorTowardsParticipant> participant) const override;
+                         Ptr<McpttOnNetworkFloorTowardsParticipant> participant) const override;
 };
 
 /**
@@ -283,7 +283,7 @@ class McpttOnNetworkFloorArbitratorStateIdle : public McpttOnNetworkFloorArbitra
      * \param msg The received message.
      */
     void ReceiveFloorRequest(Ptr<McpttOnNetworkFloorArbitrator> machine,
-                                     const McpttFloorMsgRequest& msg) const override;
+                             const McpttFloorMsgRequest& msg) const override;
     /**
      * Notifies the floor machine state that timer T7 has expired.
      * \param machine The FSM.
@@ -352,21 +352,21 @@ class McpttOnNetworkFloorArbitratorStateTaken : public McpttOnNetworkFloorArbitr
      * \param msg The received message.
      */
     void ReceiveMedia(Ptr<McpttOnNetworkFloorArbitrator> machine,
-                              const McpttMediaMsg& msg) const override;
+                      const McpttMediaMsg& msg) const override;
     /**
      * Receives a floor release message.
      * \param machine The FSM.
      * \param msg The received message.
      */
     void ReceiveFloorRelease(Ptr<McpttOnNetworkFloorArbitrator> machine,
-                                     const McpttFloorMsgRelease& msg) const override;
+                             const McpttFloorMsgRelease& msg) const override;
     /**
      * Receives a floor request message.
      * \param machine The FSM.
      * \param msg The received message.
      */
     void ReceiveFloorRequest(Ptr<McpttOnNetworkFloorArbitrator> machine,
-                                     const McpttFloorMsgRequest& msg) const override;
+                             const McpttFloorMsgRequest& msg) const override;
     /**
      * Notifies the floor machine state that timer T20 has expired.
      * \param machine The FSM.
@@ -425,14 +425,14 @@ class McpttOnNetworkFloorArbitratorStateRevoke : public McpttOnNetworkFloorArbit
      * \param msg The received message.
      */
     void ReceiveMedia(Ptr<McpttOnNetworkFloorArbitrator> machine,
-                              const McpttMediaMsg& msg) const override;
+                      const McpttMediaMsg& msg) const override;
     /**
      * Receives a floor release message.
      * \param machine The FSM.
      * \param msg The received message.
      */
     void ReceiveFloorRelease(Ptr<McpttOnNetworkFloorArbitrator> machine,
-                                     const McpttFloorMsgRelease& msg) const override;
+                             const McpttFloorMsgRelease& msg) const override;
     /**
      * Notifies the floor machine state that timer T3 has expired.
      * \param machine The FSM.

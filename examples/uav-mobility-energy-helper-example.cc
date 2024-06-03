@@ -37,6 +37,7 @@
 #include <ns3/psc-module.h>
 
 using namespace ns3;
+using namespace ns3::energy;
 using namespace psc;
 
 NS_LOG_COMPONENT_DEFINE("UavEnergyMobility");

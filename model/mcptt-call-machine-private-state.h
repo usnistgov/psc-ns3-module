@@ -265,7 +265,7 @@ class McpttCallMachinePrivateStateP0 : public McpttCallMachinePrivateState
      * \param msg The received message.
      */
     void ReceiveSetupRequest(McpttCallMachinePrivate& machine,
-                                     const McpttCallMsgPrivateSetupReq& msg) override;
+                             const McpttCallMsgPrivateSetupReq& msg) override;
 };
 
 /**
@@ -316,14 +316,14 @@ class McpttCallMachinePrivateStateP1 : public McpttCallMachinePrivateState
      * \param msg The received message.
      */
     void ReceiveRelease(McpttCallMachinePrivate& machine,
-                                const McpttCallMsgPrivateRelease& msg) override;
+                        const McpttCallMsgPrivateRelease& msg) override;
     /**
      * Reception of a "PRIVATE CALL SETUP REQUEST" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
     void ReceiveSetupRequest(McpttCallMachinePrivate& machine,
-                                     const McpttCallMsgPrivateSetupReq& msg) override;
+                             const McpttCallMsgPrivateSetupReq& msg) override;
 };
 
 /**
@@ -374,21 +374,21 @@ class McpttCallMachinePrivateStateP2 : public McpttCallMachinePrivateState
      * \param msg The received message.
      */
     void ReceiveAccept(McpttCallMachinePrivate& machine,
-                               const McpttCallMsgPrivateAccept& msg) override;
+                       const McpttCallMsgPrivateAccept& msg) override;
     /**
      * Reception of a "PRIVATE CALL REJECT" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
     void ReceiveReject(McpttCallMachinePrivate& machine,
-                               const McpttCallMsgPrivateReject& msg) override;
+                       const McpttCallMsgPrivateReject& msg) override;
     /**
      * Reception of a "PRIVATE CALL RINGING" message.
      * \param machine The state machine that the action is for.
      * \param msg The received message.
      */
     void ReceiveRinging(McpttCallMachinePrivate& machine,
-                                const McpttCallMsgPrivateRinging& msg) override;
+                        const McpttCallMsgPrivateRinging& msg) override;
     /**
      * Indicates that the call should be released.
      * \param machine The state machine that the action is for.
@@ -439,7 +439,7 @@ class McpttCallMachinePrivateStateP3 : public McpttCallMachinePrivateState
      * \param msg The received message.
      */
     void ReceiveReleaseAck(McpttCallMachinePrivate& machine,
-                                   const McpttCallMsgPrivateReleaseAck& msg) override;
+                           const McpttCallMsgPrivateReleaseAck& msg) override;
 };
 
 /**
@@ -501,7 +501,7 @@ class McpttCallMachinePrivateStateP4 : public McpttCallMachinePrivateState
      * \param msg The received message.
      */
     void ReceiveRelease(McpttCallMachinePrivate& machine,
-                                const McpttCallMsgPrivateRelease& msg) override;
+                        const McpttCallMsgPrivateRelease& msg) override;
     /**
      * Indicates that the call should be released.
      * \param machine The state machine that the action is for.
@@ -562,7 +562,7 @@ class McpttCallMachinePrivateStateP5 : public McpttCallMachinePrivateState
      * \param msg The received message.
      */
     void ReceiveAcceptAck(McpttCallMachinePrivate& machine,
-                                  const McpttCallMsgPrivateAcceptAck& msg) override;
+                          const McpttCallMsgPrivateAcceptAck& msg) override;
     /**
      * Reception of a media message.
      * \param machine The state machine that the action is for.
@@ -575,7 +575,7 @@ class McpttCallMachinePrivateStateP5 : public McpttCallMachinePrivateState
      * \param msg The received message.
      */
     void ReceiveRelease(McpttCallMachinePrivate& machine,
-                                const McpttCallMsgPrivateRelease& msg) override;
+                        const McpttCallMsgPrivateRelease& msg) override;
     /**
      * Indicates that the call should be rejected.
      * \param machine The state machine that the action is for.

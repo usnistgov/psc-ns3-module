@@ -7265,21 +7265,21 @@ McpttFloorReleasePreemptedFloorArbitrator::UeCTxCb(const TestFloorMachine& machi
 }
 
 McpttFloorControlTestSuite::McpttFloorControlTestSuite()
-    : TestSuite("mcptt-floor-control", TestSuite::SYSTEM)
+    : TestSuite("mcptt-floor-control", TestSuite::Type::SYSTEM)
 {
-    AddTestCase(new McpttFloorRequestDenied(), TestCase::QUICK);
-    AddTestCase(new McpttFloorRequestIdle(), TestCase::QUICK);
-    AddTestCase(new McpttFloorRequestPreemptive(), TestCase::QUICK);
-    AddTestCase(new McpttFloorRequestQueued(), TestCase::QUICK);
-    AddTestCase(new McpttSessionInitNormal(), TestCase::QUICK);
-    AddTestCase(new McpttSessionInitLoss(), TestCase::QUICK);
-    AddTestCase(new McpttFloorReleaseNormal(), TestCase::QUICK);
-    AddTestCase(new McpttFloorReleaseAfterReq(), TestCase::QUICK);
-    AddTestCase(new McpttFloorReleaseDuringGrantWhileQueued(), TestCase::QUICK);
-    AddTestCase(new McpttFloorReleaseWhileQueued(), TestCase::QUICK);
-    AddTestCase(new McpttFloorRequestIdleBis(), TestCase::QUICK);
-    AddTestCase(new McpttSessionInitPrivateCall(), TestCase::QUICK);
-    AddTestCase(new McpttFloorReleasePreemptedFloorArbitrator(), TestCase::QUICK);
+    AddTestCase(new McpttFloorRequestDenied(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttFloorRequestIdle(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttFloorRequestPreemptive(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttFloorRequestQueued(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttSessionInitNormal(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttSessionInitLoss(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttFloorReleaseNormal(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttFloorReleaseAfterReq(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttFloorReleaseDuringGrantWhileQueued(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttFloorReleaseWhileQueued(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttFloorRequestIdleBis(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttSessionInitPrivateCall(), TestCase::Duration::QUICK);
+    AddTestCase(new McpttFloorReleasePreemptedFloorArbitrator(), TestCase::Duration::QUICK);
 }
 
 } // namespace tests
