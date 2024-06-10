@@ -97,6 +97,7 @@ McpttTestCaseConfigOnNetwork::Configure()
     Time stop = GetStop();
 
     Config::Reset();
+    RngSeedManager::SetRun(4);
 
     NodeContainer nodes;
     NodeContainer servers;
