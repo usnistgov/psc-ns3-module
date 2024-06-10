@@ -111,6 +111,7 @@ IntelHttpBaseTestCase::DoSetup()
     stack.Install(nodes);
 
     Ipv4AddressHelper address;
+    address.SetBase("10.1.1.0", "255.255.255.0");
     interfaces = address.Assign(devices);
 
     server = CreateObject<psc::IntelHttpServer>();
