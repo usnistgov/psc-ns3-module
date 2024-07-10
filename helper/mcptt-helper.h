@@ -69,11 +69,6 @@ class McpttHelper
      */
     static void EnableLogComponents();
     /**
-     * \brief Gets the MCPTT ID that will be assigned to the next application that is created.
-     * \returns The MCPTT ID
-     */
-    static uint32_t GetNextUserId();
-    /**
      * \brief Creates an instance of the McpttHelper class.
      */
     McpttHelper();

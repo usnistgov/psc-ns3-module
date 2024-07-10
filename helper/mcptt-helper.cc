@@ -115,16 +115,6 @@ McpttHelper::EnableLogComponents()
     LogComponentEnable("McpttOnNetworkCallMachineClientState", LOG_LEVEL_ALL);
 }
 
-uint32_t
-McpttHelper::GetNextUserId()
-{
-    static uint32_t s_nextUserId = 0;
-
-    s_nextUserId += 1;
-
-    return s_nextUserId;
-}
-
 McpttHelper::McpttHelper()
     : m_pushConfigured(false),
       m_releaseConfigured(false)
@@ -339,8 +329,6 @@ McpttHelper::SetPusherPttDurationVariable(std::string name,
 Ptr<Application>
 McpttHelper::InstallPriv(const Ptr<Node>& node)
 {
-    uint32_t userId = McpttHelper::GetNextUserId();
-
     Ptr<McpttPttApp> app = m_appFac.Create<McpttPttApp>();
     Ptr<McpttMediaSrc> requester = m_mediaSrcFac.Create<McpttMediaSrc>();
     Ptr<McpttPusher> pusher = m_pusherFac.Create<McpttPusher>();
@@ -357,7 +345,7 @@ McpttHelper::InstallPriv(const Ptr<Node>& node)
                              PointerValue(m_pusherReleaseFac.Create<RandomVariableStream>()));
     }
 
-    app->SetUserId(userId);
+    app->SetUserId(node->GetId());
     app->SetMediaSrc(requester);
     app->SetPusher(pusher);
 
