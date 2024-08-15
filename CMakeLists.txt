@@ -223,4 +223,4 @@ build_lib(
 target_compile_definitions(libpsc PUBLIC HAS_PSC)
 
 # This seems to only work with core modules if it's a cached value
-set(HAS_PSC TRUE CACHE BOOL "NetSimulyzer ns-3 module")
+set(HAS_PSC TRUE CACHE BOOL "psc ns-3 module")
