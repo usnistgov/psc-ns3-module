@@ -36,6 +36,8 @@ set(source_files
     helper/mcptt-server-helper.cc
     helper/mcptt-state-machine-stats.cc
     helper/mcptt-trace-helper.cc
+    helper/netsim-mcptt-basic-group-charter.cc
+    helper/netsim-mcptt-basic-group-visualizer.cc
     helper/uav-mobility-energy-model-helper.cc
     helper/udp-group-echo-helper.cc
     model/intel-http-client.cc
@@ -111,6 +113,8 @@ set(header_files
     helper/mcptt-server-helper.h
     helper/mcptt-state-machine-stats.h
     helper/mcptt-trace-helper.h
+    helper/netsim-mcptt-basic-group-charter.h
+    helper/netsim-mcptt-basic-group-visualizer.h
     helper/uav-mobility-energy-model-helper.h
     helper/udp-group-echo-helper.h
     model/intel-http-client.h
@@ -204,6 +208,11 @@ set(test_sources
     test/uav-mobility-energy-model-test.cc
     )
 
+set(additional_libs_to_link "")
+if(HAS_NETSIMULYZER)
+  list(APPEND additional_libs_to_link ${libnetsimulyzer})
+endif()
+
 build_lib(
     LIBNAME psc
     SOURCE_FILES ${source_files}
@@ -218,4 +227,5 @@ build_lib(
     ${libnetwork}
     ${libpoint-to-point}
     ${libsip}
+    ${additional_libs_to_link}
 )
